@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    int n, sum = 0;
+    int n;
+    long long sum;
 
     printf("Enter a number: ");
     scanf("%d", &n);
@@ -11,10 +12,8 @@ int main() {
         return 0;
     }
 
-    for(int i = 1; i <= n; i++) {
-        sum += i;
-    }
+    sum = (long long)n * (n + 1) / 2;
+    printf("Sum = %lld", sum);
 
-    printf("Sum = %d", sum);
     return 0;
 }
