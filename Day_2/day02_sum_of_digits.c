@@ -6,6 +6,11 @@ int main() {
     printf("Enter a number: ");
     scanf("%d", &n);
 
+    if (n == 0) {
+        printf("Sum of digits = 0");
+        return 0;
+    }
+
     if (n < 0)
         n = -n;
 
