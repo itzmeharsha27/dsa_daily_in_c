@@ -6,6 +6,11 @@ int main() {
     printf("Enter a number: ");
     scanf("%d", &n);
 
+    if (n < 0) {
+        printf("Negative numbers are not palindrome");
+        return 0;
+    }
+
     original = n;
 
     while (n > 0) {
