@@ -7,7 +7,12 @@ int main() {
     scanf("%d", &n);
 
     if (n < 0) {
-        printf("Negative numbers are not palindrome");
+        printf("Negative numbers are not palindrome\n");
+        return 0;
+    }
+
+    if (n == 0) {
+        printf("0 is a Palindrome\n");
         return 0;
     }
 
@@ -19,9 +24,9 @@ int main() {
     }
 
     if (original == reverse)
-        printf("Palindrome");
+        printf("%d is a Palindrome\n", original);
     else
-        printf("Not Palindrome");
+        printf("%d is Not a Palindrome\n", original);
 
     return 0;
 }
