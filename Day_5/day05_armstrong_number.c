@@ -20,9 +20,9 @@ int main() {
     }
 
     if (sum == original)
-        printf("Armstrong Number\n");
+        printf("%d is an Armstrong Number\n", original);
     else
-        printf("Not an Armstrong Number\n");
+        printf("%d is Not an Armstrong Number\n", original);
 
     return 0;
 }
