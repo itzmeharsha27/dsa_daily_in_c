@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    int n, original, sum = 0;
+    int n, original, temp, digits = 0;
+    double sum = 0;
 
     printf("Enter a number: ");
     scanf("%d", &n);
@@ -12,14 +14,24 @@ int main() {
     }
 
     original = n;
+    temp = n;
 
-    while (n > 0) {
-        int digit = n % 10;
-        sum += digit * digit * digit;
-        n = n / 10;
+    // Count number of digits
+    while (temp > 0) {
+        digits++;
+        temp /= 10;
     }
 
-    if (sum == original)
+    temp = n;
+
+    // Calculate sum of digits raised to power of total digits
+    while (temp > 0) {
+        int digit = temp % 10;
+        sum += pow(digit, digits);
+        temp /= 10;
+    }
+
+    if ((int)sum == original)
         printf("%d is an Armstrong Number\n", original);
     else
         printf("%d is Not an Armstrong Number\n", original);
