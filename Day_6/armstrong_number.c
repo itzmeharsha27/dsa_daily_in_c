@@ -6,11 +6,16 @@ int main() {
     printf("Enter a number: ");
     scanf("%d", &n);
 
+    if (n < 0) {
+        printf("Negative numbers are not Armstrong numbers\n");
+        return 0;
+    }
+
     original = n;
 
     while (n > 0) {
         int digit = n % 10;
-        sum += digit * digit * digit;   // cube of digit
+        sum += digit * digit * digit;
         n = n / 10;
     }
 
