@@ -6,6 +6,8 @@ int main() {
     printf("Enter start and end: ");
     scanf("%d %d", &start, &end);
 
+    printf("Prime numbers between %d and %d are:\n", start, end);
+
     for(i = start; i <= end; i++) {
         flag = 0;
 
@@ -23,5 +25,6 @@ int main() {
             printf("%d ", i);
     }
 
+    printf("\n");
     return 0;
 }
