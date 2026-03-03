@@ -9,12 +9,13 @@ int main() {
     printf("Prime numbers between %d and %d are:\n", start, end);
 
     for(i = start; i <= end; i++) {
-        flag = 0;
 
         if(i <= 1)
             continue;
 
-        for(j = 2; j < i; j++) {
+        flag = 0;
+
+        for(j = 2; j * j <= i; j++) {
             if(i % j == 0) {
                 flag = 1;
                 break;
