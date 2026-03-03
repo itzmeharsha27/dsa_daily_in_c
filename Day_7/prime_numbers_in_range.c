@@ -1,10 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int start, end, i, j, flag;
+    int start, end, i, j, flag, temp;
 
     printf("Enter start and end: ");
     scanf("%d %d", &start, &end);
+
+    // Swap if start > end
+    if(start > end) {
+        temp = start;
+        start = end;
+        end = temp;
+    }
 
     printf("Prime numbers between %d and %d are:\n", start, end);
 
