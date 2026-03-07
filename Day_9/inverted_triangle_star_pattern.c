@@ -11,7 +11,7 @@ int main() {
         return 0;
     }
 
-    printf("Inverted Right Triangle Pattern:\n");
+    printf("\nInverted Right Triangle Pattern:\n\n");
 
     for(i = n; i >= 1; i--) {
 
