@@ -11,6 +11,8 @@ int main() {
         return 0;
     }
 
+    printf("Full Pyramid Pattern:\n");
+
     for(i = 1; i <= n; i++) {
 
         for(j = 1; j <= n - i; j++) {
