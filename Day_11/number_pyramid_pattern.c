@@ -11,7 +11,7 @@ int main() {
         return 0;
     }
 
-    printf("Number Pyramid Pattern:\n");
+    printf("\nNumber Pyramid Pattern:\n\n");
 
     for(i = 1; i <= n; i++) {
 
