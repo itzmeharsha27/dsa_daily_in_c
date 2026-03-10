@@ -5,22 +5,26 @@ int main() {
     int arr[100];
     int largest;
 
+    // Input number of elements
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n <= 0 || n > 100) {
         printf("Invalid number of elements\n");
         return 0;
     }
 
+    // Input array elements
     printf("Enter elements:\n");
-
     for(i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
+    // Assume first element is largest
     largest = arr[0];
 
+    // Compare with remaining elements
     for(i = 1; i < n; i++) {
         if(arr[i] > largest) {
             largest = arr[i];
