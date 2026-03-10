@@ -16,5 +16,13 @@ int main() {
 
     largest = arr[0];
 
+    for(i = 1; i < n; i++) {
+        if(arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+
+    printf("Largest = %d\n", largest);
+
     return 0;
 }
