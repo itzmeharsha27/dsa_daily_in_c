@@ -1,37 +1,33 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int arr[100];
-    int largest;
+    int size, i;
+    int numbers[100];
+    int max;
 
-    // Input number of elements
     printf("Enter number of elements: ");
-    scanf("%d", &n);
+    scanf("%d", &size);
 
-    // Validate input
-    if(n <= 0 || n > 100) {
+    if(size <= 0 || size > 100) {
         printf("Invalid number of elements\n");
         return 0;
     }
 
-    // Input array elements
     printf("Enter elements:\n");
-    for(i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+
+    for(i = 0; i < size; i++) {
+        scanf("%d", &numbers[i]);
     }
 
-    // Assume first element is largest
-    largest = arr[0];
+    max = numbers[0];
 
-    // Compare with remaining elements
-    for(i = 1; i < n; i++) {
-        if(arr[i] > largest) {
-            largest = arr[i];
+    for(i = 1; i < size; i++) {
+        if(numbers[i] > max) {
+            max = numbers[i];
         }
     }
 
-    printf("Largest = %d\n", largest);
+    printf("Largest element = %d\n", max);
 
     return 0;
 }
