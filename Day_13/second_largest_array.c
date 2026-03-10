@@ -35,7 +35,8 @@ int main() {
 
     }
 
-    printf("Second Largest element = %d\n", secondMax);
+    printf("Second Largest  element = %d\n", secondMax);
 
     return 0;
+
 }
