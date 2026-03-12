@@ -31,7 +31,7 @@ int main() {
         arr[n-i-1] = temp;
     }
 
-    // Print reversed array
+    // Print reversed  array 
     printf("Reversed array:\n");
     for(i = 0; i < n; i++)
     {
