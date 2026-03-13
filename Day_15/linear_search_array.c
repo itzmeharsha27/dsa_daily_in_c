@@ -27,5 +27,10 @@ int main() {
         }
     }
 
+    if(found==0)
+    {
+        printf("Element not found\n");
+    }
+
     return 0;
 }
