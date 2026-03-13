@@ -18,5 +18,13 @@ int main() {
     printf("Enter element to search: ");
     scanf("%d",&key);
 
+    for(i=0;i<n;i++)
+    {
+        if(arr[i]==key)
+        {
+            printf("Element found\n");
+        }
+    }
+
     return 0;
 }
