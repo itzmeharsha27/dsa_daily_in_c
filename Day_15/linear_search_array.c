@@ -2,7 +2,7 @@
 
 int main() {
 
-    int n,i,key;
+    int n,i,key,found=0;
     int arr[100];
 
     printf("Enter number of elements: ");
@@ -23,6 +23,7 @@ int main() {
         if(arr[i]==key)
         {
             printf("Element found at position %d\n",i+1);
+            found=1;
         }
     }
 
