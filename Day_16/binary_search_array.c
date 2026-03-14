@@ -14,7 +14,10 @@ int main() {
     {
         scanf("%d",&arr[i]);
     }
-
+   while(low<=high)
+{
+    mid=(low+high)/2;
+}
     printf("Enter element to search: ");
     scanf("%d",&key);
 
