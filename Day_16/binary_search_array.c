@@ -20,6 +20,18 @@ int main() {
 }
     printf("Enter element to search: ");
     scanf("%d",&key);
+    if(arr[mid]==key)
+{
+    printf("Element found\n");
+}
+else if(arr[mid]<key)
+{
+    low=mid+1;
+}
+else
+{
+    high=mid-1;
+}
 
     return 0;
 }
