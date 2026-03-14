@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-
+    int low=0,high=n-1,mid;
     int n,i,key;
     int arr[100];
 
