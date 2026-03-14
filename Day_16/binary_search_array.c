@@ -39,5 +39,13 @@ if(arr[mid]==key)
 {
     printf("Element found at position %d\n",mid+1);
 }
+
+if(found==0)
+{
+    printf("Element not found\n");
+}
+
+
+
     return 0;
 }
