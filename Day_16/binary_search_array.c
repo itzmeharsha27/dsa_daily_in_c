@@ -32,6 +32,9 @@ else
 {
     high=mid-1;
 }
-
+if(arr[mid]==key)
+{
+    printf("Element found at position %d\n",mid+1);
+}
     return 0;
 }
