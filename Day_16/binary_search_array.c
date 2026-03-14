@@ -4,6 +4,7 @@ int main() {
     int low=0,high=n-1,mid;
     int n,i,key;
     int arr[100];
+    int found=0;
 
     printf("Enter number of elements: ");
     scanf("%d",&n);
@@ -23,6 +24,8 @@ int main() {
     if(arr[mid]==key)
 {
     printf("Element found\n");
+    found=1;
+    break;
 }
 else if(arr[mid]<key)
 {
