@@ -1,13 +1,20 @@
 #include <stdio.h>
 
 int main() {
-    int low=0,high=n-1,mid;
+
     int n,i,key;
     int arr[100];
+    int low,high,mid;
     int found=0;
 
     printf("Enter number of elements: ");
     scanf("%d",&n);
+
+    if(n<=0 || n>100)
+    {
+        printf("Invalid array size\n");
+        return 0;
+    }
 
     printf("Enter sorted elements:\n");
 
@@ -15,37 +22,38 @@ int main() {
     {
         scanf("%d",&arr[i]);
     }
-   while(low<=high)
-{
-    mid=(low+high)/2;
-}
+
     printf("Enter element to search: ");
     scanf("%d",&key);
-    if(arr[mid]==key)
-{
-    printf("Element found\n");
-    found=1;
-    break;
-}
-else if(arr[mid]<key)
-{
-    low=mid+1;
-}
-else
-{
-    high=mid-1;
-}
-if(arr[mid]==key)
-{
-    printf("Element found at position %d\n",mid+1);
-}
 
-if(found==0)
-{
-    printf("Element not found\n");
-}
+    low=0;
+    high=n-1;
 
+    // Binary search logic
+    while(low<=high)
+    {
+        mid=(low+high)/2;
 
+        if(arr[mid]==key)
+        {
+            printf("Element found at position %d\n",mid+1);
+            found=1;
+            break;
+        }
+        else if(arr[mid]<key)
+        {
+            low=mid+1;
+        }
+        else
+        {
+            high=mid-1;
+        }
+    }
+
+    if(found==0)
+    {
+        printf("Element not found\n");
+    }
 
     return 0;
 }
