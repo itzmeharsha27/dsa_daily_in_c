@@ -20,6 +20,11 @@ for(j=0;j<n-i-1;j++)
 {
 
 }
+if(n<=0 || n>100)
+{
+    printf("Invalid array size\n");
+    return 0;
+}
 if(arr[j] > arr[j+1])
 {
     temp = arr[j];
