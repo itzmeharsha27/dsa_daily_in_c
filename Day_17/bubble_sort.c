@@ -4,6 +4,7 @@ int main() {
 
     int n,i;
     int arr[100];
+    int j,temp;
 
     printf("Enter number of elements: ");
     scanf("%d",&n);
