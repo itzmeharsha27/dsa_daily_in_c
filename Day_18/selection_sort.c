@@ -31,7 +31,12 @@ for(j=i+1;j<n;j++)
     {
         min=j;
     }
+    temp = arr[i];
+arr[i] = arr[min];
+arr[min] = temp;
+
 }
+
 
 }
 
