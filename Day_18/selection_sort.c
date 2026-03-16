@@ -2,12 +2,17 @@
 
 int main()
 {
-    int n,i;
+    int n,i,j,min,temp;
     int arr[100];
-    int j,min,temp;
 
     printf("Enter number of elements: ");
     scanf("%d",&n);
+
+    if(n<=0 || n>100)
+    {
+        printf("Invalid array size\n");
+        return 0;
+    }
 
     printf("Enter elements:\n");
 
@@ -15,37 +20,38 @@ int main()
     {
         scanf("%d",&arr[i]);
     }
+
     printf("Original array:\n");
 
-for(i=0;i<n;i++)
-{
-    printf("%d ",arr[i]);
-}
-for(i=0;i<n-1;i++)
-{
-    min=i;
-
-for(j=i+1;j<n;j++)
-{
-    if(arr[j] < arr[min])
+    for(i=0;i<n;i++)
     {
-        min=j;
+        printf("%d ",arr[i]);
     }
-    temp = arr[i];
-arr[i] = arr[min];
-arr[min] = temp;
 
-}
+    // Selection Sort Algorithm
+    for(i=0;i<n-1;i++)
+    {
+        min=i;
 
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[j] < arr[min])
+            {
+                min=j;
+            }
+        }
 
+        temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
+    }
 
-}
-printf("\nSorted array:\n");
+    printf("\nSorted array:\n");
 
-for(i=0;i<n;i++)
-{
-    printf("%d ",arr[i]);
-}
+    for(i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }
 
     return 0;
 }
