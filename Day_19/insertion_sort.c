@@ -1,17 +1,18 @@
-git add .
-git commit -m "added array declaration"#include <stdio.h>
+#include <stdio.h>
 
 int main()
 {
-    int n,i;
+    int n,i,j,key;
     int arr[100];
-    int j,key;
-    
-
-  
 
     printf("Enter number of elements: ");
     scanf("%d",&n);
+
+    if(n<=0 || n>100)
+    {
+        printf("Invalid array size\n");
+        return 0;
+    }
 
     printf("Enter elements:\n");
 
@@ -19,26 +20,37 @@ int main()
     {
         scanf("%d",&arr[i]);
     }
+
     printf("Original array:\n");
 
-for(i=0;i<n;i++)
-{
-    printf("%d ",arr[i]);
-}
-for(i=1;i<n;i++)
-{
-      key = arr[i];
-j = i-1;
+    for(i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }
 
-    while(j>=0 && arr[j] > key)
-{
-    arr[j+1] = arr[j];
-    j--;
-}
+    // Insertion Sort Algorithm
+    for(i=1;i<n;i++)
+    {
+        key = arr[i];
+        j = i-1;
 
-arr[j+1] = key;
-}
+        // Shift elements greater than key
+        while(j>=0 && arr[j] > key)
+        {
+            arr[j+1] = arr[j];
+            j--;
+        }
 
+        // Insert element at correct position
+        arr[j+1] = key;
+    }
+
+    printf("\nSorted array:\n");
+
+    for(i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }
 
     return 0;
 }
