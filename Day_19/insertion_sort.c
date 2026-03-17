@@ -22,6 +22,10 @@ for(i=0;i<n;i++)
 {
     printf("%d ",arr[i]);
 }
+for(i=1;i<n;i++)
+{
+
+}
 
     return 0;
 }
