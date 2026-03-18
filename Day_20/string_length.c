@@ -29,5 +29,11 @@ if(str[0] == '\0')
     return 0;
 }
 
+// Traverse string until null character
+for(i = 0; str[i] != '\0'; i++)
+{
+
+}
+
     return 0;
 }
