@@ -23,5 +23,11 @@ int main()
     i--;
 }
 
+if(str[0] == '\0')
+{
+    printf("Empty string\n");
+    return 0;
+}
+
     return 0;
 }
