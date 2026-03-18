@@ -17,5 +17,11 @@ int main()
 
     fgets(str, sizeof(str), stdin);
 
+    if(str[i-1] == '\n')
+{
+    str[i-1] = '\0';
+    i--;
+}
+
     return 0;
 }
