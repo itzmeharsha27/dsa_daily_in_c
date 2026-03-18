@@ -8,5 +8,10 @@ int main()
     printf("Enter a string: ");
     scanf("%s", str);
 
+    // Calculate string length
+    for(i=0; str[i] != '\0'; i++);
+    {
+        
+    }
     return 0;
 }
