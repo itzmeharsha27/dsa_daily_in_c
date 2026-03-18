@@ -15,5 +15,7 @@ int main()
 
     printf("Length = %d\n", i);
 
+    fgets(str, sizeof(str), stdin);
+
     return 0;
 }
