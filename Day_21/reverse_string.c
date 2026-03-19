@@ -7,6 +7,9 @@ int main()
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
     int i;
+    int start = 0;
+int end = i - 1;
+char temp;
 
 for(i = 0; str[i] != '\0'; i++)
 {
