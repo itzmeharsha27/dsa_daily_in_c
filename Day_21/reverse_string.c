@@ -27,13 +27,15 @@ for(i = 0; str[i] != '\0'; i++)
 }
 
 }
+// Reverse string using two-pointer technique
 while(start < end)
 {
-temp = str[start];
-str[start] = str[end];
-str[end] = temp;
-start++;
-end--;
+    temp = str[start];
+    str[start] = str[end];
+    str[end] = temp;
+
+    start++;
+    end--;
 }
 printf("Reversed string: %s\n", str);
     return 0;
