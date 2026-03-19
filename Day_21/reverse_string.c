@@ -19,12 +19,15 @@ for(i = 0; str[i] != '\0'; i++)
     str[i-1] = '\0';
     i--;
 }
+
 }
 while(start < end)
 {
 temp = str[start];
 str[start] = str[end];
 str[end] = temp;
+start++;
+end--;
 }
     return 0;
 }
