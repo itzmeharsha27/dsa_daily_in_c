@@ -22,7 +22,9 @@ for(i = 0; str[i] != '\0'; i++)
 }
 while(start < end)
 {
-
+temp = str[start];
+str[start] = str[end];
+str[end] = temp;
 }
     return 0;
 }
