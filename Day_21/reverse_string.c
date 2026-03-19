@@ -11,6 +11,12 @@ int main()
 int end = i - 1;
 char temp;
 
+ if(str[0] == '\0')
+    {
+        printf("Empty string\n");
+        return 0;
+    }
+
 for(i = 0; str[i] != '\0'; i++)
 {
   
