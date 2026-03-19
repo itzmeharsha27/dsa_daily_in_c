@@ -29,5 +29,6 @@ str[end] = temp;
 start++;
 end--;
 }
+printf("Reversed string: %s\n", str);
     return 0;
 }
