@@ -29,7 +29,8 @@ int end = i - 1;
             return 0;
         }
 
-     
+        start++;
+        end--;
     }
 
     printf("Enter a string: ");
