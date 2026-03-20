@@ -33,6 +33,8 @@ int end = i - 1;
         end--;
     }
 
+    printf("Palindrome\n");
+
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
