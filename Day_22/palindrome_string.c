@@ -12,6 +12,8 @@ for(i = 0; str[i] != '\0'; i++)
     str[i-1] = '\0';
     i--;
 }
+int start = 0;
+int end = i - 1;
 
 
 }
