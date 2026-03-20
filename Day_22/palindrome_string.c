@@ -5,6 +5,12 @@ int main()
     char str[100];
      int i;
 
+
+     if(str[0] == '\0')
+{
+    printf("Empty string\n");
+    return 0;
+}
 for(i = 0; str[i] != '\0'; i++)
 {
 
