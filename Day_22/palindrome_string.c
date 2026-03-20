@@ -23,7 +23,11 @@ int end = i - 1;
 
  while(start < end)
     {
-      
+        if(str[start] != str[end])
+        {
+            printf("Not Palindrome\n");
+            return 0;
+        }
 
      
     }
