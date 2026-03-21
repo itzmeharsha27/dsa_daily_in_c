@@ -25,6 +25,10 @@ else if(str[i]==' ')
 {
     spaces++;
 }
+printf("Vowels = %d\n", vowels);
+printf("Consonants = %d\n", consonants);
+printf("Digits = %d\n", digits);
+printf("Spaces = %d\n", spaces);
 
 }
 
