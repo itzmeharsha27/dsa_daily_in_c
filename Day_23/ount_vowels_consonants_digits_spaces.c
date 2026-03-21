@@ -9,7 +9,7 @@ int vowels = 0, consonants = 0, digits = 0, spaces = 0;
 
 if(str[0] == '\0')
 {
-    printf("Empty string\n");
+    printf("Empty  string \n");
     return 0;
 }
 
