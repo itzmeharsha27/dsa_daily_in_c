@@ -17,6 +17,10 @@ else if((str[i]>='a' && str[i]<='z') || (str[i]>='A' && str[i]<='Z'))
 {
     consonants++;
 }
+else if(str[i]>='0' && str[i]<='9')
+{
+    digits++;
+}
 
 }
 
