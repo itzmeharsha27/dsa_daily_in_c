@@ -21,8 +21,13 @@ else if(str[i]>='0' && str[i]<='9')
 {
     digits++;
 }
+else if(str[i]==' ')
+{
+    spaces++;
+}
 
 }
+
 
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
