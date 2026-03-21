@@ -6,6 +6,14 @@ int main()
     int i;
 int vowels = 0, consonants = 0, digits = 0, spaces = 0;
 
+
+if(str[0] == '\0')
+{
+    printf("Empty string\n");
+    return 0;
+}
+
+
 for(i = 0; str[i] != '\0'; i++)
 {
     if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||
