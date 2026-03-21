@@ -13,6 +13,10 @@ for(i = 0; str[i] != '\0'; i++)
 {
     vowels++;
 }
+else if((str[i]>='a' && str[i]<='z') || (str[i]>='A' && str[i]<='Z'))
+{
+    consonants++;
+}
 
 }
 
