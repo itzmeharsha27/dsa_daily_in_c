@@ -3,6 +3,7 @@
 int main()
 {
     char str[200];
+    int i, j;
 
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
