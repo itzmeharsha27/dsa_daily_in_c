@@ -19,7 +19,11 @@ for(i = 0; str[i] != '\0'; i++)
 {
     if(str[i] == ' ')
     {
-        
+        if(str[0] == '\0')
+{
+    printf("Empty string\n");
+    return 0;
+}
     }
 }
 for(j = i; str[j] != '\0'; j++)
