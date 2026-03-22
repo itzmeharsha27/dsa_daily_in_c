@@ -26,6 +26,18 @@ for(i = 0; str[i] != '\0'; i++)
 }
     }
 }
+// Remove spaces by shifting characters
+for(i = 0; str[i] != '\0'; i++)
+{
+    if(str[i] == ' ')
+    {
+        for(j = i; str[j] != '\0'; j++)
+        {
+            str[j] = str[j+1];
+        }
+        i--;
+    }
+}
 for(j = i; str[j] != '\0'; j++)
 {
     str[j] = str[j+1];
