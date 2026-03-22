@@ -15,6 +15,13 @@ int main()
     }
 }
 
+for(i = 0; str[i] != '\0'; i++)
+{
+    if(str[i] == ' ')
+    {
+        
+    }
+}
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
