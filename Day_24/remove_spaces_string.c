@@ -25,12 +25,12 @@ int main()
         }
     }
 
-    // Remove spaces by shifting characters
+    // Remove spaces by shifting characters to the left
     for(i = 0; str[i] != '\0'; i++)
     {
         if(str[i] == ' ')
         {
-            for(j = i; str[j] != '\0'; j++)
+            for(j = i; str[j] != '\0 '; j++)
             {
                 str[j] = str[j+1];
             }
