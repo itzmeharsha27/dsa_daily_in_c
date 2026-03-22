@@ -26,6 +26,7 @@ for(j = i; str[j] != '\0'; j++)
 {
     str[j] = str[j+1];
     i--;
+    printf("String without spaces: %s\n", str);
 }
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
