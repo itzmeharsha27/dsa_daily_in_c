@@ -31,5 +31,7 @@ int main()
         }
     }
 
+    printf("Words = %d\n", words);
+
     return 0;
 }
