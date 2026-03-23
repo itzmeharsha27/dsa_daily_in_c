@@ -17,5 +17,13 @@ int main()
         }
     }
 
+    for(i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] != ' ' && (i == 0 || str[i-1] == ' '))
+        {
+            words++;
+        }
+    }
+
     return 0;
 }
