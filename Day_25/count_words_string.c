@@ -9,13 +9,14 @@ int main()
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
+    // Check empty input
     if(str[0] == '\0')
     {
         printf("Empty string\n");
         return 0;
     }
 
-    // Remove newline
+    // Remove newline character
     for(i = 0; str[i] != '\0'; i++)
     {
         if(str[i] == '\n')
@@ -31,11 +32,11 @@ int main()
         if(str[i] != ' ' && inWord == 0)
         {
             words++;
-            inWord = 1;
+            inWord = 1;   // Entering a word
         }
         else if(str[i] == ' ')
         {
-            inWord = 0;
+            inWord = 0;   // Leaving a word
         }
     }
 
