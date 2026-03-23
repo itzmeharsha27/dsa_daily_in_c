@@ -8,12 +8,14 @@ int main()
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
+    // Check empty input
     if(str[0] == '\0')
     {
         printf("Empty string\n");
         return 0;
     }
 
+    // Remove newline character
     for(i = 0; str[i] != '\0'; i++)
     {
         if(str[i] == '\n')
@@ -23,7 +25,7 @@ int main()
         }
     }
 
-    // Count words based on space transitions
+    // Count words using space detection
     for(i = 0; str[i] != '\0'; i++)
     {
         if(str[i] != ' ' && (i == 0 || str[i-1] == ' '))
