@@ -25,7 +25,7 @@ int main()
         }
     }
 
-    // Count frequency
+    // Count frequency of characters
     for(i = 0; str[i] != '\0'; i++)
     {
         freq[str[i]]++;
@@ -33,7 +33,7 @@ int main()
 
     printf("Character Frequencies:\n");
 
-    // Print frequency
+    // Display results
     for(i = 0; i < 256; i++)
     {
         if(freq[i] > 0)
