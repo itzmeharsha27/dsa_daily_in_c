@@ -29,5 +29,7 @@ int main()
         freq[str[i]]++;
     }
 
+    printf("Character Frequencies:\n");
+
     return 0;
 }
