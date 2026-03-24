@@ -9,13 +9,14 @@ int main()
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
+    // Validate input
     if(str[0] == '\0')
     {
         printf("Empty string\n");
         return 0;
     }
 
-    // Remove newline
+    // Remove newline character
     for(i = 0; str[i] != '\0'; i++)
     {
         if(str[i] == '\n')
@@ -25,7 +26,7 @@ int main()
         }
     }
 
-    // Count frequency of characters
+    // Count frequency using ASCII array
     for(i = 0; str[i] != '\0'; i++)
     {
         freq[str[i]]++;
@@ -33,7 +34,7 @@ int main()
 
     printf("Character Frequencies:\n");
 
-    // Display results
+    // Print frequency of each character
     for(i = 0; i < 256; i++)
     {
         if(freq[i] > 0)
