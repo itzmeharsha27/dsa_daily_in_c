@@ -15,6 +15,7 @@ int main()
         return 0;
     }
 
+    // Remove newline
     for(i = 0; str[i] != '\0'; i++)
     {
         if(str[i] == '\n')
@@ -24,6 +25,7 @@ int main()
         }
     }
 
+    // Count frequency
     for(i = 0; str[i] != '\0'; i++)
     {
         freq[str[i]]++;
@@ -31,6 +33,7 @@ int main()
 
     printf("Character Frequencies:\n");
 
+    // Print frequency
     for(i = 0; i < 256; i++)
     {
         if(freq[i] > 0)
