@@ -26,7 +26,7 @@ int main()
         }
     }
 
-    // Remove duplicate characters using frequency array
+    // Remove duplicate characters using ASCII frequency array
     for(i = 0, j = 0; str[i] != '\0'; i++)
     {
         if(freq[str[i]] == 0)
