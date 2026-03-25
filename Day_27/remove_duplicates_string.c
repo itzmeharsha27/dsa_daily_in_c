@@ -9,7 +9,6 @@ int main()
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
-    // Remove newline
     for(i = 0; str[i] != '\0'; i++)
     {
         if(str[i] == '\n')
@@ -18,6 +17,18 @@ int main()
             break;
         }
     }
+
+    for(i = 0, j = 0; str[i] != '\0'; i++)
+    {
+        if(freq[str[i]] == 0)
+        {
+            freq[str[i]] = 1;
+            str[j] = str[i];
+            j++;
+        }
+    }
+
+    str[j] = '\0';
 
     return 0;
 }
