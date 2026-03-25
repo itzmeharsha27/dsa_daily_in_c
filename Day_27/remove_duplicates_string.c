@@ -15,6 +15,7 @@ int main()
         return 0;
     }
 
+    // Remove newline
     for(i = 0; str[i] != '\0'; i++)
     {
         if(str[i] == '\n')
@@ -24,6 +25,7 @@ int main()
         }
     }
 
+    // Remove duplicates
     for(i = 0, j = 0; str[i] != '\0'; i++)
     {
         if(freq[str[i]] == 0)
