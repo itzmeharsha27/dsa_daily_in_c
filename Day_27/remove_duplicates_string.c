@@ -9,6 +9,7 @@ int main()
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
+    // Validate input
     if(str[0] == '\0')
     {
         printf("Empty string\n");
@@ -25,7 +26,7 @@ int main()
         }
     }
 
-    // Remove duplicates
+    // Remove duplicate characters
     for(i = 0, j = 0; str[i] != '\0'; i++)
     {
         if(freq[str[i]] == 0)
