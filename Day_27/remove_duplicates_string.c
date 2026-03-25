@@ -36,5 +36,7 @@ int main()
 
     str[j] = '\0';
 
+    printf("String after removing duplicates: %s\n", str);
+
     return 0;
 }
