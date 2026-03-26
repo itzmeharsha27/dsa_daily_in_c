@@ -12,7 +12,6 @@ int main()
     printf("Enter second string: ");
     fgets(str2, sizeof(str2), stdin);
 
-    // Remove newline from str1
     for(i = 0; str1[i] != '\0'; i++)
     {
         if(str1[i] == '\n')
@@ -22,7 +21,6 @@ int main()
         }
     }
 
-    // Remove newline from str2
     for(i = 0; str2[i] != '\0'; i++)
     {
         if(str2[i] == '\n')
@@ -30,6 +28,12 @@ int main()
             str2[i] = '\0';
             break;
         }
+    }
+
+    // Count frequency of first string
+    for(i = 0; str1[i] != '\0'; i++)
+    {
+        freq[str1[i]]++;
     }
 
     return 0;
