@@ -5,6 +5,7 @@ int main()
     char str1[100], str2[100];
     int i;
     int freq[256] = {0};
+    int isAnagram = 1;
 
     printf("Enter first string: ");
     fgets(str1, sizeof(str1), stdin);
@@ -35,7 +36,6 @@ int main()
         freq[str1[i]]++;
     }
 
-    // Subtract frequency using second string
     for(i = 0; str2[i] != '\0'; i++)
     {
         freq[str2[i]]--;
