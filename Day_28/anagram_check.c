@@ -3,6 +3,7 @@
 int main()
 {
     char str1[100], str2[100];
+    int i;
 
     printf("Enter first string: ");
     fgets(str1, sizeof(str1), stdin);
