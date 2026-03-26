@@ -41,5 +41,14 @@ int main()
         freq[str2[i]]--;
     }
 
+    for(i = 0; i < 256; i++)
+    {
+        if(freq[i] != 0)
+        {
+            isAnagram = 0;
+            break;
+        }
+    }
+
     return 0;
 }
