@@ -50,5 +50,10 @@ int main()
         }
     }
 
+    if(isAnagram)
+        printf("Anagram\n");
+    else
+        printf("Not Anagram\n");
+
     return 0;
 }
