@@ -30,10 +30,15 @@ int main()
         }
     }
 
-    // Count frequency of first string
     for(i = 0; str1[i] != '\0'; i++)
     {
         freq[str1[i]]++;
+    }
+
+    // Subtract frequency using second string
+    for(i = 0; str2[i] != '\0'; i++)
+    {
+        freq[str2[i]]--;
     }
 
     return 0;
