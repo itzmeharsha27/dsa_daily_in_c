@@ -49,6 +49,12 @@ int main()
             break;
         }
     }
+    // Added input validation
+if(str1[0]=='\0' || str2[0]=='\0')
+{
+    printf("Invalid input\n");
+    return 0;
+}
 
     if(isAnagram)
         printf("Anagram\n");
