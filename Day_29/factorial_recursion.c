@@ -22,7 +22,8 @@ int main()
     if(n < 0)
     {
         printf("Factorial  not defined for negative numbers\n");
-        return 0;
+        return 0;git add .
+git commit -m "added comments explaining recursion logic"
     }
 
     int result =  factorial(n);
