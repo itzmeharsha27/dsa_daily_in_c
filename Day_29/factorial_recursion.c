@@ -18,5 +18,6 @@ int main()
 
 int factorial(int n)
 {
-    return 0;
+    if(n == 0)
+        return 1;
 }
