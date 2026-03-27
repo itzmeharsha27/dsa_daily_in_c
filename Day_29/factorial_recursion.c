@@ -2,6 +2,15 @@
 
 int factorial(int n);
 
+// Recursive factorial function
+int factorial(int n)
+{
+    if(n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
 int main()
 {
     int n;
@@ -20,12 +29,4 @@ int main()
     printf("Factorial = %d\n", result);
 
     return 0;
-}
-
-int factorial(int n)
-{
-    if(n == 0)
-        return 1;
-    else
-        return n * factorial(n - 1);
 }
