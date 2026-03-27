@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-int factorial(int n);
-
 // Recursive factorial function
 int factorial(int n)
 {
@@ -26,7 +24,7 @@ int main()
 
     int result = factorial(n);
 
-    printf("Factorial = %d\n", result);
+    printf("Factorial of %d = %d\n", n, result);
 
     return 0;
 }
