@@ -9,6 +9,12 @@ int main()
     printf("Enter a number: ");
     scanf("%d", &n);
 
+    if(n < 0)
+    {
+        printf("Factorial not defined for negative numbers\n");
+        return 0;
+    }
+
     int result = factorial(n);
 
     printf("Factorial = %d\n", result);
