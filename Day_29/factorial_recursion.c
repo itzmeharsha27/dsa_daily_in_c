@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-// Recursive factorial function
+// Function to calculate factorial using recursion
 int factorial(int n)
 {
-    // Base case
+    // Base case: factorial of 0 is 1
     if(n == 0)
         return 1;
 
@@ -18,13 +18,14 @@ int main()
     printf("Enter a number: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n < 0)
     {
-        printf("Factorial not defined for negative numbers\n");
+        printf("Factorial  not defined for negative numbers\n");
         return 0;
     }
 
-    int result = factorial(n);
+    int result =  factorial(n);
 
     printf("Factorial of %d = %d\n", n, result);
 
