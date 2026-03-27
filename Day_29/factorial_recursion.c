@@ -9,6 +9,10 @@ int main()
     printf("Enter a number: ");
     scanf("%d", &n);
 
+    int result = factorial(n);
+
+    printf("Factorial = %d\n", result);
+
     return 0;
 }
 
