@@ -19,5 +19,6 @@ int main()
 
 int fib(int n)
 {
-    return 0;
+    if(n == 0)
+        return 0;
 }
