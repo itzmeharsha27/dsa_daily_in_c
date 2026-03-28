@@ -9,6 +9,12 @@ int main()
     printf("Enter number of terms: ");
     scanf("%d", &n);
 
+    if(n <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     for(i = 0; i < n; i++)
     {
         printf("%d ", fib(i));
@@ -23,4 +29,5 @@ int fib(int n)
         return 0;
     if(n == 1)
         return 1;
+    return fib(n-1) + fib(n-2);
 }
