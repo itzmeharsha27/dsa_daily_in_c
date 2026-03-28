@@ -31,7 +31,7 @@ int main()
 
     for(i = 0; i < n; i++)
     {
-        printf("%d ", fib(i));
+        printf("%d  ",  fib(i));
     }
 
     return 0;
