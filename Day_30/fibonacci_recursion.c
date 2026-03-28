@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Recursive Fibonacci function
+// Function to generate Fibonacci using recursion
 int fib(int n)
 {
     // Base cases
@@ -9,7 +9,7 @@ int fib(int n)
     if(n == 1)
         return 1;
 
-    // Recursive case
+    // Recursive relation
     return fib(n-1) + fib(n-2);
 }
 
@@ -20,6 +20,7 @@ int main()
     printf("Enter number of terms: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n <= 0)
     {
         printf("Invalid input\n");
