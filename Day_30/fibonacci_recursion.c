@@ -27,7 +27,7 @@ int main()
         return 0;
     }
 
-    printf("Fibonacci Series:\n");
+    printf ("Fibonacci Series:\n");
 
     for(i = 0; i < n; i++)
     {
