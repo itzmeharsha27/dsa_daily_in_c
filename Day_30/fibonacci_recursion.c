@@ -4,10 +4,15 @@ int fib(int n);
 
 int main()
 {
-    int n;
+    int n, i;
 
     printf("Enter number of terms: ");
     scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", fib(i));
+    }
 
     return 0;
 }
