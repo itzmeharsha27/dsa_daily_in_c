@@ -16,6 +16,12 @@ int main()
     printf("Enter a number: ");
     scanf("%d", &n);
 
+    if(n < 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     result = sum(n);
     printf("Sum = %d\n", result);
 
