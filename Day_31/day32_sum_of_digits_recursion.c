@@ -3,10 +3,12 @@
 // Recursive function to find sum of digits
 int sum(int n)
 {
+    // Base case
     if(n == 0)
         return 0;
-    else
-        return (n % 10) + sum(n / 10);
+
+    // Recursive case
+    return (n % 10) + sum(n / 10);
 }
 
 int main()
