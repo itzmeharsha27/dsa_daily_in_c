@@ -24,6 +24,8 @@ int main()
     }
 
     result = sum(n);
+
+    printf("Input Number = %d\n", n);
     printf("Sum of digits = %d\n", result);
 
     return 0;
