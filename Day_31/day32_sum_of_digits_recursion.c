@@ -1,13 +1,11 @@
 #include <stdio.h>
 
-// Recursive function to find sum of digits
+// Function to calculate sum of digits using recursion
 int sum(int n)
 {
-    // Base case
     if(n == 0)
         return 0;
 
-    // Recursive case
     return (n % 10) + sum(n / 10);
 }
 
