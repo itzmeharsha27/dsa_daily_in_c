@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Recursive function to find sum of digits
 int sum(int n)
 {
     if(n == 0)
@@ -23,7 +24,7 @@ int main()
     }
 
     result = sum(n);
-    printf("Sum = %d\n", result);
+    printf("Sum of digits = %d\n", result);
 
     return 0;
 }
