@@ -23,7 +23,9 @@ int main()
     }
 
     result = reverse(n, 0);
-    printf("Reversed number = %d\n", result);
+
+    printf("Original Number = %d\n", n);
+    printf("Reversed Number = %d\n", result);
 
     return 0;
 }
