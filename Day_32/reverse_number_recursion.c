@@ -1,6 +1,13 @@
 #include <stdio.h>
 
-int reverse(int n, int rev);
+// Recursive function to reverse number
+int reverse(int n, int rev)
+{
+    if(n == 0)
+        return rev;
+    else
+        return reverse(n/10, rev*10 + n%10);
+}
 
 int main()
 {
@@ -13,12 +20,4 @@ int main()
     printf("Reversed number = %d\n", result);
 
     return 0;
-}
-
-int reverse(int n, int rev)
-{
-    if(n == 0)
-        return rev;
-    else
-        return reverse(n/10, rev*10 + n%10);
 }
