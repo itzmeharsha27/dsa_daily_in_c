@@ -11,10 +11,16 @@ int main()
 
     revNum = reverse(n, 0);
 
+    if(n == revNum)
+        printf("Palindrome Number\n");
+    else
+        printf("Not Palindrome Number\n");
+
     return 0;
 }
 
 int reverse(int n, int rev)
 {
-    return 0;
+    if(n == 0)
+        return rev;
 }
