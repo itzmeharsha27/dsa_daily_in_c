@@ -4,10 +4,12 @@ int reverse(int n, int rev);
 
 int main()
 {
-    int n;
+    int n, revNum;
 
     printf("Enter a number: ");
     scanf("%d", &n);
+
+    revNum = reverse(n, 0);
 
     return 0;
 }
