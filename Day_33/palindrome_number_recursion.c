@@ -1,13 +1,11 @@
 #include <stdio.h>
 
-// Recursive function to reverse number
+// Function to reverse digits using recursion
 int reverse(int n, int rev)
 {
-    // Base case
     if(n == 0)
         return rev;
 
-    // Recursive case
     return reverse(n/10, rev*10 + n%10);
 }
 
