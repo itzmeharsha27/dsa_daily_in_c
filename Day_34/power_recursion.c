@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-// Recursive function to calculate power
+// Function to calculate power using recursion
 int powerFunc(int base, int power)
 {
     // Base case
     if(power == 0)
         return 1;
 
-    // Recursive case
+    // Recursive multiplication
     return base * powerFunc(base, power - 1);
 }
 
@@ -18,6 +18,7 @@ int main()
     printf("Enter base and power: ");
     scanf("%d %d", &base, &power);
 
+    // Validate input
     if(power < 0)
     {
         printf("Negative power not supported\n");
