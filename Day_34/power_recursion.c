@@ -3,10 +3,12 @@
 // Recursive function to calculate power
 int powerFunc(int base, int power)
 {
+    // Base case
     if(power == 0)
         return 1;
-    else
-        return base * powerFunc(base, power - 1);
+
+    // Recursive case
+    return base * powerFunc(base, power - 1);
 }
 
 int main()
