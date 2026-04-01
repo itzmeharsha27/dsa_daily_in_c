@@ -1,6 +1,13 @@
 #include <stdio.h>
 
-int powerFunc(int base, int power);
+// Recursive function to calculate power
+int powerFunc(int base, int power)
+{
+    if(power == 0)
+        return 1;
+    else
+        return base * powerFunc(base, power - 1);
+}
 
 int main()
 {
@@ -13,12 +20,4 @@ int main()
     printf("Result = %d\n", result);
 
     return 0;
-}
-
-int powerFunc(int base, int power)
-{
-    if(power == 0)
-        return 1;
-    else
-        return base * powerFunc(base, power - 1);
 }
