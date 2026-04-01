@@ -17,5 +17,6 @@ int main()
 
 int powerFunc(int base, int power)
 {
-    return 0;
+    if(power == 0)
+        return 1;
 }
