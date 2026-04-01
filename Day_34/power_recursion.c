@@ -23,7 +23,8 @@ int main()
     }
 
     result = powerFunc(base, power);
-    printf("Result = %d\n", result);
+
+    printf("%d ^ %d = %d\n", base, power, result);
 
     return 0;
 }
