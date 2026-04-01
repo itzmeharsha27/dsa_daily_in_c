@@ -16,12 +16,6 @@ int main()
     printf("Enter base and power: ");
     scanf("%d %d", &base, &power);
 
-    if(power < 0)
-    {
-        printf("Negative power not supported\n");
-        return 0;
-    }
-
     result = powerFunc(base, power);
     printf("Result = %d\n", result);
 
