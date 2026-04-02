@@ -24,6 +24,9 @@ int main()
 
     revNum = reverse(n, 0);
 
+    printf("Original Number = %d\n", n);
+    printf("Reversed Number = %d\n", revNum);
+
     if(n == revNum)
         printf("Palindrome Number\n");
     else
