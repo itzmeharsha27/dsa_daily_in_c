@@ -33,7 +33,7 @@ int main()
     if(n == revNum)
         printf("Palindrome Number\n");
     else
-        printf("Not Palindrome Number\n");
+        printf("Not  Palindrome Number\n");
 
     return 0;
 }
