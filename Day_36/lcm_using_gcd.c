@@ -9,6 +9,12 @@ int main()
     printf("Enter two numbers: ");
     scanf("%d %d", &a, &b);
 
+    if(a == 0 || b == 0)
+    {
+        printf("LCM not defined for zero\n");
+        return 0;
+    }
+
     lcm = (a * b) / gcd(a, b);
 
     printf("LCM = %d\n", lcm);
