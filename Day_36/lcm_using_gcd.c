@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Function to find GCD
+// Function to find GCD using Euclid Algorithm
 int gcd(int a, int b)
 {
     if(b == 0)
