@@ -1,6 +1,12 @@
 #include <stdio.h>
 
-int gcd(int a, int b);
+// Function to find GCD
+int gcd(int a, int b)
+{
+    if(b == 0)
+        return a;
+    return gcd(b, a % b);
+}
 
 int main()
 {
@@ -20,11 +26,4 @@ int main()
     printf("LCM = %d\n", lcm);
 
     return 0;
-}
-
-int gcd(int a, int b)
-{
-    if(b == 0)
-        return a;
-    return gcd(b, a % b);
 }
