@@ -23,6 +23,7 @@ int main()
 
     lcm = (a * b) / gcd(a, b);
 
+    printf("Numbers: %d and %d\n", a, b);
     printf("LCM = %d\n", lcm);
 
     return 0;
