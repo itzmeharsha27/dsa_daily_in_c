@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Function to find GCD using Euclid Algorithm
+// Function to find GCD using recursion
 int gcd(int a, int b)
 {
     if(b == 0)
@@ -15,9 +15,9 @@ int main()
     printf("Enter two numbers: ");
     scanf("%d %d", &a, &b);
 
-    if(a == 0 || b == 0)
+    if(a <= 0 || b <= 0)
     {
-        printf("LCM not defined for zero\n");
+        printf("Invalid input\n");
         return 0;
     }
 
