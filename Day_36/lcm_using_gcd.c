@@ -16,7 +16,7 @@ int main()
     int a, b, lcm;
 
     printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
+    scanf("%d %d",  &a, &b);
 
     // Validate    input
     if(a <= 0 ||  b <= 0)
