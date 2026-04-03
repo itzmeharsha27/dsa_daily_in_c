@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Function to find GCD using recursion
+// Function to find GCD using recursion (Euclid Algorithm)
 int gcd(int a, int b)
 {
     // Base case
@@ -18,12 +18,14 @@ int main()
     printf("Enter two numbers: ");
     scanf("%d %d", &a, &b);
 
-    if(a <= 0 || b <= 0)
+    // Validate    input
+    if(a <= 0 ||  b <= 0)
     {
         printf("Invalid input\n");
         return 0;
     }
 
+    // LCM formula
     lcm = (a * b) / gcd(a, b);
 
     printf("Numbers: %d and %d\n", a, b);
