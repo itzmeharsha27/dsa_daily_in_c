@@ -33,7 +33,9 @@ int main()
 
     reverse(arr, 0, n-1);
 
+    printf("Original array reversed successfully.\n");
     printf("Reversed array:\n");
+
     for(i = 0; i < n; i++)
         printf("%d ", arr[i]);
 
