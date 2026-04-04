@@ -7,7 +7,7 @@ void reverse(int arr[], int start, int end)
     if(start >= end)
         return;
 
-    // Swap elements
+    // Swap first and last elements
     int temp = arr[start];
     arr[start] = arr[end];
     arr[end] = temp;
@@ -24,6 +24,7 @@ int main()
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n <= 0)
     {
         printf("Invalid input\n");
