@@ -1,15 +1,18 @@
 #include <stdio.h>
 
-// Recursive function to reverse array
+// Function to reverse array using recursion
 void reverse(int arr[], int start, int end)
 {
+    // Base case
     if(start >= end)
         return;
 
+    // Swap elements
     int temp = arr[start];
     arr[start] = arr[end];
     arr[end] = temp;
 
+    // Recursive call
     reverse(arr, start + 1, end - 1);
 }
 
@@ -33,9 +36,7 @@ int main()
 
     reverse(arr, 0, n-1);
 
-    printf("Original array reversed successfully.\n");
     printf("Reversed array:\n");
-
     for(i = 0; i < n; i++)
         printf("%d ", arr[i]);
 
