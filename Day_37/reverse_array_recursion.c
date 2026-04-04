@@ -21,13 +21,13 @@ int main()
     int n, i;
     int arr[100];
 
-    printf("Enter number of elements: ");
+    printf("Enter  number of elements: ");
     scanf("%d", &n);
 
     // Validate input
     if(n <= 0)
     {
-        printf("Invalid input\n");
+        printf("Invalid  input\n");
         return 0;
     }
 
