@@ -1,6 +1,17 @@
 #include <stdio.h>
 
-void reverse(int arr[], int start, int end);
+// Recursive function to reverse array
+void reverse(int arr[], int start, int end)
+{
+    if(start >= end)
+        return;
+
+    int temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    reverse(arr, start + 1, end - 1);
+}
 
 int main()
 {
@@ -9,6 +20,12 @@ int main()
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
+
+    if(n <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
 
     printf("Enter elements:\n");
     for(i = 0; i < n; i++)
@@ -21,16 +38,4 @@ int main()
         printf("%d ", arr[i]);
 
     return 0;
-}
-
-void reverse(int arr[], int start, int end)
-{
-    if(start >= end)
-        return;
-
-    int temp = arr[start];
-    arr[start] = arr[end];
-    arr[end] = temp;
-
-    reverse(arr, start + 1, end - 1);
 }
