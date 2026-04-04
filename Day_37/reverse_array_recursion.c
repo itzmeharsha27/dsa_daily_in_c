@@ -13,7 +13,7 @@ void reverse(int arr[], int start, int end)
     arr[end] = temp;
 
     // Recursive call
-    reverse(arr, start + 1, end - 1);
+    reverse(arr, start +  1, end - 1);
 }
 
 int main()
@@ -37,7 +37,7 @@ int main()
 
     reverse(arr, 0, n-1);
 
-    printf("Reversed array:\n");
+    printf("Reversed  array:\n");
     for(i = 0; i < n; i++)
         printf("%d ", arr[i]);
 
