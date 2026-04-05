@@ -19,6 +19,11 @@ int main()
 
     pos = search(arr, n, key, 0);
 
+    if(pos == -1)
+        printf("Element not found\n");
+    else
+        printf("Element found at position %d\n", pos + 1);
+
     return 0;
 }
 
@@ -26,4 +31,9 @@ int search(int arr[], int n, int key, int index)
 {
     if(index >= n)
         return -1;
+
+    if(arr[index] == key)
+        return index;
+
+    return search(arr, n, key, index + 1);
 }
