@@ -35,6 +35,8 @@ int main()
 
     pos = search(arr, n, key, 0);
 
+    printf("Search completed.\n");
+
     if(pos == -1)
         printf("Element not found\n");
     else
