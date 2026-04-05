@@ -35,7 +35,7 @@ int main()
 
     pos = search(arr, n, key, 0);
 
-    printf("Array size = %d\n", n);
+    printf("Input Key = %d\n", key);
 
     if(pos == -1)
         printf("Element not found\n");
