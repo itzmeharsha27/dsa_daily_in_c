@@ -3,12 +3,15 @@
 // Function to perform linear search using recursion
 int search(int arr[], int n, int key, int index)
 {
+    // Base case
     if(index >= n)
         return -1;
 
+    // If element matches
     if(arr[index] == key)
         return index;
 
+    // Recursive call
     return search(arr, n, key, index + 1);
 }
 
@@ -20,6 +23,7 @@ int main()
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n <= 0)
     {
         printf("Invalid input\n");
@@ -34,8 +38,6 @@ int main()
     scanf("%d", &key);
 
     pos = search(arr, n, key, 0);
-
-    printf("Input Key = %d\n", key);
 
     if(pos == -1)
         printf("Element not found\n");
