@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int binarySearch(int arr[], int low, int high, int key);
+
 int main()
 {
     int n;
@@ -8,4 +10,9 @@ int main()
     scanf("%d", &n);
 
     return 0;
+}
+
+int binarySearch(int arr[], int low, int high, int key)
+{
+    return -1;
 }
