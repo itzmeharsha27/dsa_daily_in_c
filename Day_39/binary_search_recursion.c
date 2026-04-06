@@ -39,6 +39,8 @@ int main()
 
     pos = binarySearch(arr, 0, n-1, key);
 
+    printf("Search completed.\n");
+
     if(pos == -1)
         printf("Element not found\n");
     else
