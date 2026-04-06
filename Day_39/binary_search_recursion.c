@@ -40,7 +40,7 @@ int main()
 
     pos = binarySearch(arr, 0, n-1, key);
 
-    printf("Array size = %d\n", n);
+    printf("Input Key = %d\n", key);
 
     if(pos == -1)
         printf("Element not found\n");
