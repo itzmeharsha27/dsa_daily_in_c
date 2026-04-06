@@ -1,19 +1,24 @@
 #include <stdio.h>
 
-// Recursive Binary Search function
+// Function to perform Binary Search using recursion
 int binarySearch(int arr[], int low, int high, int key)
 {
+    // Base case
     if(low > high)
         return -1;
 
     int mid = (low + high) / 2;
 
+    // If element found
     if(arr[mid] == key)
         return mid;
-    else if(arr[mid] > key)
+
+    // Search left half
+    if(arr[mid] > key)
         return binarySearch(arr, low, mid - 1, key);
-    else
-        return binarySearch(arr, mid + 1, high, key);
+
+    // Search right half
+    return binarySearch(arr, mid + 1, high, key);
 }
 
 int main()
@@ -38,8 +43,6 @@ int main()
     scanf("%d", &key);
 
     pos = binarySearch(arr, 0, n-1, key);
-
-    printf("Search completed.\n");
 
     if(pos == -1)
         printf("Element not found\n");
