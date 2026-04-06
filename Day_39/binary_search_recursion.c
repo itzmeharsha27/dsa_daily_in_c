@@ -4,7 +4,7 @@ int binarySearch(int arr[], int low, int high, int key);
 
 int main()
 {
-    int n, i, key;
+    int n, i, key, pos;
     int arr[100];
 
     printf("Enter number of elements: ");
@@ -17,10 +17,13 @@ int main()
     printf("Enter element to search: ");
     scanf("%d", &key);
 
+    pos = binarySearch(arr, 0, n-1, key);
+
     return 0;
 }
 
 int binarySearch(int arr[], int low, int high, int key)
 {
-    return -1;
+    if(low > high)
+        return -1;
 }
