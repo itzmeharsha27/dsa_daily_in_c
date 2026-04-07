@@ -1,6 +1,16 @@
 #include <stdio.h>
 
-int isSorted(int arr[], int n);
+// Recursive function to check sorted array
+int isSorted(int arr[], int n)
+{
+    if(n == 1)
+        return 1;
+
+    if(arr[n-1] < arr[n-2])
+        return 0;
+
+    return isSorted(arr, n-1);
+}
 
 int main()
 {
@@ -22,15 +32,4 @@ int main()
         printf("Array is Not Sorted\n");
 
     return 0;
-}
-
-int isSorted(int arr[], int n)
-{
-    if(n == 1)
-        return 1;
-
-    if(arr[n-1] < arr[n-2])
-        return 0;
-
-    return isSorted(arr, n-1);
 }
