@@ -3,15 +3,12 @@
 // Function to check if array is sorted using recursion
 int isSorted(int arr[], int n)
 {
-    // Base case
     if(n == 1)
         return 1;
 
-    // Check adjacent elements
     if(arr[n-1] < arr[n-2])
         return 0;
 
-    // Recursive call
     return isSorted(arr, n-1);
 }
 
@@ -34,6 +31,8 @@ int main()
         scanf("%d", &arr[i]);
 
     result = isSorted(arr, n);
+
+    printf("Array size = %d\n", n);
 
     if(result)
         printf("Array is Sorted\n");
