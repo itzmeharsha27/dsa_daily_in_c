@@ -32,6 +32,8 @@ int main()
 
     result = isSorted(arr, n);
 
+    printf("Check completed.\n");
+
     if(result)
         printf("Array is Sorted\n");
     else
