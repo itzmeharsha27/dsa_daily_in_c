@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int isSorted(int arr[], int n);
+
 int main()
 {
     int n;
@@ -8,4 +10,9 @@ int main()
     scanf("%d", &n);
 
     return 0;
+}
+
+int isSorted(int arr[], int n)
+{
+    return 1;
 }
