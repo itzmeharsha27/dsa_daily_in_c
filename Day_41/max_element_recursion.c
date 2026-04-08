@@ -34,6 +34,7 @@ int main()
 
     max = findMax(arr, n);
 
+    printf("Computation done.\n");
     printf("Maximum = %d\n", max);
 
     return 0;
