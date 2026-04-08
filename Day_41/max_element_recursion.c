@@ -34,7 +34,7 @@ int main()
 
     max = findMax(arr, n);
 
-    printf("Array size = %d\n", n);
+    printf("First element = %d\n", arr[0]);
     printf("Maximum = %d\n", max);
 
     return 0;
