@@ -3,14 +3,11 @@
 // Function to find maximum using recursion
 int findMax(int arr[], int n)
 {
-    // Base case
     if(n == 1)
         return arr[0];
 
-    // Recursive call
     int temp = findMax(arr, n-1);
 
-    // Compare current element
     if(arr[n-1] > temp)
         return arr[n-1];
 
@@ -37,6 +34,7 @@ int main()
 
     max = findMax(arr, n);
 
+    printf("Array size = %d\n", n);
     printf("Maximum = %d\n", max);
 
     return 0;
