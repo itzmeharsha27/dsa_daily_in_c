@@ -1,17 +1,20 @@
 #include <stdio.h>
 
-// Recursive function to find max element
+// Function to find maximum using recursion
 int findMax(int arr[], int n)
 {
+    // Base case
     if(n == 1)
         return arr[0];
 
+    // Recursive call
     int temp = findMax(arr, n-1);
 
+    // Compare current element
     if(arr[n-1] > temp)
         return arr[n-1];
-    else
-        return temp;
+
+    return temp;
 }
 
 int main()
@@ -34,7 +37,6 @@ int main()
 
     max = findMax(arr, n);
 
-    printf("Computation done.\n");
     printf("Maximum = %d\n", max);
 
     return 0;
