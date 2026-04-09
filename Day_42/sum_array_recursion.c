@@ -29,7 +29,7 @@ int main()
 
     sum = sumArray(arr, n);
 
-    printf("Array size = %d\n", n);
+    printf("First element = %d\n", arr[0]);
     printf("Sum = %d\n", sum);
 
     return 0;
