@@ -29,6 +29,7 @@ int main()
 
     sum = sumArray(arr, n);
 
+    printf("Calculation done.\n");
     printf("Sum = %d\n", sum);
 
     return 0;
