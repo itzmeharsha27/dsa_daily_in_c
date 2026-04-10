@@ -19,7 +19,7 @@ int main()
     int n, i, key, result;
     int arr[100];
 
-    printf("Enter number of elements: ");
+    printf("Enter number of  elements: ");
     scanf("%d", &n);
 
     // Validate input
