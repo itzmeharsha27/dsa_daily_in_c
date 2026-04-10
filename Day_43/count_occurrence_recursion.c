@@ -7,7 +7,7 @@ int countOcc(int arr[], int n, int key)
     if(n == 0)
         return 0;
 
-    // Check current element
+    // Recursive case
     if(arr[n-1] == key)
         return 1 + countOcc(arr, n-1, key);
 
@@ -22,6 +22,7 @@ int main()
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n <= 0)
     {
         printf("Invalid input\n");
