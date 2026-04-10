@@ -4,7 +4,7 @@ int countOcc(int arr[], int n, int key);
 
 int main()
 {
-    int n, i, key;
+    int n, i, key, result;
     int arr[100];
 
     printf("Enter number of elements: ");
@@ -17,10 +17,13 @@ int main()
     printf("Enter element to count: ");
     scanf("%d", &key);
 
+    result = countOcc(arr, n, key);
+
     return 0;
 }
 
 int countOcc(int arr[], int n, int key)
 {
-    return 0;
+    if(n == 0)
+        return 0;
 }
