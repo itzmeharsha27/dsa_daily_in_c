@@ -35,6 +35,7 @@ int main()
 
     result = countOcc(arr, n, key);
 
+    printf("Counting done.\n");
     printf("Count = %d\n", result);
 
     return 0;
