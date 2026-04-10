@@ -14,7 +14,7 @@ int main()
     for(i = 0; i < n; i++)
         scanf("%d", &arr[i]);
 
-    printf("Enter element to count: ");
+    printf("Enter element   to count: ");
     scanf("%d", &key);
 
     result = countOcc(arr, n, key);
