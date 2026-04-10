@@ -1,11 +1,13 @@
 #include <stdio.h>
 
-// Recursive function to count occurrences
+// Function to count occurrences using recursion
 int countOcc(int arr[], int n, int key)
 {
+    // Base case
     if(n == 0)
         return 0;
 
+    // Check current element
     if(arr[n-1] == key)
         return 1 + countOcc(arr, n-1, key);
 
@@ -35,7 +37,6 @@ int main()
 
     result = countOcc(arr, n, key);
 
-    printf("Counting done.\n");
     printf("Count = %d\n", result);
 
     return 0;
