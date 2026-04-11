@@ -3,14 +3,18 @@
 // Function to find last occurrence using recursion
 int lastOcc(int arr[], int n, int key, int index)
 {
+    // Base case
     if(index >= n)
         return -1;
 
+    // Recursive call first
     int res = lastOcc(arr, n, key, index + 1);
 
+    // If found later
     if(res != -1)
         return res;
 
+    // Check current index
     if(arr[index] == key)
         return index;
 
@@ -25,6 +29,7 @@ int main()
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n <= 0)
     {
         printf("Invalid input\n");
@@ -39,8 +44,6 @@ int main()
     scanf("%d", &key);
 
     pos = lastOcc(arr, n, key, 0);
-
-    printf("Input Key = %d\n", key);
 
     if(pos == -1)
         printf("Element not found\n");
