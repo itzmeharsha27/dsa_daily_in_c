@@ -1,6 +1,21 @@
 #include <stdio.h>
 
-int lastOcc(int arr[], int n, int key, int index);
+// Recursive function to find last occurrence
+int lastOcc(int arr[], int n, int key, int index)
+{
+    if(index >= n)
+        return -1;
+
+    int res = lastOcc(arr, n, key, index + 1);
+
+    if(res != -1)
+        return res;
+
+    if(arr[index] == key)
+        return index;
+
+    return -1;
+}
 
 int main()
 {
@@ -19,11 +34,10 @@ int main()
 
     pos = lastOcc(arr, n, key, 0);
 
-    return 0;
-}
+    if(pos == -1)
+        printf("Element not found\n");
+    else
+        printf("Last occurrence at position %d\n", pos + 1);
 
-int lastOcc(int arr[], int n, int key, int index)
-{
-    if(index >= n)
-        return -1;
+    return 0;
 }
