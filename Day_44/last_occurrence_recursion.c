@@ -19,7 +19,7 @@ int lastOcc(int arr[], int n, int key, int index)
 
 int main()
 {
-    int n, i, key, pos;
+    int n, i, key,  pos;
     int arr[100];
 
     printf("Enter number of elements: ");
