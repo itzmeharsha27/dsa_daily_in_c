@@ -6,17 +6,20 @@ int isPalindrome(char str[], int start, int end);
 int main()
 {
     char str[100];
-    int len;
+    int len, result;
 
     printf("Enter a string: ");
     scanf("%s", str);
 
     len = strlen(str);
 
+    result = isPalindrome(str, 0, len-1);
+
     return 0;
 }
 
 int isPalindrome(char str[], int start, int end)
 {
-    return 1;
+    if(start >= end)
+        return 1;
 }
