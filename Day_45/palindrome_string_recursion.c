@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+
+int isPalindrome(char str[], int start, int end);
 
 int main()
 {
@@ -8,4 +11,9 @@ int main()
     scanf("%s", str);
 
     return 0;
+}
+
+int isPalindrome(char str[], int start, int end)
+{
+    return 1;
 }
