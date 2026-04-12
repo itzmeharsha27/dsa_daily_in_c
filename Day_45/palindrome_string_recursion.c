@@ -15,6 +15,11 @@ int main()
 
     result = isPalindrome(str, 0, len-1);
 
+    if(result)
+        printf("Palindrome String\n");
+    else
+        printf("Not Palindrome String\n");
+
     return 0;
 }
 
@@ -22,4 +27,9 @@ int isPalindrome(char str[], int start, int end)
 {
     if(start >= end)
         return 1;
+
+    if(str[start] != str[end])
+        return 0;
+
+    return isPalindrome(str, start+1, end-1);
 }
