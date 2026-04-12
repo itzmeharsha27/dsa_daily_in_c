@@ -4,15 +4,12 @@
 // Function to check palindrome using recursion
 int isPalindrome(char str[], int start, int end)
 {
-    // Base case
     if(start >= end)
         return 1;
 
-    // Compare characters
     if(str[start] != str[end])
         return 0;
 
-    // Recursive call
     return isPalindrome(str, start+1, end-1);
 }
 
@@ -33,6 +30,8 @@ int main()
     }
 
     result = isPalindrome(str, 0, len-1);
+
+    printf("Length = %d\n", len);
 
     if(result)
         printf("Palindrome String\n");
