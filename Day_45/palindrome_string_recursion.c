@@ -31,7 +31,7 @@ int main()
 
     result = isPalindrome(str, 0, len-1);
 
-    printf("Length = %d\n", len);
+    printf("First char = %c\n", str[0]);
 
     if(result)
         printf("Palindrome String\n");
