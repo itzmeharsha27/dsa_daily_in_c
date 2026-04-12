@@ -23,6 +23,12 @@ int main()
 
     len = strlen(str);
 
+    if(len <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     result = isPalindrome(str, 0, len-1);
 
     if(result)
