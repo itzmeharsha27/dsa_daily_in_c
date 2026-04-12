@@ -27,7 +27,7 @@ int main()
     len = strlen(str);
 
     // Validate input
-    if(len <= 0)
+    if(len <=  0)
     {
         printf("Invalid input\n");
         return 0;
