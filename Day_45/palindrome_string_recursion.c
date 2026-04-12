@@ -31,6 +31,8 @@ int main()
 
     result = isPalindrome(str, 0, len-1);
 
+    printf("Check completed.\n");
+
     if(result)
         printf("Palindrome String\n");
     else
