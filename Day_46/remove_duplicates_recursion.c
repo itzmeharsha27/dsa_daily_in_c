@@ -18,7 +18,7 @@ void removeDup(char str[], int index)
     }
 
     // Recursive call
-    removeDup(str, index + 1);
+    removeDup(str,  index + 1);
 }
 
 int main()
