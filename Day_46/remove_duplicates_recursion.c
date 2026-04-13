@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-// Array to track visited characters
+// Array to track visited characters (ASCII)
 int visited[256] = {0};
 
-// Function to remove duplicates using recursion
+// Function to remove duplicate characters using recursion
 void removeDup(char str[], int index)
 {
     // Base case
     if(str[index] == '\0')
         return;
 
-    // If not visited
+    // If character not seen before
     if(visited[str[index]] == 0)
     {
         printf("%c", str[index]);
@@ -28,6 +28,7 @@ int main()
     printf("Enter a string: ");
     scanf("%s", str);
 
+    // Validate input
     if(str[0] == '\0')
     {
         printf("Invalid input\n");
