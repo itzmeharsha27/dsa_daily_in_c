@@ -25,6 +25,12 @@ int main()
     printf("Enter a string: ");
     scanf("%s", str);
 
+    if(str[0] == '\0')
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     removeDup(str, 0);
 
     return 0;
