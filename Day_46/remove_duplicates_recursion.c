@@ -2,6 +2,8 @@
 
 void removeDup(char str[], int index);
 
+int visited[256] = {0};
+
 int main()
 {
     char str[100];
@@ -16,5 +18,6 @@ int main()
 
 void removeDup(char str[], int index)
 {
-
+    if(str[index] == '\0')
+        return;
 }
