@@ -31,6 +31,7 @@ int main()
         return 0;
     }
 
+    printf("Result: ");
     removeDup(str, 0);
 
     return 0;
