@@ -9,6 +9,8 @@ int main()
     printf("Enter a string: ");
     scanf("%s", str);
 
+    removeDup(str, 0);
+
     return 0;
 }
 
