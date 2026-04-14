@@ -23,4 +23,11 @@ void subsets(char str[], char result[], int i, int j)
         printf("%s\n", result);
         return;
     }
+
+    // Include current character
+    result[j] = str[i];
+    subsets(str, result, i+1, j+1);
+
+    // Exclude current character
+    subsets(str, result, i+1, j);
 }
