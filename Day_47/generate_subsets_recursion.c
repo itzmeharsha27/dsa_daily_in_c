@@ -16,7 +16,7 @@ void subsets(char str[], char result[], int i, int j)
     subsets(str, result, i+1, j+1);
 
     // Exclude current character
-    subsets(str, result, i+1, j);
+    subsets(str, result,  i+1, j);
 }
 
 int main()
