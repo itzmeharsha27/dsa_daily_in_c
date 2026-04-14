@@ -25,7 +25,7 @@ int main()
         return 0;
     }
 
-    result = reverse(n, 0);
+    result = reverse(n,  0);
 
     printf("Input Number = %d\n", n);
     printf("Reversed Number = %d\n", result);
