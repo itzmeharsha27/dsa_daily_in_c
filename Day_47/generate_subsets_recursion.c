@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-// Function to generate all subsets using recursion
+// Function to generate all subsets (power set) using recursion
 void subsets(char str[], char result[], int i, int j)
 {
+    // Base case
     if(str[i] == '\0')
     {
         result[j] = '\0';
@@ -10,9 +11,11 @@ void subsets(char str[], char result[], int i, int j)
         return;
     }
 
+    // Include current character
     result[j] = str[i];
     subsets(str, result, i+1, j+1);
 
+    // Exclude current character
     subsets(str, result, i+1, j);
 }
 
@@ -24,13 +27,12 @@ int main()
     printf("Enter a string: ");
     scanf("%s", str);
 
+    // Validate input
     if(str[0] == '\0')
     {
         printf("Invalid input\n");
         return 0;
     }
-
-    printf("Input = %s\n", str);
 
     subsets(str, result, 0, 0);
 
