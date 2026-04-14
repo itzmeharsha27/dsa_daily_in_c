@@ -10,11 +10,9 @@ void subsets(char str[], char result[], int i, int j)
         return;
     }
 
-    // Include
     result[j] = str[i];
     subsets(str, result, i+1, j+1);
 
-    // Exclude
     subsets(str, result, i+1, j);
 }
 
@@ -25,6 +23,12 @@ int main()
 
     printf("Enter a string: ");
     scanf("%s", str);
+
+    if(str[0] == '\0')
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
 
     subsets(str, result, 0, 0);
 
