@@ -3,7 +3,6 @@
 // Function to generate all subsets using recursion
 void subsets(char str[], char result[], int i, int j)
 {
-    // Base case
     if(str[i] == '\0')
     {
         result[j] = '\0';
@@ -11,11 +10,9 @@ void subsets(char str[], char result[], int i, int j)
         return;
     }
 
-    // Include current character
     result[j] = str[i];
     subsets(str, result, i+1, j+1);
 
-    // Exclude current character
     subsets(str, result, i+1, j);
 }
 
@@ -32,6 +29,8 @@ int main()
         printf("Invalid input\n");
         return 0;
     }
+
+    printf("Input = %s\n", str);
 
     subsets(str, result, 0, 0);
 
