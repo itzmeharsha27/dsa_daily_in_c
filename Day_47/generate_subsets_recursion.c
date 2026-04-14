@@ -17,5 +17,10 @@ int main()
 
 void subsets(char str[], char result[], int i, int j)
 {
-
+    if(str[i] == '\0')
+    {
+        result[j] = '\0';
+        printf("%s\n", result);
+        return;
+    }
 }
