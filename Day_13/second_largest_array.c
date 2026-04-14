@@ -29,7 +29,7 @@ int main() {
             max = numbers[i];
         }
 
-        else if(numbers[i] > secondMax && numbers[i] != max) {
+        else if(numbers[i] > secondMax &&  numbers[i] != max) {
             secondMax = numbers[i];
         }
 
