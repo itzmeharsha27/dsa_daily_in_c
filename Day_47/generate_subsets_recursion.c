@@ -30,6 +30,7 @@ int main()
         return 0;
     }
 
+    printf("Subsets:\n");
     subsets(str, result, 0, 0);
 
     return 0;
