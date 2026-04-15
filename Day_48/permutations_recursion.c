@@ -25,4 +25,18 @@ void permute(char str[], int l, int r)
         printf("%s\n", str);
         return;
     }
+
+    int i;
+    for(i = l; i <= r; i++)
+    {
+        char temp = str[l];
+        str[l] = str[i];
+        str[i] = temp;
+
+        permute(str, l + 1, r);
+
+        temp = str[l];
+        str[l] = str[i];
+        str[i] = temp;
+    }
 }
