@@ -4,7 +4,6 @@
 // Function to generate permutations using recursion
 void permute(char str[], int l, int r)
 {
-    // Base case
     if(l == r)
     {
         printf("%s\n", str);
@@ -14,15 +13,12 @@ void permute(char str[], int l, int r)
     int i;
     for(i = l; i <= r; i++)
     {
-        // Swap
         char temp = str[l];
         str[l] = str[i];
         str[i] = temp;
 
-        // Recursive call
         permute(str, l + 1, r);
 
-        // Backtrack
         temp = str[l];
         str[l] = str[i];
         str[i] = temp;
@@ -44,6 +40,8 @@ int main()
         printf("Invalid input\n");
         return 0;
     }
+
+    printf("Length = %d\n", len);
 
     permute(str, 0, len - 1);
 
