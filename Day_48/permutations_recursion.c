@@ -35,6 +35,12 @@ int main()
 
     len = strlen(str);
 
+    if(len <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     permute(str, 0, len - 1);
 
     return 0;
