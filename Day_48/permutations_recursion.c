@@ -41,7 +41,7 @@ int main()
         return 0;
     }
 
-    printf("Length = %d\n", len);
+    printf("First char = %c\n", str[0]);
 
     permute(str, 0, len - 1);
 
