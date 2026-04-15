@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
-// Function to generate permutations using recursion
+// Function to generate all permutations using recursion (backtracking)
 void permute(char str[], int l, int r)
 {
+    // Base case
     if(l == r)
     {
         printf("%s\n", str);
@@ -13,12 +14,15 @@ void permute(char str[], int l, int r)
     int i;
     for(i = l; i <= r; i++)
     {
+        // Swap characters
         char temp = str[l];
         str[l] = str[i];
         str[i] = temp;
 
+        // Recursive call
         permute(str, l + 1, r);
 
+        // Backtrack (restore original string)
         temp = str[l];
         str[l] = str[i];
         str[i] = temp;
@@ -35,13 +39,12 @@ int main()
 
     len = strlen(str);
 
+    // Validate input
     if(len <= 0)
     {
         printf("Invalid input\n");
         return 0;
     }
-
-    printf("First char = %c\n", str[0]);
 
     permute(str, 0, len - 1);
 
