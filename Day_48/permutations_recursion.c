@@ -41,6 +41,7 @@ int main()
         return 0;
     }
 
+    printf("Permutations:\n");
     permute(str, 0, len - 1);
 
     return 0;
