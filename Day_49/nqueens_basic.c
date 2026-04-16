@@ -1,27 +1,16 @@
 #include <stdio.h>
 
-int isSafe(int board[10][10], int row, int col, int n);
-void solve(int board[10][10], int n, int row);
-
-int main()
+// Function to check if position is safe
+int isSafe(int board[10][10], int row, int col, int n)
 {
-    int n, board[10][10] = {0};
+    for(int i = 0; i < row; i++)
+        if(board[i][col])
+            return 0;
 
-    printf("Enter number of queens: ");
-    scanf("%d", &n);
-
-    if(n <= 0)
-    {
-        printf("Invalid input\n");
-        return 0;
-    }
-
-    printf("Solutions:\n");
-    solve(board, n, 0);
-
-    return 0;
+    return 1;
 }
 
+// Backtracking function
 void solve(int board[10][10], int n, int row)
 {
     if(row == n)
@@ -47,11 +36,20 @@ void solve(int board[10][10], int n, int row)
     }
 }
 
-int isSafe(int board[10][10], int row, int col, int n)
+int main()
 {
-    for(int i = 0; i < row; i++)
-        if(board[i][col])
-            return 0;
+    int n, board[10][10] = {0};
 
-    return 1;
+    printf("Enter number of queens: ");
+    scanf("%d", &n);
+
+    if(n <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
+    solve(board, n, 0);
+
+    return 0;
 }
