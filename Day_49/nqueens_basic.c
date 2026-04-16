@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int isSafe(int board[10][10], int row, int col, int n);
 void solve(int board[10][10], int n, int row);
 
 int main()
@@ -27,4 +28,19 @@ void solve(int board[10][10], int n, int row)
         printf("\n");
         return;
     }
+
+    for(int col = 0; col < n; col++)
+    {
+        if(isSafe(board, row, col, n))
+        {
+            board[row][col] = 1;
+            solve(board, n, row + 1);
+            board[row][col] = 0;
+        }
+    }
+}
+
+int isSafe(int board[10][10], int row, int col, int n)
+{
+    return 1;
 }
