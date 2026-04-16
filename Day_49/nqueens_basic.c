@@ -16,6 +16,7 @@ int main()
         return 0;
     }
 
+    printf("Solutions:\n");
     solve(board, n, 0);
 
     return 0;
