@@ -10,6 +10,12 @@ int main()
     printf("Enter number of queens: ");
     scanf("%d", &n);
 
+    if(n <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     solve(board, n, 0);
 
     return 0;
