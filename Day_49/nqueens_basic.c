@@ -49,7 +49,7 @@ int main()
         return 0;
     }
 
-    printf("N = %d\n", n);
+    printf("First cell = %d\n", board[0][0]);
 
     solve(board, n, 0);
 
