@@ -16,5 +16,15 @@ int main()
 
 void solve(int board[10][10], int n, int row)
 {
-
+    if(row == n)
+    {
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
+                printf("%d ", board[i][j]);
+            printf("\n");
+        }
+        printf("\n");
+        return;
+    }
 }
