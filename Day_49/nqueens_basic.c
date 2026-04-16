@@ -42,5 +42,9 @@ void solve(int board[10][10], int n, int row)
 
 int isSafe(int board[10][10], int row, int col, int n)
 {
+    for(int i = 0; i < row; i++)
+        if(board[i][col])
+            return 0;
+
     return 1;
 }
