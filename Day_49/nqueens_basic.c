@@ -49,6 +49,8 @@ int main()
         return 0;
     }
 
+    printf("N = %d\n", n);
+
     solve(board, n, 0);
 
     return 0;
