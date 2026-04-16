@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-// Function to check if position is safe
+// Function to check if placing queen is safe
 int isSafe(int board[10][10], int row, int col, int n)
 {
+    // Check column
     for(int i = 0; i < row; i++)
         if(board[i][col])
             return 0;
@@ -10,9 +11,10 @@ int isSafe(int board[10][10], int row, int col, int n)
     return 1;
 }
 
-// Backtracking function
+// Backtracking function to solve N-Queens
 void solve(int board[10][10], int n, int row)
 {
+    // Base case
     if(row == n)
     {
         for(int i = 0; i < n; i++)
@@ -30,8 +32,10 @@ void solve(int board[10][10], int n, int row)
         if(isSafe(board, row, col, n))
         {
             board[row][col] = 1;
+
             solve(board, n, row + 1);
-            board[row][col] = 0;
+
+            board[row][col] = 0; // backtrack
         }
     }
 }
@@ -43,13 +47,12 @@ int main()
     printf("Enter number of queens: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n <= 0)
     {
         printf("Invalid input\n");
         return 0;
     }
-
-    printf("First cell = %d\n", board[0][0]);
 
     solve(board, n, 0);
 
