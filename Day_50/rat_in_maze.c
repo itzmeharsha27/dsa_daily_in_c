@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int isSafe(int maze[10][10], int x, int y, int n);
 void solve(int maze[10][10], int sol[10][10], int x, int y, int n);
 
 int main()
@@ -33,4 +34,19 @@ void solve(int maze[10][10], int sol[10][10], int x, int y, int n)
         }
         return;
     }
+
+    if(isSafe(maze, x, y, n))
+    {
+        sol[x][y] = 1;
+
+        solve(maze, sol, x+1, y, n);
+        solve(maze, sol, x, y+1, n);
+
+        sol[x][y] = 0;
+    }
+}
+
+int isSafe(int maze[10][10], int x, int y, int n)
+{
+    return 1;
 }
