@@ -48,5 +48,8 @@ void solve(int maze[10][10], int sol[10][10], int x, int y, int n)
 
 int isSafe(int maze[10][10], int x, int y, int n)
 {
-    return 1;
+    if(x >= 0 && y >= 0 && x < n && y < n && maze[x][y] == 1)
+        return 1;
+
+    return 0;
 }
