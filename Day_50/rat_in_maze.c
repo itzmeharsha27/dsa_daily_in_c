@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Check if move is valid
 int isSafe(int maze[10][10], int x, int y, int n)
 {
     if(x >= 0 && y >= 0 && x < n && y < n && maze[x][y] == 1)
@@ -7,8 +8,10 @@ int isSafe(int maze[10][10], int x, int y, int n)
     return 0;
 }
 
+// Backtracking function
 void solve(int maze[10][10], int sol[10][10], int x, int y, int n)
 {
+    // Destination reached
     if(x == n-1 && y == n-1)
     {
         sol[x][y] = 1;
@@ -27,9 +30,13 @@ void solve(int maze[10][10], int sol[10][10], int x, int y, int n)
     {
         sol[x][y] = 1;
 
+        // Move down
         solve(maze, sol, x+1, y, n);
+
+        // Move right
         solve(maze, sol, x, y+1, n);
 
+        // Backtrack
         sol[x][y] = 0;
     }
 }
@@ -38,9 +45,10 @@ int main()
 {
     int n, maze[10][10], sol[10][10] = {0};
 
-    printf("Enter size: ");
+    printf("Enter size of maze: ");
     scanf("%d", &n);
 
+    // Validate input
     if(n <= 0)
     {
         printf("Invalid input\n");
