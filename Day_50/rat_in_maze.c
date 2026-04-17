@@ -41,12 +41,16 @@ int main()
     printf("Enter size: ");
     scanf("%d", &n);
 
+    if(n <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     printf("Enter maze:\n");
     for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
             scanf("%d",&maze[i][j]);
-
-    printf("Start = %d\n", maze[0][0]);
 
     solve(maze, sol, 0, 0, n);
 
