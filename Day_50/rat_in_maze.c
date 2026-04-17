@@ -21,6 +21,7 @@ int main()
         for(int j=0;j<n;j++)
             scanf("%d",&maze[i][j]);
 
+    printf("Paths:\n");
     solve(maze, sol, 0, 0, n);
 
     return 0;
@@ -46,6 +47,7 @@ void solve(int maze[10][10], int sol[10][10], int x, int y, int n)
                 printf("%d ", sol[i][j]);
             printf("\n");
         }
+        printf("\n");
         return;
     }
 
