@@ -46,7 +46,7 @@ int main()
         for(int j=0;j<n;j++)
             scanf("%d",&maze[i][j]);
 
-    printf("N = %d\n", n);
+    printf("Start = %d\n", maze[0][0]);
 
     solve(maze, sol, 0, 0, n);
 
