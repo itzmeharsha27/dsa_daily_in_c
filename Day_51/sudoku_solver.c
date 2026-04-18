@@ -1,32 +1,24 @@
 #include <stdio.h>
 
-int isSafe(int grid[9][9], int row, int col, int num);
-int solve(int grid[9][9]);
-
-int main()
+// Check if safe to place number
+int isSafe(int grid[9][9], int row, int col, int num)
 {
-    int grid[9][9];
+    for(int x=0;x<9;x++)
+        if(grid[row][x]==num || grid[x][col]==num)
+            return 0;
 
-    printf("Enter Sudoku grid:\n");
-    for(int i=0;i<9;i++)
-        for(int j=0;j<9;j++)
-            scanf("%d",&grid[i][j]);
+    int startRow = row - row%3;
+    int startCol = col - col%3;
 
-    printf("Solved Sudoku:\n");
+    for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+            if(grid[i+startRow][j+startCol]==num)
+                return 0;
 
-    if(solve(grid))
-    {
-        for(int i=0;i<9;i++)
-        {
-            for(int j=0;j<9;j++)
-                printf("%d ",grid[i][j]);
-            printf("\n");
-        }
-    }
-
-    return 0;
+    return 1;
 }
 
+// Backtracking solver
 int solve(int grid[9][9])
 {
     for(int i=0;i<9;i++)
@@ -52,19 +44,24 @@ int solve(int grid[9][9])
     return 1;
 }
 
-int isSafe(int grid[9][9], int row, int col, int num)
+int main()
 {
-    for(int x=0;x<9;x++)
-        if(grid[row][x]==num || grid[x][col]==num)
-            return 0;
+    int grid[9][9];
 
-    int startRow = row - row%3;
-    int startCol = col - col%3;
+    printf("Enter Sudoku grid:\n");
+    for(int i=0;i<9;i++)
+        for(int j=0;j<9;j++)
+            scanf("%d",&grid[i][j]);
 
-    for(int i=0;i<3;i++)
-        for(int j=0;j<3;j++)
-            if(grid[i+startRow][j+startCol]==num)
-                return 0;
+    if(solve(grid))
+    {
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+                printf("%d ",grid[i][j]);
+            printf("\n");
+        }
+    }
 
-    return 1;
+    return 0;
 }
