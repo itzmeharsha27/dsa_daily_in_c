@@ -12,7 +12,15 @@ int main()
         for(int j=0;j<9;j++)
             scanf("%d",&grid[i][j]);
 
-    solve(grid);
+    if(solve(grid))
+    {
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+                printf("%d ",grid[i][j]);
+            printf("\n");
+        }
+    }
 
     return 0;
 }
@@ -44,5 +52,9 @@ int solve(int grid[9][9])
 
 int isSafe(int grid[9][9], int row, int col, int num)
 {
+    for(int x=0;x<9;x++)
+        if(grid[row][x]==num || grid[x][col]==num)
+            return 0;
+
     return 1;
 }
