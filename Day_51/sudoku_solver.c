@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Check if safe to place number
 int isSafe(int grid[9][9], int row, int col, int num)
 {
     for(int x=0;x<9;x++)
@@ -18,7 +17,6 @@ int isSafe(int grid[9][9], int row, int col, int num)
     return 1;
 }
 
-// Backtracking solver
 int solve(int grid[9][9])
 {
     for(int i=0;i<9;i++)
@@ -48,10 +46,12 @@ int main()
 {
     int grid[9][9];
 
-    printf("Enter Sudoku grid:\n");
+    printf("Enter Sudoku:\n");
     for(int i=0;i<9;i++)
         for(int j=0;j<9;j++)
             scanf("%d",&grid[i][j]);
+
+    printf("Solving...\n");
 
     if(solve(grid))
     {
