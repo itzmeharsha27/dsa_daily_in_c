@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int isSafe(int grid[9][9], int row, int col, int num);
 int solve(int grid[9][9]);
 
 int main()
@@ -23,8 +24,25 @@ int solve(int grid[9][9])
         for(int j=0;j<9;j++)
         {
             if(grid[i][j] == 0)
+            {
+                for(int num=1; num<=9; num++)
+                {
+                    if(isSafe(grid,i,j,num))
+                    {
+                        grid[i][j]=num;
+                        if(solve(grid))
+                            return 1;
+                        grid[i][j]=0;
+                    }
+                }
                 return 0;
+            }
         }
     }
+    return 1;
+}
+
+int isSafe(int grid[9][9], int row, int col, int num)
+{
     return 1;
 }
