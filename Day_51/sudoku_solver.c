@@ -63,7 +63,7 @@ int main()
     {
         printf("Solved Sudoku:\n");
 
-        for(int i=0;i<9;i++)
+        for(int i= 0;i<9;i++)
         {
             for(int j=0;j<9;j++)
                 printf("%d ",grid[i][j]);
