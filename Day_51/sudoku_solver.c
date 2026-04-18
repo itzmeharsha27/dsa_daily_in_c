@@ -56,5 +56,13 @@ int isSafe(int grid[9][9], int row, int col, int num)
         if(grid[row][x]==num || grid[x][col]==num)
             return 0;
 
+    int startRow = row - row%3;
+    int startCol = col - col%3;
+
+    for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+            if(grid[i+startRow][j+startCol]==num)
+                return 0;
+
     return 1;
 }
