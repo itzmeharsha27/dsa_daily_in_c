@@ -12,6 +12,8 @@ int main()
         for(int j=0;j<9;j++)
             scanf("%d",&grid[i][j]);
 
+    printf("Solved Sudoku:\n");
+
     if(solve(grid))
     {
         for(int i=0;i<9;i++)
