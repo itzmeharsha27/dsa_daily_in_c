@@ -51,7 +51,7 @@ int main()
         for(int j=0;j<9;j++)
             scanf("%d",&grid[i][j]);
 
-    printf("Solving...\n");
+    printf("Start = %d\n", grid[0][0]);
 
     if(solve(grid))
     {
