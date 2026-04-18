@@ -18,5 +18,13 @@ int main()
 
 int solve(int grid[9][9])
 {
-    return 0;
+    for(int i=0;i<9;i++)
+    {
+        for(int j=0;j<9;j++)
+        {
+            if(grid[i][j] == 0)
+                return 0;
+        }
+    }
+    return 1;
 }
