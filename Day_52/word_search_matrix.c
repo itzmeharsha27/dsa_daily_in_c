@@ -37,7 +37,7 @@ int main()
     printf("Enter word: ");
     scanf("%s", word);
 
-    printf("Grid size = %d x %d\n", n, m);
+    printf("First cell = %c\n", grid[0][0]);
 
     int found = 0;
 
