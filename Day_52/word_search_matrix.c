@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Backtracking search in 4 directions
 int search(char grid[10][10], int n, int m, char word[], int i, int j, int k)
 {
     if(word[k] == '\0')
@@ -42,8 +43,6 @@ int main()
 
     printf("Enter word: ");
     scanf("%s", word);
-
-    printf("Searching...\n");
 
     int found = 0;
 
