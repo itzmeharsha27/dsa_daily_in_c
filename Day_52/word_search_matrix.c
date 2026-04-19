@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Recursive search function
 int search(char grid[10][10], int n, int m, char word[], int i, int j, int k)
 {
     if(word[k] == '\0')
@@ -30,6 +29,12 @@ int main()
     printf("Enter rows and cols: ");
     scanf("%d %d", &n, &m);
 
+    if(n<=0 || m<=0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     printf("Enter grid:\n");
     for(int i=0;i<n;i++)
         for(int j=0;j<m;j++)
@@ -48,7 +53,7 @@ int main()
     if(found)
         printf("Found\n");
     else
-        printf("Not  Found\n");
+        printf("Not Found\n");
 
     return 0;
 }
