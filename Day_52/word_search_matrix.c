@@ -43,6 +43,8 @@ int main()
     printf("Enter word: ");
     scanf("%s", word);
 
+    printf("Searching...\n");
+
     int found = 0;
 
     for(int i=0;i<n;i++)
