@@ -23,5 +23,6 @@ int main()
 
 int search(char grid[10][10], int n, int m, char word[], int i, int j, int k)
 {
-    return 0;
+    if(word[k] == '\0')
+        return 1;
 }
