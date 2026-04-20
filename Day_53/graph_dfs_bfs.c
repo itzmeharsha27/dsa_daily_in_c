@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void dfs(int graph[10][10], int visited[], int node, int n);
+
 int main()
 {
     int n;
@@ -8,4 +10,8 @@ int main()
     scanf("%d", &n);
 
     return 0;
+}
+
+void dfs(int graph[10][10], int visited[], int node, int n)
+{
 }
