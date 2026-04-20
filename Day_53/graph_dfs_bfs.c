@@ -24,4 +24,10 @@ void dfs(int graph[10][10], int visited[], int node, int n)
 {
     visited[node] = 1;
     printf("%d ", node);
+
+    for(int i=0;i<n;i++)
+    {
+        if(graph[node][i] && !visited[i])
+            dfs(graph, visited, i, n);
+    }
 }
