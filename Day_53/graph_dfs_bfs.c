@@ -46,5 +46,14 @@ void bfs(int graph[10][10], int n)
     {
         int node = queue[front++];
         printf("%d ", node);
+
+        for(int i=0;i<n;i++)
+        {
+            if(graph[node][i] && !visited[i])
+            {
+                queue[rear++] = i;
+                visited[i] = 1;
+            }
+        }
     }
 }
