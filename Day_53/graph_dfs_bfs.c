@@ -1,29 +1,6 @@
 #include <stdio.h>
 
-void dfs(int graph[10][10], int visited[], int node, int n);
-void bfs(int graph[10][10], int n);
-
-int main()
-{
-    int n, graph[10][10], visited[10] = {0};
-
-    printf("Enter number of vertices: ");
-    scanf("%d", &n);
-
-    printf("Enter adjacency matrix:\n");
-    for(int i=0;i<n;i++)
-        for(int j=0;j<n;j++)
-            scanf("%d",&graph[i][j]);
-
-    printf("DFS: ");
-    dfs(graph, visited, 0, n);
-
-    printf("\nBFS: ");
-    bfs(graph, n);
-
-    return 0;
-}
-
+// DFS and BFS traversal
 void dfs(int graph[10][10], int visited[], int node, int n)
 {
     visited[node] = 1;
@@ -48,12 +25,31 @@ void bfs(int graph[10][10], int n)
         printf("%d ", node);
 
         for(int i=0;i<n;i++)
-        {
             if(graph[node][i] && !visited[i])
             {
                 queue[rear++] = i;
                 visited[i] = 1;
             }
-        }
     }
+}
+
+int main()
+{
+    int n, graph[10][10], visited[10] = {0};
+
+    printf("Enter vertices: ");
+    scanf("%d", &n);
+
+    printf("Enter adjacency matrix:\n");
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            scanf("%d",&graph[i][j]);
+
+    printf("DFS: ");
+    dfs(graph, visited, 0, n);
+
+    printf("\nBFS: ");
+    bfs(graph, n);
+
+    return 0;
 }
