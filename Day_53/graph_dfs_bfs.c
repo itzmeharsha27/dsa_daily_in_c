@@ -18,6 +18,9 @@ int main()
     printf("DFS: ");
     dfs(graph, visited, 0, n);
 
+    printf("\nBFS: ");
+    bfs(graph, n);
+
     return 0;
 }
 
@@ -33,4 +36,9 @@ void dfs(int graph[10][10], int visited[], int node, int n)
 
 void bfs(int graph[10][10], int n)
 {
+    int queue[10], front=0, rear=0;
+    int visited[10] = {0};
+
+    queue[rear++] = 0;
+    visited[0] = 1;
 }
