@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void dfs(int graph[10][10], int visited[], int node, int n);
+void bfs(int graph[10][10], int n);
 
 int main()
 {
@@ -26,8 +27,10 @@ void dfs(int graph[10][10], int visited[], int node, int n)
     printf("%d ", node);
 
     for(int i=0;i<n;i++)
-    {
         if(graph[node][i] && !visited[i])
             dfs(graph, visited, i, n);
-    }
+}
+
+void bfs(int graph[10][10], int n)
+{
 }
