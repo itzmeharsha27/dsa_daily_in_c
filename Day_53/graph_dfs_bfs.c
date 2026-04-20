@@ -1,16 +1,19 @@
 #include <stdio.h>
 
-// DFS and BFS traversal
+// Depth First Search
 void dfs(int graph[10][10], int visited[], int node, int n)
 {
     visited[node] = 1;
     printf("%d ", node);
 
     for(int i=0;i<n;i++)
+    {
         if(graph[node][i] && !visited[i])
             dfs(graph, visited, i, n);
+    }
 }
 
+// Breadth First Search
 void bfs(int graph[10][10], int n)
 {
     int queue[10], front=0, rear=0;
@@ -25,11 +28,13 @@ void bfs(int graph[10][10], int n)
         printf("%d ", node);
 
         for(int i=0;i<n;i++)
+        {
             if(graph[node][i] && !visited[i])
             {
                 queue[rear++] = i;
                 visited[i] = 1;
             }
+        }
     }
 }
 
@@ -37,8 +42,15 @@ int main()
 {
     int n, graph[10][10], visited[10] = {0};
 
-    printf("Enter vertices: ");
+    printf("Enter number of vertices: ");
     scanf("%d", &n);
+
+    // Validate input
+    if(n <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
 
     printf("Enter adjacency matrix:\n");
     for(int i=0;i<n;i++)
