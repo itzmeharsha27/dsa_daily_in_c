@@ -41,4 +41,10 @@ void bfs(int graph[10][10], int n)
 
     queue[rear++] = 0;
     visited[0] = 1;
+
+    while(front < rear)
+    {
+        int node = queue[front++];
+        printf("%d ", node);
+    }
 }
