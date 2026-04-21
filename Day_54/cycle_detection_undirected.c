@@ -1,6 +1,25 @@
 #include <stdio.h>
 
-int dfs(int graph[10][10], int visited[], int node, int parent, int n);
+// DFS for cycle detection
+int dfs(int graph[10][10], int visited[], int node, int parent, int n)
+{
+    visited[node] = 1;
+
+    for(int i=0;i<n;i++)
+    {
+        if(graph[node][i])
+        {
+            if(!visited[i])
+            {
+                if(dfs(graph, visited, i, node, n))
+                    return 1;
+            }
+            else if(i != parent)
+                return 1;
+        }
+    }
+    return 0;
+}
 
 int main()
 {
@@ -19,25 +38,5 @@ int main()
     else
         printf("No Cycle\n");
 
-    return 0;
-}
-
-int dfs(int graph[10][10], int visited[], int node, int parent, int n)
-{
-    visited[node] = 1;
-
-    for(int i=0;i<n;i++)
-    {
-        if(graph[node][i])
-        {
-            if(!visited[i])
-            {
-                if(dfs(graph, visited, i, node, n))
-                    return 1;
-            }
-            else if(i != parent)
-                return 1;
-        }
-    }
     return 0;
 }
