@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// DFS for cycle detection
 int dfs(int graph[10][10], int visited[], int node, int parent, int n)
 {
     visited[node] = 1;
@@ -38,6 +37,8 @@ int main()
     for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
             scanf("%d",&graph[i][j]);
+
+    printf("Checking...\n");
 
     if(dfs(graph, visited, 0, -1, n))
         printf("Cycle Detected\n");
