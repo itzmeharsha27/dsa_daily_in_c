@@ -14,7 +14,10 @@ int main()
         for(int j=0;j<n;j++)
             scanf("%d",&graph[i][j]);
 
-    dfs(graph, visited, 0, -1, n);
+    if(dfs(graph, visited, 0, -1, n))
+        printf("Cycle Detected\n");
+    else
+        printf("No Cycle\n");
 
     return 0;
 }
@@ -22,4 +25,19 @@ int main()
 int dfs(int graph[10][10], int visited[], int node, int parent, int n)
 {
     visited[node] = 1;
+
+    for(int i=0;i<n;i++)
+    {
+        if(graph[node][i])
+        {
+            if(!visited[i])
+            {
+                if(dfs(graph, visited, i, node, n))
+                    return 1;
+            }
+            else if(i != parent)
+                return 1;
+        }
+    }
+    return 0;
 }
