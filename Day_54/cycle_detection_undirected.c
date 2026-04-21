@@ -28,6 +28,12 @@ int main()
     printf("Enter number of vertices: ");
     scanf("%d", &n);
 
+    if(n <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     printf("Enter adjacency matrix:\n");
     for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
