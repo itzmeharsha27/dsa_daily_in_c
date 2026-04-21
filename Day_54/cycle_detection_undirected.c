@@ -21,5 +21,5 @@ int main()
 
 int dfs(int graph[10][10], int visited[], int node, int parent, int n)
 {
-    return 0;
+    visited[node] = 1;
 }
