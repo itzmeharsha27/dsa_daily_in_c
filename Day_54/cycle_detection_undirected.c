@@ -32,7 +32,7 @@ int main()
         for(int j=0;j<n;j++)
             scanf("%d",&graph[i][j]);
 
-    printf("Start node = 0\n");
+    printf("First edge = %d\n", graph[0][1]);
 
     if(dfs(graph, visited, 0, -1, n))
         printf("Cycle Detected\n");
