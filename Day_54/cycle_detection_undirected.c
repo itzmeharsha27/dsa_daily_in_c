@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// DFS function to detect cycle in undirected graph
 int dfs(int graph[10][10], int visited[], int node, int parent, int n)
 {
     visited[node] = 1;
@@ -8,11 +9,13 @@ int dfs(int graph[10][10], int visited[], int node, int parent, int n)
     {
         if(graph[node][i])
         {
+            // If not visited, continue DFS
             if(!visited[i])
             {
                 if(dfs(graph, visited, i, node, n))
                     return 1;
             }
+            // If visited and not parent → cycle
             else if(i != parent)
                 return 1;
         }
@@ -24,16 +27,22 @@ int main()
 {
     int n, graph[10][10], visited[10] = {0};
 
-    printf("Enter vertices: ");
+    printf("Enter number of vertices: ");
     scanf("%d", &n);
+
+    // Validate input
+    if(n <= 0)
+    {
+        printf("Invalid input\n");
+        return 0;
+    }
 
     printf("Enter adjacency matrix:\n");
     for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
             scanf("%d",&graph[i][j]);
 
-    printf("First edge = %d\n", graph[0][1]);
-
+    // Start DFS from node 0
     if(dfs(graph, visited, 0, -1, n))
         printf("Cycle Detected\n");
     else
