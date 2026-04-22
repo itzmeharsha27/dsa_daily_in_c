@@ -23,4 +23,12 @@ struct Node* LCA(struct Node* root, int p, int q)
 {
     if(root == NULL)
         return NULL;
+
+    if(root->data == p || root->data == q)
+        return root;
+
+    struct Node* left = LCA(root->left, p, q);
+    struct Node* right = LCA(root->right, p, q);
+
+    return NULL;
 }
