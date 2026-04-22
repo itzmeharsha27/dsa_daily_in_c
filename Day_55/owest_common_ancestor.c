@@ -8,6 +8,7 @@ struct Node
 };
 
 struct Node* createNode(int val);
+struct Node* LCA(struct Node* root, int p, int q);
 
 int main()
 {
@@ -18,10 +19,7 @@ int main()
     return 0;
 }
 
-struct Node* createNode(int val)
+struct Node* LCA(struct Node* root, int p, int q)
 {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = val;
-    newNode->left = newNode->right = NULL;
-    return newNode;
+    return NULL;
 }
