@@ -21,5 +21,6 @@ int main()
 
 struct Node* LCA(struct Node* root, int p, int q)
 {
-    return NULL;
+    if(root == NULL)
+        return NULL;
 }
