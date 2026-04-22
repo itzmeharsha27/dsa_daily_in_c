@@ -30,5 +30,8 @@ struct Node* LCA(struct Node* root, int p, int q)
     struct Node* left = LCA(root->left, p, q);
     struct Node* right = LCA(root->right, p, q);
 
-    return NULL;
+    if(left && right)
+        return root;
+
+    return left ? left : right;
 }
