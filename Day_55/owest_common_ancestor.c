@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// LCA in binary tree
 struct Node
 {
     int data;
@@ -38,8 +37,13 @@ int main()
     struct Node* root = createNode(3);
     root->left = createNode(5);
     root->right = createNode(1);
-    root->left->left = createNode(6);
-    root->left->right = createNode(2);
+
+    int p = 5, q = 1;
+
+    struct Node* ans = LCA(root, p, q);
+
+    if(ans)
+        printf("LCA = %d\n", ans->data);
 
     return 0;
 }
