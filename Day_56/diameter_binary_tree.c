@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Diameter of binary tree
-
 struct Node
 {
     int data;
@@ -54,8 +52,10 @@ int main()
     struct Node* root = createNode(1);
     root->left = createNode(2);
     root->right = createNode(3);
-    root->left->left = createNode(4);
-    root->left->right = createNode(5);
+
+    int d = diameter(root);
+
+    printf("Diameter = %d\n", d);
 
     return 0;
 }
