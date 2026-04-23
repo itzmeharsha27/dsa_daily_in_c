@@ -61,7 +61,7 @@ int main()
     root->left->right = createNode(5);
     root->left->left->left = createNode(6);
 
-    int d = diameter(root);
+    int d =  diameter(root);
 
     printf("Diameter of Binary Tree: %d\n", d);
 
