@@ -22,5 +22,21 @@ int main()
 
 int diameter(struct Node* root)
 {
-    return 0;
+    if(root == NULL)
+        return 0;
+
+    int leftH = height(root->left);
+    int rightH = height(root->right);
+
+    int leftD = diameter(root->left);
+    int rightD = diameter(root->right);
+
+    int curr = leftH + rightH + 1;
+
+    if(curr > leftD && curr > rightD)
+        return curr;
+    else if(leftD > rightD)
+        return leftD;
+    else
+        return rightD;
 }
