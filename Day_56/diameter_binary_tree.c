@@ -9,6 +9,7 @@ struct Node
 
 struct Node* createNode(int val);
 int height(struct Node* root);
+int diameter(struct Node* root);
 
 int main()
 {
@@ -19,13 +20,7 @@ int main()
     return 0;
 }
 
-int height(struct Node* root)
+int diameter(struct Node* root)
 {
-    if(root == NULL)
-        return 0;
-
-    int left = height(root->left);
-    int right = height(root->right);
-
-    return (left > right ? left : right) + 1;
+    return 0;
 }
