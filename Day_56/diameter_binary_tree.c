@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Node structure
 struct Node
 {
     int data;
     struct Node *left, *right;
 };
 
+// Create node
 struct Node* createNode(int val)
 {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
@@ -15,6 +17,7 @@ struct Node* createNode(int val)
     return newNode;
 }
 
+// Height of tree
 int height(struct Node* root)
 {
     if(root == NULL)
@@ -26,6 +29,7 @@ int height(struct Node* root)
     return (left > right ? left : right) + 1;
 }
 
+// Diameter of tree
 int diameter(struct Node* root)
 {
     if(root == NULL)
@@ -49,13 +53,17 @@ int diameter(struct Node* root)
 
 int main()
 {
+    // Build tree
     struct Node* root = createNode(1);
     root->left = createNode(2);
     root->right = createNode(3);
+    root->left->left = createNode(4);
+    root->left->right = createNode(5);
+    root->left->left->left = createNode(6);
 
     int d = diameter(root);
 
-    printf("Diameter = %d\n", d);
+    printf("Diameter of Binary Tree: %d\n", d);
 
     return 0;
 }
