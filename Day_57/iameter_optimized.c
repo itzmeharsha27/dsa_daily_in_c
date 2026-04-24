@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Optimized diameter
-
 struct Node
 {
     int data;
@@ -47,6 +45,11 @@ int main()
     struct Node* root = createNode(1);
     root->left = createNode(2);
     root->right = createNode(3);
+
+    int h = 0;
+    int d = diameterUtil(root, &h);
+
+    printf("Diameter = %d\n", d);
 
     return 0;
 }
