@@ -8,7 +8,7 @@ struct Node
 };
 
 struct Node* createNode(int val);
-int diameter(struct Node* root);
+int diameterUtil(struct Node* root, int* height);
 
 int main()
 {
@@ -19,8 +19,7 @@ int main()
     return 0;
 }
 
-int diameter(struct Node* root)
+int diameterUtil(struct Node* root, int* height)
 {
-    if(root == NULL)
-        return 0;
+    return 0;
 }
