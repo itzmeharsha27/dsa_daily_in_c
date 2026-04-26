@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-// Balanced Binary Tree
-
 struct Node
 {
     int data;
@@ -48,6 +46,11 @@ int main()
     struct Node* root = createNode(1);
     root->left = createNode(2);
     root->right = createNode(3);
+
+    if(isBalanced(root))
+        printf("Balanced\n");
+    else
+        printf("Not Balanced\n");
 
     return 0;
 }
