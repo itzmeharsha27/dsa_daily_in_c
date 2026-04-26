@@ -2,24 +2,31 @@
 #include <stdlib.h>
 #include <math.h>
 
+// Balanced Binary Tree
+
 struct Node
 {
     int data;
     struct Node *left, *right;
 };
 
-struct Node* createNode(int val);
-int height(struct Node* root);
-int isBalanced(struct Node* root);
-
-int main()
+struct Node* createNode(int val)
 {
-    struct Node* root = createNode(1);
-    root->left = createNode(2);
-    root->right = createNode(3);
-    root->left->left = createNode(4);
+    struct Node* n = (struct Node*)malloc(sizeof(struct Node));
+    n->data = val;
+    n->left = n->right = NULL;
+    return n;
+}
 
-    return 0;
+int height(struct Node* root)
+{
+    if(root == NULL)
+        return 0;
+
+    int l = height(root->left);
+    int r = height(root->right);
+
+    return (l > r ? l : r) + 1;
 }
 
 int isBalanced(struct Node* root)
@@ -32,6 +39,15 @@ int isBalanced(struct Node* root)
 
     if(abs(lh - rh) <= 1 && isBalanced(root->left) && isBalanced(root->right))
         return 1;
+
+    return 0;
+}
+
+int main()
+{
+    struct Node* root = createNode(1);
+    root->left = createNode(2);
+    root->right = createNode(3);
 
     return 0;
 }
