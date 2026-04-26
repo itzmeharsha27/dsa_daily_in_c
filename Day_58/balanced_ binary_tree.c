@@ -48,7 +48,7 @@ int isBalanced(struct Node* root)
 int main()
 {
     // Example tree
-    struct Node* root = createNode(1);
+    struct Node* root  = createNode(1);
     root->left = createNode(2);
     root->right = createNode(3);
 
