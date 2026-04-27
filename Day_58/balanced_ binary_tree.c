@@ -55,7 +55,7 @@ int main()
     if(isBalanced(root))
         printf("Balanced Binary Tree\n");
     else
-        printf("Not          Balanced\n");
+        printf("Not             Balanced\n");
  
     return 0;
 }
