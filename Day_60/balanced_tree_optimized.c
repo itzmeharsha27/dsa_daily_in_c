@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Node structure
 struct Node
 {
     int data;
     struct Node *left, *right;
 };
 
+// Create node
 struct Node* createNode(int val)
 {
     struct Node* n = (struct Node*)malloc(sizeof(struct Node));
@@ -15,6 +17,7 @@ struct Node* createNode(int val)
     return n;
 }
 
+// Optimized check (returns -1 if unbalanced)
 int checkHeight(struct Node* root)
 {
     if(root == NULL)
@@ -34,15 +37,16 @@ int checkHeight(struct Node* root)
 
 int main()
 {
+    // Example tree
     struct Node* root = createNode(1);
     root->left = createNode(2);
     root->right = createNode(3);
     root->left->left = createNode(4);
 
     if(checkHeight(root) == -1)
-        printf("Not Balanced\n");
+        printf("Not Balanced Binary Tree\n");
     else
-        printf("Balanced\n");
+        printf("Balanced Binary Tree\n");
 
     return 0;
 }
