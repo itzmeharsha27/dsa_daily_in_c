@@ -14,7 +14,7 @@ int main()
 {
     struct Node* root = createNode(1);
     root->left = createNode(2);
-    root->right = createNode(3);
+    root->left->left = createNode(3);
 
     return 0;
 }
