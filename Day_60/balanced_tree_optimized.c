@@ -21,5 +21,6 @@ int main()
 
 int checkHeight(struct Node* root)
 {
-    return 0;
+    if(root == NULL)
+        return 0;
 }
