@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Optimized balance check
-
 struct Node
 {
     int data;
@@ -38,6 +36,11 @@ int main()
 {
     struct Node* root = createNode(1);
     root->left = createNode(2);
+
+    if(checkHeight(root) == -1)
+        printf("Not Balanced\n");
+    else
+        printf("Balanced\n");
 
     return 0;
 }
