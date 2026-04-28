@@ -8,6 +8,7 @@ struct Node
 };
 
 struct Node* createNode(int val);
+int checkHeight(struct Node* root);
 
 int main()
 {
@@ -18,10 +19,7 @@ int main()
     return 0;
 }
 
-struct Node* createNode(int val)
+int checkHeight(struct Node* root)
 {
-    struct Node* n = (struct Node*)malloc(sizeof(struct Node));
-    n->data = val;
-    n->left = n->right = NULL;
-    return n;
+    return 0;
 }
