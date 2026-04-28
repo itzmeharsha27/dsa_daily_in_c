@@ -23,4 +23,9 @@ int checkHeight(struct Node* root)
 {
     if(root == NULL)
         return 0;
+
+    int lh = checkHeight(root->left);
+    int rh = checkHeight(root->right);
+
+    return (lh > rh ? lh : rh) + 1;
 }
