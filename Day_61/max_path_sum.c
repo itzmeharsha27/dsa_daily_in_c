@@ -28,5 +28,13 @@ int maxPath(struct Node* root, int* maxSum)
     int left = maxPath(root->left, maxSum);
     int right = maxPath(root->right, maxSum);
 
-    return root->data;
+    if(left < 0) left = 0;
+    if(right < 0) right = 0;
+
+    int curr = left + right + root->data;
+
+    if(curr > *maxSum)
+        *maxSum = curr;
+
+    return root->data + (left > right ? left : right);
 }
