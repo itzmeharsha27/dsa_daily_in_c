@@ -11,6 +11,10 @@ struct Node* createNode(int val);
 
 int main()
 {
+    struct Node* root = createNode(10);
+    root->left = createNode(2);
+    root->right = createNode(10);
+
     return 0;
 }
 
