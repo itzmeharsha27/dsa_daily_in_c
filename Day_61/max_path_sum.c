@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <limits.h>
 
-// Maximum path sum
-
 struct Node
 {
     int data;
@@ -42,6 +40,11 @@ int main()
     struct Node* root = createNode(10);
     root->left = createNode(2);
     root->right = createNode(10);
+
+    int maxSum = INT_MIN;
+    maxPath(root, &maxSum);
+
+    printf("Max Path Sum = %d\n", maxSum);
 
     return 0;
 }
