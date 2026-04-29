@@ -37,9 +37,11 @@ int maxPath(struct Node* root, int* maxSum)
 
 int main()
 {
-    struct Node* root = createNode(10);
-    root->left = createNode(2);
-    root->right = createNode(10);
+    struct Node* root = createNode(-10);
+    root->left = createNode(9);
+    root->right = createNode(20);
+    root->right->left = createNode(15);
+    root->right->right = createNode(7);
 
     int maxSum = INT_MIN;
     maxPath(root, &maxSum);
