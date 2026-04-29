@@ -24,4 +24,9 @@ int maxPath(struct Node* root, int* maxSum)
 {
     if(root == NULL)
         return 0;
+
+    int left = maxPath(root->left, maxSum);
+    int right = maxPath(root->right, maxSum);
+
+    return root->data;
 }
