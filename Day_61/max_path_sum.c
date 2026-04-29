@@ -2,24 +2,20 @@
 #include <stdlib.h>
 #include <limits.h>
 
+// Maximum path sum
+
 struct Node
 {
     int data;
     struct Node *left, *right;
 };
 
-struct Node* createNode(int val);
-int maxPath(struct Node* root, int* maxSum);
-
-int main()
+struct Node* createNode(int val)
 {
-    struct Node* root = createNode(10);
-    root->left = createNode(2);
-    root->right = createNode(10);
-    root->left->left = createNode(20);
-    root->left->right = createNode(1);
-
-    return 0;
+    struct Node* n = (struct Node*)malloc(sizeof(struct Node));
+    n->data = val;
+    n->left = n->right = NULL;
+    return n;
 }
 
 int maxPath(struct Node* root, int* maxSum)
@@ -39,4 +35,13 @@ int maxPath(struct Node* root, int* maxSum)
         *maxSum = curr;
 
     return root->data + (left > right ? left : right);
+}
+
+int main()
+{
+    struct Node* root = createNode(10);
+    root->left = createNode(2);
+    root->right = createNode(10);
+
+    return 0;
 }
