@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <limits.h>
 
+// Node structure
 struct Node
 {
     int data;
     struct Node *left, *right;
 };
 
+// Create node
 struct Node* createNode(int val)
 {
     struct Node* n = (struct Node*)malloc(sizeof(struct Node));
@@ -16,6 +18,7 @@ struct Node* createNode(int val)
     return n;
 }
 
+// Maximum path sum logic
 int maxPath(struct Node* root, int* maxSum)
 {
     if(root == NULL)
@@ -37,6 +40,7 @@ int maxPath(struct Node* root, int* maxSum)
 
 int main()
 {
+    // Example tree
     struct Node* root = createNode(-10);
     root->left = createNode(9);
     root->right = createNode(20);
@@ -44,9 +48,10 @@ int main()
     root->right->right = createNode(7);
 
     int maxSum = INT_MIN;
+
     maxPath(root, &maxSum);
 
-    printf("Max Path Sum = %d\n", maxSum);
+    printf("Maximum Path Sum: %d\n", maxSum);
 
     return 0;
 }
