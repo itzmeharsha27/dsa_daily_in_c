@@ -16,6 +16,8 @@ int main()
     struct Node* root = createNode(10);
     root->left = createNode(2);
     root->right = createNode(10);
+    root->left->left = createNode(20);
+    root->left->right = createNode(1);
 
     return 0;
 }
