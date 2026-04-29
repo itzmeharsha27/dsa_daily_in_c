@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 struct Node
 {
@@ -21,5 +22,6 @@ int main()
 
 int maxPath(struct Node* root, int* maxSum)
 {
-    return 0;
+    if(root == NULL)
+        return 0;
 }
