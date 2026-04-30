@@ -9,6 +9,7 @@ struct Node
 
 struct Node* createNode(int val);
 void serialize(struct Node* root);
+struct Node* deserialize(int arr[], int* index);
 
 int main()
 {
@@ -21,15 +22,7 @@ int main()
     return 0;
 }
 
-void serialize(struct Node* root)
+struct Node* deserialize(int arr[], int* index)
 {
-    if(root == NULL)
-    {
-        printf("# ");
-        return;
-    }
-
-    printf("%d ", root->data);
-    serialize(root->left);
-    serialize(root->right);
+    return NULL;
 }
