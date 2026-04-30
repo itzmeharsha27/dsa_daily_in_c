@@ -8,6 +8,7 @@ struct Node
 };
 
 struct Node* createNode(int val);
+void serialize(struct Node* root);
 
 int main()
 {
@@ -15,13 +16,11 @@ int main()
     root->left = createNode(2);
     root->right = createNode(3);
 
+    serialize(root);
+
     return 0;
 }
 
-struct Node* createNode(int val)
+void serialize(struct Node* root)
 {
-    struct Node* n = (struct Node*)malloc(sizeof(struct Node));
-    n->data = val;
-    n->left = n->right = NULL;
-    return n;
 }
