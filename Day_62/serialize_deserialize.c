@@ -23,4 +23,9 @@ int main()
 
 void serialize(struct Node* root)
 {
+    if(root == NULL)
+    {
+        printf("# ");
+        return;
+    }
 }
