@@ -28,4 +28,8 @@ void serialize(struct Node* root)
         printf("# ");
         return;
     }
+
+    printf("%d ", root->data);
+    serialize(root->left);
+    serialize(root->right);
 }
