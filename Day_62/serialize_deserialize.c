@@ -24,5 +24,17 @@ int main()
 
 struct Node* deserialize(int arr[], int* index)
 {
-    return NULL;
+    if(arr[*index] == -1)
+    {
+        (*index)++;
+        return NULL;
+    }
+
+    struct Node* root = createNode(arr[*index]);
+    (*index)++;
+
+    root->left = deserialize(arr, index);
+    root->right = deserialize(arr, index);
+
+    return root;
 }
