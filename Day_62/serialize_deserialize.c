@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Serialize & Deserialize
-
 struct Node
 {
     int data;
@@ -30,29 +28,13 @@ void serialize(struct Node* root)
     serialize(root->right);
 }
 
-struct Node* deserialize(int arr[], int* index)
-{
-    if(arr[*index] == -1)
-    {
-        (*index)++;
-        return NULL;
-    }
-
-    struct Node* root = createNode(arr[*index]);
-    (*index)++;
-
-    root->left = deserialize(arr, index);
-    root->right = deserialize(arr, index);
-
-    return root;
-}
-
 int main()
 {
     struct Node* root = createNode(1);
     root->left = createNode(2);
     root->right = createNode(3);
 
+    printf("Serialized: ");
     serialize(root);
 
     return 0;
