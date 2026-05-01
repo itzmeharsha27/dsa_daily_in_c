@@ -22,5 +22,17 @@ int main()
 
 int search(struct Trie* root, char* word)
 {
-    return 0;
+    struct Trie* curr = root;
+
+    for(int i=0; word[i]!='\0'; i++)
+    {
+        int index = word[i] - 'a';
+
+        if(curr->children[index] == NULL)
+            return 0;
+
+        curr = curr->children[index];
+    }
+
+    return curr->isEnd;
 }
