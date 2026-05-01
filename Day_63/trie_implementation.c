@@ -73,11 +73,12 @@ int main()
 {
     struct Trie* root = createNode();
 
-    insert(root, "cat");
-    insert(root, "car");
+    insert(root, "apple");
+    insert(root, "app");
 
-    printf("Search cat: %d\n", search(root, "cat"));
-    printf("Prefix ca: %d\n", startsWith(root, "ca"));
+    printf("Search apple: %d\n", search(root, "apple"));
+    printf("Search app: %d\n", search(root, "app"));
+    printf("Prefix ap: %d\n", startsWith(root, "ap"));
 
     return 0;
 }
