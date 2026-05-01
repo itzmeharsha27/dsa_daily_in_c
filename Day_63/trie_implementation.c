@@ -10,6 +10,7 @@ struct Trie
 struct Trie* createNode();
 void insert(struct Trie* root, char* word);
 int search(struct Trie* root, char* word);
+int startsWith(struct Trie* root, char* prefix);
 
 int main()
 {
@@ -20,19 +21,7 @@ int main()
     return 0;
 }
 
-int search(struct Trie* root, char* word)
+int startsWith(struct Trie* root, char* prefix)
 {
-    struct Trie* curr = root;
-
-    for(int i=0; word[i]!='\0'; i++)
-    {
-        int index = word[i] - 'a';
-
-        if(curr->children[index] == NULL)
-            return 0;
-
-        curr = curr->children[index];
-    }
-
-    return curr->isEnd;
+    return 0;
 }
