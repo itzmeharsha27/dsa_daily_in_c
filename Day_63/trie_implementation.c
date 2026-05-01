@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Trie implementation
-
 struct Trie
 {
     struct Trie* children[26];
@@ -76,6 +74,10 @@ int main()
     struct Trie* root = createNode();
 
     insert(root, "cat");
+    insert(root, "car");
+
+    printf("Search cat: %d\n", search(root, "cat"));
+    printf("Prefix ca: %d\n", startsWith(root, "ca"));
 
     return 0;
 }
