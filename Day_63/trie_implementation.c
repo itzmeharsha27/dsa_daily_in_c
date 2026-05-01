@@ -1,16 +1,75 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Trie implementation
+
 struct Trie
 {
     struct Trie* children[26];
     int isEnd;
 };
 
-struct Trie* createNode();
-void insert(struct Trie* root, char* word);
-int search(struct Trie* root, char* word);
-int startsWith(struct Trie* root, char* prefix);
+struct Trie* createNode()
+{
+    struct Trie* node = (struct Trie*)malloc(sizeof(struct Trie));
+    node->isEnd = 0;
+
+    for(int i=0;i<26;i++)
+        node->children[i] = NULL;
+
+    return node;
+}
+
+void insert(struct Trie* root, char* word)
+{
+    struct Trie* curr = root;
+
+    for(int i=0; word[i]!='\0'; i++)
+    {
+        int index = word[i] - 'a';
+
+        if(curr->children[index] == NULL)
+            curr->children[index] = createNode();
+
+        curr = curr->children[index];
+    }
+
+    curr->isEnd = 1;
+}
+
+int search(struct Trie* root, char* word)
+{
+    struct Trie* curr = root;
+
+    for(int i=0; word[i]!='\0'; i++)
+    {
+        int index = word[i] - 'a';
+
+        if(curr->children[index] == NULL)
+            return 0;
+
+        curr = curr->children[index];
+    }
+
+    return curr->isEnd;
+}
+
+int startsWith(struct Trie* root, char* prefix)
+{
+    struct Trie* curr = root;
+
+    for(int i=0; prefix[i]!='\0'; i++)
+    {
+        int index = prefix[i] - 'a';
+
+        if(curr->children[index] == NULL)
+            return 0;
+
+        curr = curr->children[index];
+    }
+
+    return 1;
+}
 
 int main()
 {
@@ -18,10 +77,5 @@ int main()
 
     insert(root, "cat");
 
-    return 0;
-}
-
-int startsWith(struct Trie* root, char* prefix)
-{
     return 0;
 }
