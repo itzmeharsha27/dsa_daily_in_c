@@ -8,19 +8,15 @@ struct Trie
 };
 
 struct Trie* createNode();
+void insert(struct Trie* root, char* word);
 
 int main()
 {
+    struct Trie* root = createNode();
+
     return 0;
 }
 
-struct Trie* createNode()
+void insert(struct Trie* root, char* word)
 {
-    struct Trie* node = (struct Trie*)malloc(sizeof(struct Trie));
-    node->isEnd = 0;
-
-    for(int i=0;i<26;i++)
-        node->children[i] = NULL;
-
-    return node;
 }
