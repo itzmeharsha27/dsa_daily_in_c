@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Trie Node
 struct Trie
 {
     struct Trie* children[26];
     int isEnd;
 };
 
+// Create node
 struct Trie* createNode()
 {
     struct Trie* node = (struct Trie*)malloc(sizeof(struct Trie));
@@ -18,6 +20,7 @@ struct Trie* createNode()
     return node;
 }
 
+// Insert word
 void insert(struct Trie* root, char* word)
 {
     struct Trie* curr = root;
@@ -35,6 +38,7 @@ void insert(struct Trie* root, char* word)
     curr->isEnd = 1;
 }
 
+// Search word
 int search(struct Trie* root, char* word)
 {
     struct Trie* curr = root;
@@ -52,6 +56,7 @@ int search(struct Trie* root, char* word)
     return curr->isEnd;
 }
 
+// Check prefix
 int startsWith(struct Trie* root, char* prefix)
 {
     struct Trie* curr = root;
