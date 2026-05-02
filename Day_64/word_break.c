@@ -19,4 +19,17 @@ int wordBreak(char str[], char dict[][20], int size)
     int dp[100] = {0};
 
     dp[0] = 1;
+
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=0;j<i;j++)
+        {
+            if(dp[j])
+            {
+                char sub[100];
+                strncpy(sub, str+j, i-j);
+                sub[i-j] = '\0';
+            }
+        }
+    }
 }
