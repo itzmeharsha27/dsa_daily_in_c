@@ -8,12 +8,15 @@ int main()
     char str[100] = "leetcode";
     char dict[5][20] = {"leet","code"};
 
-    int n = strlen(str);
+    printf("%d\n", wordBreak(str, dict, 2));
 
     return 0;
 }
 
 int wordBreak(char str[], char dict[][20], int size)
 {
-    return 0;
+    int n = strlen(str);
+
+    if(n == 0)
+        return 1;
 }
