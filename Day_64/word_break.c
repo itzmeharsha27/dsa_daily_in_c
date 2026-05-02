@@ -5,8 +5,8 @@ int wordBreak(char str[], char dict[][20], int size);
 
 int main()
 {
-    char str[100];
-    scanf("%s", str);
+    char str[100] = "leetcode";
+    char dict[5][20] = {"leet","code"};
 
     return 0;
 }
