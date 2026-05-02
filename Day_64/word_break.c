@@ -1,17 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int wordBreak(char str[], char dict[][20], int size);
-
-int main()
-{
-    char str[100] = "leetcode";
-    char dict[5][20] = {"leet","code"};
-
-    printf("%d\n", wordBreak(str, dict, 2));
-
-    return 0;
-}
+// Word Break using DP
 
 int wordBreak(char str[], char dict[][20], int size)
 {
@@ -43,4 +33,14 @@ int wordBreak(char str[], char dict[][20], int size)
     }
 
     return dp[n];
+}
+
+int main()
+{
+    char str[] = "leetcode";
+    char dict[2][20] = {"leet","code"};
+
+    printf("%d\n", wordBreak(str, dict, 2));
+
+    return 0;
 }
