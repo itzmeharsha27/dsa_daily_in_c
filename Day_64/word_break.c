@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Word Break using DP
-
 int wordBreak(char str[], char dict[][20], int size)
 {
     int n = strlen(str);
@@ -37,10 +35,13 @@ int wordBreak(char str[], char dict[][20], int size)
 
 int main()
 {
-    char str[] = "leetcode";
-    char dict[2][20] = {"leet","code"};
+    char str[] = "applepenapple";
+    char dict[2][20] = {"apple","pen"};
 
-    printf("%d\n", wordBreak(str, dict, 2));
+    if(wordBreak(str, dict, 2))
+        printf("Yes\n");
+    else
+        printf("No\n");
 
     return 0;
 }
