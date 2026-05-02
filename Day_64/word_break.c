@@ -16,7 +16,7 @@ int main()
 int wordBreak(char str[], char dict[][20], int size)
 {
     int n = strlen(str);
+    int dp[100] = {0};
 
-    if(n == 0)
-        return 1;
+    dp[0] = 1;
 }
