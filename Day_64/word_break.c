@@ -8,6 +8,8 @@ int main()
     char str[100] = "leetcode";
     char dict[5][20] = {"leet","code"};
 
+    int n = strlen(str);
+
     return 0;
 }
 
