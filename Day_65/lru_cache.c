@@ -15,22 +15,22 @@ struct LRU
 
 struct Node* createNode(int key, int value);
 void insertFront(struct LRU* cache, struct Node* node);
+void removeNode(struct LRU* cache, struct Node* node);
 
 int main()
 {
     return 0;
 }
 
-void insertFront(struct LRU* cache, struct Node* node)
+void removeNode(struct LRU* cache, struct Node* node)
 {
-    node->next = cache->head;
-    node->prev = NULL;
+    if(node->prev)
+        node->prev->next = node->next;
+    else
+        cache->head = node->next;
 
-    if(cache->head)
-        cache->head->prev = node;
-
-    cache->head = node;
-
-    if(cache->tail == NULL)
-        cache->tail = node;
+    if(node->next)
+        node->next->prev = node->prev;
+    else
+        cache->tail = node->prev;
 }
