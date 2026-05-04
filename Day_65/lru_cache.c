@@ -37,7 +37,7 @@ void put(struct LRU* cache, int key, int value)
         if(cache->count == cache->capacity)
         {
             cache->map[cache->tail->key] = NULL;
-            removeNode(cache,   cache->tail);
+            removeNode(cache,      cache->tail);
             cache->count--;
         }
 
