@@ -28,7 +28,7 @@ void put(struct LRU* cache, int key, int value)
         node->value = value;
 
         removeNode(cache, node);
-        insertFront(cache, node);
+        insertFront(cache,   node);
     }
     else
     {
