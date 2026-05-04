@@ -41,7 +41,7 @@ void put(struct LRU* cache, int key, int value)
             cache->count--;  
         }
 
-        insertFront(cache, node);
+        insertFront(  cache, node);
         cache->map[key] = node;
         cache->count++;
     }
