@@ -27,12 +27,12 @@ void put(struct LRU* cache, int key, int value)
         struct Node* node = cache->map[key];
         node->value = value;
 
-        removeNode(cache, node);
+        removeNode(cache,   node);
         insertFront(cache,   node);
     }
     else
     {
-        struct   Node*    node    =  createNode(key, value);
+        struct   Node*    node    =   createNode(key, value);
 
         if(cache->count ==   cache-> capacity)
         {
