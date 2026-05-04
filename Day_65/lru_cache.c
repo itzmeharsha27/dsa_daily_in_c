@@ -32,7 +32,7 @@ void put(struct LRU* cache, int key, int value)
     }
     else
     {
-        struct Node*    node    =  createNode(key, value);
+        struct   Node*    node    =  createNode(key, value);
 
         if(cache->count ==   cache-> capacity)
         {
