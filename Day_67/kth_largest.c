@@ -9,21 +9,17 @@ struct Heap
     int size;
 };
 
-void swap(int *a, int *b);
+int extractMin(struct Heap* h);
 
-void heapifyDown(struct Heap* h, int i)
+int main()
 {
-    int l=2*i+1, r=2*i+2, smallest=i;
+    return 0;
+}
 
-    if(l<h->size && h->arr[l]<h->arr[smallest])
-        smallest=l;
-
-    if(r<h->size && h->arr[r]<h->arr[smallest])
-        smallest=r;
-
-    if(smallest!=i)
-    {
-        swap(&h->arr[i], &h->arr[smallest]);
-        heapifyDown(h, smallest);
-    }
+int extractMin(struct Heap* h)
+{
+    int val = h->arr[0];
+    h->arr[0] = h->arr[--h->size];
+    heapifyDown(h, 0);
+    return val;
 }
