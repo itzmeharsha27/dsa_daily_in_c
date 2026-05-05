@@ -9,13 +9,21 @@ struct Heap
     int size;
 };
 
-void heapifyDown(struct Heap* h, int i);
-
-int main()
-{
-    return 0;
-}
+void swap(int *a, int *b);
 
 void heapifyDown(struct Heap* h, int i)
 {
+    int l=2*i+1, r=2*i+2, smallest=i;
+
+    if(l<h->size && h->arr[l]<h->arr[smallest])
+        smallest=l;
+
+    if(r<h->size && h->arr[r]<h->arr[smallest])
+        smallest=r;
+
+    if(smallest!=i)
+    {
+        swap(&h->arr[i], &h->arr[smallest]);
+        heapifyDown(h, smallest);
+    }
 }
