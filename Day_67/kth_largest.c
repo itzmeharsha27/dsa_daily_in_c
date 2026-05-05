@@ -10,13 +10,23 @@ struct Heap
 };
 
 void swap(int *a, int *b);
+void heapifyUp(struct Heap* h, int i);
 
 int main()
 {
     return 0;
 }
 
-void swap(int *a, int *b)
+void heapifyUp(struct Heap* h, int i)
 {
-    int t=*a; *a=*b; *b=t;
+    while(i>0)
+    {
+        int p=(i-1)/2;
+        if(h->arr[i] < h->arr[p])
+        {
+            swap(&h->arr[i], &h->arr[p]);
+            i=p;
+        }
+        else break;
+    }
 }
