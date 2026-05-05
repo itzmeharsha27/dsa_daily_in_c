@@ -9,17 +9,14 @@ struct Heap
     int size;
 };
 
-int extractMin(struct Heap* h);
+int kthLargest(int arr[], int n, int k);
 
 int main()
 {
     return 0;
 }
 
-int extractMin(struct Heap* h)
+int kthLargest(int arr[], int n, int k)
 {
-    int val = h->arr[0];
-    h->arr[0] = h->arr[--h->size];
-    heapifyDown(h, 0);
-    return val;
+    return 0;
 }
