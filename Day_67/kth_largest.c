@@ -9,14 +9,12 @@ struct Heap
     int size;
 };
 
+void swap(int *a, int *b);
 void heapifyUp(struct Heap* h, int i);
-void insert(struct Heap* h, int val);
-
-int main()
-{
-    return 0;
-}
 
 void insert(struct Heap* h, int val)
 {
+    h->arr[h->size] = val;
+    heapifyUp(h, h->size);
+    h->size++;
 }
