@@ -83,7 +83,7 @@ int main()
     int arr[] = {3,2,1,5,6,4};
     int k = 2;
 
-    printf("Kth Largest : %d\n", kthLargest(arr, 6, k));
+    printf("Kth Largest :  %d\n", kthLargest(arr, 6, k));
 
     return 0;
 }
