@@ -22,6 +22,9 @@ for(int i = 0; i < size - 1; i++) {
             arr[j+1] = temp;
         }
     }
+}printf("Top %d frequent elements:\n", k);
+for(int i = 0; i < k; i++) {
+    printf("%d ", arr[i].num);
 }
     for(int i = 0; i < n; i++) {
     freq[nums[i]]++;
