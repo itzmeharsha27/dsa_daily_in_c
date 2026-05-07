@@ -14,7 +14,15 @@ for(int i = 0; i < 100; i++) {
     int nums[] = {1,1,1,2,2,3};
     int freq[100] = {0};
     int n = 6;
-
+for(int i = 0; i < size - 1; i++) {
+    for(int j = 0; j < size - i - 1; j++) {
+        if(arr[j].count < arr[j+1].count) {
+            struct Pair temp = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = temp;
+        }
+    }
+}
     for(int i = 0; i < n; i++) {
     freq[nums[i]]++;
 }
