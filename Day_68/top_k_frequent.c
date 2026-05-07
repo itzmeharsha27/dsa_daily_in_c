@@ -28,7 +28,9 @@ for(int i = 0; i < k; i++) {
 }
     for(int i = 0; i < n; i++) {
         printf("\n");
-    freq[nums[i]]++;
+    freq[nums[i]]++;// Count frequency of elements
+// Sort based on frequency
+// Print top k elements
 }
 int k = 2;
     return 0;
