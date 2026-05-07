@@ -27,6 +27,7 @@ for(int i = 0; i < k; i++) {
     printf("%d ", arr[i].num);
 }
     for(int i = 0; i < n; i++) {
+        printf("\n");
     freq[nums[i]]++;
 }
 int k = 2;
