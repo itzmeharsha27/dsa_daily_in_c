@@ -1,2 +1,2 @@
-git add .
-git commit -m "Add brute force sliding window logic"
+int dq[1000];
+int front = 0, rear = -1;
