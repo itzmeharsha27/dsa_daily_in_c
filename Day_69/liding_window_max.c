@@ -1,1 +1,2 @@
-void slidingWindowMax(int arr[], int n, int k);
+git add .
+git commit -m "Add function prototype for sliding window max"
