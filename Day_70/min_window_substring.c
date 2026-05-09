@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Minimum Window Substring
-
 #define MAX 256
 
 int main()
@@ -40,6 +38,8 @@ int main()
             l++;
         }
     }
+
+    printf("Length: %d\n", minLen);
 
     return 0;
 }
