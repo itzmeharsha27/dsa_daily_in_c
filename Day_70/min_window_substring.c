@@ -8,8 +8,9 @@ int main()
     char s[] = "ADOBECODEBANC";
     char t[] = "ABC";
 
-    int freqT[MAX] = {0};
-    int freqS[MAX] = {0};
+    int freqT[MAX] = {0}, freqS[MAX] = {0};
+    int required = strlen(t);
+    int formed = 0;
 
     for(int i=0;t[i];i++)
         freqT[t[i]]++;
