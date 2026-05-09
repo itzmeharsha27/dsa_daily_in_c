@@ -5,8 +5,8 @@
 
 int main()
 {
-    char s[] = "ADOBECODEBANC";
-    char t[] = "ABC";
+    char s[]="ADOBECODEBANC";
+    char t[]="ABC";
 
     int freqT[MAX]={0}, freqS[MAX]={0};
     int required=strlen(t), formed=0;
@@ -14,7 +14,7 @@ int main()
     for(int i=0;t[i];i++)
         freqT[t[i]]++;
 
-    int l=0;
+    int l=0, minLen=1000, start=0;
 
     for(int r=0;s[r];r++)
     {
@@ -22,6 +22,21 @@ int main()
 
         if(freqS[s[r]] <= freqT[s[r]])
             formed++;
+
+        while(formed == required)
+        {
+            if(r-l+1 < minLen)
+            {
+                minLen = r-l+1;
+                start = l;
+            }
+
+            freqS[s[l]]--;
+            if(freqS[s[l]] < freqT[s[l]])
+                formed--;
+
+            l++;
+        }
     }
 
     return 0;
