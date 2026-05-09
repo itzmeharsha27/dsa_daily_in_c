@@ -11,5 +11,8 @@ int main()
     int freqT[MAX] = {0};
     int freqS[MAX] = {0};
 
+    for(int i=0;t[i];i++)
+        freqT[t[i]]++;
+
     return 0;
 }
