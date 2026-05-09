@@ -39,7 +39,9 @@ int main()
         }
     }
 
-    printf("Length: %d\n", minLen);
+    printf("Substring: ");
+    for(int i=start;i<start+minLen;i++)
+        printf("%c", s[i]);
 
     return 0;
 }
