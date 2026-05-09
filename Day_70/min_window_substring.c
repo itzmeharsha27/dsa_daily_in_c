@@ -5,6 +5,8 @@
 
 int main()
 {
-    char s[100], t[100];
+    char s[] = "ADOBECODEBANC";
+    char t[] = "ABC";
+
     return 0;
 }
