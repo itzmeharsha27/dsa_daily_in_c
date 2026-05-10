@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Longest Repeating Character Replacement
+
 #define MAX 26
 
 int main()
@@ -23,6 +25,10 @@ int main()
             freq[s[l]-'A']--;
             l++;
         }
+
+        int len = r - l + 1;
+        if(len > maxLen)
+            maxLen = len;
     }
 
     return 0;
