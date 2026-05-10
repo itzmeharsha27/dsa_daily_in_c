@@ -8,7 +8,12 @@ int main()
     char s[] = "abcabcbb";
 
     int freq[MAX] = {0};
-    int l = 0;
+    int l = 0, maxLen = 0;
+
+    for(int r=0; s[r]; r++)
+    {
+        freq[s[r]]++;
+    }
 
     return 0;
 }
