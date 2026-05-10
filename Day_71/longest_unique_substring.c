@@ -13,6 +13,12 @@ int main()
     for(int r=0; s[r]; r++)
     {
         freq[s[r]]++;
+
+        while(freq[s[r]] > 1)
+        {
+            freq[s[l]]--;
+            l++;
+        }
     }
 
     return 0;
