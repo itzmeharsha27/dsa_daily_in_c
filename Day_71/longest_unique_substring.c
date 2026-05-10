@@ -5,6 +5,6 @@
 
 int main()
 {
-    char s[100];
+    char s[] = "abcabcbb";
     return 0;
 }
