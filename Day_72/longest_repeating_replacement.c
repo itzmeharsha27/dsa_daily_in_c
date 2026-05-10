@@ -7,5 +7,8 @@ int main()
 {
     char s[] = "AABABBA";
     int k = 1;
+
+    int freq[MAX] = {0};
+
     return 0;
 }
