@@ -1,23 +1,28 @@
 #include <stdio.h>
 #include <string.h>
 
+// Longest Repeating Character Replacement
+
 #define MAX 26
 
 int main()
 {
-    char s[] = "AAAA";
-    int k = 2;
+    char s[] = "AABABBA";
+    int k = 1;
 
     int freq[MAX] = {0};
     int l = 0, maxLen = 0, maxFreq = 0;
 
+    // Sliding window
     for(int r = 0; s[r]; r++)
     {
         freq[s[r]-'A']++;
 
+        // Track most frequent char
         if(freq[s[r]-'A'] > maxFreq)
             maxFreq = freq[s[r]-'A'];
 
+        // Shrink window if invalid
         while((r - l + 1) - maxFreq > k)
         {
             freq[s[l]-'A']--;
@@ -25,11 +30,12 @@ int main()
         }
 
         int len = r - l + 1;
+
         if(len > maxLen)
             maxLen = len;
     }
 
-    printf("Length: %d\n", maxLen);
+    printf("Longest Length After Replacement: %d\n", maxLen);
 
     return 0;
 }
