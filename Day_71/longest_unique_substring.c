@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#define MAX 256
+
 int main()
 {
-    return  0;
+    char s[100];
+    return 0;
 }
