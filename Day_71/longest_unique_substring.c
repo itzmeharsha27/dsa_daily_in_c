@@ -19,6 +19,10 @@ int main()
             freq[s[l]]--;
             l++;
         }
+
+        int len = r - l + 1;
+        if(len > maxLen)
+            maxLen = len;
     }
 
     return 0;
