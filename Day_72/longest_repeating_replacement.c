@@ -9,7 +9,12 @@ int main()
     int k = 1;
 
     int freq[MAX] = {0};
-    int l = 0;
+    int l = 0, maxLen = 0;
+
+    for(int r = 0; s[r]; r++)
+    {
+        freq[s[r]-'A']++;
+    }
 
     return 0;
 }
