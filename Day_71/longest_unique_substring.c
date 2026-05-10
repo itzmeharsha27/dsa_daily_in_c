@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Longest Unique Substring
-
 #define MAX 256
 
 int main()
@@ -26,6 +24,8 @@ int main()
         if(len > maxLen)
             maxLen = len;
     }
+
+    printf("Length: %d\n", maxLen);
 
     return 0;
 }
