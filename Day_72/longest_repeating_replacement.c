@@ -5,7 +5,7 @@
 
 int main()
 {
-    char s[100];
-    int k;
+    char s[] = "AABABBA";
+    int k = 1;
     return 0;
 }
