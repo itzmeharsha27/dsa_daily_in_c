@@ -5,8 +5,8 @@
 
 int main()
 {
-    char s[] = "AABABBA";
-    int k = 1;
+    char s[] = "AAAA";
+    int k = 2;
 
     int freq[MAX] = {0};
     int l = 0, maxLen = 0, maxFreq = 0;
