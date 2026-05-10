@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Longest Unique Substring
+
 #define MAX 256
 
 int main()
