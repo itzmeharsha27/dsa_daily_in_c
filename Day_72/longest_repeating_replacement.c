@@ -17,6 +17,12 @@ int main()
 
         if(freq[s[r]-'A'] > maxFreq)
             maxFreq = freq[s[r]-'A'];
+
+        while((r - l + 1) - maxFreq > k)
+        {
+            freq[s[l]-'A']--;
+            l++;
+        }
     }
 
     return 0;
