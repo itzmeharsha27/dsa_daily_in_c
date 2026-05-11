@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Subarray Sum Equals K using Prefix Sum
+
 #define MAX 1000
 
 int main()
@@ -10,19 +12,22 @@ int main()
     int sum = 0, count = 0;
     int freq[MAX] = {0};
 
+    // Base case: sum 0 occurs once
     freq[0] = 1;
 
     for(int i=0;i<n;i++)
     {
         sum += arr[i];
 
+        // Check if (sum - k) exists
         if(sum - k >= 0)
             count += freq[sum - k];
 
+        // Store current prefix sum
         freq[sum]++;
     }
 
-    printf("Count: %d\n", count);
+    printf("Subarrays with sum %d: %d\n", k, count);
 
     return 0;
 }
