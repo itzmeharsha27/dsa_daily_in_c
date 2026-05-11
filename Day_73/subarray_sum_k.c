@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Subarray Sum Equals K
+
 #define MAX 1000
 
 int main()
@@ -15,6 +17,11 @@ int main()
     for(int i=0;i<n;i++)
     {
         sum += arr[i];
+
+        if(sum - k >= 0)
+            count += freq[sum - k];
+
+        freq[sum]++;
     }
 
     return 0;
