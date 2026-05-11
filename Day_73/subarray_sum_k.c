@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Subarray Sum Equals K
-
 #define MAX 1000
 
 int main()
@@ -23,6 +21,8 @@ int main()
 
         freq[sum]++;
     }
+
+    printf("Count: %d\n", count);
 
     return 0;
 }
