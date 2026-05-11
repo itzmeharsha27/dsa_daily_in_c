@@ -4,8 +4,8 @@
 
 int main()
 {
-    int arr[] = {1,1,1};
-    int n = 3, k = 2;
+    int arr[] = {3,4,7,2,-3,1,4,2};
+    int n = 8, k = 7;
 
     int sum = 0, count = 0;
     int freq[MAX] = {0};
