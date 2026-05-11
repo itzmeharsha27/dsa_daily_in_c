@@ -7,8 +7,10 @@ int main()
     int arr[] = {1,1,1};
     int n = 3, k = 2;
 
-    int sum = 0;
+    int sum = 0, count = 0;
     int freq[MAX] = {0};
+
+    freq[0] = 1;
 
     return 0;
 }
