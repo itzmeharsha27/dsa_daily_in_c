@@ -18,6 +18,14 @@ int main()
     {
         if(hash[arr[i]-1] == 0)
         {
+            int curr = arr[i];
+            int len = 1;
+
+            while(hash[curr+1] == 1)
+            {
+                curr++;
+                len++;
+            }
         }
     }
 
