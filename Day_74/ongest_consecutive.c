@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Longest Consecutive Sequence
+
 #define MAX 1000
 
 int main()
