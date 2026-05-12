@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Longest Consecutive Sequence
-
 #define MAX 1000
 
 int main()
@@ -28,8 +26,13 @@ int main()
                 curr++;
                 len++;
             }
+
+            if(len > maxLen)
+                maxLen = len;
         }
     }
+
+    printf("Length: %d\n", maxLen);
 
     return 0;
 }
