@@ -9,5 +9,8 @@ int main()
 
     int hash[MAX] = {0};
 
+    for(int i=0;i<n;i++)
+        hash[arr[i]] = 1;
+
     return 0;
 }
