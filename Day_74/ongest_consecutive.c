@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Longest Consecutive Sequence using Hashing
+
 #define MAX 1000
 
 int main()
@@ -9,13 +11,16 @@ int main()
 
     int hash[MAX] = {0};
 
+    // Mark presence
     for(int i=0;i<n;i++)
         hash[arr[i]] = 1;
 
     int maxLen = 0;
 
+    // Check sequences
     for(int i=0;i<n;i++)
     {
+        // Start only if previous not present
         if(hash[arr[i]-1] == 0)
         {
             int curr = arr[i];
@@ -32,7 +37,7 @@ int main()
         }
     }
 
-    printf("Length: %d\n", maxLen);
+    printf("Longest Consecutive Length: %d\n", maxLen);
 
     return 0;
 }
