@@ -12,5 +12,7 @@ int main()
     for(int i=0;i<n;i++)
         hash[arr[i]] = 1;
 
+    int maxLen = 0;
+
     return 0;
 }
