@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// 3Sum Problem
-
 void sort(int arr[], int n)
 {
     for(int i=0;i<n;i++)
@@ -20,6 +18,8 @@ int main()
     int n = 6;
 
     sort(arr, n);
+
+    printf("Triplets:\n");
 
     for(int i=0;i<n;i++)
     {
