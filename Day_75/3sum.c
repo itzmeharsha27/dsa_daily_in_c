@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// 3Sum Problem using Sorting + Two Pointers
+
 void sort(int arr[], int n)
 {
     for(int i=0;i<n;i++)
@@ -14,12 +16,12 @@ void sort(int arr[], int n)
 
 int main()
 {
-    int arr[] = {0,0,0,0};
-    int n = 4;
+    int arr[] = {-1,0,1,2,-1,-4};
+    int n = 6;
 
     sort(arr, n);
 
-    printf("Triplets:\n");
+    printf("Triplets with sum 0:\n");
 
     for(int i=0;i<n;i++)
     {
@@ -32,7 +34,8 @@ int main()
             if(sum == 0)
             {
                 printf("%d %d %d\n", arr[i], arr[l], arr[r]);
-                l++; r--;
+                l++;
+                r--;
             }
             else if(sum < 0)
                 l++;
