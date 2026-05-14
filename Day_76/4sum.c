@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// 4Sum Problem
-
 void sort(int arr[], int n)
 {
     for(int i=0;i<n;i++)
@@ -21,6 +19,8 @@ int main()
     int target = 0;
 
     sort(arr, n);
+
+    printf("Quadruplets:\n");
 
     for(int i=0;i<n;i++)
     {
