@@ -2,8 +2,9 @@
 
 int main()
 {
-    int arr[100];
-    int n;
+    int arr[] = {1,0,-1,0,-2,2};
+    int n = 6;
+    int target = 0;
 
     return 0;
 }
