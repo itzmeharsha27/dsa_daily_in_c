@@ -15,6 +15,11 @@ int main()
         for(int j=i+1;j<n;j++)
         {
             int l = j+1, r = n-1;
+
+            while(l < r)
+            {
+                int sum = arr[i] + arr[j] + arr[l] + arr[r];
+            }
         }
     }
 
