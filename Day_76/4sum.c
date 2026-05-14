@@ -1,6 +1,18 @@
 #include <stdio.h>
 
-void sort(int arr[], int n);
+// 4Sum Problem
+
+void sort(int arr[], int n)
+{
+    for(int i=0;i<n;i++)
+        for(int j=i+1;j<n;j++)
+            if(arr[i] > arr[j])
+            {
+                int t = arr[i];
+                arr[i] = arr[j];
+                arr[j] = t;
+            }
+}
 
 int main()
 {
@@ -19,6 +31,16 @@ int main()
             while(l < r)
             {
                 int sum = arr[i] + arr[j] + arr[l] + arr[r];
+
+                if(sum == target)
+                {
+                    printf("%d %d %d %d\n", arr[i], arr[j], arr[l], arr[r]);
+                    l++; r--;
+                }
+                else if(sum < target)
+                    l++;
+                else
+                    r--;
             }
         }
     }
