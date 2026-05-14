@@ -10,5 +10,13 @@ int main()
 
     sort(arr, n);
 
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            int l = j+1, r = n-1;
+        }
+    }
+
     return 0;
 }
