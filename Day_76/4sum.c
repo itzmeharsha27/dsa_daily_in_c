@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// 4Sum using Sorting + Two Pointers
+
 void sort(int arr[], int n)
 {
     for(int i=0;i<n;i++)
@@ -20,7 +22,7 @@ int main()
 
     sort(arr, n);
 
-    printf("Quadruplets:\n");
+    printf("Quadruplets with target %d:\n", target);
 
     for(int i=0;i<n;i++)
     {
@@ -35,7 +37,8 @@ int main()
                 if(sum == target)
                 {
                     printf("%d %d %d %d\n", arr[i], arr[j], arr[l], arr[r]);
-                    l++; r--;
+                    l++;
+                    r--;
                 }
                 else if(sum < target)
                     l++;
