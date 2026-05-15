@@ -2,8 +2,8 @@
 
 int main()
 {
-    int arr[] = {1,8,6,2,5,4,8,3,7};
-    int n = 9;
+    int arr[] = {1,1};
+    int n = 2;
 
     int l = 0, r = n-1;
     int maxArea = 0;
