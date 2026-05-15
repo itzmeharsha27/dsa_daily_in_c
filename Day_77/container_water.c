@@ -12,6 +12,10 @@ int main()
     {
         int height = arr[l] < arr[r] ? arr[l] : arr[r];
         int width = r - l;
+        int area = height * width;
+
+        if(area > maxArea)
+            maxArea = area;
     }
 
     return 0;
