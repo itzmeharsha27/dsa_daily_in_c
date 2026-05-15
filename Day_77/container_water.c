@@ -8,5 +8,11 @@ int main()
     int l = 0, r = n-1;
     int maxArea = 0;
 
+    while(l < r)
+    {
+        int height = arr[l] < arr[r] ? arr[l] : arr[r];
+        int width = r - l;
+    }
+
     return 0;
 }
