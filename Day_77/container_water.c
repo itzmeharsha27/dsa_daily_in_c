@@ -16,6 +16,11 @@ int main()
 
         if(area > maxArea)
             maxArea = area;
+
+        if(arr[l] < arr[r])
+            l++;
+        else
+            r--;
     }
 
     return 0;
