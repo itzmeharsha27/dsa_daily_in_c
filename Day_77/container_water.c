@@ -6,6 +6,7 @@ int main()
     int n = 9;
 
     int l = 0, r = n-1;
+    int maxArea = 0;
 
     return 0;
 }
