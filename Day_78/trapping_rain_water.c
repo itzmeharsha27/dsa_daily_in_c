@@ -9,5 +9,9 @@ int main()
     int leftMax = 0, rightMax = 0;
     int water = 0;
 
+    while(l < r)
+    {
+    }
+
     return 0;
 }
