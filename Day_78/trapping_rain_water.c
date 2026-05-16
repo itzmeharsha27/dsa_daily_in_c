@@ -13,9 +13,21 @@ int main()
     {
         if(arr[l] < arr[r])
         {
+            if(arr[l] >= leftMax)
+                leftMax = arr[l];
+            else
+                water += leftMax - arr[l];
+
+            l++;
         }
         else
         {
+            if(arr[r] >= rightMax)
+                rightMax = arr[r];
+            else
+                water += rightMax - arr[r];
+
+            r--;
         }
     }
 
