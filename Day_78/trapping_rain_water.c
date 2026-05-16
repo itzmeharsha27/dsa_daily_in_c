@@ -11,6 +11,12 @@ int main()
 
     while(l < r)
     {
+        if(arr[l] < arr[r])
+        {
+        }
+        else
+        {
+        }
     }
 
     return 0;
