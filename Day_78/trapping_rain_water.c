@@ -6,6 +6,8 @@ int main()
     int n = 12;
 
     int l = 0, r = n-1;
+    int leftMax = 0, rightMax = 0;
+    int water = 0;
 
     return 0;
 }
