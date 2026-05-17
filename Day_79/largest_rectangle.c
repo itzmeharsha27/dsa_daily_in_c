@@ -9,3 +9,8 @@ void push(int val)
 {
     stack[++top] = val;
 }
+
+int pop()
+{
+    return stack[top--];
+}
