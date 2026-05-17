@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Largest Rectangle in Histogram
-
 #define MAX 100
 
 int stack[MAX];
@@ -36,6 +34,8 @@ int main()
         }
         push(i);
     }
+
+    printf("Max Area: %d\n", maxArea);
 
     return 0;
 }
