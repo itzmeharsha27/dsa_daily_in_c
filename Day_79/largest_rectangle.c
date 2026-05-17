@@ -7,9 +7,5 @@ int top = -1;
 
 void push(int val)
 {
-}
-
-int main()
-{
-    return 0;
+    stack[++top] = val;
 }
