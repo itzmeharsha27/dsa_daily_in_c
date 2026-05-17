@@ -5,6 +5,10 @@
 int stack[MAX];
 int top = -1;
 
+void push(int val)
+{
+}
+
 int main()
 {
     return 0;
