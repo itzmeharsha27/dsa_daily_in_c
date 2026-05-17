@@ -17,8 +17,8 @@ int pop()
 
 int main()
 {
-    int arr[] = {2,1,5,6,2,3};
-    int n = 6;
+    int arr[] = {2,4};
+    int n = 2;
     int maxArea = 0;
 
     for(int i=0;i<=n;i++)
