@@ -5,12 +5,14 @@
 int stack[MAX];
 int top = -1;
 
-void push(int val)
+int main()
 {
-    stack[++top] = val;
-}
+    int arr[] = {2,1,5,6,2,3};
+    int n = 6;
 
-int pop()
-{
-    return stack[top--];
+    for(int i=0;i<=n;i++)
+    {
+    }
+
+    return 0;
 }
