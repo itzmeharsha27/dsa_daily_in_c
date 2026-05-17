@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Largest Rectangle in Histogram using Stack
+
 #define MAX 100
 
 int stack[MAX];
@@ -17,10 +19,11 @@ int pop()
 
 int main()
 {
-    int arr[] = {2,4};
-    int n = 2;
+    int arr[] = {2,1,5,6,2,3};
+    int n = 6;
     int maxArea = 0;
 
+    // Traverse all bars
     for(int i=0;i<=n;i++)
     {
         while(top != -1 && (i==n || arr[stack[top]] > arr[i]))
@@ -35,7 +38,7 @@ int main()
         push(i);
     }
 
-    printf("Max Area: %d\n", maxArea);
+    printf("Largest Rectangle Area: %d\n", maxArea);
 
     return 0;
 }
