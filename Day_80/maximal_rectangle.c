@@ -5,12 +5,7 @@
 int stack[MAX];
 int top = -1;
 
-void push(int val)
+int largestArea(int arr[], int n)
 {
-    stack[++top] = val;
-}
-
-int pop()
-{
-    return stack[top--];
+    return 0;
 }
