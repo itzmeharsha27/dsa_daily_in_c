@@ -11,5 +11,7 @@ int main()
 
     int rows = 4, cols = 5;
 
+    int height[5] = {0};
+
     return 0;
 }
