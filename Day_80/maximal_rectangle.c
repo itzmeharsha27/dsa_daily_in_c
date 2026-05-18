@@ -39,15 +39,13 @@ int largestArea(int arr[], int n)
 
 int main()
 {
-    int matrix[4][5] = {
-        {1,0,1,0,0},
-        {1,0,1,1,1},
-        {1,1,1,1,1},
-        {1,0,0,1,0}
+    int matrix[2][2] = {
+        {1,1},
+        {1,1}
     };
 
-    int rows = 4, cols = 5;
-    int height[5] = {0};
+    int rows = 2, cols = 2;
+    int height[2] = {0};
     int maxRect = 0;
 
     for(int i=0;i<rows;i++)
@@ -64,6 +62,8 @@ int main()
         if(area > maxRect)
             maxRect = area;
     }
+
+    printf("Max Rectangle: %d\n", maxRect);
 
     return 0;
 }
