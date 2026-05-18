@@ -13,5 +13,9 @@ int main()
 
     int height[5] = {0};
 
+    for(int i=0;i<rows;i++)
+    {
+    }
+
     return 0;
 }
