@@ -18,6 +18,7 @@ int pop()
 int largestArea(int arr[], int n)
 {
     int maxArea = 0;
+    top = -1;
 
     for(int i=0;i<=n;i++)
     {
@@ -34,4 +35,35 @@ int largestArea(int arr[], int n)
     }
 
     return maxArea;
+}
+
+int main()
+{
+    int matrix[4][5] = {
+        {1,0,1,0,0},
+        {1,0,1,1,1},
+        {1,1,1,1,1},
+        {1,0,0,1,0}
+    };
+
+    int rows = 4, cols = 5;
+    int height[5] = {0};
+    int maxRect = 0;
+
+    for(int i=0;i<rows;i++)
+    {
+        for(int j=0;j<cols;j++)
+        {
+            if(matrix[i][j] == 1)
+                height[j]++;
+            else
+                height[j] = 0;
+        }
+
+        int area = largestArea(height, cols);
+        if(area > maxRect)
+            maxRect = area;
+    }
+
+    return 0;
 }
