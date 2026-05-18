@@ -15,6 +15,13 @@ int main()
 
     for(int i=0;i<rows;i++)
     {
+        for(int j=0;j<cols;j++)
+        {
+            if(matrix[i][j] == 1)
+                height[j]++;
+            else
+                height[j] = 0;
+        }
     }
 
     return 0;
