@@ -16,5 +16,9 @@ int main()
 
     int dp[MAX][MAX] = {0};
 
+    for(int len=1;len<=n;len++)
+    {
+    }
+
     return 0;
 }
