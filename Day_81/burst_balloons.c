@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Burst Balloons
-
 #define MAX 100
 
 int main()
@@ -35,6 +33,8 @@ int main()
             }
         }
     }
+
+    printf("Max Coins: %d\n", dp[1][n]);
 
     return 0;
 }
