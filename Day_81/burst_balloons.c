@@ -14,5 +14,7 @@ int main()
     for(int i=0;i<n;i++)
         arr[i+1] = nums[i];
 
+    int dp[MAX][MAX] = {0};
+
     return 0;
 }
