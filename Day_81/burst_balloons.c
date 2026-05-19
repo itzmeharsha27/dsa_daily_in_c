@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Burst Balloons
+
 #define MAX 100
 
 int main()
@@ -21,6 +23,16 @@ int main()
         for(int i=1;i<=n-len+1;i++)
         {
             int j = i + len - 1;
+
+            for(int k=i;k<=j;k++)
+            {
+                int coins = arr[i-1]*arr[k]*arr[j+1]
+                            + dp[i][k-1]
+                            + dp[k+1][j];
+
+                if(coins > dp[i][j])
+                    dp[i][j] = coins;
+            }
         }
     }
 
