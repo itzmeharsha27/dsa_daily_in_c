@@ -2,8 +2,8 @@
 
 int main()
 {
-    int arr[100];
-    int n;
+    int nums[] = {3,1,5,8};
+    int n = 4;
 
     return 0;
 }
