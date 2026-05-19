@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Burst Balloons using Interval DP
+
 #define MAX 100
 
 int main()
@@ -11,11 +13,13 @@ int main()
     arr[0] = 1;
     arr[n+1] = 1;
 
+    // Add padding
     for(int i=0;i<n;i++)
         arr[i+1] = nums[i];
 
     int dp[MAX][MAX] = {0};
 
+    // Interval DP
     for(int len=1;len<=n;len++)
     {
         for(int i=1;i<=n-len+1;i++)
@@ -34,7 +38,7 @@ int main()
         }
     }
 
-    printf("Max Coins: %d\n", dp[1][n]);
+    printf("Maximum Coins: %d\n", dp[1][n]);
 
     return 0;
 }
