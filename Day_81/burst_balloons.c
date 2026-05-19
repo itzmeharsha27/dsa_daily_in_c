@@ -18,6 +18,10 @@ int main()
 
     for(int len=1;len<=n;len++)
     {
+        for(int i=1;i<=n-len+1;i++)
+        {
+            int j = i + len - 1;
+        }
     }
 
     return 0;
