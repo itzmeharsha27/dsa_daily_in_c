@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
+// Palindrome Partitioning using DP
+
 #define MAX 100
 
 int main()
 {
-    char s[] = "ababbbabbababa";
+    char s[] = "aab";
     int n = strlen(s);
 
     int isPal[MAX][MAX] = {0};
 
+    // Step 1: Precompute palindrome table
     for(int i=0;i<n;i++)
         isPal[i][i] = 1;
 
@@ -29,6 +32,7 @@ int main()
         }
     }
 
+    // Step 2: DP for minimum cuts
     int dp[MAX];
 
     for(int i=0;i<n;i++)
@@ -46,7 +50,7 @@ int main()
         }
     }
 
-    printf("Min Cuts: %d\n", dp[n-1]);
+    printf("Minimum Cuts Required: %d\n", dp[n-1]);
 
     return 0;
 }
