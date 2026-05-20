@@ -13,5 +13,9 @@ int main()
     for(int i=0;i<n;i++)
         isPal[i][i] = 1;
 
+    for(int len=2; len<=n; len++)
+    {
+    }
+
     return 0;
 }
