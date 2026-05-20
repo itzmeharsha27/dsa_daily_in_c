@@ -44,7 +44,7 @@ int main()
             dp[i] = i;
             for(int j=0;j<i;j++)
             {
-                if(isPal[j+1][i] && dp[j]+1 < dp[i])
+                if(isPal[j+1][i] &&  dp[j]+1 < dp[i])
                     dp[i] = dp[j]+1;
             }
         }
