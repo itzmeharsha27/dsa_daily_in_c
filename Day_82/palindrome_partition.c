@@ -15,6 +15,18 @@ int main()
 
     for(int len=2; len<=n; len++)
     {
+        for(int i=0;i<=n-len;i++)
+        {
+            int j = i + len - 1;
+
+            if(s[i] == s[j])
+            {
+                if(len == 2)
+                    isPal[i][j] = 1;
+                else
+                    isPal[i][j] = isPal[i+1][j-1];
+            }
+        }
     }
 
     return 0;
