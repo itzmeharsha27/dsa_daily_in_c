@@ -5,7 +5,7 @@
 
 int main()
 {
-    char s[] = "aab";
+    char s[] = "ababbbabbababa";
     int n = strlen(s);
 
     int isPal[MAX][MAX] = {0};
