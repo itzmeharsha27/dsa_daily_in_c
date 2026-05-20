@@ -8,7 +8,10 @@ int main()
     char s[] = "aab";
     int n = strlen(s);
 
-    int isPal[MAX][MAX];
+    int isPal[MAX][MAX] = {0};
+
+    for(int i=0;i<n;i++)
+        isPal[i][i] = 1;
 
     return 0;
 }
