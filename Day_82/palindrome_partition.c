@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Palindrome Partitioning
+
 #define MAX 100
 
 int main()
@@ -29,5 +31,6 @@ int main()
         }
     }
 
+    int dp[MAX];
     return 0;
 }
