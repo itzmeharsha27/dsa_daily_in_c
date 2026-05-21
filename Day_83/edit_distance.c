@@ -10,5 +10,8 @@ int main()
 
     int dp[MAX][MAX];
 
+    int n = strlen(s1);
+    int m = strlen(s2);
+
     return 0;
 }
