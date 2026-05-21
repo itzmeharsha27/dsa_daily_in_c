@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Edit Distance
-
 #define MAX 100
 
 int min(int a,int b,int c)
@@ -34,13 +32,11 @@ int main()
             if(s1[i-1] == s2[j-1])
                 dp[i][j] = dp[i-1][j-1];
             else
-                dp[i][j] = min(
-                    dp[i-1][j],     // delete
-                    dp[i][j-1],     // insert
-                    dp[i-1][j-1]    // replace
-                ) + 1;
+                dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1;
         }
     }
+
+    printf("Edit Distance: %d\n", dp[n][m]);
 
     return 0;
 }
