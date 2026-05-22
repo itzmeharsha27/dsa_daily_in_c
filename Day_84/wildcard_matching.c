@@ -8,7 +8,7 @@ int main()
     char s[] = "baaabab";
     char p[] = "ba*a?";
 
-    int dp[MAX][MAX];
+    int dp[MAX][MAX] = {0};
 
     return 0;
 }
