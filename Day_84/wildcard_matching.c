@@ -5,8 +5,8 @@
 
 int main()
 {
-    char s[] = "baaabab";
-    char p[] = "ba*a?";
+    char s[] = "abcde";
+    char p[] = "a*de";
 
     int dp[MAX][MAX] = {0};
 
