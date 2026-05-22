@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 
+// Wildcard Matching using DP
+
 #define MAX 100
 
 int main()
 {
-    char s[] = "abcde";
-    char p[] = "a*de";
+    char s[] = "baaabab";
+    char p[] = "ba*a?";
 
     int dp[MAX][MAX] = {0};
 
     int n = strlen(s);
     int m = strlen(p);
 
+    // Base case
     dp[0][0] = 1;
 
     for(int j=1;j<=m;j++)
@@ -21,6 +24,7 @@ int main()
             dp[0][j] = dp[0][j-1];
     }
 
+    // DP computation
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
@@ -32,7 +36,7 @@ int main()
         }
     }
 
-    printf("Match: %d\n", dp[n][m]);
+    printf("Wildcard Match Result: %d\n", dp[n][m]);
 
     return 0;
 }
