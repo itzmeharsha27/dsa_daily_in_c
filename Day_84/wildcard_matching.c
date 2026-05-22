@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Wildcard Matching
-
 #define MAX 100
 
 int main()
@@ -33,6 +31,8 @@ int main()
                 dp[i][j] = dp[i][j-1] || dp[i-1][j];
         }
     }
+
+    printf("Match: %d\n", dp[n][m]);
 
     return 0;
 }
