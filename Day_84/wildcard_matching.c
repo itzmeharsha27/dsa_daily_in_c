@@ -21,5 +21,12 @@ int main()
             dp[0][j] = dp[0][j-1];
     }
 
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=m;j++)
+        {
+        }
+    }
+
     return 0;
 }
