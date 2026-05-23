@@ -1,18 +1,22 @@
 #include <stdio.h>
 
+// Longest Increasing Subsequence using DP
+
 #define MAX 100
 
 int main()
 {
-    int arr[] = {0,1,0,3,2,3};
-    int n = 6;
+    int arr[] = {10,9,2,5,3,7,101,18};
+    int n = 8;
 
     int dp[MAX];
     int maxLen = 0;
 
+    // Initialize DP
     for(int i=0;i<n;i++)
         dp[i] = 1;
 
+    // Compute LIS
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<i;j++)
@@ -25,7 +29,7 @@ int main()
             maxLen = dp[i];
     }
 
-    printf("LIS Length: %d\n", maxLen);
+    printf("Longest Increasing Subsequence Length: %d\n", maxLen);
 
     return 0;
 }
