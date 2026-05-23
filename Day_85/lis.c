@@ -9,5 +9,8 @@ int main()
 
     int dp[MAX];
 
+    for(int i=0;i<n;i++)
+        dp[i] = 1;
+
     return 0;
 }
