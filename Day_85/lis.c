@@ -8,6 +8,7 @@ int main()
     int n = 8;
 
     int dp[MAX];
+    int maxLen = 0;
 
     for(int i=0;i<n;i++)
         dp[i] = 1;
@@ -19,6 +20,9 @@ int main()
             if(arr[i] > arr[j] && dp[j]+1 > dp[i])
                 dp[i] = dp[j]+1;
         }
+
+        if(dp[i] > maxLen)
+            maxLen = dp[i];
     }
 
     return 0;
