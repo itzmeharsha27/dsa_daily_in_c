@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Longest Increasing Subsequence
-
 #define MAX 100
 
 int main()
@@ -26,6 +24,8 @@ int main()
         if(dp[i] > maxLen)
             maxLen = dp[i];
     }
+
+    printf("LIS Length: %d\n", maxLen);
 
     return 0;
 }
