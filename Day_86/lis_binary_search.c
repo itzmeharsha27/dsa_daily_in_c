@@ -18,8 +18,8 @@ int binarySearch(int arr[], int l, int r, int key)
 
 int main()
 {
-    int arr[] = {10,9,2,5,3,7,101,18};
-    int n = 8;
+    int arr[] = {0,1,0,3,2,3};
+    int n = 6;
 
     int tail[MAX];
     int size = 0;
