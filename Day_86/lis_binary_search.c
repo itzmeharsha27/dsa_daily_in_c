@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// LIS using Binary Search
-
 #define MAX 100
 
 int binarySearch(int arr[], int l, int r, int key)
@@ -38,6 +36,8 @@ int main()
             tail[idx] = arr[i];
         }
     }
+
+    printf("LIS Length: %d\n", size);
 
     return 0;
 }
