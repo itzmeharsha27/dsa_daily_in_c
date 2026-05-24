@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// LIS using Binary Search (O(n log n))
+// Longest Increasing Subsequence using Binary Search (Optimized)
 
 #define MAX 100
 
@@ -26,14 +26,16 @@ int main()
     int tail[MAX];
     int size = 0;
 
-    // Initialize
+    // Start with first element
     tail[size++] = arr[0];
 
-    // Build LIS
+    // Process array
     for(int i=1;i<n;i++)
     {
         if(arr[i] > tail[size-1])
+        {
             tail[size++] = arr[i];
+        }
         else
         {
             int idx = binarySearch(tail, 0, size-1, arr[i]);
@@ -41,7 +43,7 @@ int main()
         }
     }
 
-    printf("Longest Increasing Subsequence Length: %d\n", size);
+    printf("LIS Length (Optimized): %d\n", size);
 
     return 0;
 }
