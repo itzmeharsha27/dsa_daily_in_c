@@ -8,6 +8,7 @@ int main()
     int n = 8;
 
     int tail[MAX];
+    int size = 0;
 
     return 0;
 }
