@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// LIS using Binary Search
+
 #define MAX 100
 
 int binarySearch(int arr[], int l, int r, int key)
@@ -25,6 +27,17 @@ int main()
     int size = 0;
 
     tail[size++] = arr[0];
+
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i] > tail[size-1])
+            tail[size++] = arr[i];
+        else
+        {
+            int idx = binarySearch(tail, 0, size-1, arr[i]);
+            tail[idx] = arr[i];
+        }
+    }
 
     return 0;
 }
