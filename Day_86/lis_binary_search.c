@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// LIS using Binary Search (O(n log n))
+
 #define MAX 100
 
 int binarySearch(int arr[], int l, int r, int key)
@@ -18,14 +20,16 @@ int binarySearch(int arr[], int l, int r, int key)
 
 int main()
 {
-    int arr[] = {0,1,0,3,2,3};
-    int n = 6;
+    int arr[] = {10,9,2,5,3,7,101,18};
+    int n = 8;
 
     int tail[MAX];
     int size = 0;
 
+    // Initialize
     tail[size++] = arr[0];
 
+    // Build LIS
     for(int i=1;i<n;i++)
     {
         if(arr[i] > tail[size-1])
@@ -37,7 +41,7 @@ int main()
         }
     }
 
-    printf("LIS Length: %d\n", size);
+    printf("Longest Increasing Subsequence Length: %d\n", size);
 
     return 0;
 }
