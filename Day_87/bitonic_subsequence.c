@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Longest Bitonic Subsequence
+
 #define MAX 100
 
 int main()
@@ -28,6 +30,8 @@ int main()
     {
         for(int j=n-1;j>i;j--)
         {
+            if(arr[i] > arr[j] && lds[j]+1 > lds[i])
+                lds[i] = lds[j]+1;
         }
     }
 
