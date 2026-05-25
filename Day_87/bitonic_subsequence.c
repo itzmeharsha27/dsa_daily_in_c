@@ -19,6 +19,8 @@ int main()
     {
         for(int j=0;j<i;j++)
         {
+            if(arr[i] > arr[j] && lis[j]+1 > lis[i])
+                lis[i] = lis[j]+1;
         }
     }
 
