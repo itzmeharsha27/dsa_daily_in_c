@@ -9,5 +9,11 @@ int main()
 
     int lis[MAX], lds[MAX];
 
+    for(int i=0;i<n;i++)
+    {
+        lis[i] = 1;
+        lds[i] = 1;
+    }
+
     return 0;
 }
