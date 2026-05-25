@@ -1,15 +1,14 @@
 #include <stdio.h>
 
-// Longest Bitonic Subsequence
-
 #define MAX 100
 
 int main()
 {
-    int arr[] = {1,11,2,10,4,5,2,1};
-    int n = 8;
+    int arr[] = {1,2,3,4,5};
+    int n = 5;
 
     int lis[MAX], lds[MAX];
+    int maxLen = 0;
 
     for(int i=0;i<n;i++)
     {
@@ -34,6 +33,15 @@ int main()
                 lds[i] = lds[j]+1;
         }
     }
+
+    for(int i=0;i<n;i++)
+    {
+        int len = lis[i] + lds[i] - 1;
+        if(len > maxLen)
+            maxLen = len;
+    }
+
+    printf("Length: %d\n", maxLen);
 
     return 0;
 }
