@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Matrix Chain Multiplication
-
 #define MAX 100
 
 int main()
@@ -28,6 +26,8 @@ int main()
             }
         }
     }
+
+    printf("Min Cost: %d\n", dp[1][n-1]);
 
     return 0;
 }
