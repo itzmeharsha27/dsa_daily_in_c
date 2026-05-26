@@ -1,14 +1,17 @@
 #include <stdio.h>
 
+// Matrix Chain Multiplication using DP
+
 #define MAX 100
 
 int main()
 {
-    int arr[] = {10,20,30};
-    int n = 3;
+    int arr[] = {40,20,30,10,30};
+    int n = 5;
 
     int dp[MAX][MAX] = {0};
 
+    // Interval DP
     for(int len=2; len<n; len++)
     {
         for(int i=1;i<n-len+1;i++)
@@ -27,7 +30,7 @@ int main()
         }
     }
 
-    printf("Min Cost: %d\n", dp[1][n-1]);
+    printf("Minimum Multiplication Cost: %d\n", dp[1][n-1]);
 
     return 0;
 }
