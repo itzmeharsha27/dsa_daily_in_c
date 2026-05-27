@@ -29,8 +29,14 @@ int main()
     {
         for(int j=1;j<=target;j++)
         {
+            if(arr[i-1] <= j)
+                dp[i][j] = dp[i-1][j] || dp[i-1][j-arr[i-1]];
+            else
+                dp[i][j] = dp[i-1][j];
         }
     }
+
+    printf("Possible: %d\n", dp[n][target]);
 
     return 0;
 }
