@@ -4,8 +4,8 @@
 
 int main()
 {
-    int arr[] = {1,6,11,5};
-    int n = 4;
+    int arr[] = {3,1,4,2,2};
+    int n = 5;
 
     int sum = 0;
 
