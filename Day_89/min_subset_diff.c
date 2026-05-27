@@ -14,5 +14,7 @@ int main()
 
     int target = sum / 2;
 
+    int dp[MAX][MAX] = {0};
+
     return 0;
 }
