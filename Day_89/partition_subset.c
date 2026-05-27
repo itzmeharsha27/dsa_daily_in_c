@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Partition Equal Subset Sum using DP
+
 #define MAX 100
 
 int main()
@@ -36,7 +38,7 @@ int main()
         }
     }
 
-    printf("Possible: %d\n", dp[n][target]);
+    printf("Can Partition: %d\n", dp[n][target]);
 
     return 0;
 }
