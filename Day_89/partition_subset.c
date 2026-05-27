@@ -12,5 +12,11 @@ int main()
     for(int i=0;i<n;i++)
         sum += arr[i];
 
+    if(sum % 2 != 0)
+    {
+        printf("Not Possible\n");
+        return 0;
+    }
+
     return 0;
 }
