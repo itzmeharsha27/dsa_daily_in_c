@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Partition Equal Subset Sum
-
 #define MAX 100
 
 int main()
@@ -26,6 +24,13 @@ int main()
 
     for(int i=0;i<=n;i++)
         dp[i][0] = 1;
+
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=target;j++)
+        {
+        }
+    }
 
     return 0;
 }
