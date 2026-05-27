@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Partition Equal Subset Sum using DP
+// Partition Equal Subset Sum (Subset Sum DP)
 
 #define MAX 100
 
@@ -11,12 +11,14 @@ int main()
 
     int sum = 0;
 
+    // Calculate total sum
     for(int i=0;i<n;i++)
         sum += arr[i];
 
+    // If odd, not possible
     if(sum % 2 != 0)
     {
-        printf("Not Possible\n");
+        printf("Partition Not Possible\n");
         return 0;
     }
 
@@ -24,9 +26,11 @@ int main()
 
     int dp[MAX][MAX] = {0};
 
+    // Base case
     for(int i=0;i<=n;i++)
         dp[i][0] = 1;
 
+    // Fill DP table
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=target;j++)
@@ -38,7 +42,7 @@ int main()
         }
     }
 
-    printf("Can Partition: %d\n", dp[n][target]);
+    printf("Equal Partition Possible: %d\n", dp[n][target]);
 
     return 0;
 }
