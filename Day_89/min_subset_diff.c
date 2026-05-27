@@ -1,14 +1,17 @@
 #include <stdio.h>
 
+// Minimum Subset Sum Difference using DP
+
 #define MAX 100
 
 int main()
 {
-    int arr[] = {3,1,4,2,2};
-    int n = 5;
+    int arr[] = {1,6,11,5};
+    int n = 4;
 
     int sum = 0;
 
+    // Total sum
     for(int i=0;i<n;i++)
         sum += arr[i];
 
@@ -16,9 +19,11 @@ int main()
 
     int dp[MAX][MAX] = {0};
 
+    // Base case
     for(int i=0;i<=n;i++)
         dp[i][0] = 1;
 
+    // Subset sum DP
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=target;j++)
@@ -30,8 +35,8 @@ int main()
         }
     }
 
+    // Find closest sum
     int best = 0;
-
     for(int j=target;j>=0;j--)
     {
         if(dp[n][j])
@@ -41,9 +46,9 @@ int main()
         }
     }
 
-    int diff = sum - 2*best;
+    int diff = sum - 2 * best;
 
-    printf("Min Difference: %d\n", diff);
+    printf("Minimum Subset Sum Difference: %d\n", diff);
 
     return 0;
 }
