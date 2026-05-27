@@ -18,5 +18,7 @@ int main()
         return 0;
     }
 
+    int target = sum / 2;
+
     return 0;
 }
