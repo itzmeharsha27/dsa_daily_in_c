@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Minimum Subset Sum Difference
-
 #define MAX 100
 
 int main()
@@ -31,6 +29,21 @@ int main()
                 dp[i][j] = dp[i-1][j];
         }
     }
+
+    int best = 0;
+
+    for(int j=target;j>=0;j--)
+    {
+        if(dp[n][j])
+        {
+            best = j;
+            break;
+        }
+    }
+
+    int diff = sum - 2*best;
+
+    printf("Min Difference: %d\n", diff);
 
     return 0;
 }
