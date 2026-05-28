@@ -1,6 +1,13 @@
 #include <stdio.h>
 
+// 0/1 Knapsack
+
 #define MAX 100
+
+int max(int a,int b)
+{
+    return a > b ? a : b;
+}
 
 int main()
 {
@@ -18,8 +25,9 @@ int main()
             if(i==0 || w==0)
                 dp[i][w] = 0;
             else if(wt[i-1] <= w)
-            {
-            }
+                dp[i][w] = max(val[i-1] + dp[i-1][w-wt[i-1]], dp[i-1][w]);
+            else
+                dp[i][w] = dp[i-1][w];
         }
     }
 
