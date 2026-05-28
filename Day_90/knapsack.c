@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// 0/1 Knapsack
-
 #define MAX 100
 
 int max(int a,int b)
@@ -30,6 +28,8 @@ int main()
                 dp[i][w] = dp[i-1][w];
         }
     }
+
+    printf("Max Value: %d\n", dp[n][W]);
 
     return 0;
 }
