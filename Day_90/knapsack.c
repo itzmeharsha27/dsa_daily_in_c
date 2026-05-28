@@ -15,6 +15,8 @@ int main()
     {
         for(int w=0;w<=W;w++)
         {
+            if(i==0 || w==0)
+                dp[i][w] = 0;
         }
     }
 
