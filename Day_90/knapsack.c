@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// 0/1 Knapsack using DP
+
 #define MAX 100
 
 int max(int a,int b)
@@ -9,13 +11,14 @@ int max(int a,int b)
 
 int main()
 {
-    int wt[] = {2,3,4};
-    int val[] = {4,5,6};
-    int n = 3;
-    int W = 5;
+    int wt[] = {1,3,4,5};
+    int val[] = {1,4,5,7};
+    int n = 4;
+    int W = 7;
 
     int dp[MAX][MAX] = {0};
 
+    // DP table
     for(int i=0;i<=n;i++)
     {
         for(int w=0;w<=W;w++)
@@ -29,7 +32,7 @@ int main()
         }
     }
 
-    printf("Max Value: %d\n", dp[n][W]);
+    printf("Maximum Value in Knapsack: %d\n", dp[n][W]);
 
     return 0;
 }
