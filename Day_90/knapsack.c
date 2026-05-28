@@ -17,6 +17,9 @@ int main()
         {
             if(i==0 || w==0)
                 dp[i][w] = 0;
+            else if(wt[i-1] <= w)
+            {
+            }
         }
     }
 
