@@ -9,7 +9,7 @@ int main()
     int n = 4;
     int W = 7;
 
-    int dp[MAX][MAX];
+    int dp[MAX][MAX] = {0};
 
     return 0;
 }
