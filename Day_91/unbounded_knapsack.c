@@ -9,10 +9,10 @@ int max(int a,int b)
 
 int main()
 {
-    int wt[] = {2,3,4};
-    int val[] = {4,5,6};
+    int wt[] = {1,3,4};
+    int val[] = {10,40,50};
     int n = 3;
-    int W = 5;
+    int W = 6;
 
     int dp[MAX][MAX] = {0};
 
