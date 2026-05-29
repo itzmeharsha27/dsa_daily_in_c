@@ -2,8 +2,10 @@
 
 int main()
 {
-    int wt[100], val[100];
-    int n, W;
+    int wt[] = {2,3,4};
+    int val[] = {4,5,6};
+    int n = 3;
+    int W = 5;
 
     return 0;
 }
