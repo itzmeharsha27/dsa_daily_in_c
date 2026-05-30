@@ -13,6 +13,8 @@ int main()
     {
         for(int len=0;len<=n;len++)
         {
+            if(i==0 || len==0)
+                dp[i][len] = 0;
         }
     }
 
