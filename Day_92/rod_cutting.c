@@ -15,6 +15,9 @@ int main()
         {
             if(i==0 || len==0)
                 dp[i][len] = 0;
+            else if(i <= len)
+            {
+            }
         }
     }
 
