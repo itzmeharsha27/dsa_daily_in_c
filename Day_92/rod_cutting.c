@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Rod Cutting using Unbounded Knapsack
+
 #define MAX 100
 
 int max(int a,int b)
@@ -9,11 +11,12 @@ int max(int a,int b)
 
 int main()
 {
-    int price[] = {1,5,8,9,10,17,17,20};
-    int n = 8;
+    int price[] = {2,5,7,8,10};
+    int n = 5;
 
     int dp[MAX][MAX] = {0};
 
+    // DP table
     for(int i=0;i<=n;i++)
     {
         for(int len=0;len<=n;len++)
@@ -27,7 +30,7 @@ int main()
         }
     }
 
-    printf("Max Profit: %d\n", dp[n][n]);
+    printf("Maximum Profit from Rod Cutting: %d\n", dp[n][n]);
 
     return 0;
 }
