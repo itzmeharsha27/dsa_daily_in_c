@@ -9,5 +9,12 @@ int main()
 
     int dp[MAX][MAX] = {0};
 
+    for(int i=0;i<=n;i++)
+    {
+        for(int len=0;len<=n;len++)
+        {
+        }
+    }
+
     return 0;
 }
