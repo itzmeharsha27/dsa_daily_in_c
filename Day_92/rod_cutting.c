@@ -1,6 +1,13 @@
 #include <stdio.h>
 
+// Rod Cutting Problem
+
 #define MAX 100
+
+int max(int a,int b)
+{
+    return a > b ? a : b;
+}
 
 int main()
 {
@@ -16,8 +23,9 @@ int main()
             if(i==0 || len==0)
                 dp[i][len] = 0;
             else if(i <= len)
-            {
-            }
+                dp[i][len] = max(price[i-1] + dp[i][len-i], dp[i-1][len]);
+            else
+                dp[i][len] = dp[i-1][len];
         }
     }
 
