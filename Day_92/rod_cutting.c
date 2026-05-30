@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Rod Cutting Problem
-
 #define MAX 100
 
 int max(int a,int b)
@@ -28,6 +26,8 @@ int main()
                 dp[i][len] = dp[i-1][len];
         }
     }
+
+    printf("Max Profit: %d\n", dp[n][n]);
 
     return 0;
 }
