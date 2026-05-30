@@ -7,7 +7,7 @@ int main()
     int price[] = {2,5,7,8,10};
     int n = 5;
 
-    int dp[MAX][MAX];
+    int dp[MAX][MAX] = {0};
 
     return 0;
 }
