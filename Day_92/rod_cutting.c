@@ -9,8 +9,8 @@ int max(int a,int b)
 
 int main()
 {
-    int price[] = {2,5,7,8,10};
-    int n = 5;
+    int price[] = {1,5,8,9,10,17,17,20};
+    int n = 8;
 
     int dp[MAX][MAX] = {0};
 
