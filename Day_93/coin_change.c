@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Coin Change (Minimum Coins)
-
 #define MAX 100
 #define INF 100000
 
@@ -35,6 +33,8 @@ int main()
                 dp[i][j] = dp[i-1][j];
         }
     }
+
+    printf("Min Coins: %d\n", dp[n][amount]);
 
     return 0;
 }
