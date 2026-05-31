@@ -3,6 +3,11 @@
 #define MAX 100
 #define INF 100000
 
+int min(int a,int b)
+{
+    return a < b ? a : b;
+}
+
 int main()
 {
     int coins[] = {1,2,5};
@@ -22,6 +27,9 @@ int main()
     {
         for(int j=1;j<=amount;j++)
         {
+            if(coins[i-1] <= j)
+            {
+            }
         }
     }
 
