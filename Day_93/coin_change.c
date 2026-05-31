@@ -10,9 +10,9 @@ int min(int a,int b)
 
 int main()
 {
-    int coins[] = {1,2,5};
-    int n = 3;
-    int amount = 11;
+    int coins[] = {2};
+    int n = 1;
+    int amount = 3;
 
     int dp[MAX][MAX];
 
@@ -34,7 +34,10 @@ int main()
         }
     }
 
-    printf("Min Coins: %d\n", dp[n][amount]);
+    if(dp[n][amount] == INF)
+        printf("Not Possible\n");
+    else
+        printf("Min Coins: %d\n", dp[n][amount]);
 
     return 0;
 }
