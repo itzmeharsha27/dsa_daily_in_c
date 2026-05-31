@@ -11,5 +11,9 @@ int main()
 
     int dp[MAX][MAX];
 
+    for(int i=0;i<=n;i++)
+        for(int j=0;j<=amount;j++)
+            dp[i][j] = INF;
+
     return 0;
 }
