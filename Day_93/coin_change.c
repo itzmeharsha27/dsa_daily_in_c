@@ -15,5 +15,8 @@ int main()
         for(int j=0;j<=amount;j++)
             dp[i][j] = INF;
 
+    for(int i=0;i<=n;i++)
+        dp[i][0] = 0;
+
     return 0;
 }
