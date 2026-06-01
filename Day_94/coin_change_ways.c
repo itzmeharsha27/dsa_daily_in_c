@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Coin Change 2 using DP
+// Coin Change 2 (Count Ways - Unbounded Knapsack)
 
 #define MAX 100
 
@@ -12,23 +12,28 @@ int main()
 
     int dp[MAX][MAX] = {0};
 
-    // Base case
+    // Initialize base case
     for(int i=0;i<=n;i++)
         dp[i][0] = 1;
 
-    // DP computation
+    // Build DP table
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=amount;j++)
         {
             if(coins[i-1] <= j)
-                dp[i][j] = dp[i][j-coins[i-1]] + dp[i-1][j];
+            {
+                dp[i][j] = dp[i][j-coins[i-1]]  // include coin
+                         + dp[i-1][j];          // exclude coin
+            }
             else
+            {
                 dp[i][j] = dp[i-1][j];
+            }
         }
     }
 
-    printf("Number of Ways: %d\n", dp[n][amount]);
+    printf("Total Ways to Make Amount %d: %d\n", amount, dp[n][amount]);
 
     return 0;
 }
