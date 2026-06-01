@@ -4,9 +4,9 @@
 
 int main()
 {
-    int coins[] = {1,2,5};
-    int n = 3;
-    int amount = 5;
+    int coins[] = {2};
+    int n = 1;
+    int amount = 3;
 
     int dp[MAX][MAX] = {0};
 
