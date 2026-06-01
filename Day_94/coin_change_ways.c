@@ -17,6 +17,9 @@ int main()
     {
         for(int j=1;j<=amount;j++)
         {
+            if(coins[i-1] <= j)
+            {
+            }
         }
     }
 
