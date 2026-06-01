@@ -8,7 +8,7 @@ int main()
     int n = 3;
     int amount = 5;
 
-    int dp[MAX][MAX];
+    int dp[MAX][MAX] = {0};
 
     return 0;
 }
