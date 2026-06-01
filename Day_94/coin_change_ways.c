@@ -1,18 +1,22 @@
 #include <stdio.h>
 
+// Coin Change 2 using DP
+
 #define MAX 100
 
 int main()
 {
-    int coins[] = {2};
-    int n = 1;
-    int amount = 3;
+    int coins[] = {1,2,5};
+    int n = 3;
+    int amount = 5;
 
     int dp[MAX][MAX] = {0};
 
+    // Base case
     for(int i=0;i<=n;i++)
         dp[i][0] = 1;
 
+    // DP computation
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=amount;j++)
@@ -24,7 +28,7 @@ int main()
         }
     }
 
-    printf("Ways: %d\n", dp[n][amount]);
+    printf("Number of Ways: %d\n", dp[n][amount]);
 
     return 0;
 }
