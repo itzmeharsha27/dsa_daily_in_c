@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Coin Change 2 (Number of Ways)
+
 #define MAX 100
 
 int main()
@@ -18,8 +20,9 @@ int main()
         for(int j=1;j<=amount;j++)
         {
             if(coins[i-1] <= j)
-            {
-            }
+                dp[i][j] = dp[i][j-coins[i-1]] + dp[i-1][j];
+            else
+                dp[i][j] = dp[i-1][j];
         }
     }
 
