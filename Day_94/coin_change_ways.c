@@ -2,8 +2,9 @@
 
 int main()
 {
-    int coins[100];
-    int n, amount;
+    int coins[] = {1,2,5};
+    int n = 3;
+    int amount = 5;
 
     return 0;
 }
