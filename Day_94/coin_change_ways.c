@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Coin Change 2 (Number of Ways)
-
 #define MAX 100
 
 int main()
@@ -25,6 +23,8 @@ int main()
                 dp[i][j] = dp[i-1][j];
         }
     }
+
+    printf("Ways: %d\n", dp[n][amount]);
 
     return 0;
 }
