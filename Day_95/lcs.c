@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
+// Longest Common Subsequence
+
 #define MAX 100
+
+int max(int a,int b)
+{
+    return a > b ? a : b;
+}
 
 int main()
 {
@@ -18,8 +25,9 @@ int main()
         for(int j=1;j<=m;j++)
         {
             if(s1[i-1] == s2[j-1])
-            {
-            }
+                dp[i][j] = 1 + dp[i-1][j-1];
+            else
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
         }
     }
 
