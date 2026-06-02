@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Longest Common Subsequence
-
 #define MAX 100
 
 int max(int a,int b)
@@ -30,6 +28,8 @@ int main()
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
         }
     }
+
+    printf("LCS Length: %d\n", dp[n][m]);
 
     return 0;
 }
