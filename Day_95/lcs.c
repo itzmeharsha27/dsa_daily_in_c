@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// LCS using DP
+
 #define MAX 100
 
 int max(int a,int b)
@@ -10,14 +12,15 @@ int max(int a,int b)
 
 int main()
 {
-    char s1[] = "abc";
-    char s2[] = "def";
+    char s1[] = "abcde";
+    char s2[] = "ace";
 
     int dp[MAX][MAX] = {0};
 
     int n = strlen(s1);
     int m = strlen(s2);
 
+    // DP computation
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
@@ -29,7 +32,7 @@ int main()
         }
     }
 
-    printf("LCS Length: %d\n", dp[n][m]);
+    printf("Longest Common Subsequence Length: %d\n", dp[n][m]);
 
     return 0;
 }
