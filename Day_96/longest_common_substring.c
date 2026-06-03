@@ -13,5 +13,7 @@ int main()
     int n = strlen(s1);
     int m = strlen(s2);
 
+    int maxLen = 0;
+
     return 0;
 }
