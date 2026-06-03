@@ -7,7 +7,7 @@ int main()
     char s1[] = "abcde";
     char s2[] = "abfce";
 
-    int dp[MAX][MAX];
+    int dp[MAX][MAX] = {0};
 
     return 0;
 }
