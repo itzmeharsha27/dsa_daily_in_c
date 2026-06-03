@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
+// Longest Common Substring (DP)
+
 #define MAX 100
 
 int main()
 {
-    char s1[] = "xyzabcp";
-    char s2[] = "abcpqr";
+    char s1[] = "abcde";
+    char s2[] = "abfce";
 
     int dp[MAX][MAX] = {0};
 
@@ -15,6 +17,7 @@ int main()
 
     int maxLen = 0;
 
+    // Build DP table
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
@@ -26,7 +29,9 @@ int main()
                     maxLen = dp[i][j];
             }
             else
+            {
                 dp[i][j] = 0;
+            }
         }
     }
 
