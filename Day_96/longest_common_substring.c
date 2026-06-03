@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Longest Common Substring
-
 #define MAX 100
 
 int main()
@@ -28,11 +26,11 @@ int main()
                     maxLen = dp[i][j];
             }
             else
-            {
                 dp[i][j] = 0;
-            }
         }
     }
+
+    printf("Longest Common Substring Length: %d\n", maxLen);
 
     return 0;
 }
