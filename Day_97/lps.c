@@ -10,7 +10,7 @@ int max(int a,int b)
 
 int main()
 {
-    char s[] = "bbbab";
+    char s[] = "cbbd";
 
     int dp[MAX][MAX] = {0};
 
