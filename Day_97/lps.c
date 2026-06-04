@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// LPS using DP
+
 #define MAX 100
 
 int max(int a,int b)
@@ -10,15 +12,17 @@ int max(int a,int b)
 
 int main()
 {
-    char s[] = "cbbd";
+    char s[] = "bbbab";
 
     int dp[MAX][MAX] = {0};
 
     int n = strlen(s);
 
+    // Base case
     for(int i=0;i<n;i++)
         dp[i][i] = 1;
 
+    // DP computation
     for(int len=2; len<=n; len++)
     {
         for(int i=0;i<=n-len;i++)
@@ -32,7 +36,7 @@ int main()
         }
     }
 
-    printf("LPS Length: %d\n", dp[0][n-1]);
+    printf("Longest Palindromic Subsequence Length: %d\n", dp[0][n-1]);
 
     return 0;
 }
