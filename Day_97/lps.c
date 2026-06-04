@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// LPS using DP
+// Longest Palindromic Subsequence (Interval DP)
 
 #define MAX 100
 
@@ -15,14 +15,13 @@ int main()
     char s[] = "bbbab";
 
     int dp[MAX][MAX] = {0};
-
     int n = strlen(s);
 
-    // Base case
+    // Initialize single chars
     for(int i=0;i<n;i++)
         dp[i][i] = 1;
 
-    // DP computation
+    // Fill DP table
     for(int len=2; len<=n; len++)
     {
         for(int i=0;i<=n-len;i++)
@@ -36,7 +35,7 @@ int main()
         }
     }
 
-    printf("Longest Palindromic Subsequence Length: %d\n", dp[0][n-1]);
+    printf("LPS Length for \"%s\" = %d\n", s, dp[0][n-1]);
 
     return 0;
 }
