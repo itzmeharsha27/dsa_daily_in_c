@@ -32,7 +32,7 @@ int main()
     }
 
     int lps = dp[0][n-1];
-    int result = n - lps;
+    printf("Min Insertions: %d\n", n - lps);
 
     return 0;
 }
