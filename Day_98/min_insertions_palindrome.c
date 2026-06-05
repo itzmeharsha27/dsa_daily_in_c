@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Minimum Insertions to Make Palindrome
+
 #define MAX 100
 
 int max(int a,int b)
@@ -10,11 +12,12 @@ int max(int a,int b)
 
 int main()
 {
-    char s[] = "leetcode";
+    char s[] = "abcda";
 
     int dp[MAX][MAX] = {0};
     int n = strlen(s);
 
+    // LPS calculation
     for(int i=0;i<n;i++)
         dp[i][i] = 1;
 
@@ -31,7 +34,9 @@ int main()
         }
     }
 
-    printf("Min Insertions: %d\n", n - dp[0][n-1]);
+    int minInsertions = n - dp[0][n-1];
+
+    printf("Minimum Insertions to Make \"%s\" Palindrome = %d\n", s, minInsertions);
 
     return 0;
 }
