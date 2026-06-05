@@ -10,7 +10,7 @@ int max(int a,int b)
 
 int main()
 {
-    char s[] = "abcda";
+    char s[] = "leetcode";
 
     int dp[MAX][MAX] = {0};
     int n = strlen(s);
@@ -31,8 +31,7 @@ int main()
         }
     }
 
-    int lps = dp[0][n-1];
-    printf("Min Insertions: %d\n", n - lps);
+    printf("Min Insertions: %d\n", n - dp[0][n-1]);
 
     return 0;
 }
