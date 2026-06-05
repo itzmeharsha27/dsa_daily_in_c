@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Min Insertions to Palindrome
-
 #define MAX 100
 
 int max(int a,int b)
@@ -32,6 +30,9 @@ int main()
                 dp[i][j] = max(dp[i+1][j], dp[i][j-1]);
         }
     }
+
+    int lps = dp[0][n-1];
+    int result = n - lps;
 
     return 0;
 }
