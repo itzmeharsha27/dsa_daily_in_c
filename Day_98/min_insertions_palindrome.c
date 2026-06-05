@@ -6,7 +6,7 @@ int main()
 {
     char s[] = "abcda";
 
-    int dp[MAX][MAX];
+    int dp[MAX][MAX] = {0};
 
     return 0;
 }
