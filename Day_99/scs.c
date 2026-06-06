@@ -17,6 +17,9 @@ int main()
     {
         for(int j=1;j<=m;j++)
         {
+            if(s1[i-1] == s2[j-1])
+            {
+            }
         }
     }
 
