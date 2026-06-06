@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// SCS using LCS
+
 #define MAX 100
 
 int max(int a,int b)
@@ -18,6 +20,7 @@ int main()
     int n = strlen(s1);
     int m = strlen(s2);
 
+    // LCS DP
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
@@ -29,7 +32,7 @@ int main()
         }
     }
 
-    printf("SCS Length: %d\n", n + m - dp[n][m]);
+    printf("Shortest Common Supersequence Length: %d\n", n + m - dp[n][m]);
 
     return 0;
 }
