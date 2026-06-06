@@ -29,7 +29,7 @@ int main()
         }
     }
 
-    int scs_len = n + m - dp[n][m];
+    printf("SCS Length: %d\n", n + m - dp[n][m]);
 
     return 0;
 }
