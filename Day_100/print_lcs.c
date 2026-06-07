@@ -3,6 +3,11 @@
 
 #define MAX 100
 
+int max(int a,int b)
+{
+    return a > b ? a : b;
+}
+
 int main()
 {
     char s1[] = "abcde";
@@ -17,6 +22,9 @@ int main()
     {
         for(int j=1;j<=m;j++)
         {
+            if(s1[i-1] == s2[j-1])
+            {
+            }
         }
     }
 
