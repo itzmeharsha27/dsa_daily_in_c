@@ -48,5 +48,7 @@ int main()
             j--;
     }
 
+    printf("LCS: %s\n", lcs);
+
     return 0;
 }
