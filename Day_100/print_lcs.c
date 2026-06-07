@@ -29,6 +29,11 @@ int main()
         }
     }
 
+    char lcs[100];
+    int index = dp[n][m];
+
+    lcs[index] = '\0';
+
     int i=n, j=m;
 
     return 0;
