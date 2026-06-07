@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Print Longest Common Subsequence (Reconstruction)
+
 #define MAX 100
 
 int max(int a,int b)
@@ -10,14 +12,14 @@ int max(int a,int b)
 
 int main()
 {
-    char s1[] = "AGGTAB";
-    char s2[] = "GXTXAYB";
+    char s1[] = "abcde";
+    char s2[] = "ace";
 
     int dp[MAX][MAX] = {0};
-
     int n = strlen(s1);
     int m = strlen(s2);
 
+    // Build DP table
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
@@ -29,6 +31,7 @@ int main()
         }
     }
 
+    // Reconstruct LCS
     char lcs[100];
     int index = dp[n][m];
     lcs[index] = '\0';
@@ -48,7 +51,7 @@ int main()
             j--;
     }
 
-    printf("LCS: %s\n", lcs);
+    printf("LCS of \"%s\" and \"%s\" = %s\n", s1, s2, lcs);
 
     return 0;
 }
