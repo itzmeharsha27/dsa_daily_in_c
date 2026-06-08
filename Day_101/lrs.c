@@ -14,6 +14,9 @@ int main()
     {
         for(int j=1;j<=n;j++)
         {
+            if(s[i-1] == s[j-1] && i != j)
+            {
+            }
         }
     }
 
