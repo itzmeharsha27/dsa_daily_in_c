@@ -10,5 +10,12 @@ int main()
     int dp[MAX][MAX] = {0};
     int n = strlen(s);
 
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j++)
+        {
+        }
+    }
+
     return 0;
 }
