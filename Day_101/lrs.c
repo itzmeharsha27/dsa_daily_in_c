@@ -10,7 +10,7 @@ int max(int a,int b)
 
 int main()
 {
-    char s[] = "aab";
+    char s[] = "aabb";
 
     int dp[MAX][MAX] = {0};
     int n = strlen(s);
