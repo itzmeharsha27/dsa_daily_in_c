@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// LRS using DP
+
 #define MAX 100
 
 int max(int a,int b)
@@ -10,11 +12,12 @@ int max(int a,int b)
 
 int main()
 {
-    char s[] = "aabb";
+    char s[] = "aab";
 
     int dp[MAX][MAX] = {0};
     int n = strlen(s);
 
+    // DP computation
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=n;j++)
@@ -26,7 +29,7 @@ int main()
         }
     }
 
-    printf("LRS Length: %d\n", dp[n][n]);
+    printf("Longest Repeating Subsequence Length: %d\n", dp[n][n]);
 
     return 0;
 }
