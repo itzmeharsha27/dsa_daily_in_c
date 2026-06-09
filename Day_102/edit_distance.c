@@ -1,7 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 
+// Edit Distance
+
 #define MAX 100
+
+int min(int a,int b,int c)
+{
+    int x = (a < b) ? a : b;
+    return (x < c) ? x : c;
+}
 
 int main()
 {
@@ -23,6 +31,14 @@ int main()
     {
         for(int j=1;j<=m;j++)
         {
+            if(s1[i-1] == s2[j-1])
+                dp[i][j] = dp[i-1][j-1];
+            else
+                dp[i][j] = 1 + min(
+                    dp[i-1][j],     // delete
+                    dp[i][j-1],     // insert
+                    dp[i-1][j-1]    // replace
+                );
         }
     }
 
