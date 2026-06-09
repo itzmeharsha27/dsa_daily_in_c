@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Edit Distance using DP
+// Edit Distance (Levenshtein Distance)
 
 #define MAX 100
 
@@ -17,34 +17,37 @@ int main()
     char s2[] = "ros";
 
     int dp[MAX][MAX] = {0};
-
     int n = strlen(s1);
     int m = strlen(s2);
 
-    // Base cases
+    // Initialize base cases
     for(int i=0;i<=n;i++)
         dp[i][0] = i;
 
     for(int j=0;j<=m;j++)
         dp[0][j] = j;
 
-    // DP computation
+    // Build DP table
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
         {
             if(s1[i-1] == s2[j-1])
-                dp[i][j] = dp[i-1][j-1];
+            {
+                dp[i][j] = dp[i-1][j-1]; // no operation
+            }
             else
+            {
                 dp[i][j] = 1 + min(
-                    dp[i-1][j],
-                    dp[i][j-1],
-                    dp[i-1][j-1]
+                    dp[i-1][j],     // delete
+                    dp[i][j-1],     // insert
+                    dp[i-1][j-1]    // replace
                 );
+            }
         }
     }
 
-    printf("Minimum Edit Distance: %d\n", dp[n][m]);
+    printf("Edit Distance between \"%s\" and \"%s\" = %d\n", s1, s2, dp[n][m]);
 
     return 0;
 }
