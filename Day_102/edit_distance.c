@@ -11,8 +11,8 @@ int min(int a,int b,int c)
 
 int main()
 {
-    char s1[] = "horse";
-    char s2[] = "ros";
+    char s1[] = "intention";
+    char s2[] = "execution";
 
     int dp[MAX][MAX] = {0};
 
