@@ -2,7 +2,8 @@
 
 int main()
 {
-    char s1[100], s2[100];
+    char s1[] = "horse";
+    char s2[] = "ros";
 
     return 0;
 }
