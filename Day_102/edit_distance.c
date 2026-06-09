@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Edit Distance using DP
+
 #define MAX 100
 
 int min(int a,int b,int c)
@@ -11,20 +13,22 @@ int min(int a,int b,int c)
 
 int main()
 {
-    char s1[] = "intention";
-    char s2[] = "execution";
+    char s1[] = "horse";
+    char s2[] = "ros";
 
     int dp[MAX][MAX] = {0};
 
     int n = strlen(s1);
     int m = strlen(s2);
 
+    // Base cases
     for(int i=0;i<=n;i++)
         dp[i][0] = i;
 
     for(int j=0;j<=m;j++)
         dp[0][j] = j;
 
+    // DP computation
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
@@ -40,7 +44,7 @@ int main()
         }
     }
 
-    printf("Edit Distance: %d\n", dp[n][m]);
+    printf("Minimum Edit Distance: %d\n", dp[n][m]);
 
     return 0;
 }
