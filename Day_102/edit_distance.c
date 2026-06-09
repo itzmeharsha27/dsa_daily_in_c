@@ -1,13 +1,13 @@
-class Solution {
-    public long maxTotalValue(int[] nums, int k) {
-        int maxEl = Integer.MIN_VALUE;
-        int minEl = Integer.MAX_VALUE;
+#include <stdio.h>
 
-        for(int num : nums) {
-            maxEl = Math.max(maxEl, num);
-            minEl = Math.min(minEl, num);
-        }
+#define MAX 100
 
-        return (long)(maxEl - minEl) * k;
-    }
+int main()
+{
+    char s1[] = "horse";
+    char s2[] = "ros";
+
+    int dp[MAX][MAX] = {0};
+
+    return 0;
 }
