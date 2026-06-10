@@ -15,5 +15,11 @@ int main()
 
     dp[0][0] = 1;
 
+    for(int j=1;j<=m;j++)
+    {
+        if(p[j-1] == '*')
+            dp[0][j] = dp[0][j-1];
+    }
+
     return 0;
 }
