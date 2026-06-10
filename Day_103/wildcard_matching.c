@@ -13,5 +13,7 @@ int main()
     int n = strlen(s);
     int m = strlen(p);
 
+    dp[0][0] = 1;
+
     return 0;
 }
