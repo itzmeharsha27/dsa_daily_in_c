@@ -2,7 +2,8 @@
 
 int main()
 {
-    char s[100], p[100];
+    char s[] = "baaabab";
+    char p[] = "ba*a?";
 
     return 0;
 }
