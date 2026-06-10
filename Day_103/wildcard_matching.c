@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
+// Wildcard Matching using DP
+
 #define MAX 100
 
 int main()
 {
-    char s[] = "abcd";
-    char p[] = "a*d";
+    char s[] = "baaabab";
+    char p[] = "ba*a?";
 
     int dp[MAX][MAX] = {0};
 
@@ -34,7 +36,7 @@ int main()
         }
     }
 
-    printf("Match: %d\n", dp[n][m]);
+    printf("Wildcard Match Result: %d\n", dp[n][m]);
 
     return 0;
 }
