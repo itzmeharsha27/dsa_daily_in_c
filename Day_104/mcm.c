@@ -1,15 +1,18 @@
 #include <stdio.h>
 
+// MCM using DP
+
 #define MAX 100
 #define INF 1000000
 
 int main()
 {
-    int arr[] = {10,20,30};
-    int n = 3;
+    int arr[] = {40,20,30,10,30};
+    int n = 5;
 
     int dp[MAX][MAX] = {0};
 
+    // DP computation
     for(int i=1;i<n;i++)
         dp[i][i] = 0;
 
@@ -29,7 +32,7 @@ int main()
         }
     }
 
-    printf("Min Cost: %d\n", dp[1][n-1]);
+    printf("Minimum Multiplication Cost: %d\n", dp[1][n-1]);
 
     return 0;
 }
