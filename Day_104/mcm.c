@@ -12,5 +12,9 @@ int main()
     for(int i=1;i<n;i++)
         dp[i][i] = 0;
 
+    for(int len=2; len<n; len++)
+    {
+    }
+
     return 0;
 }
