@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Matrix Chain Multiplication
+
 #define MAX 100
 #define INF 1000000
 
@@ -19,6 +21,13 @@ int main()
         {
             int j = i + len - 1;
             dp[i][j] = INF;
+
+            for(int k=i;k<j;k++)
+            {
+                int cost = dp[i][k] + dp[k+1][j] + arr[i-1]*arr[k]*arr[j];
+                if(cost < dp[i][j])
+                    dp[i][j] = cost;
+            }
         }
     }
 
