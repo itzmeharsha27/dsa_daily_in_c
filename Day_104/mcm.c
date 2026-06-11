@@ -5,8 +5,8 @@
 
 int main()
 {
-    int arr[] = {40,20,30,10,30};
-    int n = 5;
+    int arr[] = {10,20,30};
+    int n = 3;
 
     int dp[MAX][MAX] = {0};
 
