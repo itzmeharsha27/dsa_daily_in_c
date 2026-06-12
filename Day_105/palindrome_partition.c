@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Palindrome Partitioning
-
 #define MAX 100
 #define INF 1000000
 
@@ -44,6 +42,8 @@ int main()
             }
         }
     }
+
+    printf("Min Cuts: %d\n", dp[0][n-1]);
 
     return 0;
 }
