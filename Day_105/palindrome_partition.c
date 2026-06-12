@@ -7,7 +7,7 @@ int isPalindrome(char s[], int i, int j)
 {
     while(i < j)
     {
-        if(s[i] !=  s[j])
+        if(s[i] != s[j])
             return 0;
         i++; j--;
     }
@@ -20,6 +20,10 @@ int main()
 
     int dp[MAX][MAX] = {0};
     int n = strlen(s);
+
+    for(int len=2; len<=n; len++)
+    {
+    }
 
     return 0;
 }
