@@ -3,6 +3,17 @@
 
 #define MAX 100
 
+int isPalindrome(char s[], int i, int j)
+{
+    while(i < j)
+    {
+        if(s[i] !=  s[j])
+            return 0;
+        i++; j--;
+    }
+    return 1;
+}
+
 int main()
 {
     char s[] = "aab";
