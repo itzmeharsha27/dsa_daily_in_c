@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
+// Palindrome Partitioning
+
 #define MAX 100
+#define INF 1000000
 
 int isPalindrome(char s[], int i, int j)
 {
@@ -23,6 +26,23 @@ int main()
 
     for(int len=2; len<=n; len++)
     {
+        for(int i=0;i<=n-len;i++)
+        {
+            int j = i + len - 1;
+
+            if(isPalindrome(s,i,j))
+                dp[i][j] = 0;
+            else
+            {
+                dp[i][j] = INF;
+                for(int k=i;k<j;k++)
+                {
+                    int cost = dp[i][k] + dp[k+1][j] + 1;
+                    if(cost < dp[i][j])
+                        dp[i][j] = cost;
+                }
+            }
+        }
     }
 
     return 0;
