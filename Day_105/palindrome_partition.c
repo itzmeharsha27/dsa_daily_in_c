@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Palindrome Partition using DP
+
 #define MAX 100
 #define INF 1000000
 
@@ -17,11 +19,12 @@ int isPalindrome(char s[], int i, int j)
 
 int main()
 {
-    char s[] = "ababbbabbababa";
+    char s[] = "aab";
 
     int dp[MAX][MAX] = {0};
     int n = strlen(s);
 
+    // DP computation
     for(int len=2; len<=n; len++)
     {
         for(int i=0;i<=n-len;i++)
@@ -43,7 +46,7 @@ int main()
         }
     }
 
-    printf("Min Cuts: %d\n", dp[0][n-1]);
+    printf("Minimum Cuts Needed: %d\n", dp[0][n-1]);
 
     return 0;
 }
