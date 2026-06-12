@@ -17,7 +17,7 @@ int isPalindrome(char s[], int i, int j)
 
 int main()
 {
-    char s[] = "aab";
+    char s[] = "ababbbabbababa";
 
     int dp[MAX][MAX] = {0};
     int n = strlen(s);
