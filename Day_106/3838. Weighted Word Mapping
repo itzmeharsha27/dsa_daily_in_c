@@ -6,8 +6,8 @@ int main()
 {
     char exp[] = "T|F&T";
 
-    int Tdp[MAX][MAX];
-    int Fdp[MAX][MAX];
+    int Tdp[MAX][MAX] = {0};
+    int Fdp[MAX][MAX] = {0};
 
     return 0;
 }
