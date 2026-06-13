@@ -2,7 +2,7 @@
 
 int main()
 {
-    char exp[100];
+    char exp[] = "T|F&T";
 
     return 0;
 }
