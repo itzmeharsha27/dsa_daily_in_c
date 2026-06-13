@@ -5,7 +5,7 @@
 
 int main()
 {
-    char exp[] = "T|F&T";
+    char exp[] = "T^F|F";
 
     int Tdp[MAX][MAX] = {0};
     int Fdp[MAX][MAX] = {0};
