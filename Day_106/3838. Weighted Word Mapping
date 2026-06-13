@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Boolean Parenthesization
+
 #define MAX 100
 
 int main()
@@ -22,6 +24,34 @@ int main()
 
     for(int len=3; len<=n; len+=2)
     {
+        for(int i=0;i<=n-len;i+=2)
+        {
+            int j = i + len - 1;
+
+            for(int k=i+1;k<j;k+=2)
+            {
+                int lt = Tdp[i][k-1];
+                int lf = Fdp[i][k-1];
+                int rt = Tdp[k+1][j];
+                int rf = Fdp[k+1][j];
+
+                if(exp[k] == '&')
+                {
+                    Tdp[i][j] += lt * rt;
+                    Fdp[i][j] += lt * rf + lf * rt + lf * rf;
+                }
+                else if(exp[k] == '|')
+                {
+                    Tdp[i][j] += lt * rt + lt * rf + lf * rt;
+                    Fdp[i][j] += lf * rf;
+                }
+                else if(exp[k] == '^')
+                {
+                    Tdp[i][j] += lt * rf + lf * rt;
+                    Fdp[i][j] += lt * rt + lf * rf;
+                }
+            }
+        }
     }
 
     return 0;
