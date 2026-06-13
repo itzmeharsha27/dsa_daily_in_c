@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Boolean Parenthesization using DP
+// Boolean Parenthesization (Interval DP)
 
 #define MAX 100
 
@@ -11,10 +11,9 @@ int main()
 
     int Tdp[MAX][MAX] = {0};
     int Fdp[MAX][MAX] = {0};
-
     int n = strlen(exp);
 
-    // Base cases
+    // Initialize base cases
     for(int i=0;i<n;i+=2)
     {
         if(exp[i] == 'T')
@@ -23,7 +22,7 @@ int main()
             Fdp[i][i] = 1;
     }
 
-    // DP computation
+    // Build DP table
     for(int len=3; len<=n; len+=2)
     {
         for(int i=0;i<=n-len;i+=2)
@@ -56,7 +55,7 @@ int main()
         }
     }
 
-    printf("Total Ways to Evaluate TRUE: %d\n", Tdp[0][n-1]);
+    printf("Ways to make expression \"%s\" TRUE = %d\n", exp, Tdp[0][n-1]);
 
     return 0;
 }
