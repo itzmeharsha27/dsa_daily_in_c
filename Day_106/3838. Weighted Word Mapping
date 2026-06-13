@@ -2,5 +2,7 @@
 
 int main()
 {
+    char exp[100];
+
     return 0;
 }
