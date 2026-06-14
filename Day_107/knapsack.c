@@ -27,5 +27,7 @@ int main()
         }
     }
 
+    printf("Max Value: %d\n", dp[n][W]);
+
     return 0;
 }
