@@ -11,5 +11,11 @@ int main()
 
     int dp[MAX][MAX] = {0};
 
+    for(int i=0;i<=n;i++)
+        dp[i][0] = 0;
+
+    for(int j=0;j<=W;j++)
+        dp[0][j] = 0;
+
     return 0;
 }
