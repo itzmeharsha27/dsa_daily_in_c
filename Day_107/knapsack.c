@@ -17,5 +17,12 @@ int main()
     for(int j=0;j<=W;j++)
         dp[0][j] = 0;
 
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=W;j++)
+        {
+        }
+    }
+
     return 0;
 }
