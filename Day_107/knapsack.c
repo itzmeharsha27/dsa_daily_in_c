@@ -2,6 +2,11 @@
 
 #define MAX 100
 
+int max(int a,int b)
+{
+    return a > b ? a : b;
+}
+
 int main()
 {
     int wt[] = {1,3,4,5};
@@ -11,16 +16,13 @@ int main()
 
     int dp[MAX][MAX] = {0};
 
-    for(int i=0;i<=n;i++)
-        dp[i][0] = 0;
-
-    for(int j=0;j<=W;j++)
-        dp[0][j] = 0;
-
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=W;j++)
         {
+            if(wt[i-1] <= j)
+            {
+            }
         }
     }
 
