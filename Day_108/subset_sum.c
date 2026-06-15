@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Subset Sum using DP
+// Subset Sum Problem (DP - Boolean Table)
 
 #define MAX 100
 
@@ -12,26 +12,31 @@ int main()
 
     int dp[MAX][MAX] = {0};
 
-    // Base cases
+    // Initialize base cases
     for(int i=0;i<=n;i++)
         dp[i][0] = 1;
 
     for(int j=1;j<=sum;j++)
         dp[0][j] = 0;
 
-    // DP computation
+    // Build DP table
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=sum;j++)
         {
             if(arr[i-1] <= j)
-                dp[i][j] = dp[i-1][j-arr[i-1]] || dp[i-1][j];
+            {
+                dp[i][j] = dp[i-1][j-arr[i-1]] 
+                         || dp[i-1][j];
+            }
             else
+            {
                 dp[i][j] = dp[i-1][j];
+            }
         }
     }
 
-    printf("Subset Sum Possible: %d\n", dp[n][sum]);
+    printf("Is Subset with Sum %d Possible? %d\n", sum, dp[n][sum]);
 
     return 0;
 }
