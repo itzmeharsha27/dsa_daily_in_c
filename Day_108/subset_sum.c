@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Subset Sum
-
 #define MAX 100
 
 int main()
@@ -28,6 +26,8 @@ int main()
                 dp[i][j] = dp[i-1][j];
         }
     }
+
+    printf("Subset Exists: %d\n", dp[n][sum]);
 
     return 0;
 }
