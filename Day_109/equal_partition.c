@@ -4,7 +4,7 @@
 
 int main()
 {
-    int arr[] = {1,5,11,5};
+    int arr[] = {1,2,3,5};
     int n = 4;
 
     int dp[MAX][MAX] = {0};
