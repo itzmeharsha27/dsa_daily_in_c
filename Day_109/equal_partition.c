@@ -21,5 +21,8 @@ int main()
 
     int sum = total / 2;
 
+    for(int i=0;i<=n;i++)
+        dp[i][0] = 1;
+
     return 0;
 }
