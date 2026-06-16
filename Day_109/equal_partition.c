@@ -13,5 +13,13 @@ int main()
     for(int i=0;i<n;i++)
         total += arr[i];
 
+    if(total % 2 != 0)
+    {
+        printf("Not Possible\n");
+        return 0;
+    }
+
+    int sum = total / 2;
+
     return 0;
 }
