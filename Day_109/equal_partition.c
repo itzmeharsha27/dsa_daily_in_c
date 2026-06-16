@@ -1,10 +1,12 @@
 #include <stdio.h>
 
+// Equal Partition Problem
+
 #define MAX 100
 
 int main()
 {
-    int arr[] = {1,2,3,5};
+    int arr[] = {1,5,11,5};
     int n = 4;
 
     int dp[MAX][MAX] = {0};
@@ -15,7 +17,7 @@ int main()
 
     if(total % 2 != 0)
     {
-        printf("Not Possible\n");
+        printf("Cannot Partition\n");
         return 0;
     }
 
@@ -38,7 +40,7 @@ int main()
         }
     }
 
-    printf("Possible: %d\n", dp[n][sum]);
+    printf("Equal Partition Possible: %d\n", dp[n][sum]);
 
     return 0;
 }
