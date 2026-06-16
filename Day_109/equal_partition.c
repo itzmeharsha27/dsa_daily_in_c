@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Equal Partition using Subset Sum
-
 #define MAX 100
 
 int main()
@@ -39,6 +37,8 @@ int main()
                 dp[i][j] = dp[i-1][j];
         }
     }
+
+    printf("Possible: %d\n", dp[n][sum]);
 
     return 0;
 }
