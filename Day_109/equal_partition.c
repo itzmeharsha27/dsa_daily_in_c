@@ -7,7 +7,7 @@ int main()
     int arr[] = {1,5,11,5};
     int n = 4;
 
-    int dp[MAX][MAX];
+    int dp[MAX][MAX] = {0};
 
     return 0;
 }
