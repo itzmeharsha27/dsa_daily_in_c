@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Count Subsets with Given Sum
-
 #define MAX 100
 
 int main()
@@ -28,6 +26,8 @@ int main()
                 dp[i][j] = dp[i-1][j];
         }
     }
+
+    printf("Count: %d\n", dp[n][sum]);
 
     return 0;
 }
