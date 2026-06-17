@@ -8,7 +8,7 @@ int main()
     int n = 6;
     int sum = 10;
 
-    int dp[MAX][MAX];
+    int dp[MAX][MAX] = {0};
 
     return 0;
 }
