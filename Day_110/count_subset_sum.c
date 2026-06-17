@@ -4,9 +4,9 @@
 
 int main()
 {
-    int arr[] = {2,3,5,6,8,10};
-    int n = 6;
-    int sum = 10;
+    int arr[] = {1,2,3,3};
+    int n = 4;
+    int sum = 6;
 
     int dp[MAX][MAX] = {0};
 
