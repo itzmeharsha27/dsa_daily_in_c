@@ -13,5 +13,7 @@ int main()
     for(int i=0;i<n;i++)
         total += arr[i];
 
+    int sum = total / 2;
+
     return 0;
 }
