@@ -15,7 +15,7 @@ int main()
 
     int sum = total / 2;
 
-    for(int i=0;i<=n;i++)
+    for(int i=0;i<=n; i++)
         dp[i][0] = 1;
 
     for(int j=1;j<=sum;j++)
@@ -41,6 +41,8 @@ int main()
             break;
         }
     }
+
+    int diff = total - 2*best;
 
     return 0;
 }
