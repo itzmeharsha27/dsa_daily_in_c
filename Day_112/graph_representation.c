@@ -27,6 +27,21 @@ void addEdge(struct Node* adjList[], int u, int v)
     adjList[v] = newNode;
 }
 
+void printGraph(struct Node* adjList[], int V)
+{
+    for(int i=0;i<V;i++)
+    {
+        struct Node* temp = adjList[i];
+        printf("%d: ", i);
+        while(temp)
+        {
+            printf("%d -> ", temp->data);
+            temp = temp->next;
+        }
+        printf("NULL\n");
+    }
+}
+
 int main()
 {
     int V = 4;
@@ -39,6 +54,8 @@ int main()
     addEdge(adjList, 0, 1);
     addEdge(adjList, 0, 2);
     addEdge(adjList, 1, 3);
+
+    printGraph(adjList, V);
 
     return 0;
 }
