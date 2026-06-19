@@ -2,7 +2,7 @@
 
 int main()
 {
-    int V;
+    int V = 4;
 
     return 0;
 }
