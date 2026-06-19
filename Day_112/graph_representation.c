@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Graph Representation (Matrix + List)
+
 #define MAX 100
 
 struct Node {
@@ -46,8 +48,23 @@ int main()
 {
     int V = 4;
 
-    struct Node* adjList[MAX];
+    // Adjacency Matrix
+    int adj[MAX][MAX] = {0};
 
+    adj[0][1] = adj[1][0] = 1;
+    adj[0][2] = adj[2][0] = 1;
+    adj[1][3] = adj[3][1] = 1;
+
+    printf("Adjacency Matrix:\n");
+    for(int i=0;i<V;i++)
+    {
+        for(int j=0;j<V;j++)
+            printf("%d ", adj[i][j]);
+        printf("\n");
+    }
+
+    // Adjacency List
+    struct Node* adjList[MAX];
     for(int i=0;i<V;i++)
         adjList[i] = NULL;
 
@@ -55,6 +72,7 @@ int main()
     addEdge(adjList, 0, 2);
     addEdge(adjList, 1, 3);
 
+    printf("\nAdjacency List:\n");
     printGraph(adjList, V);
 
     return 0;
