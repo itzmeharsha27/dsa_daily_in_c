@@ -8,5 +8,9 @@ int main()
 
     int adj[MAX][MAX] = {0};
 
+    // edges
+    adj[0][1] = 1;
+    adj[1][0] = 1;
+
     return 0;
 }
