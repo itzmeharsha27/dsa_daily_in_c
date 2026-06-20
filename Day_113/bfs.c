@@ -16,5 +16,8 @@ int main()
 
     int start = 0;
 
+    queue[rear++] = start;
+    visited[start] = 1;
+
     return 0;
 }
