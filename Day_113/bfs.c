@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// BFS Traversal
+
 int main()
 {
     int V = 5;
@@ -18,6 +20,10 @@ int main()
 
     queue[rear++] = start;
     visited[start] = 1;
+
+    while(front < rear)
+    {
+    }
 
     return 0;
 }
