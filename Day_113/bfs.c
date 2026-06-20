@@ -16,6 +16,8 @@ int main()
 
     int start = 0;
 
+    printf("BFS: ");
+
     queue[rear++] = start;
     visited[start] = 1;
 
