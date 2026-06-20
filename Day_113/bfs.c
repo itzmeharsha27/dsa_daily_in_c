@@ -26,6 +26,11 @@ int main()
 
         for(int i=0;i<V;i++)
         {
+            if(adj[node][i] && !visited[i])
+            {
+                queue[rear++] = i;
+                visited[i] = 1;
+            }
         }
     }
 
