@@ -22,6 +22,11 @@ int main()
     while(front < rear)
     {
         int node = queue[front++];
+        printf("%d ", node);
+
+        for(int i=0;i<V;i++)
+        {
+        }
     }
 
     return 0;
