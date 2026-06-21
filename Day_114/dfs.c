@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// DFS Traversal (Recursive)
+
 int adj[100][100];
 int visited[100];
 int V = 5;
@@ -20,6 +22,7 @@ void dfs(int node)
 
 int main()
 {
+    // Graph edges
     adj[0][1] = adj[1][0] = 1;
     adj[0][2] = adj[2][0] = 1;
     adj[1][3] = adj[3][1] = 1;
