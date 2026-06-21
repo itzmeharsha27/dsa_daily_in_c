@@ -1,8 +1,10 @@
 #include <stdio.h>
 
+void dfs(int node)
+{
+}
+
 int main()
 {
-    int visited[100] = {0};
-
     return 0;
 }
