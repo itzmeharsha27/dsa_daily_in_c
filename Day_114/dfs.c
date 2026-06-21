@@ -7,6 +7,7 @@ int V = 5;
 void dfs(int node)
 {
     visited[node] = 1;
+    printf("%d ", node);
 }
 
 int main()
