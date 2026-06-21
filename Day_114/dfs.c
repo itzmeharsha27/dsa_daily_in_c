@@ -25,7 +25,7 @@ int main()
     adj[1][3] = adj[3][1] = 1;
     adj[2][4] = adj[4][2] = 1;
 
-    printf("DFS: ");
+    printf("DFS Traversal: ");
     dfs(0);
 
     return 0;
