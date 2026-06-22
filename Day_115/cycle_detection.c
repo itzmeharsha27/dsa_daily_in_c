@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Undirected Graph Cycle Detection
+
 int adj[100][100];
 int visited[100];
 int V = 5;
@@ -34,7 +36,7 @@ int main()
     adj[2][0] = adj[0][2] = 1;
 
     if(dfs(0, -1))
-        printf("Cycle Detected\n");
+        printf("Cycle Exists\n");
     else
         printf("No Cycle\n");
 
