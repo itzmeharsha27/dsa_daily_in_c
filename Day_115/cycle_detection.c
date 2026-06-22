@@ -7,6 +7,11 @@ int V = 5;
 int dfs(int node, int parent)
 {
     visited[node] = 1;
+
+    for(int i=0;i<V;i++)
+    {
+    }
+
     return 0;
 }
 
