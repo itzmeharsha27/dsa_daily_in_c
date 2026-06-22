@@ -6,6 +6,7 @@ int V = 5;
 
 int dfs(int node, int parent)
 {
+    visited[node] = 1;
     return 0;
 }
 
