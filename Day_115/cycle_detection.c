@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Undirected Graph Cycle Detection
+// Cycle Detection in Undirected Graph (DFS)
 
 int adj[100][100];
 int visited[100];
@@ -31,14 +31,15 @@ int dfs(int node, int parent)
 
 int main()
 {
+    // Graph with cycle
     adj[0][1] = adj[1][0] = 1;
     adj[1][2] = adj[2][1] = 1;
     adj[2][0] = adj[0][2] = 1;
 
     if(dfs(0, -1))
-        printf("Cycle Exists\n");
+        printf("Cycle Detected in Graph\n");
     else
-        printf("No Cycle\n");
+        printf("No Cycle Found\n");
 
     return 0;
 }
