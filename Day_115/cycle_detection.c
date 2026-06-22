@@ -31,7 +31,12 @@ int main()
 {
     adj[0][1] = adj[1][0] = 1;
     adj[1][2] = adj[2][1] = 1;
-    adj[2][0] = adj[0][2] = 1; // cycle
+    adj[2][0] = adj[0][2] = 1;
+
+    if(dfs(0, -1))
+        printf("Cycle Detected\n");
+    else
+        printf("No Cycle\n");
 
     return 0;
 }
