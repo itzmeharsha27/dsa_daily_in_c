@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Cycle Detection using DFS
-
 int adj[100][100];
 int visited[100];
 int V = 5;
@@ -31,5 +29,9 @@ int dfs(int node, int parent)
 
 int main()
 {
+    adj[0][1] = adj[1][0] = 1;
+    adj[1][2] = adj[2][1] = 1;
+    adj[2][0] = adj[0][2] = 1; // cycle
+
     return 0;
 }
