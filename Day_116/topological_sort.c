@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Topological Sort (DFS)
-
 int V = 6;
 int adj[100][100];
 int visited[100];
@@ -29,5 +27,18 @@ void dfs(int node)
 
 int main()
 {
+    adj[5][2] = 1;
+    adj[5][0] = 1;
+    adj[4][0] = 1;
+    adj[4][1] = 1;
+    adj[2][3] = 1;
+    adj[3][1] = 1;
+
+    for(int i=0;i<V;i++)
+    {
+        if(!visited[i])
+            dfs(i);
+    }
+
     return 0;
 }
