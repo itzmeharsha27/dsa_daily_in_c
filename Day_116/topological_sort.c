@@ -2,6 +2,7 @@
 
 int V = 6;
 int adj[100][100];
+int visited[100];
 
 int main()
 {
