@@ -10,6 +10,11 @@ void push(int v)
     stack[++top] = v;
 }
 
+void dfs(int node)
+{
+    visited[node] = 1;
+}
+
 int main()
 {
     return 0;
