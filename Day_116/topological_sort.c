@@ -40,5 +40,10 @@ int main()
             dfs(i);
     }
 
+    printf("Topological Order: ");
+
+    while(top >= 0)
+        printf("%d ", stack[top--]);
+
     return 0;
 }
