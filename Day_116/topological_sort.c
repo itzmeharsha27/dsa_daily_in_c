@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Topological Sort using DFS
+
 int V = 6;
 int adj[100][100];
 int visited[100];
@@ -27,6 +29,7 @@ void dfs(int node)
 
 int main()
 {
+    // Directed Graph (DAG)
     adj[5][2] = 1;
     adj[5][0] = 1;
     adj[4][0] = 1;
@@ -40,10 +43,12 @@ int main()
             dfs(i);
     }
 
-    printf("Topological Order: ");
+    printf("Topological Sort Order: ");
 
     while(top >= 0)
+    {
         printf("%d ", stack[top--]);
+    }
 
     return 0;
 }
