@@ -13,6 +13,12 @@ void push(int v)
 void dfs(int node)
 {
     visited[node] = 1;
+
+    for(int i=0;i<V;i++)
+    {
+    }
+
+    push(node);
 }
 
 int main()
