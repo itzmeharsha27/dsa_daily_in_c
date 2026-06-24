@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Dijkstra Algorithm
-
 #define INF 1000000
 
 int V = 5;
@@ -34,6 +32,8 @@ int main()
 
     for(int i=0;i<V-1;i++)
     {
+        int u = minDistance();
+        visited[u] = 1;
     }
 
     return 0;
