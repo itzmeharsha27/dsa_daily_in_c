@@ -25,6 +25,15 @@ int main()
 {
     int src = 0;
 
+    // Graph with weights
+    adj[0][1] = 10;
+    adj[0][4] = 5;
+    adj[1][2] = 1;
+    adj[4][1] = 3;
+    adj[4][2] = 9;
+    adj[4][3] = 2;
+    adj[3][2] = 4;
+
     for(int i=0;i<V;i++)
         dist[i] = INF;
 
@@ -37,6 +46,10 @@ int main()
 
         for(int v=0;v<V;v++)
         {
+            if(adj[u][v] && !visited[v] && dist[u] + adj[u][v] < dist[v])
+            {
+                dist[v] = dist[u] + adj[u][v];
+            }
         }
     }
 
