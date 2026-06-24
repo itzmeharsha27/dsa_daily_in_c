@@ -5,6 +5,7 @@
 int V = 5;
 int adj[100][100];
 int dist[100];
+int visited[100];
 
 int main()
 {
