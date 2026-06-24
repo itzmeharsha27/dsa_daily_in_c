@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Dijkstra Algorithm
+
 #define INF 1000000
 
 int V = 5;
@@ -29,6 +31,10 @@ int main()
         dist[i] = INF;
 
     dist[src] = 0;
+
+    for(int i=0;i<V-1;i++)
+    {
+    }
 
     return 0;
 }
