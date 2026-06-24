@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Dijkstra's Algorithm (Shortest Path)
+
 #define INF 1000000
 
 int V = 5;
@@ -34,11 +36,13 @@ int main()
     adj[4][3] = 2;
     adj[3][2] = 4;
 
+    // Initialize distances
     for(int i=0;i<V;i++)
         dist[i] = INF;
 
     dist[src] = 0;
 
+    // Dijkstra Algorithm
     for(int i=0;i<V-1;i++)
     {
         int u = minDistance();
@@ -46,12 +50,17 @@ int main()
 
         for(int v=0;v<V;v++)
         {
-            if(adj[u][v] && !visited[v] && dist[u] + adj[u][v] < dist[v])
+            if(adj[u][v] && !visited[v] &&
+               dist[u] + adj[u][v] < dist[v])
             {
                 dist[v] = dist[u] + adj[u][v];
             }
         }
     }
+
+    printf("Shortest distances from node %d:\n", src);
+    for(int i=0;i<V;i++)
+        printf("To %d = %d\n", i, dist[i]);
 
     return 0;
 }
