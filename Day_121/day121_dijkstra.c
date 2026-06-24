@@ -11,5 +11,10 @@ int main()
 {
     int src = 0;
 
+    for(int i=0;i<V;i++)
+        dist[i] = INF;
+
+    dist[src] = 0;
+
     return 0;
 }
