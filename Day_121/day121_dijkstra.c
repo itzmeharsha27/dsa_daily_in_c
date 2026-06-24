@@ -9,5 +9,7 @@ int visited[100];
 
 int main()
 {
+    int src = 0;
+
     return 0;
 }
