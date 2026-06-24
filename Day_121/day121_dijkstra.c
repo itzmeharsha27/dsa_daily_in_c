@@ -34,6 +34,10 @@ int main()
     {
         int u = minDistance();
         visited[u] = 1;
+
+        for(int v=0;v<V;v++)
+        {
+        }
     }
 
     return 0;
