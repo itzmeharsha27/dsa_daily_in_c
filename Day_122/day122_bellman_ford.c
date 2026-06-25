@@ -10,5 +10,8 @@ struct Edge
 
 int main()
 {
+    int V = 5;
+    int E = 8;
+
     return 0;
 }
