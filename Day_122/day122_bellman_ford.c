@@ -16,5 +16,7 @@ int main()
     struct Edge edges[MAX];
     int dist[MAX];
 
+    int src = 0;
+
     return 0;
 }
