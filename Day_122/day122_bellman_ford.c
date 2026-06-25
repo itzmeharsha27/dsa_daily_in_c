@@ -13,5 +13,7 @@ int main()
     int V = 5;
     int E = 8;
 
+    struct Edge edges[MAX];
+
     return 0;
 }
