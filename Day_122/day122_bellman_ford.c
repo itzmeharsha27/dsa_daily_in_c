@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Bellman-Ford Algorithm
+
 #define MAX 100
 #define INF 1000000
 
@@ -27,11 +29,13 @@ int main()
     int dist[MAX];
     int src = 0;
 
+    // Initialize distances
     for(int i = 0; i < V; i++)
         dist[i] = INF;
 
     dist[src] = 0;
 
+    // Relax all edges V-1 times
     for(int i = 1; i < V; i++)
     {
         for(int j = 0; j < E; j++)
@@ -45,6 +49,7 @@ int main()
         }
     }
 
+    // Check for negative cycle
     for(int j = 0; j < E; j++)
     {
         int u = edges[j].u;
@@ -57,6 +62,10 @@ int main()
             return 0;
         }
     }
+
+    printf("Shortest distances from node %d:\n", src);
+    for(int i = 0; i < V; i++)
+        printf("To %d = %d\n", i, dist[i]);
 
     return 0;
 }
