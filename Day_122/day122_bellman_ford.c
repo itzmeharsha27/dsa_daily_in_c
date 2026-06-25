@@ -33,5 +33,9 @@ int main()
 
     dist[src] = 0;
 
+    for(int i = 1; i < V; i++)
+    {
+    }
+
     return 0;
 }
