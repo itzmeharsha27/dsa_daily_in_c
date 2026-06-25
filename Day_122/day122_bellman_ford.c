@@ -35,6 +35,15 @@ int main()
 
     for(int i = 1; i < V; i++)
     {
+        for(int j = 0; j < E; j++)
+        {
+            int u = edges[j].u;
+            int v = edges[j].v;
+            int w = edges[j].w;
+
+            if(dist[u] != INF && dist[u] + w < dist[v])
+                dist[v] = dist[u] + w;
+        }
     }
 
     return 0;
