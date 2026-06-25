@@ -25,7 +25,6 @@ int main()
     };
 
     int dist[MAX];
-
     int src = 0;
 
     for(int i = 0; i < V; i++)
@@ -43,6 +42,19 @@ int main()
 
             if(dist[u] != INF && dist[u] + w < dist[v])
                 dist[v] = dist[u] + w;
+        }
+    }
+
+    for(int j = 0; j < E; j++)
+    {
+        int u = edges[j].u;
+        int v = edges[j].v;
+        int w = edges[j].w;
+
+        if(dist[u] != INF && dist[u] + w < dist[v])
+        {
+            printf("Negative Weight Cycle Detected\n");
+            return 0;
         }
     }
 
