@@ -17,6 +17,12 @@ int main()
 
     for(k=0;k<V;k++)
     {
+        for(i=0;i<V;i++)
+        {
+            for(j=0;j<V;j++)
+            {
+            }
+        }
     }
 
     return 0;
