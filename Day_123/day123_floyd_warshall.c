@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Floyd-Warshall Algorithm (All-Pairs Shortest Path)
+
 #define INF 99999
 
 int main()
@@ -13,13 +15,12 @@ int main()
         {INF,INF,INF,0}
     };
 
-    int i, j, k;
-
-    for(k=0;k<V;k++)
+    // Update shortest paths
+    for(int k=0;k<V;k++)
     {
-        for(i=0;i<V;i++)
+        for(int i=0;i<V;i++)
         {
-            for(j=0;j<V;j++)
+            for(int j=0;j<V;j++)
             {
                 if(dist[i][k] != INF &&
                    dist[k][j] != INF &&
@@ -31,16 +32,16 @@ int main()
         }
     }
 
-    printf("Shortest Path Matrix:\n");
+    printf("All-Pairs Shortest Path Matrix:\n");
 
-    for(i=0;i<V;i++)
+    for(int i=0;i<V;i++)
     {
-        for(j=0;j<V;j++)
+        for(int j=0;j<V;j++)
         {
             if(dist[i][j] == INF)
                 printf("INF ");
             else
-                printf("%d ", dist[i][j]);
+                printf("%3d ", dist[i][j]);
         }
         printf("\n");
     }
