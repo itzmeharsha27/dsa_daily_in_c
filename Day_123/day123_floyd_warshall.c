@@ -13,5 +13,7 @@ int main()
         {INF,INF,INF,0}
     };
 
+    int i, j, k;
+
     return 0;
 }
