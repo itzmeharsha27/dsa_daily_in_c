@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Floyd Warshall Algorithm
-
 #define INF 99999
 
 int main()
@@ -28,6 +26,8 @@ int main()
             }
         }
     }
+
+    printf("Shortest Path Matrix:\n");
 
     return 0;
 }
