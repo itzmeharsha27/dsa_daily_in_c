@@ -21,8 +21,12 @@ int main()
         {
             for(j=0;j<V;j++)
             {
-                if(dist[i][k] + dist[k][j] < dist[i][j])
+                if(dist[i][k] != INF &&
+                   dist[k][j] != INF &&
+                   dist[i][k] + dist[k][j] < dist[i][j])
+                {
                     dist[i][j] = dist[i][k] + dist[k][j];
+                }
             }
         }
     }
@@ -33,7 +37,10 @@ int main()
     {
         for(j=0;j<V;j++)
         {
-            printf("%d ", dist[i][j]);
+            if(dist[i][j] == INF)
+                printf("INF ");
+            else
+                printf("%d ", dist[i][j]);
         }
         printf("\n");
     }
