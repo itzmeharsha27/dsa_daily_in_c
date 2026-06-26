@@ -29,5 +29,14 @@ int main()
 
     printf("Shortest Path Matrix:\n");
 
+    for(i=0;i<V;i++)
+    {
+        for(j=0;j<V;j++)
+        {
+            printf("%d ", dist[i][j]);
+        }
+        printf("\n");
+    }
+
     return 0;
 }
