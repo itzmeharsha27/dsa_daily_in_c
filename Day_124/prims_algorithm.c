@@ -17,5 +17,14 @@ int main()
     int key[V];
     int mst[V];
 
+    for(int i=0;i<V;i++)
+    {
+        key[i]=INF;
+        mst[i]=0;
+    }
+
+    key[0]=0;
+    parent[0]=-1;
+
     return 0;
 }
