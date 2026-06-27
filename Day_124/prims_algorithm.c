@@ -13,5 +13,9 @@ int main()
         {0,5,7,9,0}
     };
 
+    int parent[V];
+    int key[V];
+    int mst[V];
+
     return 0;
 }
