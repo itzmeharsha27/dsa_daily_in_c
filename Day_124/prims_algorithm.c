@@ -37,6 +37,8 @@ int main()
 
     for(int count=0;count<V-1;count++)
     {
+        int u=minKey(key,mst);
+        mst[u]=1;
     }
 
     return 0;
