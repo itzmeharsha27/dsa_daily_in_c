@@ -1,15 +1,22 @@
 #include <stdio.h>
 
+// Prim's Algorithm (Minimum Spanning Tree)
+
 #define V 5
 #define INF 99999
 
 int minKey(int key[], int mst[])
 {
-    int min=INF,index=-1;
+    int min = INF, index = -1;
 
     for(int i=0;i<V;i++)
+    {
         if(!mst[i] && key[i]<min)
-            min=key[i],index=i;
+        {
+            min=key[i];
+            index=i;
+        }
+    }
 
     return index;
 }
@@ -24,7 +31,9 @@ int main()
         {0,5,7,9,0}
     };
 
-    int parent[V],key[V],mst[V];
+    int parent[V];
+    int key[V];
+    int mst[V];
 
     for(int i=0;i<V;i++)
     {
@@ -35,6 +44,7 @@ int main()
     key[0]=0;
     parent[0]=-1;
 
+    // Build MST
     for(int count=0;count<V-1;count++)
     {
         int u=minKey(key,mst);
@@ -42,7 +52,9 @@ int main()
 
         for(int v=0;v<V;v++)
         {
-            if(graph[u][v] && !mst[v] && graph[u][v]<key[v])
+            if(graph[u][v] &&
+               !mst[v] &&
+               graph[u][v]<key[v])
             {
                 parent[v]=u;
                 key[v]=graph[u][v];
@@ -51,9 +63,11 @@ int main()
     }
 
     printf("Edge\tWeight\n");
-
     for(int i=1;i<V;i++)
-        printf("%d - %d\t%d\n",parent[i],i,graph[i][parent[i]]);
+    {
+        printf("%d - %d\t%d\n",
+               parent[i], i, graph[i][parent[i]]);
+    }
 
     return 0;
 }
