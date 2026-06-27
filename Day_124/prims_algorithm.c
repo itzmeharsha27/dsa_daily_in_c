@@ -50,5 +50,10 @@ int main()
         }
     }
 
+    printf("Edge\tWeight\n");
+
+    for(int i=1;i<V;i++)
+        printf("%d - %d\t%d\n",parent[i],i,graph[i][parent[i]]);
+
     return 0;
 }
