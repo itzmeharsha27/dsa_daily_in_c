@@ -3,28 +3,23 @@
 #define V 5
 #define INF 99999
 
-int main()
+int minKey(int key[], int mst[])
 {
-    int graph[V][V] = {
-        {0,2,0,6,0},
-        {2,0,3,8,5},
-        {0,3,0,0,7},
-        {6,8,0,0,9},
-        {0,5,7,9,0}
-    };
-
-    int parent[V];
-    int key[V];
-    int mst[V];
+    int min=INF,index=-1;
 
     for(int i=0;i<V;i++)
     {
-        key[i]=INF;
-        mst[i]=0;
+        if(!mst[i] && key[i]<min)
+        {
+            min=key[i];
+            index=i;
+        }
     }
 
-    key[0]=0;
-    parent[0]=-1;
+    return index;
+}
 
+int main()
+{
     return 0;
 }
