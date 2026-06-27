@@ -39,6 +39,15 @@ int main()
     {
         int u=minKey(key,mst);
         mst[u]=1;
+
+        for(int v=0;v<V;v++)
+        {
+            if(graph[u][v] && !mst[v] && graph[u][v]<key[v])
+            {
+                parent[v]=u;
+                key[v]=graph[u][v];
+            }
+        }
     }
 
     return 0;
