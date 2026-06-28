@@ -34,5 +34,8 @@ int main()
         {1,3,15}
     };
 
+    for(int i=0;i<V;i++)
+        parent[i]=i;
+
     return 0;
 }
