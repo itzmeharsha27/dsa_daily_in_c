@@ -37,8 +37,14 @@ int main()
     for(int i=0;i<V;i++)
         parent[i]=i;
 
+    printf("Edges in MST:\n");
+
     for(int i=0;i<E;i++)
     {
+        if(find(edges[i].u) != find(edges[i].v))
+        {
+            unite(edges[i].u, edges[i].v);
+        }
     }
 
     return 0;
