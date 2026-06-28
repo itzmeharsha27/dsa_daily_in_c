@@ -43,6 +43,11 @@ int main()
     {
         if(find(edges[i].u) != find(edges[i].v))
         {
+            printf("%d - %d : %d\n",
+                   edges[i].u,
+                   edges[i].v,
+                   edges[i].w);
+
             unite(edges[i].u, edges[i].v);
         }
     }
