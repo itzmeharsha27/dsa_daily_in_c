@@ -9,6 +9,13 @@ struct Edge
 
 int parent[MAX];
 
+int find(int x)
+{
+    while(parent[x] != x)
+        x = parent[x];
+    return x;
+}
+
 int main()
 {
     return 0;
