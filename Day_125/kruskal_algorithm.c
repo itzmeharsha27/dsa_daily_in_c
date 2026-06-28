@@ -37,5 +37,9 @@ int main()
     for(int i=0;i<V;i++)
         parent[i]=i;
 
+    for(int i=0;i<E;i++)
+    {
+    }
+
     return 0;
 }
