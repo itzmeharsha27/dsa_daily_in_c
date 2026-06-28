@@ -26,5 +26,13 @@ int main()
     int V = 4;
     int E = 5;
 
+    struct Edge edges[] = {
+        {2,3,4},
+        {0,3,5},
+        {0,2,6},
+        {0,1,10},
+        {1,3,15}
+    };
+
     return 0;
 }
