@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Kruskal's Algorithm (Minimum Spanning Tree)
+
 #define MAX 100
 
 struct Edge
@@ -27,6 +29,7 @@ int main()
     int E = 5;
     int cost = 0;
 
+    // Edges must be sorted by weight
     struct Edge edges[] = {
         {2,3,4},
         {0,3,5},
@@ -38,7 +41,7 @@ int main()
     for(int i=0;i<V;i++)
         parent[i]=i;
 
-    printf("Edges in MST:\n");
+    printf("Edges in Minimum Spanning Tree:\n");
 
     for(int i=0;i<E;i++)
     {
@@ -54,7 +57,7 @@ int main()
         }
     }
 
-    printf("Total Cost = %d\n", cost);
+    printf("Total MST Cost = %d\n", cost);
 
     return 0;
 }
