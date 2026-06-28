@@ -23,5 +23,8 @@ void unite(int x, int y)
 
 int main()
 {
+    int V = 4;
+    int E = 5;
+
     return 0;
 }
