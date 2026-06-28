@@ -25,6 +25,7 @@ int main()
 {
     int V = 4;
     int E = 5;
+    int cost = 0;
 
     struct Edge edges[] = {
         {2,3,4},
@@ -48,9 +49,12 @@ int main()
                    edges[i].v,
                    edges[i].w);
 
+            cost += edges[i].w;
             unite(edges[i].u, edges[i].v);
         }
     }
+
+    printf("Total Cost = %d\n", cost);
 
     return 0;
 }
