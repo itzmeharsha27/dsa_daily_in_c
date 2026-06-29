@@ -26,6 +26,9 @@ int main()
 
     unite(0,1);
     unite(2,3);
+    unite(1,2);
+
+    printf("Representative of 3 = %d\n", find(3));
 
     return 0;
 }
