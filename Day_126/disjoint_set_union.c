@@ -24,5 +24,8 @@ int main()
     for(int i=0;i<n;i++)
         parent[i]=i;
 
+    unite(0,1);
+    unite(2,3);
+
     return 0;
 }
