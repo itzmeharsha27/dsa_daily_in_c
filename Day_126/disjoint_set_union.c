@@ -4,6 +4,14 @@
 
 int parent[MAX];
 
+int find(int x)
+{
+    if(parent[x] == x)
+        return x;
+
+    return find(parent[x]);
+}
+
 int main()
 {
     int n = 5;
