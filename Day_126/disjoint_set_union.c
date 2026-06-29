@@ -12,6 +12,11 @@ int find(int x)
     return find(parent[x]);
 }
 
+void unite(int x, int y)
+{
+    parent[find(x)] = find(y);
+}
+
 int main()
 {
     int n = 5;
