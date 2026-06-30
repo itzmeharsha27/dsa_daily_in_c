@@ -11,9 +11,9 @@ struct TrieNode
 
 struct TrieNode* createNode()
 {
-    struct TrieNode *node = (struct TrieNode*)malloc(sizeof(struct TrieNode));
+    struct TrieNode *node=(struct TrieNode*)malloc(sizeof(struct TrieNode));
 
-    node->isEnd = 0;
+    node->isEnd=0;
 
     for(int i=0;i<ALPHABET;i++)
         node->child[i]=NULL;
@@ -36,6 +36,23 @@ void insert(struct TrieNode *root,char word[])
     }
 
     curr->isEnd=1;
+}
+
+int search(struct TrieNode *root,char word[])
+{
+    struct TrieNode *curr=root;
+
+    for(int i=0;word[i];i++)
+    {
+        int idx=word[i]-'a';
+
+        if(curr->child[idx]==NULL)
+            return 0;
+
+        curr=curr->child[idx];
+    }
+
+    return curr->isEnd;
 }
 
 int main()
