@@ -57,5 +57,10 @@ int search(struct TrieNode *root,char word[])
 
 int main()
 {
+    struct TrieNode *root=createNode();
+
+    insert(root,"cat");
+    insert(root,"car");
+
     return 0;
 }
