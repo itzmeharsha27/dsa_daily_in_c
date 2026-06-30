@@ -21,12 +21,18 @@ struct TrieNode* createNode()
     return node;
 }
 
-void insert(struct TrieNode *root, char word[])
+void insert(struct TrieNode *root,char word[])
 {
     struct TrieNode *curr=root;
 
     for(int i=0;word[i];i++)
     {
+        int idx=word[i]-'a';
+
+        if(curr->child[idx]==NULL)
+            curr->child[idx]=createNode();
+
+        curr=curr->child[idx];
     }
 
     curr->isEnd=1;
