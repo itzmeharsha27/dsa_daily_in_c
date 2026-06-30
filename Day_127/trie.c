@@ -12,7 +12,11 @@ struct TrieNode
 struct TrieNode* createNode()
 {
     struct TrieNode *node = (struct TrieNode*)malloc(sizeof(struct TrieNode));
+
     node->isEnd = 0;
+
+    for(int i=0;i<ALPHABET;i++)
+        node->child[i]=NULL;
 
     return node;
 }
