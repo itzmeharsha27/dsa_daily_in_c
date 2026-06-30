@@ -23,6 +23,13 @@ struct TrieNode* createNode()
 
 void insert(struct TrieNode *root, char word[])
 {
+    struct TrieNode *curr=root;
+
+    for(int i=0;word[i];i++)
+    {
+    }
+
+    curr->isEnd=1;
 }
 
 int main()
