@@ -21,6 +21,10 @@ struct TrieNode* createNode()
     return node;
 }
 
+void insert(struct TrieNode *root, char word[])
+{
+}
+
 int main()
 {
     return 0;
