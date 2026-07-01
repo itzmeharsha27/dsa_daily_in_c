@@ -14,6 +14,11 @@ void build(int node, int start, int end)
     }
 
     int mid = (start + end) / 2;
+
+    build(2 * node, start, mid);
+    build(2 * node + 1, mid + 1, end);
+
+    tree[node] = tree[2 * node] + tree[2 * node + 1];
 }
 
 int main()
