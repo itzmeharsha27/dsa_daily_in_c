@@ -3,6 +3,7 @@
 #define MAX 100
 
 int tree[4 * MAX];
+int arr[MAX];
 
 int main()
 {
