@@ -12,6 +12,8 @@ void build(int node, int start, int end)
         tree[node] = arr[start];
         return;
     }
+
+    int mid = (start + end) / 2;
 }
 
 int main()
