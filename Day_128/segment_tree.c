@@ -3,7 +3,7 @@
 #define MAX 100
 
 int tree[4 * MAX];
-int arr[MAX];
+int arr[MAX] = {1, 3, 5, 7, 9, 11};
 
 void build(int node, int start, int end)
 {
@@ -37,5 +37,7 @@ int query(int node, int start, int end, int l, int r)
 
 int main()
 {
+    build(1, 0, 5);
+
     return 0;
 }
