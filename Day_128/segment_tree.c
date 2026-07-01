@@ -21,6 +21,20 @@ void build(int node, int start, int end)
     tree[node] = tree[2 * node] + tree[2 * node + 1];
 }
 
+int query(int node, int start, int end, int l, int r)
+{
+    if(r < start || l > end)
+        return 0;
+
+    if(l <= start && end <= r)
+        return tree[node];
+
+    int mid = (start + end) / 2;
+
+    return query(2 * node, start, mid, l, r) +
+           query(2 * node + 1, mid + 1, end, l, r);
+}
+
 int main()
 {
     return 0;
