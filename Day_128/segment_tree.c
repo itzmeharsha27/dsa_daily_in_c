@@ -39,5 +39,7 @@ int main()
 {
     build(1, 0, 5);
 
+    printf("Sum = %d\n", query(1, 0, 5, 1, 3));
+
     return 0;
 }
