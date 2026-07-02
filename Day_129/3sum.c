@@ -31,7 +31,11 @@ int main()
             int sum=arr[i]+arr[l]+arr[r];
 
             if(sum==0)
-                break;
+            {
+                printf("%d %d %d\n",arr[i],arr[l],arr[r]);
+                l++;
+                r--;
+            }
             else if(sum<0)
                 l++;
             else
