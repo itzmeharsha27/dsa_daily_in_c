@@ -1,8 +1,11 @@
 #include <stdio.h>
 
+// 3Sum Problem using Sorting + Two Pointers
+
 int arr[] = {-1,0,1,2,-1,-4};
 int n = 6;
 
+// Swap two elements
 void swap(int *a,int *b)
 {
     int t=*a;
@@ -10,6 +13,7 @@ void swap(int *a,int *b)
     *b=t;
 }
 
+// Bubble Sort
 void sort()
 {
     for(int i=0;i<n-1;i++)
@@ -22,14 +26,16 @@ int main()
 {
     sort();
 
-    printf("Triplets:\n");
+    printf("Triplets with Sum = 0:\n");
 
     for(int i=0;i<n-2;i++)
     {
+        // Skip duplicate first elements
         if(i>0 && arr[i]==arr[i-1])
             continue;
 
-        int l=i+1,r=n-1;
+        int l=i+1;
+        int r=n-1;
 
         while(l<r)
         {
@@ -42,9 +48,13 @@ int main()
                 r--;
             }
             else if(sum<0)
+            {
                 l++;
+            }
             else
+            {
                 r--;
+            }
         }
     }
 
