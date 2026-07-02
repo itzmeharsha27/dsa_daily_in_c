@@ -24,5 +24,6 @@ void sort()
 
 int main()
 {
+    sort();
     return 0;
 }
