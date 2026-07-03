@@ -12,6 +12,7 @@ int main()
 
     int left = 0;
     int right = n - 1;
+    int maxArea = 0;
 
     return 0;
 }
