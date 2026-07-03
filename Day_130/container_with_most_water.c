@@ -16,6 +16,8 @@ int main()
 
     while(left < right)
     {
+        int width = right - left;
+        int area = width * min(height[left], height[right]);
     }
 
     return 0;
