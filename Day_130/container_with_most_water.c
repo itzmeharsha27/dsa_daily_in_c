@@ -21,6 +21,11 @@ int main()
 
         if(area > maxArea)
             maxArea = area;
+
+        if(height[left] < height[right])
+            left++;
+        else
+            right--;
     }
 
     return 0;
