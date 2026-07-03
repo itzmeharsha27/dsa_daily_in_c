@@ -18,6 +18,9 @@ int main()
     {
         int width = right - left;
         int area = width * min(height[left], height[right]);
+
+        if(area > maxArea)
+            maxArea = area;
     }
 
     return 0;
