@@ -7,8 +7,8 @@ int min(int a, int b)
 
 int main()
 {
-    int height[] = {1,8,6,2,5,4,8,3,7};
-    int n = 9;
+    int height[] = {2,3,4,5,18,17,6};
+    int n = 7;
 
     int left = 0;
     int right = n - 1;
