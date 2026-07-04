@@ -7,6 +7,8 @@ int main()
 
     int left = 0;
     int right = n - 1;
+    int leftMax = 0;
+    int rightMax = 0;
 
     return 0;
 }
