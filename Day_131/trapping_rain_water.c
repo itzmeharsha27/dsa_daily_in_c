@@ -11,5 +11,9 @@ int main()
     int rightMax = 0;
     int water = 0;
 
+    while(left < right)
+    {
+    }
+
     return 0;
 }
