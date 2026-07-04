@@ -13,6 +13,15 @@ int main()
 
     while(left < right)
     {
+        if(height[left] <= height[right])
+        {
+            if(height[left] >= leftMax)
+                leftMax = height[left];
+            else
+                water += leftMax - height[left];
+
+            left++;
+        }
     }
 
     return 0;
