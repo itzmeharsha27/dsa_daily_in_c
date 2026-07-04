@@ -1,9 +1,11 @@
 #include <stdio.h>
 
+// Trapping Rain Water using Two Pointers
+
 int main()
 {
     int height[] = {0,1,0,2,1,0,1,3,2,1,2,1};
-    int n = 12;
+    int n = sizeof(height) / sizeof(height[0]);
 
     int left = 0;
     int right = n - 1;
@@ -11,6 +13,7 @@ int main()
     int rightMax = 0;
     int water = 0;
 
+    // Process from both ends
     while(left < right)
     {
         if(height[left] <= height[right])
@@ -33,7 +36,7 @@ int main()
         }
     }
 
-    printf("Trapped Water = %d\n", water);
+    printf("Total Trapped Water = %d\n", water);
 
     return 0;
 }
