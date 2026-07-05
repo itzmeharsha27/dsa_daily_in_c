@@ -30,7 +30,11 @@ int main()
     {
         while(top!=-1 && (i==n || height[peek()] > height[i]))
         {
-            pop();
+            int h = height[pop()];
+            int w = (top==-1) ? i : i-peek()-1;
+
+            if(h*w > maxArea)
+                maxArea = h*w;
         }
 
         push(i);
