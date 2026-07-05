@@ -15,6 +15,11 @@ int pop()
     return stack[top--];
 }
 
+int peek()
+{
+    return stack[top];
+}
+
 int main()
 {
     int height[] = {2,1,5,6,2,3};
