@@ -40,5 +40,7 @@ int main()
         push(i);
     }
 
+    printf("Maximum Area = %d\n", maxArea);
+
     return 0;
 }
