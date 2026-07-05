@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Largest Rectangle in Histogram using Monotonic Stack
+
 #define MAX 100
 
 int stack[MAX];
@@ -22,25 +24,27 @@ int peek()
 
 int main()
 {
-    int height[] = {2,4};
-    int n = 2;
+    int height[] = {2,1,5,6,2,3};
+    int n = sizeof(height) / sizeof(height[0]);
     int maxArea = 0;
 
+    // Process all bars
     for(int i=0;i<=n;i++)
     {
         while(top!=-1 && (i==n || height[peek()] > height[i]))
         {
             int h = height[pop()];
             int w = (top==-1) ? i : i-peek()-1;
+            int area = h * w;
 
-            if(h*w > maxArea)
-                maxArea = h*w;
+            if(area > maxArea)
+                maxArea = area;
         }
 
         push(i);
     }
 
-    printf("Maximum Area = %d\n", maxArea);
+    printf("Largest Rectangle Area = %d\n", maxArea);
 
     return 0;
 }
