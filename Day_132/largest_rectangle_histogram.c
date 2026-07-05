@@ -28,6 +28,12 @@ int main()
 
     for(int i=0;i<=n;i++)
     {
+        while(top!=-1 && (i==n || height[peek()] > height[i]))
+        {
+            pop();
+        }
+
+        push(i);
     }
 
     return 0;
