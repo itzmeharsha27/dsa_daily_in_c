@@ -26,5 +26,9 @@ int main()
     int n = 6;
     int maxArea = 0;
 
+    for(int i=0;i<=n;i++)
+    {
+    }
+
     return 0;
 }
