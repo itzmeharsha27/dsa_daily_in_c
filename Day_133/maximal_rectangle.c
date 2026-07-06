@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+#define COLS 5
+
+int histogram[COLS] = {0};
+
 int main()
 {
     int matrix[4][5] = {
