@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Maximal Rectangle
-
 #define ROWS 4
 #define COLS 5
 
@@ -56,6 +54,8 @@ int main()
         if(area > answer)
             answer = area;
     }
+
+    printf("Maximum Rectangle Area = %d\n", answer);
 
     return 0;
 }
