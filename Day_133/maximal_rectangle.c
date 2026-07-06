@@ -7,17 +7,23 @@ int histogram[COLS] = {0};
 
 int largestHistogram(int arr[], int n)
 {
-    return 0;
-}
+    int maxArea = 0;
 
-int main()
-{
-    int matrix[ROWS][COLS] = {
-        {1,0,1,0,0},
-        {1,0,1,1,1},
-        {1,1,1,1,1},
-        {1,0,0,1,0}
-    };
+    for(int i=0;i<n;i++)
+    {
+        int minHeight = arr[i];
 
-    return 0;
+        for(int j=i;j<n;j++)
+        {
+            if(arr[j] < minHeight)
+                minHeight = arr[j];
+
+            int area = minHeight * (j-i+1);
+
+            if(area > maxArea)
+                maxArea = area;
+        }
+    }
+
+    return maxArea;
 }
