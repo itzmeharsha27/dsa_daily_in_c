@@ -1,10 +1,13 @@
 #include <stdio.h>
 
+// Maximal Rectangle using Histogram Technique
+
 #define ROWS 4
 #define COLS 5
 
 int histogram[COLS] = {0};
 
+// Largest Rectangle in Histogram (Simple O(n²) version)
 int largestHistogram(int arr[], int n)
 {
     int maxArea = 0;
@@ -18,7 +21,7 @@ int largestHistogram(int arr[], int n)
             if(arr[j] < minHeight)
                 minHeight = arr[j];
 
-            int area = minHeight * (j-i+1);
+            int area = minHeight * (j - i + 1);
 
             if(area > maxArea)
                 maxArea = area;
@@ -30,7 +33,8 @@ int largestHistogram(int arr[], int n)
 
 int main()
 {
-    int matrix[ROWS][COLS] = {
+    int matrix[ROWS][COLS] =
+    {
         {1,0,1,0,0},
         {1,0,1,1,1},
         {1,1,1,1,1},
@@ -39,6 +43,7 @@ int main()
 
     int answer = 0;
 
+    // Build histogram row by row
     for(int i=0;i<ROWS;i++)
     {
         for(int j=0;j<COLS;j++)
@@ -49,7 +54,7 @@ int main()
                 histogram[j]=0;
         }
 
-        int area = largestHistogram(histogram,COLS);
+        int area = largestHistogram(histogram, COLS);
 
         if(area > answer)
             answer = area;
