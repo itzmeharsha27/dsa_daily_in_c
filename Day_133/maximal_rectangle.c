@@ -27,3 +27,33 @@ int largestHistogram(int arr[], int n)
 
     return maxArea;
 }
+
+int main()
+{
+    int matrix[ROWS][COLS] = {
+        {1,0,1,0,0},
+        {1,0,1,1,1},
+        {1,1,1,1,1},
+        {1,0,0,1,0}
+    };
+
+    int answer = 0;
+
+    for(int i=0;i<ROWS;i++)
+    {
+        for(int j=0;j<COLS;j++)
+        {
+            if(matrix[i][j])
+                histogram[j]++;
+            else
+                histogram[j]=0;
+        }
+
+        int area = largestHistogram(histogram,COLS);
+
+        if(area > answer)
+            answer = area;
+    }
+
+    return 0;
+}
