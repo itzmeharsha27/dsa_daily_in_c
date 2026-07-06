@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Maximal Rectangle
+
 #define ROWS 4
 #define COLS 5
 
