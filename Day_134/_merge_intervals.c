@@ -13,6 +13,14 @@ void swap(struct Interval *a, struct Interval *b)
     *b=t;
 }
 
+void sort(struct Interval arr[], int n)
+{
+    for(int i=0;i<n-1;i++)
+        for(int j=0;j<n-i-1;j++)
+            if(arr[j].start>arr[j+1].start)
+                swap(&arr[j],&arr[j+1]);
+}
+
 int main()
 {
     return 0;
