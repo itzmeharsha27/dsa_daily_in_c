@@ -18,5 +18,14 @@ int main()
 
     struct Interval current=arr[0];
 
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i].start<=current.end)
+        {
+            if(arr[i].end>current.end)
+                current.end=arr[i].end;
+        }
+    }
+
     return 0;
 }
