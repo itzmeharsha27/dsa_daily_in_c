@@ -25,8 +25,8 @@ void sort(struct Interval arr[],int n)
 
 int main()
 {
-    struct Interval arr[]={{1,3},{2,6},{8,10},{15,18}};
-    int n=4;
+    struct Interval arr[]={{1,4},{4,5}};
+    int n=2;
 
     sort(arr,n);
 
