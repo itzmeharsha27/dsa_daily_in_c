@@ -18,6 +18,8 @@ int main()
 
     struct Interval current=arr[0];
 
+    printf("Merged Intervals:\n");
+
     for(int i=1;i<n;i++)
     {
         if(arr[i].start<=current.end)
@@ -31,6 +33,8 @@ int main()
             current=arr[i];
         }
     }
+
+    printf("[%d,%d]\n",current.start,current.end);
 
     return 0;
 }
