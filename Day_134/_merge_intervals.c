@@ -6,20 +6,8 @@ struct Interval
     int end;
 };
 
-void swap(struct Interval *a, struct Interval *b)
-{
-    struct Interval t=*a;
-    *a=*b;
-    *b=t;
-}
-
-void sort(struct Interval arr[], int n)
-{
-    for(int i=0;i<n-1;i++)
-        for(int j=0;j<n-i-1;j++)
-            if(arr[j].start>arr[j+1].start)
-                swap(&arr[j],&arr[j+1]);
-}
+void swap(struct Interval*,struct Interval*);
+void sort(struct Interval[],int);
 
 int main()
 {
@@ -27,6 +15,8 @@ int main()
     int n=4;
 
     sort(arr,n);
+
+    struct Interval current=arr[0];
 
     return 0;
 }
