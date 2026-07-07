@@ -25,6 +25,11 @@ int main()
             if(arr[i].end>current.end)
                 current.end=arr[i].end;
         }
+        else
+        {
+            printf("[%d,%d]\n",current.start,current.end);
+            current=arr[i];
+        }
     }
 
     return 0;
