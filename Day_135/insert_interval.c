@@ -14,5 +14,11 @@ int main()
 
     int i = 0;
 
+    while(i < n && arr[i].end < newInterval.start)
+    {
+        printf("[%d,%d]\n", arr[i].start, arr[i].end);
+        i++;
+    }
+
     return 0;
 }
