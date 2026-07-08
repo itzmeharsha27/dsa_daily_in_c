@@ -31,5 +31,7 @@ int main()
         i++;
     }
 
+    printf("[%d,%d]\n", newInterval.start, newInterval.end);
+
     return 0;
 }
