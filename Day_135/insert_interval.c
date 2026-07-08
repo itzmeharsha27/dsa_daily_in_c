@@ -33,5 +33,11 @@ int main()
 
     printf("[%d,%d]\n", newInterval.start, newInterval.end);
 
+    while(i < n)
+    {
+        printf("[%d,%d]\n", arr[i].start, arr[i].end);
+        i++;
+    }
+
     return 0;
 }
