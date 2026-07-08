@@ -20,5 +20,16 @@ int main()
         i++;
     }
 
+    while(i < n && arr[i].start <= newInterval.end)
+    {
+        if(arr[i].start < newInterval.start)
+            newInterval.start = arr[i].start;
+
+        if(arr[i].end > newInterval.end)
+            newInterval.end = arr[i].end;
+
+        i++;
+    }
+
     return 0;
 }
