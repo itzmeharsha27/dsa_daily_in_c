@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Insert Interval
-
 struct Interval
 {
     int start;
@@ -10,11 +8,13 @@ struct Interval
 
 int main()
 {
-    struct Interval arr[] = {{1,3},{6,9}};
-    struct Interval newInterval = {2,5};
-    int n = 2;
+    struct Interval arr[] = {{1,2},{3,5},{6,7},{8,10},{12,16}};
+    struct Interval newInterval = {4,8};
+    int n = 5;
 
     int i = 0;
+
+    printf("Intervals After Insertion:\n");
 
     while(i < n && arr[i].end < newInterval.start)
     {
