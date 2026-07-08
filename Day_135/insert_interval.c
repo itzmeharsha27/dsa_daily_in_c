@@ -12,5 +12,7 @@ int main()
     struct Interval newInterval = {2,5};
     int n = 2;
 
+    int i = 0;
+
     return 0;
 }
