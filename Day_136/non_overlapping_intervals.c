@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Non-overlapping Intervals
-
 struct Interval
 {
     int start;
@@ -28,6 +26,8 @@ int main()
         else
             prevEnd=arr[i].end;
     }
+
+    printf("Intervals to Remove = %d\n", remove);
 
     return 0;
 }
