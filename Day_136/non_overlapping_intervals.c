@@ -6,10 +6,14 @@ struct Interval
     int end;
 };
 
+void swap(struct Interval *a, struct Interval *b)
+{
+    struct Interval t = *a;
+    *a = *b;
+    *b = t;
+}
+
 int main()
 {
-    struct Interval arr[] = {{1,2},{2,3},{3,4},{1,3}};
-    int n = 4;
-
     return 0;
 }
