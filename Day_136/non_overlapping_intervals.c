@@ -19,5 +19,13 @@ int main()
     int remove=0;
     int prevEnd=arr[0].end;
 
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i].start < prevEnd)
+            remove++;
+        else
+            prevEnd=arr[i].end;
+    }
+
     return 0;
 }
