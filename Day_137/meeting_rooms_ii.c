@@ -21,5 +21,11 @@ int main()
     int end[] = {30,10,20};
     int n = 3;
 
+    sort(start,n);
+    sort(end,n);
+
+    int i=0,j=0;
+    int rooms=0,maxRooms=0;
+
     return 0;
 }
