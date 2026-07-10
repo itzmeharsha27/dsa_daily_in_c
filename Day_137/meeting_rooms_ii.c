@@ -32,6 +32,8 @@ int main()
         if(start[i] < end[j])
         {
             rooms++;
+            if(rooms > maxRooms)
+                maxRooms = rooms;
             i++;
         }
         else
