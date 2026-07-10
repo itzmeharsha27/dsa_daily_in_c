@@ -29,6 +29,16 @@ int main()
 
     while(i<n && j<n)
     {
+        if(start[i] < end[j])
+        {
+            rooms++;
+            i++;
+        }
+        else
+        {
+            rooms--;
+            j++;
+        }
     }
 
     return 0;
