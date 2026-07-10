@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Meeting Rooms II
-
 void swap(int *a,int *b)
 {
     int t=*a;
@@ -44,6 +42,8 @@ int main()
             j++;
         }
     }
+
+    printf("Minimum Meeting Rooms = %d\n", maxRooms);
 
     return 0;
 }
