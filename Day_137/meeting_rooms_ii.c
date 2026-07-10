@@ -27,5 +27,9 @@ int main()
     int i=0,j=0;
     int rooms=0,maxRooms=0;
 
+    while(i<n && j<n)
+    {
+    }
+
     return 0;
 }
