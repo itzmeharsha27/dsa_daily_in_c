@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Minimum Number of Arrows to Burst Balloons
-
 struct Balloon
 {
     int start;
@@ -13,7 +11,7 @@ void sort(struct Balloon[],int);
 
 int main()
 {
-    struct Balloon arr[]={{10,16},{2,8},{1,6},{7,12}};
+    struct Balloon arr[]={{1,2},{3,4},{5,6},{7,8}};
     int n=4;
 
     sort(arr,n);
@@ -29,6 +27,8 @@ int main()
             lastEnd=arr[i].end;
         }
     }
+
+    printf("Minimum Arrows = %d\n",arrows);
 
     return 0;
 }
