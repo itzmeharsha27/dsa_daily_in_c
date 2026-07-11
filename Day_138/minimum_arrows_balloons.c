@@ -13,6 +13,14 @@ void swap(struct Balloon *a, struct Balloon *b)
     *b=t;
 }
 
+void sort(struct Balloon arr[], int n)
+{
+    for(int i=0;i<n-1;i++)
+        for(int j=0;j<n-i-1;j++)
+            if(arr[j].end>arr[j+1].end)
+                swap(&arr[j],&arr[j+1]);
+}
+
 int main()
 {
     return 0;
