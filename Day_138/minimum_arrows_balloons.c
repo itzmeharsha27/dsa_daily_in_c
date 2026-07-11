@@ -19,5 +19,12 @@ int main()
     int arrows=1;
     int lastEnd=arr[0].end;
 
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i].start>lastEnd)
+        {
+        }
+    }
+
     return 0;
 }
