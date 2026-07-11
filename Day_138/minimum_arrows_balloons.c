@@ -23,5 +23,10 @@ void sort(struct Balloon arr[], int n)
 
 int main()
 {
+    struct Balloon arr[]={{10,16},{2,8},{1,6},{7,12}};
+    int n=4;
+
+    sort(arr,n);
+
     return 0;
 }
