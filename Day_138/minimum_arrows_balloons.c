@@ -6,10 +6,14 @@ struct Balloon
     int end;
 };
 
+void swap(struct Balloon *a, struct Balloon *b)
+{
+    struct Balloon t=*a;
+    *a=*b;
+    *b=t;
+}
+
 int main()
 {
-    struct Balloon arr[]={{10,16},{2,8},{1,6},{7,12}};
-    int n=4;
-
     return 0;
 }
