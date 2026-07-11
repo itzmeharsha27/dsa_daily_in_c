@@ -23,6 +23,8 @@ int main()
     {
         if(arr[i].start>lastEnd)
         {
+            arrows++;
+            lastEnd=arr[i].end;
         }
     }
 
