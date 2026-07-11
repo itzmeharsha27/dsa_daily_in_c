@@ -11,7 +11,7 @@ void sort(struct Balloon[],int);
 
 int main()
 {
-    struct Balloon arr[]={{1,2},{3,4},{5,6},{7,8}};
+    struct Balloon arr[]={{1,2},{2,3},{3,4},{4,5}};
     int n=4;
 
     sort(arr,n);
