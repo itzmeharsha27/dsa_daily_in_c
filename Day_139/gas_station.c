@@ -15,6 +15,8 @@ int main()
     {
         totalGas += gas[i];
         totalCost += cost[i];
+
+        tank += gas[i] - cost[i];
     }
 
     return 0;
