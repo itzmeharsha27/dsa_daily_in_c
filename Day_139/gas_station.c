@@ -9,5 +9,11 @@ int main()
     int totalGas = 0;
     int totalCost = 0;
 
+    for(int i=0;i<n;i++)
+    {
+        totalGas += gas[i];
+        totalCost += cost[i];
+    }
+
     return 0;
 }
