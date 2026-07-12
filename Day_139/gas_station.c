@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Gas Station
-
 int main()
 {
     int gas[] = {1,2,3,4,5};
@@ -26,6 +24,11 @@ int main()
             tank = 0;
         }
     }
+
+    if(totalGas >= totalCost)
+        printf("Starting Statio n = %d\n", start);
+    else
+        printf("-1\n");
 
     return 0;
 }
