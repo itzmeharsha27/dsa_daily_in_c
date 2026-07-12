@@ -17,6 +17,12 @@ int main()
         totalCost += cost[i];
 
         tank += gas[i] - cost[i];
+
+        if(tank < 0)
+        {
+            start = i + 1;
+            tank = 0;
+        }
     }
 
     return 0;
