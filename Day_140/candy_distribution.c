@@ -37,7 +37,7 @@ int main()
     for(int i=0;i<n;i++)
         total += candy[i];
 
-    printf("Minimum Candies Required = %d\n", total);
+    printf("Minimum Candies  Required = %d\n", total);
 
     return 0;
 }
