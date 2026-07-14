@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Jump Game II
-
 int max(int a,int b)
 {
     return (a>b)?a:b;
@@ -26,6 +24,8 @@ int main()
             currentEnd = farthest;
         }
     }
+
+    printf("Minimum Jumps = %d\n", jumps);
 
     return 0;
 }
