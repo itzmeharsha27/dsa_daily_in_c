@@ -6,6 +6,8 @@ int main()
     int n = 5;
 
     int jumps = 0;
+    int currentEnd = 0;
+    int farthest = 0;
 
     return 0;
 }
