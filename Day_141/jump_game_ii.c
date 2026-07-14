@@ -17,6 +17,12 @@ int main()
     for(int i=0;i<n-1;i++)
     {
         farthest = max(farthest, i + nums[i]);
+
+        if(i == currentEnd)
+        {
+            jumps++;
+            currentEnd = farthest;
+        }
     }
 
     return 0;
