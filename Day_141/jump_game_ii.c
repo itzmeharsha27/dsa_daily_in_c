@@ -9,5 +9,9 @@ int main()
     int currentEnd = 0;
     int farthest = 0;
 
+    for(int i=0;i<n-1;i++)
+    {
+    }
+
     return 0;
 }
