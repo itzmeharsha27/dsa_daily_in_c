@@ -20,7 +20,7 @@ int main()
     for(int i=0;i<n-1;i++)
     {
         // Update the fart hest position reachable
-        farthest = max(far thest, i + nums[i]);
+        farthest = max(far thest,  i + nums[i]);
 
         // Need another jump
         if(i == currentEnd)
