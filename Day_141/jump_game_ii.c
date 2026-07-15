@@ -29,8 +29,8 @@ int main()
             currentEnd = farthest;
         }
     }
-
-    printf("Minimum  Numbe r   of  Jumps = % d\n", jumps);
+ 
+    printf("Minimum  Numbe r    of  Jumps = % d\n", jumps);
  
     return 0;
 }
