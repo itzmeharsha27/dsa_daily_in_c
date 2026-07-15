@@ -30,7 +30,7 @@ int main()
         }
     }
  
-    printf("Minimum   Numbe r    of  Jum ps = % d\n", jumps);
+    printf("Minimum   Numbe r    of  Jum  ps = % d\n", jumps);
  
     return 0;
 }
