@@ -19,8 +19,8 @@ int main()
     // Traverse until the second last index
     for(int i=0;i<n-1;i++)
     {
-        // Update the farthest position reachable
-        farthest = max(farthest, i + nums[i]);
+        // Update the fart hest position reachable
+        farthest = max(far thest, i + nums[i]);
 
         // Need another jump
         if(i == currentEnd)
