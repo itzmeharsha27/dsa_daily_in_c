@@ -30,7 +30,7 @@ int main()
         }
     }
 
-    printf("Minimum Number of Jumps = % d\n", jumps);
+    printf("Minimum Number of  Jumps = % d\n", jumps);
 
     return 0;
 }
