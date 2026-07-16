@@ -17,5 +17,9 @@ int main()
 
     int start=0,end=0;
 
+    for(int i=0;i<n;i++)
+    {
+    }
+
     return 0;
 }
