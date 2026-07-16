@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Partition Labels
+
 int max(int a,int b)
 {
     return (a>b)?a:b;
@@ -8,9 +10,9 @@ int max(int a,int b)
 
 int main()
 {
-    char str[] = "ababcbacadefegdehijhklij";
+    char str[]="ababcbacadefegdehijhklij";
     int last[26];
-    int n = strlen(str);
+    int n=strlen(str);
 
     for(int i=0;i<n;i++)
         last[str[i]-'a']=i;
