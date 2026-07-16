@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Partition Labels
-
 int max(int a,int b)
 {
     return (a>b)?a:b;
@@ -19,6 +17,8 @@ int main()
 
     int start=0,end=0;
 
+    printf("Partition Sizes: ");
+
     for(int i=0;i<n;i++)
     {
         end=max(end,last[str[i]-'a']);
@@ -29,6 +29,8 @@ int main()
             start=i+1;
         }
     }
+
+    printf("\n");
 
     return 0;
 }
