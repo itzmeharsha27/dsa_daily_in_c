@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
+int max(int a,int b)
+{
+    return (a>b)?a:b;
+}
+
 int main()
 {
     char str[] = "ababcbacadefegdehijhklij";
@@ -9,6 +14,8 @@ int main()
 
     for(int i=0;i<n;i++)
         last[str[i]-'a']=i;
+
+    int start=0,end=0;
 
     return 0;
 }
