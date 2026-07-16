@@ -19,6 +19,13 @@ int main()
 
     for(int i=0;i<n;i++)
     {
+        end=max(end,last[str[i]-'a']);
+
+        if(i==end)
+        {
+            printf("%d ",end-start+1);
+            start=i+1;
+        }
     }
 
     return 0;
