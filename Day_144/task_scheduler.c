@@ -21,5 +21,9 @@ int main()
               (people[i][0]==people[j][0]&&people[i][1]>people[j][1]))
                 swap(people[i],people[j]);
 
+    for(int i=0;i<n;i++)
+    {
+    }
+
     return 0;
 }
