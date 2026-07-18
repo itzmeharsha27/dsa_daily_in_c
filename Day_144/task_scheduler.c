@@ -15,10 +15,14 @@ void swap(int a[2],int b[2])
 
 int main()
 {
-    int people[][2]={{7,0},{4,4},{7,1}, {5,0},{6,1},{5,2}};
+    int people[][2]={{7,0},{4,4},{7,1},{5,0},{6,1},{5,2}};
     int n=6;
 
     int result[10][2];
+
+    for(int i=0;i<n-1;i++)
+    {
+    }
 
     return 0;
 }
