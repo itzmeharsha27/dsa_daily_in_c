@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Queue Reconstruction
-
 void swap(int a[2],int b[2])
 {
     int t;
@@ -35,6 +33,8 @@ int main()
         result[people[i][1]][1]=people[i][1];
         size++;
     }
+
+    printf("Queue:\n");
 
     return 0;
 }
