@@ -23,6 +23,15 @@ int main()
 
     for(int i=0;i<n;i++)
     {
+        for(int j=size;j>people[i][1];j--)
+        {
+            result[j][0]=result[j-1][0];
+            result[j][1]=result[j-1][1];
+        }
+
+        result[people[i][1]][0]=people[i][0];
+        result[people[i][1]][1]=people[i][1];
+        size++;
     }
 
     return 0;
