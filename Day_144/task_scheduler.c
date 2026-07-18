@@ -6,5 +6,7 @@ int main()
     int coolDown = 2;
     int size = 6;
 
+    int freq[26] = {0};
+
     return 0;
 }
