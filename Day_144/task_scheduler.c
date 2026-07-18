@@ -2,5 +2,9 @@
 
 int main()
 {
+    char tasks[] = {'A','A','A','B','B','B'};
+    int coolDown = 2;
+    int size = 6;
+
     return 0;
 }
