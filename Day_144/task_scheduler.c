@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Queue Reconstruction by Height using Greedy
+
 void swap(int a[2],int b[2])
 {
     int t;
@@ -34,8 +36,7 @@ int main()
         size++;
     }
 
-    printf("Queue:\n");
-
+    printf("Reconstructed Queue:\n");
     for(int i=0;i<size;i++)
         printf("{%d,%d}\n",result[i][0],result[i][1]);
 
