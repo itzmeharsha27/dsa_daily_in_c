@@ -36,5 +36,8 @@ int main()
 
     printf("Queue:\n");
 
+    for(int i=0;i<size;i++)
+        printf("{%d,%d}\n",result[i][0],result[i][1]);
+
     return 0;
 }
