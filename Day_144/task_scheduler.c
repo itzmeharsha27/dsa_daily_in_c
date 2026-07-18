@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Queue Reconstruction
+
 void swap(int a[2],int b[2])
 {
     int t;
