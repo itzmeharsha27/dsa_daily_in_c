@@ -12,6 +12,13 @@ int main()
 
     for(int i=0;i<n;i++)
     {
+        while(top>=0 && k>0 && stack[top]>num[i])
+        {
+            top--;
+            k--;
+        }
+
+        stack[++top]=num[i];
     }
 
     return 0;
