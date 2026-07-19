@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
+// Remove K Digits using Greedy Stack
+
 int main()
 {
-    char num[] = "10200";
-    int k = 1;
+    char num[] = "1432219";
+    int k = 3;
 
     char stack[100];
     int top = -1;
