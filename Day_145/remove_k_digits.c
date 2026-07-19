@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Remove K Digits
-
 int main()
 {
     char num[] = "1432219";
@@ -30,6 +28,8 @@ int main()
     }
 
     stack[top+1]='\0';
+
+    printf("Smallest Number = %s\n",stack);
 
     return 0;
 }
