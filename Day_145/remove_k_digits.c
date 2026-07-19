@@ -10,5 +10,9 @@ int main()
     int top = -1;
     int n = strlen(num);
 
+    for(int i=0;i<n;i++)
+    {
+    }
+
     return 0;
 }
