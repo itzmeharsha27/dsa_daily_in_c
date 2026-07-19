@@ -21,5 +21,11 @@ int main()
         stack[++top]=num[i];
     }
 
+    while(k>0)
+    {
+        top--;
+        k--;
+    }
+
     return 0;
 }
