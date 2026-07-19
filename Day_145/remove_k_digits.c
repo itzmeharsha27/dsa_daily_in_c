@@ -3,8 +3,8 @@
 
 int main()
 {
-    char num[] = "1432219";
-    int k = 3;
+    char num[] = "10200";
+    int k = 1;
 
     char stack[100];
     int top = -1;
