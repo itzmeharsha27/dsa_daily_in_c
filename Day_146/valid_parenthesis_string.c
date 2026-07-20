@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
+// Valid Parenthesis String using Greedy Algorithm
+
 int main()
 {
     char str[] = "(*))";
+    int n = strlen(str);
 
     int low = 0;
     int high = 0;
-    int n = strlen(str);
     int valid = 1;
 
+    // Traverse the string
     for(int i = 0; i < n; i++)
     {
         if(str[i] == '(')
@@ -24,6 +27,7 @@ int main()
         }
         else
         {
+            // '*' can act as '(' or ')' or empty
             low--;
             high++;
         }
