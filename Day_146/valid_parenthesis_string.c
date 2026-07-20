@@ -2,5 +2,7 @@
 
 int main()
 {
+    char str[] = "(*))";
+
     return 0;
 }
