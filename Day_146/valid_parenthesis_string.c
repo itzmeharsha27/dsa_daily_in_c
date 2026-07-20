@@ -16,6 +16,22 @@ int main()
             low++;
             high++;
         }
+        else if(str[i] == ')')
+        {
+            low--;
+            high--;
+        }
+        else
+        {
+            low--;
+            high++;
+        }
+
+        if(low < 0)
+            low = 0;
+
+        if(high < 0)
+            break;
     }
 
     return 0;
