@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Valid Parenthesis String
-
 int main()
 {
     char str[] = "(*))";
@@ -39,6 +37,11 @@ int main()
             break;
         }
     }
+
+    if(valid && low == 0)
+        printf("Valid Parenthesis String\n");
+    else
+        printf("Invalid Parenthesis String\n");
 
     return 0;
 }
