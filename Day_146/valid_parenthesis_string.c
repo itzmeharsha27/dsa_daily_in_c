@@ -9,5 +9,9 @@ int main()
     int high = 0;
     int n = strlen(str);
 
+    for(int i = 0; i < n; i++)
+    {
+    }
+
     return 0;
 }
