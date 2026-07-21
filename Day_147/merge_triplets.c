@@ -21,6 +21,9 @@ int main()
 
             if(triplets[i][1]==target[1])
                 foundB=1;
+
+            if(triplets[i][2]==target[2])
+                foundC=1;
         }
     }
 
