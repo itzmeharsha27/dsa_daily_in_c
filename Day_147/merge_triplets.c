@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Merge Triplets
-
 int main()
 {
     int triplets[][3]={{2,5,3},{1,8,4},{1,7,5}};
@@ -23,6 +21,11 @@ int main()
             if(triplets[i][2]==target[2]) foundC=1;
         }
     }
+
+    if(foundA && foundB && foundC)
+        printf("Possible\n");
+    else
+        printf("Not Possible\n");
 
     return 0;
 }
