@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Merge Triplets
+
 int main()
 {
     int triplets[][3]={{2,5,3},{1,8,4},{1,7,5}};
@@ -16,14 +18,9 @@ int main()
            triplets[i][1]<=target[1] &&
            triplets[i][2]<=target[2])
         {
-            if(triplets[i][0]==target[0])
-                foundA=1;
-
-            if(triplets[i][1]==target[1])
-                foundB=1;
-
-            if(triplets[i][2]==target[2])
-                foundC=1;
+            if(triplets[i][0]==target[0]) foundA=1;
+            if(triplets[i][1]==target[1]) foundB=1;
+            if(triplets[i][2]==target[2]) foundC=1;
         }
     }
 
