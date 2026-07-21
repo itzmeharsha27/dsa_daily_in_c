@@ -1,8 +1,10 @@
 #include <stdio.h>
 
+// Merge Triplets to Form Target Triplet
+
 int main()
 {
-    int triplets[][3]={{2,5,3},{2,7,5},{1,6,4}};
+    int triplets[][3]={{2,5,3},{1,8,4},{1,7,5}};
     int target[]={2,7,5};
     int n=3;
 
@@ -20,10 +22,7 @@ int main()
         }
     }
 
-    if(foundA&&foundB&&foundC)
-        printf("Possible\n");
-    else
-        printf("Not Possible\n");
+    printf(foundA&&foundB&&foundC ? "Possible\n" : "Not Possible\n");
 
     return 0;
 }
