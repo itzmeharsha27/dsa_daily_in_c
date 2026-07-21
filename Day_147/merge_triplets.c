@@ -2,13 +2,11 @@
 
 int main()
 {
-    int triplets[][3]={{2,5,3},{1,8,4},{1,7,5}};
+    int triplets[][3]={{2,5,3},{2,7,5},{1,6,4}};
     int target[]={2,7,5};
     int n=3;
 
-    int foundA=0;
-    int foundB=0;
-    int foundC=0;
+    int foundA=0,foundB=0,foundC=0;
 
     for(int i=0;i<n;i++)
     {
@@ -22,7 +20,7 @@ int main()
         }
     }
 
-    if(foundA && foundB && foundC)
+    if(foundA&&foundB&&foundC)
         printf("Possible\n");
     else
         printf("Not Possible\n");
