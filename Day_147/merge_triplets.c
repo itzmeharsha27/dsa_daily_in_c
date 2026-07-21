@@ -10,5 +10,9 @@ int main()
     int foundB=0;
     int foundC=0;
 
+    for(int i=0;i<n;i++)
+    {
+    }
+
     return 0;
 }
