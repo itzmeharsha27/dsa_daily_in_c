@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Merge Triplets to Form Target Triplet
+// Greedy Solution for Merge Triplets
 
 int main()
 {
@@ -22,7 +22,10 @@ int main()
         }
     }
 
-    printf(foundA&&foundB&&foundC ? "Possible\n" : "Not Possible\n");
+    if(foundA&&foundB&&foundC)
+        printf("Possible\n");
+    else
+        printf("Not Possible\n");
 
     return 0;
 }
