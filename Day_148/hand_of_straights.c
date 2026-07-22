@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Hand of Straights
+
 void swap(int *a,int *b)
 {
     int t=*a;
@@ -26,7 +28,33 @@ int main()
         if(used[i])
             continue;
 
+        int need=hand[i]+1;
         used[i]=1;
+
+        for(int count=1;count<groupSize;count++)
+        {
+            int found=0;
+
+            for(int j=0;j<n;j++)
+            {
+                if(!used[j] && hand[j]==need)
+                {
+                    used[j]=1;
+                    need++;
+                    found=1;
+                    break;
+                }
+            }
+
+            if(!found)
+            {
+                possible=0;
+                break;
+            }
+        }
+
+        if(!possible)
+            break;
     }
 
     return 0;
