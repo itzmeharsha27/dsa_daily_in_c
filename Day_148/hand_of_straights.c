@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Hand of Straights
-
 void swap(int *a,int *b)
 {
     int t=*a;
@@ -56,6 +54,11 @@ int main()
         if(!possible)
             break;
     }
+
+    if(possible)
+        printf("Possible\n");
+    else
+        printf("Not Possible\n");
 
     return 0;
 }
