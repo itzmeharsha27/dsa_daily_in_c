@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Greedy Solution for Hand of Straights
+
 void swap(int *a,int *b)
 {
     int t=*a;
@@ -55,10 +57,7 @@ int main()
             break;
     }
 
-    if(possible)
-        printf("Possible\n");
-    else
-        printf("Not Possible\n");
+    printf(possible ? "Possible\n" : "Not Possible\n");
 
     return 0;
 }
