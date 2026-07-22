@@ -14,13 +14,16 @@ int main()
     int n=9;
 
     int used[100]={0};
+    int possible=1;
 
     for(int i=0;i<n-1;i++)
         for(int j=i+1;j<n;j++)
             if(hand[i]>hand[j])
                 swap(&hand[i],&hand[j]);
 
-    int possible=1;
+    for(int i=0;i<n;i++)
+    {
+    }
 
     return 0;
 }
