@@ -23,6 +23,10 @@ int main()
 
     for(int i=0;i<n;i++)
     {
+        if(used[i])
+            continue;
+
+        used[i]=1;
     }
 
     return 0;
