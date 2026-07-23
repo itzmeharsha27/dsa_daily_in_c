@@ -1,3 +1,3 @@
-#include  <stdio.h>
+#include <stdio.h>
 
-// Merge K Sorted Lists
+// Greedy Merge K Sorted Lists
