@@ -17,5 +17,9 @@ struct Node* createNode(int value)
 
 int main()
 {
+    struct Node *list1=NULL;
+    struct Node *list2=NULL;
+    struct Node *list3=NULL;
+
     return 0;
 }
