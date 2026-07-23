@@ -28,5 +28,7 @@ int main()
     struct Node *list3=createNode(2);
     list3->next=createNode(6);
 
+    struct Node *lists[3]={list1,list2,list3};
+
     return 0;
 }
