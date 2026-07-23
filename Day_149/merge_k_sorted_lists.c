@@ -30,5 +30,8 @@ int main()
 
     struct Node *lists[3]={list1,list2,list3};
 
+    struct Node *head=NULL;
+    struct Node *tail=NULL;
+
     return 0;
 }
