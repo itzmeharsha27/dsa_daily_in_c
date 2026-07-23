@@ -49,6 +49,19 @@ int main()
 
         if(minIndex==-1)
             break;
+
+        if(head==NULL)
+        {
+            head=lists[minIndex];
+            tail=head;
+        }
+        else
+        {
+            tail->next=lists[minIndex];
+            tail=tail->next;
+        }
+
+        lists[minIndex]=lists[minIndex]->next;
     }
 
     return 0;
