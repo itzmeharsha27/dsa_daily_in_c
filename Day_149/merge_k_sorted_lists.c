@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 struct Node
 {
@@ -30,8 +31,25 @@ int main()
 
     struct Node *lists[3]={list1,list2,list3};
 
-    struct Node *head=NULL;
-    struct Node *tail=NULL;
+    struct Node *head=NULL,*tail=NULL;
+
+    while(1)
+    {
+        int minIndex=-1;
+        int minValue=INT_MAX;
+
+        for(int i=0;i<3;i++)
+        {
+            if(lists[i]!=NULL && lists[i]->data<minValue)
+            {
+                minValue=lists[i]->data;
+                minIndex=i;
+            }
+        }
+
+        if(minIndex==-1)
+            break;
+    }
 
     return 0;
 }
