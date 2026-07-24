@@ -21,5 +21,16 @@ int main()
     cache[size].value = 2;
     size++;
 
+    int index = -1;
+
+    for(int i = 0; i < size; i++)
+    {
+        if(cache[i].key == 1)
+        {
+            index = i;
+            break;
+        }
+    }
+
     return 0;
 }
