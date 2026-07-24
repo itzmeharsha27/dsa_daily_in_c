@@ -32,5 +32,15 @@ int main()
         }
     }
 
+    if(index != -1)
+    {
+        struct Cache temp = cache[index];
+
+        for(int i = index; i > 0; i--)
+            cache[i] = cache[i - 1];
+
+        cache[0] = temp;
+    }
+
     return 0;
 }
