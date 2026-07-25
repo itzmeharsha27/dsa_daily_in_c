@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Kth Largest Element
+
 void swap(int *a,int *b)
 {
     int temp=*a;
@@ -14,20 +16,9 @@ int main()
     int n = 6;
 
     for(int i=0;i<n-1;i++)
-    {
         for(int j=i+1;j<n;j++)
-        {
             if(nums[i]<nums[j])
                 swap(&nums[i],&nums[j]);
-        }
-    }
-
-    printf("Sorted Array:\n");
-
-    for(int i=0;i<n;i++)
-        printf("%d ",nums[i]);
-
-    printf("\n");
 
     printf("Kth Largest = %d\n",nums[k-1]);
 
