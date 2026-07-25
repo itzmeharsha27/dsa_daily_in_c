@@ -22,9 +22,14 @@ int main()
         }
     }
 
-    int answer=nums[k-1];
+    printf("Sorted Array:\n");
 
-    printf("%d\n",answer);
+    for(int i=0;i<n;i++)
+        printf("%d ",nums[i]);
+
+    printf("\n");
+
+    printf("Kth Largest = %d\n",nums[k-1]);
 
     return 0;
 }
