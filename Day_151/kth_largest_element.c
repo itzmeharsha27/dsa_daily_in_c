@@ -22,5 +22,7 @@ int main()
         }
     }
 
+    int answer=nums[k-1];
+
     return 0;
 }
