@@ -24,5 +24,7 @@ int main()
 
     int answer=nums[k-1];
 
+    printf("%d\n",answer);
+
     return 0;
 }
