@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Kth Largest Element using Sorting
+// Kth Largest Element in an Array using Sorting
 
 void swap(int *a,int *b)
 {
@@ -15,16 +15,17 @@ int main()
     int k = 2;
     int n = sizeof(nums)/sizeof(nums[0]);
 
+    // Sort array in descending order
     for(int i=0;i<n-1;i++)
     {
         for(int j=i+1;j<n;j++)
         {
-            if(nums[i]<nums[j])
-                swap(&nums[i],&nums[j]);
+            if(nums[i] < nums[j])
+                swap(&nums[i], &nums[j]);
         }
     }
 
-    printf("Answer = %d\n",nums[k-1]);
+    printf("Kth Largest Element = %d\n", nums[k-1]);
 
     return 0;
 }
