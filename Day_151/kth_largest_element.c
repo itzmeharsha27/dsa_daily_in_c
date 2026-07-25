@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Greedy Sorting Approach
+
 void swap(int *a,int *b)
 {
     int temp=*a;
@@ -9,8 +11,8 @@ void swap(int *a,int *b)
 
 int main()
 {
-    int nums[] = {7,10,4,3,20,15};
-    int k = 3;
+    int nums[] = {3,2,1,5,6,4};
+    int k = 2;
     int n = 6;
 
     for(int i=0;i<n-1;i++)
@@ -18,7 +20,7 @@ int main()
             if(nums[i]<nums[j])
                 swap(&nums[i],&nums[j]);
 
-    printf("Kth Largest = %d\n",nums[k-1]);
+    printf("Kth Largest Element = %d\n",nums[k-1]);
 
     return 0;
 }
