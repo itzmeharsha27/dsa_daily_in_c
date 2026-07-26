@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Top K Frequent Elements
+// Top K Frequent Elements using Frequency Counting
 
 struct Item
 {
@@ -55,6 +55,8 @@ int main()
 
     for(int i=0;i<k;i++)
         printf("%d ",arr[i].value);
+
+    printf("\n");
 
     return 0;
 }
