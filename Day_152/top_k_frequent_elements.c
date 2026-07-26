@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// Top K Frequent Elements using Frequency Counting
-
 struct Item
 {
     int value;
@@ -17,9 +15,9 @@ void swap(struct Item *a,struct Item *b)
 
 int main()
 {
-    int nums[]={1,1,1,2,2,3};
-    int k=2;
-    int n=6;
+    int nums[]={4,4,4,5,5,6,6,6,6};
+    int k=1;
+    int n=9;
 
     struct Item arr[100];
     int size=0;
@@ -55,8 +53,6 @@ int main()
 
     for(int i=0;i<k;i++)
         printf("%d ",arr[i].value);
-
-    printf("\n");
 
     return 0;
 }
