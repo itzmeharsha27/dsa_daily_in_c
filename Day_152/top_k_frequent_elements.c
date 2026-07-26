@@ -6,14 +6,21 @@ struct Item
     int freq;
 };
 
+void swap(struct Item *a,struct Item *b)
+{
+    struct Item t=*a;
+    *a=*b;
+    *b=t;
+}
+
 int main()
 {
-    int nums[] = {1,1,1,2,2,3};
-    int k = 2;
-    int n = 6;
+    int nums[]={1,1,1,2,2,3};
+    int k=2;
+    int n=6;
 
     struct Item arr[100];
-    int size = 0;
+    int size=0;
 
     for(int i=0;i<n;i++)
     {
