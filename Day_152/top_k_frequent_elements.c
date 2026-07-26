@@ -44,5 +44,13 @@ int main()
         }
     }
 
+    for(int i=0;i<size-1;i++)
+        for(int j=i+1;j<size;j++)
+            if(arr[i].freq<arr[j].freq)
+                swap(&arr[i],&arr[j]);
+
+    for(int i=0;i<k;i++)
+        printf("%d ",arr[i].value);
+
     return 0;
 }
