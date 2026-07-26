@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Top K Frequent Elements using Frequency Counting and Sorting
+
 struct Item
 {
     int value;
@@ -8,20 +10,21 @@ struct Item
 
 void swap(struct Item *a,struct Item *b)
 {
-    struct Item t=*a;
+    struct Item temp=*a;
     *a=*b;
-    *b=t;
+    *b=temp;
 }
 
 int main()
 {
-    int nums[]={4,4,4,5,5,6,6,6,6};
-    int k=1;
-    int n=9;
+    int nums[]={1,1,1,2,2,3};
+    int k=2;
+    int n=sizeof(nums)/sizeof(nums[0]);
 
     struct Item arr[100];
     int size=0;
 
+    // Count frequency of each element
     for(int i=0;i<n;i++)
     {
         int found=0;
@@ -44,15 +47,22 @@ int main()
         }
     }
 
+    // Sort by frequency in descending order
     for(int i=0;i<size-1;i++)
+    {
         for(int j=i+1;j<size;j++)
+        {
             if(arr[i].freq<arr[j].freq)
                 swap(&arr[i],&arr[j]);
+        }
+    }
 
     printf("Top %d Frequent Elements:\n",k);
 
     for(int i=0;i<k;i++)
         printf("%d ",arr[i].value);
+
+    printf("\n");
 
     return 0;
 }
