@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Find Median from Data Stream
+
 void swap(int *a,int *b)
 {
     int t=*a;
