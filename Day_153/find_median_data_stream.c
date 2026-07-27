@@ -28,5 +28,7 @@ int main()
     else
         median=arr[size/2];
 
+    printf("Median = %.1f\n",median);
+
     return 0;
 }
