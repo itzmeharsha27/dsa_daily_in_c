@@ -8,5 +8,9 @@ int main()
 
     int maxValue;
 
+    for(int i=0;i<=n-k;i++)
+    {
+    }
+
     return 0;
 }
