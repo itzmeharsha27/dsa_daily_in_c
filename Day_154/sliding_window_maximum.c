@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Sliding Window Maximum
+// Sliding Window Maximum using Brute Force
 
 int main()
 {
