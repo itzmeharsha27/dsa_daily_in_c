@@ -11,5 +11,7 @@ int main()
     for(int i=0;t[i]!='\0';i++)
         freq[(int)t[i]]++;
 
+    int left=0,right=0;
+
     return 0;
 }
