@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Minimum Window Substring
+
 int main()
 {
     char s[]="ADOBECODEBANC";
