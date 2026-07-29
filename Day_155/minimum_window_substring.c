@@ -12,6 +12,7 @@ int main()
         freq[(int)t[i]]++;
 
     int left=0,right=0;
+    int count=strlen(t);
 
     return 0;
 }
