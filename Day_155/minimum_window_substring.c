@@ -8,5 +8,8 @@ int main()
 
     int freq[256]={0};
 
+    for(int i=0;t[i]!='\0';i++)
+        freq[(int)t[i]]++;
+
     return 0;
 }
