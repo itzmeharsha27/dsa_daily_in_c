@@ -14,5 +14,10 @@ int main()
     int left=0,right=0;
     int count=strlen(t);
 
+    while(s[right]!='\0')
+    {
+        right++;
+    }
+
     return 0;
 }
