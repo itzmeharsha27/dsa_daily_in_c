@@ -16,6 +16,11 @@ int main()
 
     while(s[right]!='\0')
     {
+        if(freq[(int)s[right]]>0)
+            count--;
+
+        freq[(int)s[right]]--;
+
         right++;
     }
 
