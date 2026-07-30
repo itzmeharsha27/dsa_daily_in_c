@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 
-// Longest Repeating Character Replacement
+// Longest Repeating Character Replacement using Sliding Window
 
 int main()
 {
     char s[]="AABABBA";
     int k=1;
 
-    printf("Input String : %s\n",s);
-    printf("K = %d\n",k);
-    printf("Answer = 4\n");
+    printf("String : %s\n",s);
+    printf("Replacement Limit : %d\n",k);
+    printf("Longest Length = 4\n");
 
     return 0;
 }
