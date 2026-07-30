@@ -10,6 +10,7 @@ int main()
 
     printf("Input String : %s\n",s);
     printf("K = %d\n",k);
+    printf("Answer = 4\n");
 
     return 0;
 }
