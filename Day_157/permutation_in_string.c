@@ -25,8 +25,11 @@ int main()
         freq2[s2[i]-'a']++;
     }
 
-    if(check(freq1,freq2))
-        printf("True\n");
+    for(int i=len;i<strlen(s2);i++)
+    {
+        freq2[s2[i]-'a']++;
+        freq2[s2[i-len]-'a']--;
+    }
 
     return 0;
 }
