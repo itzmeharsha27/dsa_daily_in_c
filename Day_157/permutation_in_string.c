@@ -6,6 +6,7 @@ int main()
     char s2[]="eidbaooo";
 
     int freq1[26]={0};
+    int freq2[26]={0};
 
     return 0;
 }
