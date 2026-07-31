@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Permutation in String using Sliding Window
+// Permutation in String
 
 int check(int a[],int b[])
 {
@@ -16,9 +16,7 @@ int main()
     char s1[]="ab";
     char s2[]="eidbaooo";
 
-    int freq1[26]={0};
-    int freq2[26]={0};
-
+    int freq1[26]={0},freq2[26]={0};
     int len=strlen(s1);
 
     for(int i=0;i<len;i++)
@@ -34,11 +32,10 @@ int main()
         freq2[s2[i]-'a']++;
         freq2[s2[i-len]-'a']--;
 
-        if(check(freq1,freq2))
-            found=1;
+        found=check(freq1,freq2);
     }
 
-    printf("%s\n",found?"True":"False");
+    printf("Result: %s\n",found?"True":"False");
 
     return 0;
 }
