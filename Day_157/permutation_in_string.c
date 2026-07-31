@@ -9,8 +9,13 @@ int main()
     int freq1[26]={0};
     int freq2[26]={0};
 
-    for(int i=0;i<strlen(s1);i++)
+    int len=strlen(s1);
+
+    for(int i=0;i<len;i++)
+    {
         freq1[s1[i]-'a']++;
+        freq2[s2[i]-'a']++;
+    }
 
     return 0;
 }
