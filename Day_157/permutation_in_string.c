@@ -36,5 +36,7 @@ int main()
             found=1;
     }
 
+    printf("%s\n",found?"True":"False");
+
     return 0;
 }
