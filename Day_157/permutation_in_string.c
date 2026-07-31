@@ -25,10 +25,15 @@ int main()
         freq2[s2[i]-'a']++;
     }
 
-    for(int i=len;i<strlen(s2);i++)
+    int found=check(freq1,freq2);
+
+    for(int i=len;i<strlen(s2)&&!found;i++)
     {
         freq2[s2[i]-'a']++;
         freq2[s2[i-len]-'a']--;
+
+        if(check(freq1,freq2))
+            found=1;
     }
 
     return 0;
