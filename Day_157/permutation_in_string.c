@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Permutation in String using Sliding Window
+
 int check(int a[],int b[])
 {
     for(int i=0;i<26;i++)
