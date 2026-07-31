@@ -25,5 +25,8 @@ int main()
         freq2[s2[i]-'a']++;
     }
 
+    if(check(freq1,freq2))
+        printf("True\n");
+
     return 0;
 }
