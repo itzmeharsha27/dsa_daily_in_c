@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
+// Sliding Window Approach
+
 int main()
 {
     char s[]="abcabcbb";
 
     int freq[256]={0};
-    int left=0,right=0;
-    int maxLen=0;
+    int left=0,right=0,maxLen=0;
 
     while(right<strlen(s))
     {
@@ -25,7 +26,7 @@ int main()
         right++;
     }
 
-    printf("Length = %d\n",maxLen);
+    printf("Longest Length = %d\n",maxLen);
 
     return 0;
 }
