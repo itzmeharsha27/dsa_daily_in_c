@@ -19,6 +19,9 @@ int main()
             left++;
         }
 
+        if(right-left+1>maxLen)
+            maxLen=right-left+1;
+
         right++;
     }
 
