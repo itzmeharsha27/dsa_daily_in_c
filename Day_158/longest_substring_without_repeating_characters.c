@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Longest Substring Without Repeating Characters
-
 int main()
 {
     char s[]="abcabcbb";
@@ -26,6 +24,8 @@ int main()
 
         right++;
     }
+
+    printf("Length = %d\n",maxLen);
 
     return 0;
 }
