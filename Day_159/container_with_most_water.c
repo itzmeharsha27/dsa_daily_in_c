@@ -11,6 +11,17 @@ int main()
 
     while(left<right)
     {
+        int h;
+
+        if(height[left]<height[right])
+            h=height[left];
+        else
+            h=height[right];
+
+        int area=h*(right-left);
+
+        if(area>maxArea)
+            maxArea=area;
     }
 
     return 0;
