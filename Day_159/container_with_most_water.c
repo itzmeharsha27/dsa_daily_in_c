@@ -1,13 +1,13 @@
 #include <stdio.h>
 
+// Container With Most Water
+
 int main()
 {
     int height[]={1,8,6,2,5,4,8,3,7};
     int n=9;
 
-    int left=0;
-    int right=n-1;
-    int maxArea=0;
+    int left=0,right=n-1,maxArea=0;
 
     while(left<right)
     {
@@ -23,7 +23,7 @@ int main()
             right--;
     }
 
-    printf("%d\n",maxArea);
+    printf("Maximum Area = %d\n",maxArea);
 
     return 0;
 }
