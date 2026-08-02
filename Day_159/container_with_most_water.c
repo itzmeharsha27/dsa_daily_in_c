@@ -9,5 +9,9 @@ int main()
     int right=n-1;
     int maxArea=0;
 
+    while(left<right)
+    {
+    }
+
     return 0;
 }
