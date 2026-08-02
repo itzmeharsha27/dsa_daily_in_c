@@ -11,13 +11,7 @@ int main()
 
     while(left<right)
     {
-        int h;
-
-        if(height[left]<height[right])
-            h=height[left];
-        else
-            h=height[right];
-
+        int h=(height[left]<height[right])?height[left]:height[right];
         int area=h*(right-left);
 
         if(area>maxArea)
@@ -28,6 +22,8 @@ int main()
         else
             right--;
     }
+
+    printf("%d\n",maxArea);
 
     return 0;
 }
