@@ -1,9 +1,11 @@
 #include <stdio.h>
 
+// Container With Most Water using Two Pointers
+
 int main()
 {
-    int height[]={2,3,4,5,18,17,6};
-    int n=7;
+    int height[]={1,8,6,2,5,4,8,3,7};
+    int n=sizeof(height)/sizeof(height[0]);
 
     int left=0,right=n-1,maxArea=0;
 
