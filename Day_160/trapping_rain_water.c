@@ -31,5 +31,7 @@ int main()
         }
     }
 
+    printf("Trapped Water = %d\n",water);
+
     return 0;
 }
