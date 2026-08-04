@@ -28,7 +28,7 @@ int main()
 
             if(sum==0)
             {
-                printf("%d %d %d\n",nums[i],nums[left],nums[right]);
+                printf("%d %d %d\n",nums[i], nums[left],nums[right]);
                 break;
             }
             else if(sum<0)
