@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// 3Sum using Two Pointers
+
 void swap(int *a,int *b)
 {
     int t=*a;
@@ -19,8 +21,7 @@ int main()
 
     for(int i=0;i<n-2;i++)
     {
-        int left=i+1;
-        int right=n-1;
+        int left=i+1,right=n-1;
 
         while(left<right)
         {
@@ -28,7 +29,7 @@ int main()
 
             if(sum==0)
             {
-                printf("%d %d %d\n",nums[i], nums[left],nums[right]);
+                printf("%d %d %d\n",nums[i],nums[left],nums[right]);
                 break;
             }
             else if(sum<0)
