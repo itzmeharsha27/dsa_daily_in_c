@@ -17,5 +17,9 @@ int main()
             if(nums[i]>nums[j])
                 swap(&nums[i],&nums[j]);
 
+    for(int i=0;i<n-2;i++)
+    {
+    }
+
     return 0;
 }
