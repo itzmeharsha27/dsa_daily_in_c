@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// 3Sum using Two Pointers
+// 3Sum
 
 void swap(int *a,int *b)
 {
@@ -12,7 +12,7 @@ void swap(int *a,int *b)
 int main()
 {
     int nums[]={-1,0,1,2,-1,-4};
-    int n=6;
+    int n=sizeof(nums)/sizeof(nums[0]);
 
     for(int i=0;i<n-1;i++)
         for(int j=i+1;j<n;j++)
