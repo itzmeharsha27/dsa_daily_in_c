@@ -10,4 +10,14 @@ def main():
             left = j + 1
             right = n - 1
 
+            while left < right:
+                total = nums[i] + nums[j] + nums[left] + nums[right]
+
+                if total == target:
+                    break
+                elif total < target:
+                    left += 1
+                else:
+                    right -= 1
+
 main()
