@@ -3,5 +3,9 @@ def main():
     target = 0
 
     nums.sort()
+    n = len(nums)
+
+    for i in range(n-3):
+        pass
 
 main()
