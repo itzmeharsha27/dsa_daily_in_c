@@ -14,6 +14,7 @@ def main():
                 total = nums[i] + nums[j] + nums[left] + nums[right]
 
                 if total == target:
+                    print(nums[i], nums[j], nums[left], nums[right])
                     break
                 elif total < target:
                     left += 1
