@@ -6,6 +6,7 @@ def main():
     n = len(nums)
 
     for i in range(n-3):
-        pass
+        for j in range(i+1, n-2):
+            pass
 
 main()
