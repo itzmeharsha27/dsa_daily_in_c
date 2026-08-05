@@ -1,4 +1,4 @@
-# 4Sum using Sorting and Two Pointers
+# 4Sum using Sorting and Two Pointer Technique
 
 def main():
     nums = [1,0,-1,0,-2,2]
@@ -17,7 +17,8 @@ def main():
 
                 if total == target:
                     print(nums[i], nums[j], nums[left], nums[right])
-                    break
+                    left += 1
+                    right -= 1
                 elif total < target:
                     left += 1
                 else:
