@@ -7,6 +7,7 @@ def main():
 
     for i in range(n-3):
         for j in range(i+1, n-2):
-            pass
+            left = j + 1
+            right = n - 1
 
 main()
