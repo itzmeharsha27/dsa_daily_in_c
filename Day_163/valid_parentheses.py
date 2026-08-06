@@ -19,4 +19,9 @@ def main():
                 valid = False
                 break
 
+    if stack:
+        valid = False
+
+    print(valid)
+
 main()
