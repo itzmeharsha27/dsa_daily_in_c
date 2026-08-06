@@ -9,4 +9,8 @@ def main():
         '}': '{'
     }
 
+    for ch in s:
+        if ch in "([{":
+            stack.append(ch)
+
 main()
