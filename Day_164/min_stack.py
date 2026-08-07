@@ -11,4 +11,6 @@ def main():
     stack.append(-3)
     min_stack.append(-3)
 
+    print(min_stack[-1])
+
 main()
