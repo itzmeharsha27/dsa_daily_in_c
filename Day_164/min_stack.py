@@ -1,16 +1,11 @@
 def main():
-    stack = []
-    min_stack = []
+    stack = [-2, 0, -3]
+    min_stack = [-2, -2, -3]
 
-    stack.append(-2)
-    min_stack.append(-2)
+    stack.pop()
+    min_stack.pop()
 
-    stack.append(0)
-    min_stack.append(-2)
-
-    stack.append(-3)
-    min_stack.append(-3)
-
+    print(stack[-1])
     print(min_stack[-1])
 
 main()
