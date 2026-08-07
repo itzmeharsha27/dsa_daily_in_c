@@ -1,4 +1,5 @@
 def main():
-    pass
+    stack = []
+    min_stack = []
 
 main()
