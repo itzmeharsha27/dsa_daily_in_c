@@ -1,4 +1,5 @@
 def main():
-    pass
+    tokens = ["2", "1", "+", "3", "*"]
+    stack = []
 
 main()
