@@ -15,7 +15,9 @@ def main():
                 stack.append(a - b)
             elif token == "*":
                 stack.append(a * b)
-            else:
+            elif token == "/":
                 stack.append(int(a / b))
+
+    print("Result =", stack[-1])
 
 main()
