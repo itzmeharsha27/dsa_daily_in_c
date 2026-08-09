@@ -12,4 +12,6 @@ def main():
 
         stack.append(i)
 
+    print("Daily Temperatures:", answer)
+
 main()
