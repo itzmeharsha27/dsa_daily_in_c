@@ -1,11 +1,12 @@
 def main():
     heights = [2,1,5,6,2,3]
 
-    n = len(heights)
+    heights.append(0)
+
     stack = []
     max_area = 0
 
-    for i in range(n):
+    for i in range(len(heights)):
         while stack and heights[i] < heights[stack[-1]]:
             height = heights[stack.pop()]
 
@@ -17,5 +18,7 @@ def main():
             max_area = max(max_area, height * width)
 
         stack.append(i)
+
+    print("Largest Rectangle Area =", max_area)
 
 main()
