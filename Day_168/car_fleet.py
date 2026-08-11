@@ -14,6 +14,10 @@ def main():
 
     for pos, spd in cars:
         time = (target - pos) / spd
-        stack.append(time)
+
+        if not stack or time > stack[-1]:
+            stack.append(time)
+
+    print("Number of Car Fleets =", len(stack))
 
 main()
