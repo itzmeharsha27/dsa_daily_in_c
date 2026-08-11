@@ -8,4 +8,6 @@ def main():
     for i in range(len(position)):
         cars.append((position[i], speed[i]))
 
+    cars.sort(reverse=True)
+
 main()
