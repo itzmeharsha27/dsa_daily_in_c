@@ -3,4 +3,9 @@ def main():
     speed = [2,4,1,1,3]
     target = 12
 
+    cars = []
+
+    for i in range(len(position)):
+        cars.append((position[i], speed[i]))
+
 main()
