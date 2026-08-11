@@ -10,4 +10,10 @@ def main():
 
     cars.sort(reverse=True)
 
+    stack = []
+
+    for pos, spd in cars:
+        time = (target - pos) / spd
+        stack.append(time)
+
 main()
