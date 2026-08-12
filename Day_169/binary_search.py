@@ -4,8 +4,17 @@ def main():
 
     left = 0
     right = len(nums) - 1
+    result = -1
 
     while left <= right:
         mid = (left + right) // 2
+
+        if nums[mid] == target:
+            result = mid
+            break
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
 
 main()
