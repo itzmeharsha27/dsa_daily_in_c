@@ -1,3 +1,5 @@
+# Binary Search
+
 def main():
     nums = [-1,0,3,5,9,12]
     target = 9
@@ -12,11 +14,15 @@ def main():
         if nums[mid] == target:
             result = mid
             break
+
         elif nums[mid] < target:
             left = mid + 1
+
         else:
             right = mid - 1
 
-    print("Target Index =", result)
+    print("Target =", target)
+    print("Index =", result)
+
 
 main()
