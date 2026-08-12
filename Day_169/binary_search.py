@@ -17,4 +17,6 @@ def main():
         else:
             right = mid - 1
 
+    print("Target Index =", result)
+
 main()
