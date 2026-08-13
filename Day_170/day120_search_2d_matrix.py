@@ -28,4 +28,6 @@ def main():
         else:
             right = mid - 1
 
+    print("Target Found =", found)
+
 main()
