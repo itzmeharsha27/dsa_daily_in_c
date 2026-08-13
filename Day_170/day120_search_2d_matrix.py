@@ -13,4 +13,10 @@ def main():
     left = 0
     right = rows * cols - 1
 
+    while left <= right:
+        mid = (left + right) // 2
+
+        row = mid // cols
+        col = mid % cols
+
 main()
