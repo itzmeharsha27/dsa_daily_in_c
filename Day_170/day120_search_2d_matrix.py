@@ -10,4 +10,7 @@ def main():
     rows = len(matrix)
     cols = len(matrix[0])
 
+    left = 0
+    right = rows * cols - 1
+
 main()
