@@ -14,23 +14,27 @@ def main():
 
     left = 0
     right = rows * cols - 1
-    found = False
 
+    # Binary search on the virtual 1D array
     while left <= right:
+
         mid = (left + right) // 2
 
+        # Convert 1D index to 2D coordinates
         row = mid // cols
         col = mid % cols
 
         if matrix[row][col] == target:
-            found = True
-            break
+            print("Target Found = True")
+            return
+
         elif matrix[row][col] < target:
             left = mid + 1
+
         else:
             right = mid - 1
 
-    print("Target =", target)
-    print("Found =", found)
+    print("Target Found = False")
+
 
 main()
