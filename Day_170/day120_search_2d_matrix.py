@@ -7,4 +7,7 @@ def main():
 
     target = 3
 
+    rows = len(matrix)
+    cols = len(matrix[0])
+
 main()
