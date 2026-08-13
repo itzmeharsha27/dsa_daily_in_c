@@ -1,3 +1,5 @@
+# Search a 2D Matrix using Binary Search
+
 def main():
     matrix = [
         [1,3,5,7],
@@ -28,6 +30,7 @@ def main():
         else:
             right = mid - 1
 
-    print("Target Found =", found)
+    print("Target =", target)
+    print("Found =", found)
 
 main()
