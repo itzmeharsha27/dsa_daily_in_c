@@ -4,6 +4,7 @@ def main():
 
     left = 1
     right = max(piles)
+    answer = right
 
     while left <= right:
         mid = (left + right) // 2
@@ -12,5 +13,11 @@ def main():
 
         for pile in piles:
             hours += (pile + mid - 1) // mid
+
+        if hours <= h:
+            answer = mid
+            right = mid - 1
+        else:
+            left = mid + 1
 
 main()
