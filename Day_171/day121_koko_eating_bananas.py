@@ -5,4 +5,7 @@ def main():
     left = 1
     right = max(piles)
 
+    while left <= right:
+        mid = (left + right) // 2
+
 main()
