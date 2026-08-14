@@ -1,4 +1,4 @@
-# Koko Eating Bananas using Binary Search
+# Koko Eating Bananas
 
 def main():
     piles = [3,6,7,11]
@@ -9,19 +9,22 @@ def main():
     answer = right
 
     while left <= right:
-        mid = (left + right) // 2
+
+        speed = (left + right) // 2
 
         hours = 0
 
         for pile in piles:
-            hours += (pile + mid - 1) // mid
+            hours += (pile + speed - 1) // speed
 
         if hours <= h:
-            answer = mid
-            right = mid - 1
+            answer = speed
+            right = speed - 1
         else:
-            left = mid + 1
+            left = speed + 1
 
-    print("Minimum Eating Speed =", answer)
+    print("Piles:", piles)
+    print("Hours:", h)
+    print("Minimum Speed:", answer)
 
 main()
