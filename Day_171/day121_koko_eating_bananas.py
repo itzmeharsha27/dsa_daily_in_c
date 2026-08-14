@@ -20,4 +20,6 @@ def main():
         else:
             left = mid + 1
 
+    print("Minimum Eating Speed =", answer)
+
 main()
