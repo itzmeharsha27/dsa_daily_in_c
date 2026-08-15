@@ -1,28 +1,38 @@
+# Time Based Key-Value Store using Binary Search
+
 class TimeMap:
 
     def __init__(self):
         self.data = {}
 
+    # Store value with timestamp
     def set(self, key, value, timestamp):
+
         if key not in self.data:
             self.data[key] = []
 
         self.data[key].append((timestamp, value))
 
+    # Find latest timestamp <= given timestamp
     def get(self, key, timestamp):
+
         if key not in self.data:
             return ""
 
         left = 0
         right = len(self.data[key]) - 1
+
         result = ""
 
+        # Binary search
         while left <= right:
+
             mid = (left + right) // 2
 
             if self.data[key][mid][0] <= timestamp:
                 result = self.data[key][mid][1]
                 left = mid + 1
+
             else:
                 right = mid - 1
 
@@ -30,6 +40,7 @@ class TimeMap:
 
 
 def main():
+
     store = TimeMap()
 
     store.set("foo", "bar", 1)
