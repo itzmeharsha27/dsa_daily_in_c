@@ -7,4 +7,6 @@ def main():
 
     data[key] = [(timestamp, value)]
 
+    data[key].append((4, "bar2"))
+
 main()
