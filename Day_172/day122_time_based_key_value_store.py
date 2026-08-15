@@ -1,12 +1,19 @@
 def main():
     data = {}
 
-    key = "foo"
-    value = "bar"
-    timestamp = 1
+    data["foo"] = [
+        (1, "bar"),
+        (4, "bar2")
+    ]
 
-    data[key] = [(timestamp, value)]
+    timestamp = 3
 
-    data[key].append((4, "bar2"))
+    result = ""
+
+    for time, value in data["foo"]:
+        if time <= timestamp:
+            result = value
+
+    print(result)
 
 main()
