@@ -1,32 +1,41 @@
-def get_value(data, key, timestamp):
-    if key not in data:
-        return ""
+class TimeMap:
 
-    left = 0
-    right = len(data[key]) - 1
-    result = ""
+    def __init__(self):
+        self.data = {}
 
-    while left <= right:
-        mid = (left + right) // 2
+    def set(self, key, value, timestamp):
+        if key not in self.data:
+            self.data[key] = []
 
-        if data[key][mid][0] <= timestamp:
-            result = data[key][mid][1]
-            left = mid + 1
-        else:
-            right = mid - 1
+        self.data[key].append((timestamp, value))
 
-    return result
+    def get(self, key, timestamp):
+        if key not in self.data:
+            return ""
+
+        left = 0
+        right = len(self.data[key]) - 1
+        result = ""
+
+        while left <= right:
+            mid = (left + right) // 2
+
+            if self.data[key][mid][0] <= timestamp:
+                result = self.data[key][mid][1]
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return result
 
 
 def main():
-    data = {
-        "foo": [
-            (1, "bar"),
-            (4, "bar2")
-        ]
-    }
+    store = TimeMap()
 
-    print(get_value(data, "foo", 3))
+    store.set("foo", "bar", 1)
+    store.set("foo", "bar2", 4)
+
+    print(store.get("foo", 3))
 
 
 main()
