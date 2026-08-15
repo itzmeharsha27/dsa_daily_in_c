@@ -2,25 +2,31 @@ def get_value(data, key, timestamp):
     if key not in data:
         return ""
 
+    left = 0
+    right = len(data[key]) - 1
     result = ""
 
-    for time, value in data[key]:
-        if time <= timestamp:
-            result = value
+    while left <= right:
+        mid = (left + right) // 2
+
+        if data[key][mid][0] <= timestamp:
+            result = data[key][mid][1]
+            left = mid + 1
+        else:
+            right = mid - 1
 
     return result
 
 
 def main():
-    data = {}
+    data = {
+        "foo": [
+            (1, "bar"),
+            (4, "bar2")
+        ]
+    }
 
-    data["foo"] = [(1, "bar")]
-    data["foo"].append((4, "bar2"))
-
-    print(get_value(data, "foo", 1))
     print(get_value(data, "foo", 3))
-    print(get_value(data, "foo", 4))
-    print(get_value(data, "foo", 5))
 
 
 main()
