@@ -1,19 +1,25 @@
-def main():
-    data = {}
-
-    data["foo"] = [
-        (1, "bar"),
-        (4, "bar2")
-    ]
-
-    timestamp = 3
+def get_value(data, key, timestamp):
+    if key not in data:
+        return ""
 
     result = ""
 
-    for time, value in data["foo"]:
+    for time, value in data[key]:
         if time <= timestamp:
             result = value
 
-    print(result)
+    return result
+
+
+def main():
+    data = {
+        "foo": [
+            (1, "bar"),
+            (4, "bar2")
+        ]
+    }
+
+    print(get_value(data, "foo", 3))
+
 
 main()
