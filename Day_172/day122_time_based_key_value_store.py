@@ -33,9 +33,14 @@ def main():
     store = TimeMap()
 
     store.set("foo", "bar", 1)
+
+    print(store.get("foo", 1))
+    print(store.get("foo", 3))
+
     store.set("foo", "bar2", 4)
 
-    print(store.get("foo", 3))
+    print(store.get("foo", 4))
+    print(store.get("foo", 5))
 
 
 main()
