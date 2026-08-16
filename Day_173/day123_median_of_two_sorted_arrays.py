@@ -1,8 +1,8 @@
 # Median of Two Sorted Arrays
 
 def main():
-    nums1 = [1,3]
-    nums2 = [2]
+    nums1 = [1,2]
+    nums2 = [3,4]
 
     merged = []
 
@@ -18,13 +18,8 @@ def main():
             merged.append(nums2[j])
             j += 1
 
-    while i < len(nums1):
-        merged.append(nums1[i])
-        i += 1
-
-    while j < len(nums2):
-        merged.append(nums2[j])
-        j += 1
+    merged.extend(nums1[i:])
+    merged.extend(nums2[j:])
 
     n = len(merged)
 
