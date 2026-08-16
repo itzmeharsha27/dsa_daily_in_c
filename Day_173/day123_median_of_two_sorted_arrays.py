@@ -26,4 +26,7 @@ def main():
 
     n = len(merged)
 
+    if n % 2 == 1:
+        median = merged[n // 2]
+
 main()
