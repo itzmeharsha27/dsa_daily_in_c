@@ -28,5 +28,9 @@ def main():
 
     if n % 2 == 1:
         median = merged[n // 2]
+    else:
+        median = (merged[n // 2 - 1] + merged[n // 2]) / 2
+
+    print("Median =", median)
 
 main()
