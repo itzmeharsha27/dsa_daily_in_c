@@ -1,13 +1,2 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-
-def main():
-    head = Node(3)
-
-    return head
-
-
-main()
+git add .
+git commit -m "created sample linked list"
