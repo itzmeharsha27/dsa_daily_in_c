@@ -1,4 +1,5 @@
-# Linked List Cycle using Floyd's Algorithm
+# Linked List Cycle
+# Floyd's Slow and Fast Pointer Technique
 
 
 class Node:
@@ -26,14 +27,20 @@ def has_cycle(head):
 def main():
 
     head = Node(3)
-    head.next = Node(2)
-    head.next.next = Node(0)
-    head.next.next.next = Node(-4)
+    second = Node(2)
+    third = Node(0)
+    fourth = Node(-4)
 
-    # Create cycle
-    head.next.next.next.next = head.next
+    head.next = second
+    second.next = third
+    third.next = fourth
 
-    print("Cycle Exists =", has_cycle(head))
+    # Last node points back to second node
+    fourth.next = second
+
+    result = has_cycle(head)
+
+    print("Linked List Contains Cycle:", result)
 
 
 main()
