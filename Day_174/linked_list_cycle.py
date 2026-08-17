@@ -1,3 +1,6 @@
+# Linked List Cycle using Floyd's Algorithm
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -5,10 +8,12 @@ class Node:
 
 
 def has_cycle(head):
+
     slow = head
     fast = head
 
     while fast and fast.next:
+
         slow = slow.next
         fast = fast.next.next
 
@@ -19,12 +24,13 @@ def has_cycle(head):
 
 
 def main():
-    head = Node(3)
 
+    head = Node(3)
     head.next = Node(2)
     head.next.next = Node(0)
     head.next.next.next = Node(-4)
 
+    # Create cycle
     head.next.next.next.next = head.next
 
     print("Cycle Exists =", has_cycle(head))
