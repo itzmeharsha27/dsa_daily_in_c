@@ -1,8 +1,8 @@
-# Linked List Cycle
-# Floyd's Slow and Fast Pointer Technique
+# Linked List Cycle using Floyd's Algorithm
 
 
 class Node:
+
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -13,11 +13,14 @@ def has_cycle(head):
     slow = head
     fast = head
 
+    # Move slow by one step
+    # Move fast by two steps
     while fast and fast.next:
 
         slow = slow.next
         fast = fast.next.next
 
+        # If both pointers meet, cycle exists
         if slow == fast:
             return True
 
@@ -26,6 +29,7 @@ def has_cycle(head):
 
 def main():
 
+    # Create linked list
     head = Node(3)
     second = Node(2)
     third = Node(0)
@@ -35,12 +39,12 @@ def main():
     second.next = third
     third.next = fourth
 
-    # Last node points back to second node
+    # Create cycle
     fourth.next = second
 
     result = has_cycle(head)
 
-    print("Linked List Contains Cycle:", result)
+    print("Cycle Exists =", result)
 
 
 main()
