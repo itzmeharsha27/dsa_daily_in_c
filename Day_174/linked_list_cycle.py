@@ -12,6 +12,9 @@ def has_cycle(head):
         slow = slow.next
         fast = fast.next.next
 
+        if slow == fast:
+            return True
+
     return False
 
 
@@ -24,7 +27,7 @@ def main():
 
     head.next.next.next.next = head.next
 
-    print(has_cycle(head))
+    print("Cycle Exists =", has_cycle(head))
 
 
 main()
