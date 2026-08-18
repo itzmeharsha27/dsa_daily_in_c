@@ -21,6 +21,22 @@ Node* findMiddle(Node* head)
     return slow;
 }
 
+Node* reverseList(Node* head)
+{
+    Node* previous = nullptr;
+    Node* current = head;
+
+    while(current)
+    {
+        Node* nextNode = current->next;
+        current->next = previous;
+        previous = current;
+        current = nextNode;
+    }
+
+    return previous;
+}
+
 int main()
 {
     Node* head = new Node{1, nullptr};
@@ -30,6 +46,8 @@ int main()
     head->next->next->next = new Node{4, nullptr};
 
     Node* middle = findMiddle(head);
+
+    Node* secondHalf = reverseList(middle->next);
 
     return 0;
 }
