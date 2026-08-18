@@ -1,12 +1,22 @@
 #include <iostream>
 using namespace std;
 
+// Reorder Linked List
+// Find Middle + Reverse Second Half + Merge
+
 struct Node
 {
     int data;
     Node* next;
+
+    Node(int value)
+    {
+        data = value;
+        next = nullptr;
+    }
 };
 
+// Find middle using slow and fast pointers
 Node* findMiddle(Node* head)
 {
     Node* slow = head;
@@ -21,6 +31,7 @@ Node* findMiddle(Node* head)
     return slow;
 }
 
+// Reverse a linked list
 Node* reverseList(Node* head)
 {
     Node* previous = nullptr;
@@ -29,7 +40,9 @@ Node* reverseList(Node* head)
     while(current)
     {
         Node* nextNode = current->next;
+
         current->next = previous;
+
         previous = current;
         current = nextNode;
     }
@@ -37,18 +50,24 @@ Node* reverseList(Node* head)
     return previous;
 }
 
+// Reorder the linked list
 void reorderList(Node* head)
 {
     if(!head || !head->next)
         return;
 
+    // Step 1: Find middle
     Node* middle = findMiddle(head);
 
+    // Step 2: Reverse second half
     Node* second = reverseList(middle->next);
+
+    // Split the two halves
     middle->next = nullptr;
 
     Node* first = head;
 
+    // Step 3: Merge alternately
     while(second)
     {
         Node* firstNext = first->next;
@@ -62,6 +81,7 @@ void reorderList(Node* head)
     }
 }
 
+// Display linked list
 void display(Node* head)
 {
     while(head)
@@ -79,11 +99,13 @@ void display(Node* head)
 
 int main()
 {
-    Node* head = new Node{1, nullptr};
+    // Create linked list
+    Node* head = new Node(1);
 
-    head->next = new Node{2, nullptr};
-    head->next->next = new Node{3, nullptr};
-    head->next->next->next = new Node{4, nullptr};
+    head->next = new Node(2);
+    head->next->next = new Node(3);
+    head->next->next->next = new Node(4);
+    head->next->next->next->next = new Node(5);
 
     cout << "Original List: ";
     display(head);
