@@ -37,6 +37,31 @@ Node* reverseList(Node* head)
     return previous;
 }
 
+void reorderList(Node* head)
+{
+    if(!head || !head->next)
+        return;
+
+    Node* middle = findMiddle(head);
+
+    Node* second = reverseList(middle->next);
+    middle->next = nullptr;
+
+    Node* first = head;
+
+    while(second)
+    {
+        Node* firstNext = first->next;
+        Node* secondNext = second->next;
+
+        first->next = second;
+        second->next = firstNext;
+
+        first = firstNext;
+        second = secondNext;
+    }
+}
+
 int main()
 {
     Node* head = new Node{1, nullptr};
@@ -45,9 +70,7 @@ int main()
     head->next->next = new Node{3, nullptr};
     head->next->next->next = new Node{4, nullptr};
 
-    Node* middle = findMiddle(head);
-
-    Node* secondHalf = reverseList(middle->next);
+    reorderList(head);
 
     return 0;
 }
