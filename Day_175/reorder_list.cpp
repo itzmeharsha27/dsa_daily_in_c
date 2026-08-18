@@ -62,6 +62,21 @@ void reorderList(Node* head)
     }
 }
 
+void display(Node* head)
+{
+    while(head)
+    {
+        cout << head->data;
+
+        if(head->next)
+            cout << " -> ";
+
+        head = head->next;
+    }
+
+    cout << endl;
+}
+
 int main()
 {
     Node* head = new Node{1, nullptr};
@@ -70,7 +85,13 @@ int main()
     head->next->next = new Node{3, nullptr};
     head->next->next->next = new Node{4, nullptr};
 
+    cout << "Original List: ";
+    display(head);
+
     reorderList(head);
+
+    cout << "Reordered List: ";
+    display(head);
 
     return 0;
 }
