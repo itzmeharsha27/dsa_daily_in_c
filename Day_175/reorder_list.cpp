@@ -7,6 +7,20 @@ struct Node
     Node* next;
 };
 
+Node* findMiddle(Node* head)
+{
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast->next && fast->next->next)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    return slow;
+}
+
 int main()
 {
     Node* head = new Node{1, nullptr};
@@ -14,6 +28,8 @@ int main()
     head->next = new Node{2, nullptr};
     head->next->next = new Node{3, nullptr};
     head->next->next->next = new Node{4, nullptr};
+
+    Node* middle = findMiddle(head);
 
     return 0;
 }
