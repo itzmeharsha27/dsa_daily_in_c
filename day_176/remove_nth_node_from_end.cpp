@@ -28,6 +28,21 @@ Node* removeNthFromEnd(Node* head, int n)
     return dummy->next;
 }
 
+void display(Node* head)
+{
+    while(head)
+    {
+        cout << head->data;
+
+        if(head->next)
+            cout << " -> ";
+
+        head = head->next;
+    }
+
+    cout << endl;
+}
+
 int main()
 {
     Node* head = new Node{1, nullptr};
@@ -39,7 +54,13 @@ int main()
 
     int n = 2;
 
+    cout << "Original List: ";
+    display(head);
+
     head = removeNthFromEnd(head, n);
+
+    cout << "After Removal: ";
+    display(head);
 
     return 0;
 }
