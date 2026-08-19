@@ -7,6 +7,14 @@ struct Node
     Node* next;
 };
 
+Node* removeNthFromEnd(Node* head, int n)
+{
+    Node* fast = head;
+    Node* slow = head;
+
+    return head;
+}
+
 int main()
 {
     Node* head = new Node{1, nullptr};
@@ -17,6 +25,8 @@ int main()
     head->next->next->next->next = new Node{5, nullptr};
 
     int n = 2;
+
+    head = removeNthFromEnd(head, n);
 
     return 0;
 }
