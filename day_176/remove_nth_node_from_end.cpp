@@ -9,8 +9,13 @@ struct Node
 
 Node* removeNthFromEnd(Node* head, int n)
 {
-    Node* fast = head;
-    Node* slow = head;
+    Node* dummy = new Node{0, head};
+
+    Node* fast = dummy;
+    Node* slow = dummy;
+
+    for(int i = 0; i < n; i++)
+        fast = fast->next;
 
     return head;
 }
