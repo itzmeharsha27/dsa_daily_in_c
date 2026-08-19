@@ -17,7 +17,15 @@ Node* removeNthFromEnd(Node* head, int n)
     for(int i = 0; i < n; i++)
         fast = fast->next;
 
-    return head;
+    while(fast->next)
+    {
+        fast = fast->next;
+        slow = slow->next;
+    }
+
+    slow->next = slow->next->next;
+
+    return dummy->next;
 }
 
 int main()
