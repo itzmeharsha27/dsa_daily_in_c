@@ -9,7 +9,14 @@ struct Node
 
 int main()
 {
-    Node* head = nullptr;
+    Node* head = new Node{1, nullptr};
+
+    head->next = new Node{2, nullptr};
+    head->next->next = new Node{3, nullptr};
+    head->next->next->next = new Node{4, nullptr};
+    head->next->next->next->next = new Node{5, nullptr};
+
+    int n = 2;
 
     return 0;
 }
