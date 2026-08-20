@@ -31,6 +31,18 @@ Node* copyRandomList(Node* head)
         current = current->next;
     }
 
+    current = head;
+
+    while(current)
+    {
+        mp[current]->next = mp[current->next];
+
+        if(current->random)
+            mp[current]->random = mp[current->random];
+
+        current = current->next;
+    }
+
     return mp[head];
 }
 
