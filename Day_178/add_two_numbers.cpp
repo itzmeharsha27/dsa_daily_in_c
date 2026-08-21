@@ -45,6 +45,21 @@ Node* addTwoNumbers(Node* l1, Node* l2)
     return dummy->next;
 }
 
+void display(Node* head)
+{
+    while(head)
+    {
+        cout << head->data;
+
+        if(head->next)
+            cout << " -> ";
+
+        head = head->next;
+    }
+
+    cout << endl;
+}
+
 int main()
 {
     Node* l1 = new Node(2);
@@ -56,6 +71,9 @@ int main()
     l2->next->next = new Node(4);
 
     Node* result = addTwoNumbers(l1, l2);
+
+    cout << "Sum: ";
+    display(result);
 
     return 0;
 }
