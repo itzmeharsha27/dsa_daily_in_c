@@ -22,6 +22,7 @@ Node* addTwoNumbers(Node* l1, Node* l2)
 
     int carry = 0;
 
+    // Process both lists
     while(l1 || l2 || carry)
     {
         int sum = carry;
@@ -38,9 +39,11 @@ Node* addTwoNumbers(Node* l1, Node* l2)
             l2 = l2->next;
         }
 
+        // Store current digit
         current->next = new Node(sum % 10);
         current = current->next;
 
+        // Calculate carry
         carry = sum / 10;
     }
 
@@ -64,10 +67,12 @@ void display(Node* head)
 
 int main()
 {
+    // 342
     Node* l1 = new Node(2);
     l1->next = new Node(4);
     l1->next->next = new Node(3);
 
+    // 465
     Node* l2 = new Node(5);
     l2->next = new Node(6);
     l2->next->next = new Node(4);
@@ -78,6 +83,7 @@ int main()
     cout << "List 2: ";
     display(l2);
 
+    // 342 + 465 = 807
     Node* result = addTwoNumbers(l1, l2);
 
     cout << "Sum: ";
