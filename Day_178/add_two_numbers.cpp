@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// Add Two Numbers using Linked List
+
 struct Node
 {
     int data;
@@ -69,6 +71,12 @@ int main()
     Node* l2 = new Node(5);
     l2->next = new Node(6);
     l2->next->next = new Node(4);
+
+    cout << "List 1: ";
+    display(l1);
+
+    cout << "List 2: ";
+    display(l2);
 
     Node* result = addTwoNumbers(l1, l2);
 
