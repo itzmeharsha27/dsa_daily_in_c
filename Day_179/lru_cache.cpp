@@ -18,17 +18,33 @@ struct Node
     }
 };
 
-int main()
+class LRUCache
 {
-    int capacity = 2;
+private:
+    int capacity;
 
     unordered_map<int, Node*> cache;
 
-    Node* head = new Node(0, 0);
-    Node* tail = new Node(0, 0);
+    Node* head;
+    Node* tail;
 
-    head->next = tail;
-    tail->prev = head;
+public:
+
+    LRUCache(int cap)
+    {
+        capacity = cap;
+
+        head = new Node(0, 0);
+        tail = new Node(0, 0);
+
+        head->next = tail;
+        tail->prev = head;
+    }
+};
+
+int main()
+{
+    LRUCache cache(2);
 
     return 0;
 }
