@@ -67,11 +67,51 @@ public:
 
         return node->value;
     }
+
+    void put(int key, int value)
+    {
+        if(cache.find(key) != cache.end())
+        {
+            Node* node = cache[key];
+
+            removeNode(node);
+
+            node->value = value;
+
+            addNode(node);
+
+            return;
+        }
+
+        Node* node = new Node(key, value);
+
+        cache[key] = node;
+        addNode(node);
+
+        if(cache.size() > capacity)
+        {
+            Node* lru = tail->prev;
+
+            removeNode(lru);
+            cache.erase(lru->key);
+
+            delete lru;
+        }
+    }
 };
 
 int main()
 {
     LRUCache cache(2);
+
+    cache.put(1, 1);
+    cache.put(2, 2);
+
+    cout << cache.get(1) << endl;
+
+    cache.put(3, 3);
+
+    cout << cache.get(2) << endl;
 
     return 0;
 }
