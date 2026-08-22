@@ -22,11 +22,19 @@ class LRUCache
 {
 private:
     int capacity;
-
     unordered_map<int, Node*> cache;
 
     Node* head;
     Node* tail;
+
+    void addNode(Node* node)
+    {
+        node->next = head->next;
+        node->prev = head;
+
+        head->next->prev = node;
+        head->next = node;
+    }
 
 public:
 
