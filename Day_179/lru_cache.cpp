@@ -36,6 +36,12 @@ private:
         head->next = node;
     }
 
+    void removeNode(Node* node)
+    {
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+    }
+
 public:
 
     LRUCache(int cap)
@@ -47,6 +53,19 @@ public:
 
         head->next = tail;
         tail->prev = head;
+    }
+
+    int get(int key)
+    {
+        if(cache.find(key) == cache.end())
+            return -1;
+
+        Node* node = cache[key];
+
+        removeNode(node);
+        addNode(node);
+
+        return node->value;
     }
 };
 
