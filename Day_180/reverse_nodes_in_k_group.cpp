@@ -26,7 +26,21 @@ Node* reverseKGroup(Node* head, int k)
         current = current->next;
     }
 
-    return head;
+    current = head;
+
+    for(int i = 0; i < k; i++)
+    {
+        Node* nextNode = current->next;
+
+        current->next = previous;
+
+        previous = current;
+        current = nextNode;
+    }
+
+    head->next = reverseKGroup(current, k);
+
+    return previous;
 }
 
 int main()
