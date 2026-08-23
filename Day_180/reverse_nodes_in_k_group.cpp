@@ -2,6 +2,7 @@
 using namespace std;
 
 // Reverse Nodes in K-Group
+// LeetCode 25
 
 struct Node
 {
@@ -17,10 +18,13 @@ struct Node
 
 Node* reverseKGroup(Node* head, int k)
 {
+    if(head == nullptr || k == 1)
+        return head;
+
     Node* current = head;
     Node* previous = nullptr;
 
-    // Check whether k nodes are available
+    // Check if at least k nodes exist
     for(int i = 0; i < k; i++)
     {
         if(current == nullptr)
@@ -31,7 +35,7 @@ Node* reverseKGroup(Node* head, int k)
 
     current = head;
 
-    // Reverse k nodes
+    // Reverse exactly k nodes
     for(int i = 0; i < k; i++)
     {
         Node* nextNode = current->next;
@@ -42,7 +46,8 @@ Node* reverseKGroup(Node* head, int k)
         current = nextNode;
     }
 
-    // Connect with next group
+    // Original head is now the last node
+    // of the reversed group
     head->next = reverseKGroup(current, k);
 
     return previous;
@@ -65,6 +70,7 @@ void display(Node* head)
 
 int main()
 {
+    // Create linked list
     Node* head = new Node(1);
 
     head->next = new Node(2);
@@ -79,7 +85,7 @@ int main()
 
     head = reverseKGroup(head, k);
 
-    cout << "Reversed List: ";
+    cout << "After Reversing in K-Group: ";
     display(head);
 
     return 0;
