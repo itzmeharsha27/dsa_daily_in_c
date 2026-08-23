@@ -13,6 +13,22 @@ struct Node
     }
 };
 
+Node* reverseKGroup(Node* head, int k)
+{
+    Node* current = head;
+    Node* previous = nullptr;
+
+    for(int i = 0; i < k; i++)
+    {
+        if(current == nullptr)
+            return head;
+
+        current = current->next;
+    }
+
+    return head;
+}
+
 int main()
 {
     Node* head = new Node(1);
@@ -23,6 +39,8 @@ int main()
     head->next->next->next->next = new Node(5);
 
     int k = 2;
+
+    head = reverseKGroup(head, k);
 
     return 0;
 }
