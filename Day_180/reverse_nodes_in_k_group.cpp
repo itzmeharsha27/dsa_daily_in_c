@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// Reverse Nodes in K-Group
+
 struct Node
 {
     int data;
@@ -18,6 +20,7 @@ Node* reverseKGroup(Node* head, int k)
     Node* current = head;
     Node* previous = nullptr;
 
+    // Check whether k nodes are available
     for(int i = 0; i < k; i++)
     {
         if(current == nullptr)
@@ -28,6 +31,7 @@ Node* reverseKGroup(Node* head, int k)
 
     current = head;
 
+    // Reverse k nodes
     for(int i = 0; i < k; i++)
     {
         Node* nextNode = current->next;
@@ -38,9 +42,25 @@ Node* reverseKGroup(Node* head, int k)
         current = nextNode;
     }
 
+    // Connect with next group
     head->next = reverseKGroup(current, k);
 
     return previous;
+}
+
+void display(Node* head)
+{
+    while(head)
+    {
+        cout << head->data;
+
+        if(head->next)
+            cout << " -> ";
+
+        head = head->next;
+    }
+
+    cout << endl;
 }
 
 int main()
@@ -54,7 +74,13 @@ int main()
 
     int k = 2;
 
+    cout << "Original List: ";
+    display(head);
+
     head = reverseKGroup(head, k);
+
+    cout << "Reversed List: ";
+    display(head);
 
     return 0;
 }
