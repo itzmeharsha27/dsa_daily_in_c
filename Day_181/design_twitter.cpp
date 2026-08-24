@@ -20,13 +20,19 @@ private:
 
 public:
 
-    Twitter()
-    {
-    }
-
     void postTweet(int userId, int tweetId)
     {
         tweets[userId].push_back({tweetId, timestamp++});
+    }
+
+    void follow(int followerId, int followeeId)
+    {
+        following[followerId].insert(followeeId);
+    }
+
+    void unfollow(int followerId, int followeeId)
+    {
+        following[followerId].erase(followeeId);
     }
 };
 
@@ -35,6 +41,9 @@ int main()
     Twitter twitter;
 
     twitter.postTweet(1, 5);
+
+    twitter.follow(1, 2);
+    twitter.unfollow(1, 2);
 
     return 0;
 }
