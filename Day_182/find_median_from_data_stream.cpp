@@ -3,28 +3,39 @@
 #include <vector>
 using namespace std;
 
+// Find Median from Data Stream
+
 class MedianFinder
 {
 private:
+
+    // Smaller half
     priority_queue<int> maxHeap;
+
+    // Larger half
     priority_queue<int, vector<int>, greater<int>> minHeap;
 
 public:
 
     void addNum(int num)
     {
-        maxHeap.push(num);
+        // Add to smaller half
+        if(maxHeap.empty() || num <= maxHeap.top())
+            maxHeap.push(num);
+        else
+            minHeap.push(num);
 
-        if(maxHeap.top() > minHeap.top())
+        // Balance both heaps
+        if(maxHeap.size() > minHeap.size() + 1)
         {
             minHeap.push(maxHeap.top());
             maxHeap.pop();
         }
 
-        if(maxHeap.size() > minHeap.size() + 1)
+        if(minHeap.size() > maxHeap.size())
         {
-            minHeap.push(maxHeap.top());
-            maxHeap.pop();
+            maxHeap.push(minHeap.top());
+            minHeap.pop();
         }
     }
 
@@ -44,7 +55,13 @@ int main()
     finder.addNum(1);
     finder.addNum(2);
 
-    cout << finder.findMedian() << endl;
+    cout << "Median: "
+         << finder.findMedian() << endl;
+
+    finder.addNum(3);
+
+    cout << "Median: "
+         << finder.findMedian() << endl;
 
     return 0;
 }
