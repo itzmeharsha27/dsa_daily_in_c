@@ -4,6 +4,7 @@
 using namespace std;
 
 // Longest Substring Without Repeating Characters
+// Sliding Window + Hash Map
 
 int lengthOfLongestSubstring(string s)
 {
@@ -14,15 +15,17 @@ int lengthOfLongestSubstring(string s)
 
     for(int right = 0; right < s.length(); right++)
     {
+        // Add current character
         freq[s[right]]++;
 
-        // Remove duplicate characters
+        // Shrink window while duplicate exists
         while(freq[s[right]] > 1)
         {
             freq[s[left]]--;
             left++;
         }
 
+        // Update maximum window length
         maxLength = max(
             maxLength,
             right - left + 1
@@ -36,9 +39,11 @@ int main()
 {
     string s = "abcabcbb";
 
-    cout << "String: " << s << endl;
-    cout << "Longest Length: "
-         << lengthOfLongestSubstring(s) << endl;
+    cout << "Input: " << s << endl;
+
+    cout << "Longest Substring Length: "
+         << lengthOfLongestSubstring(s)
+         << endl;
 
     return 0;
 }
