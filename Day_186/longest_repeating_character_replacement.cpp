@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 int characterReplacement(string s, int k)
@@ -11,6 +12,27 @@ int characterReplacement(string s, int k)
     int maxFreq = 0;
     int answer = 0;
 
+    for(int right = 0; right < s.length(); right++)
+    {
+        freq[s[right] - 'A']++;
+
+        maxFreq = max(
+            maxFreq,
+            freq[s[right] - 'A']
+        );
+
+        while((right - left + 1) - maxFreq > k)
+        {
+            freq[s[left] - 'A']--;
+            left++;
+        }
+
+        answer = max(
+            answer,
+            right - left + 1
+        );
+    }
+
     return answer;
 }
 
@@ -19,7 +41,9 @@ int main()
     string s = "AABABBA";
     int k = 1;
 
-    cout << characterReplacement(s, k);
+    cout << "Longest Length: "
+         << characterReplacement(s, k)
+         << endl;
 
     return 0;
 }
