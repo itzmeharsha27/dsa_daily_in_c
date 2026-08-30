@@ -14,10 +14,25 @@ bool checkInclusion(string s1, string s2)
     for(char ch : s1)
         count1[ch - 'a']++;
 
-    for(int i = 0; i < s1.length(); i++)
+    int windowSize = s1.length();
+
+    for(int i = 0; i < windowSize; i++)
         count2[s2[i] - 'a']++;
 
-    return count1 == count2;
+    if(count1 == count2)
+        return true;
+
+    for(int right = windowSize; right < s2.length(); right++)
+    {
+        count2[s2[right] - 'a']++;
+
+        count2[s2[right - windowSize] - 'a']--;
+
+        if(count1 == count2)
+            return true;
+    }
+
+    return false;
 }
 
 int main()
@@ -25,7 +40,9 @@ int main()
     string s1 = "ab";
     string s2 = "eidbaooo";
 
-    cout << checkInclusion(s1, s2);
+    cout << "Permutation Exists: "
+         << checkInclusion(s1, s2)
+         << endl;
 
     return 0;
 }
