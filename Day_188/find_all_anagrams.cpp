@@ -16,6 +16,14 @@ vector<int> findAnagrams(string s, string p)
     for(char ch : p)
         patternFreq[ch - 'a']++;
 
+    int k = p.length();
+
+    for(int i = 0; i < k; i++)
+        windowFreq[s[i] - 'a']++;
+
+    if(patternFreq == windowFreq)
+        result.push_back(0);
+
     return result;
 }
 
@@ -25,6 +33,9 @@ int main()
     string p = "abc";
 
     vector<int> result = findAnagrams(s, p);
+
+    for(int index : result)
+        cout << index << " ";
 
     return 0;
 }
