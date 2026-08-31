@@ -24,6 +24,16 @@ vector<int> findAnagrams(string s, string p)
     if(patternFreq == windowFreq)
         result.push_back(0);
 
+    for(int right = k; right < s.length(); right++)
+    {
+        windowFreq[s[right] - 'a']++;
+
+        windowFreq[s[right - k] - 'a']--;
+
+        if(patternFreq == windowFreq)
+            result.push_back(right - k + 1);
+    }
+
     return result;
 }
 
@@ -33,6 +43,8 @@ int main()
     string p = "abc";
 
     vector<int> result = findAnagrams(s, p);
+
+    cout << "Starting Indices: ";
 
     for(int index : result)
         cout << index << " ";
