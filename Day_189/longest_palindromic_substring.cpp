@@ -2,6 +2,8 @@
 #include <string>
 using namespace std;
 
+// Longest Palindromic Substring
+
 string expand(string s, int left, int right)
 {
     while(left >= 0 &&
@@ -21,7 +23,10 @@ string longestPalindrome(string s)
 
     for(int i = 0; i < s.length(); i++)
     {
+        // Odd length palindrome
         string odd = expand(s, i, i);
+
+        // Even length palindrome
         string even = expand(s, i, i + 1);
 
         if(odd.length() > answer.length())
@@ -38,7 +43,11 @@ int main()
 {
     string s = "babad";
 
-    cout << longestPalindrome(s);
+    cout << "Input: " << s << endl;
+
+    cout << "Longest Palindrome: "
+         << longestPalindrome(s)
+         << endl;
 
     return 0;
 }
