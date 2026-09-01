@@ -3,6 +3,7 @@
 using namespace std;
 
 // Longest Palindromic Substring
+// Expand Around Center
 
 string expand(string s, int left, int right)
 {
@@ -14,19 +15,22 @@ string expand(string s, int left, int right)
         right++;
     }
 
-    return s.substr(left + 1, right - left - 1);
+    return s.substr(
+        left + 1,
+        right - left - 1
+    );
 }
 
 string longestPalindrome(string s)
 {
+    if(s.length() <= 1)
+        return s;
+
     string answer = "";
 
     for(int i = 0; i < s.length(); i++)
     {
-        // Odd length palindrome
         string odd = expand(s, i, i);
-
-        // Even length palindrome
         string even = expand(s, i, i + 1);
 
         if(odd.length() > answer.length())
@@ -43,11 +47,11 @@ int main()
 {
     string s = "babad";
 
-    cout << "Input: " << s << endl;
+    string result = longestPalindrome(s);
 
-    cout << "Longest Palindrome: "
-         << longestPalindrome(s)
-         << endl;
+    cout << "Input: " << s << endl;
+    cout << "Longest Palindromic Substring: "
+         << result << endl;
 
     return 0;
 }
