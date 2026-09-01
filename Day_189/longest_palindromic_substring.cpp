@@ -2,18 +2,24 @@
 #include <string>
 using namespace std;
 
-string longestPalindrome(string s)
+string expand(string s, int left, int right)
 {
-    string answer = "";
+    while(left >= 0 &&
+          right < s.length() &&
+          s[left] == s[right])
+    {
+        left--;
+        right++;
+    }
 
-    return answer;
+    return s.substr(left + 1, right - left - 1);
 }
 
 int main()
 {
     string s = "babad";
 
-    cout << longestPalindrome(s);
+    cout << expand(s, 2, 2);
 
     return 0;
 }
