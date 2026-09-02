@@ -18,11 +18,26 @@ int expand(string s, int left, int right)
     return count;
 }
 
+int countPalindromes(string s)
+{
+    int count = 0;
+
+    for(int i = 0; i < s.length(); i++)
+    {
+        count += expand(s, i, i);
+        count += expand(s, i, i + 1);
+    }
+
+    return count;
+}
+
 int main()
 {
     string s = "aaa";
 
-    cout << expand(s, 1, 1);
+    cout << "Count: "
+         << countPalindromes(s)
+         << endl;
 
     return 0;
 }
