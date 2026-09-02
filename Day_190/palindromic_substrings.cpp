@@ -2,6 +2,9 @@
 #include <string>
 using namespace std;
 
+// Palindromic Substrings
+// Expand Around Center
+
 int expand(string s, int left, int right)
 {
     int count = 0;
@@ -11,6 +14,7 @@ int expand(string s, int left, int right)
           s[left] == s[right])
     {
         count++;
+
         left--;
         right++;
     }
@@ -24,7 +28,10 @@ int countPalindromes(string s)
 
     for(int i = 0; i < s.length(); i++)
     {
+        // Odd length palindromes
         count += expand(s, i, i);
+
+        // Even length palindromes
         count += expand(s, i, i + 1);
     }
 
@@ -35,7 +42,8 @@ int main()
 {
     string s = "aaa";
 
-    cout << "Count: "
+    cout << "Input: " << s << endl;
+    cout << "Palindromic Substrings: "
          << countPalindromes(s)
          << endl;
 
