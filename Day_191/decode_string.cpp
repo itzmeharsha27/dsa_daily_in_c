@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    string s = "3[a]2[bc]";
+    string s = "3[a]";
 
     stack<int> nums;
     stack<string> strs;
@@ -23,6 +23,20 @@ int main() {
         }
         else if (isalpha(ch)) {
             current += ch;
+        }
+        else if (ch == ']') {
+            int repeat = nums.top();
+            nums.pop();
+
+            string previous = strs.top();
+            strs.pop();
+
+            string temp = "";
+
+            for (int i = 0; i < repeat; i++)
+                temp += current;
+
+            current = previous + temp;
         }
     }
 
