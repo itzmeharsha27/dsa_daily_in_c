@@ -10,13 +10,20 @@ public:
             if (token == "+" || token == "-" ||
                 token == "*" || token == "/") {
 
-                int b = st.top(); st.pop();
-                int a = st.top(); st.pop();
+                int b = st.top();
+                st.pop();
 
-                if (token == "+") st.push(a + b);
-                else if (token == "-") st.push(a - b);
-                else if (token == "*") st.push(a * b);
-                else st.push(a / b);
+                int a = st.top();
+                st.pop();
+
+                if (token == "+")
+                    st.push(a + b);
+                else if (token == "-")
+                    st.push(a - b);
+                else if (token == "*")
+                    st.push(a * b);
+                else
+                    st.push(a / b);
             }
             else {
                 st.push(stoi(token));
@@ -30,12 +37,9 @@ public:
 int main() {
     Solution s;
 
-    vector<string> tokens = {
-        "10", "6", "9", "3", "+", "-11", "*",
-        "/", "*", "17", "+", "5", "+"
-    };
+    vector<string> tokens = {"2", "1", "+", "3", "*"};
 
-    cout << s.evalRPN(tokens);
+    cout << s.evalRPN(tokens) << endl;
 
     return 0;
 }
