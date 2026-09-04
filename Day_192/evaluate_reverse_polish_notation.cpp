@@ -30,7 +30,10 @@ public:
 int main() {
     Solution s;
 
-    vector<string> tokens = {"2", "1", "+", "3", "*"};
+    vector<string> tokens = {
+        "10", "6", "9", "3", "+", "-11", "*",
+        "/", "*", "17", "+", "5", "+"
+    };
 
     cout << s.evalRPN(tokens);
 
