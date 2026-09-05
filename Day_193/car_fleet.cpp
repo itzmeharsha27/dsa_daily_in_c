@@ -16,14 +16,17 @@ int main() {
 
     sort(cars.rbegin(), cars.rend());
 
+    int fleets = 0;
     double lastTime = 0;
 
     for (auto car : cars) {
         if (car.second > lastTime) {
+            fleets++;
             lastTime = car.second;
-            cout << "New fleet: " << lastTime << endl;
         }
     }
+
+    cout << fleets;
 
     return 0;
 }
