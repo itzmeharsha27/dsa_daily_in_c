@@ -31,9 +31,9 @@ public:
 int main() {
     Solution s;
 
-    int target = 12;
-    vector<int> position = {10, 8, 0, 5, 3};
-    vector<int> speed = {2, 4, 1, 1, 3};
+    int target = 10;
+    vector<int> position = {3};
+    vector<int> speed = {3};
 
     cout << s.carFleet(target, position, speed);
 
