@@ -17,10 +17,10 @@ public:
         int fleets = 0;
         double lastTime = 0;
 
-        for (auto car : cars) {
-            if (car.second > lastTime) {
+        for (auto [pos, time] : cars) {
+            if (time > lastTime) {
                 fleets++;
-                lastTime = car.second;
+                lastTime = time;
             }
         }
 
@@ -31,11 +31,11 @@ public:
 int main() {
     Solution s;
 
-    int target = 10;
-    vector<int> position = {3};
-    vector<int> speed = {3};
+    int target = 12;
+    vector<int> position = {10, 8, 0, 5, 3};
+    vector<int> speed = {2, 4, 1, 1, 3};
 
-    cout << s.carFleet(target, position, speed);
+    cout << s.carFleet(target, position, speed) << endl;
 
     return 0;
 }
