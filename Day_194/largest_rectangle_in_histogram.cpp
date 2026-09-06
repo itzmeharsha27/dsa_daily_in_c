@@ -4,12 +4,20 @@ using namespace std;
 int main() {
     vector<int> heights = {2, 1, 5, 6, 2, 3};
 
-    int i = 2;
-    int width = 1;
+    int maxArea = 0;
 
-    int area = heights[i] * width;
+    for (int i = 0; i < heights.size(); i++) {
+        int minHeight = heights[i];
 
-    cout << area;
+        for (int j = i; j < heights.size(); j++) {
+            minHeight = min(minHeight, heights[j]);
+
+            int width = j - i + 1;
+            maxArea = max(maxArea, minHeight * width);
+        }
+    }
+
+    cout << maxArea;
 
     return 0;
 }
