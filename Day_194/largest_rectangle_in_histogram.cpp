@@ -5,32 +5,28 @@ class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
 
+        vector<int> h = heights;
+        h.push_back(0);
+
         stack<int> st;
         int maxArea = 0;
 
-        heights.push_back(0);
+        for (int i = 0; i < h.size(); i++) {
 
-        for (int i = 0; i < heights.size(); i++) {
+            while (!st.empty() && h[i] < h[st.top()]) {
 
-            while (!st.empty() && heights[i] < heights[st.top()]) {
-
-                int height = heights[st.top()];
+                int height = h[st.top()];
                 st.pop();
 
-                int width;
-
-                if (st.empty())
-                    width = i;
-                else
-                    width = i - st.top() - 1;
+                int width = st.empty()
+                    ? i
+                    : i - st.top() - 1;
 
                 maxArea = max(maxArea, height * width);
             }
 
             st.push(i);
         }
-
-        heights.pop_back();
 
         return maxArea;
     }
@@ -39,7 +35,7 @@ public:
 int main() {
     Solution s;
 
-    vector<int> heights = {2, 1, 5, 6, 2, 3};
+    vector<int> heights = {2, 4, 6, 8};
 
     cout << s.largestRectangleArea(heights);
 
