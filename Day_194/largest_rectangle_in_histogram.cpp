@@ -4,20 +4,17 @@ using namespace std;
 int main() {
     vector<int> heights = {2, 1, 5, 6, 2, 3};
 
-    int maxArea = 0;
+    stack<int> st;
 
     for (int i = 0; i < heights.size(); i++) {
-        int minHeight = heights[i];
 
-        for (int j = i; j < heights.size(); j++) {
-            minHeight = min(minHeight, heights[j]);
+        while (!st.empty() && heights[i] < heights[st.top()])
+            st.pop();
 
-            int width = j - i + 1;
-            maxArea = max(maxArea, minHeight * width);
-        }
+        st.push(i);
     }
 
-    cout << maxArea;
+    cout << "Monotonic stack created";
 
     return 0;
 }
