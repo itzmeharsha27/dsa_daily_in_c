@@ -28,11 +28,10 @@ public:
 int main() {
     Solution s;
 
-    vector<int> nums = {2, 4, 6, 8, 10};
+    vector<int> nums = {5};
 
-    cout << "Target 2: " << s.search(nums, 2) << endl;
-    cout << "Target 10: " << s.search(nums, 10) << endl;
-    cout << "Target 5: " << s.search(nums, 5) << endl;
+    cout << s.search(nums, 5) << endl;
+    cout << s.search(nums, 2) << endl;
 
     return 0;
 }
