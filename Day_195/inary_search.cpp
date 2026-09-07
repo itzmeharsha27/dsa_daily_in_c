@@ -28,10 +28,10 @@ public:
 int main() {
     Solution s;
 
-    vector<int> nums = {5};
+    vector<int> nums = {-1, 0, 3, 5, 9, 12};
+    int target = 9;
 
-    cout << s.search(nums, 5) << endl;
-    cout << s.search(nums, 2) << endl;
+    cout << s.search(nums, target) << endl;
 
     return 0;
 }
