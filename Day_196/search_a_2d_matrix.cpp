@@ -8,9 +8,11 @@ int main() {
         {23, 30, 34, 60}
     };
 
-    int target = 3;
-
-    cout << target;
+    for (int i = 0; i < matrix.size(); i++) {
+        for (int j = 0; j < matrix[0].size(); j++)
+            cout << matrix[i][j] << " ";
+        cout << endl;
+    }
 
     return 0;
 }
