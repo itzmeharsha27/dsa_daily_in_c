@@ -9,17 +9,28 @@ int main() {
     };
 
     int target = 16;
-    int row = -1;
+    int row = 1;
 
-    for (int i = 0; i < matrix.size(); i++) {
-        if (target >= matrix[i][0] &&
-            target <= matrix[i].back()) {
-            row = i;
+    int left = 0;
+    int right = matrix[row].size() - 1;
+
+    bool found = false;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (matrix[row][mid] == target) {
+            found = true;
             break;
         }
+
+        if (matrix[row][mid] < target)
+            left = mid + 1;
+        else
+            right = mid - 1;
     }
 
-    cout << "Row: " << row;
+    cout << found;
 
     return 0;
 }
