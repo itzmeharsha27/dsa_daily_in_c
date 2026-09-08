@@ -14,6 +14,7 @@ public:
         while (left <= right) {
 
             int mid = left + (right - left) / 2;
+
             int value = matrix[mid / cols][mid % cols];
 
             if (value == target)
@@ -38,8 +39,9 @@ int main() {
         {23, 30, 34, 60}
     };
 
-    cout << boolalpha;
-    cout << s.searchMatrix(matrix, 13) << endl;
+    int target = 3;
+
+    cout << boolalpha << s.searchMatrix(matrix, target) << endl;
 
     return 0;
 }
