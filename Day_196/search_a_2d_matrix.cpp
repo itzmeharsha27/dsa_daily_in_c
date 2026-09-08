@@ -8,11 +8,18 @@ int main() {
         {23, 30, 34, 60}
     };
 
+    int target = 16;
+    int row = -1;
+
     for (int i = 0; i < matrix.size(); i++) {
-        for (int j = 0; j < matrix[0].size(); j++)
-            cout << matrix[i][j] << " ";
-        cout << endl;
+        if (target >= matrix[i][0] &&
+            target <= matrix[i].back()) {
+            row = i;
+            break;
+        }
     }
+
+    cout << "Row: " << row;
 
     return 0;
 }
