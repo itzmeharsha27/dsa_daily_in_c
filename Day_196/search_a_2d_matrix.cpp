@@ -5,29 +5,22 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
 
-        int row = -1;
-
-        for (int i = 0; i < matrix.size(); i++) {
-            if (target >= matrix[i][0] &&
-                target <= matrix[i].back()) {
-                row = i;
-                break;
-            }
-        }
-
-        if (row == -1)
-            return false;
+        int rows = matrix.size();
+        int cols = matrix[0].size();
 
         int left = 0;
-        int right = matrix[row].size() - 1;
+        int right = rows * cols - 1;
 
         while (left <= right) {
+
             int mid = left + (right - left) / 2;
 
-            if (matrix[row][mid] == target)
+            int value = matrix[mid / cols][mid % cols];
+
+            if (value == target)
                 return true;
 
-            if (matrix[row][mid] < target)
+            if (value < target)
                 left = mid + 1;
             else
                 right = mid - 1;
@@ -46,7 +39,7 @@ int main() {
         {23, 30, 34, 60}
     };
 
-    cout << s.searchMatrix(matrix, 16);
+    cout << s.searchMatrix(matrix, 34);
 
     return 0;
 }
