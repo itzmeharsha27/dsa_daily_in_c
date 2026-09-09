@@ -2,12 +2,15 @@
 using namespace std;
 
 int main() {
-    int bananas = 11;
+    vector<int> piles = {3, 6, 7, 11};
     int speed = 4;
 
-    int hours = ceil((double)bananas / speed);
+    int totalHours = 0;
 
-    cout << hours;
+    for (int bananas : piles)
+        totalHours += ceil((double)bananas / speed);
+
+    cout << totalHours;
 
     return 0;
 }
