@@ -35,9 +35,11 @@ public:
 int main() {
     Solution s;
 
-    vector<int> piles = {3, 6, 7, 11};
+    vector<int> piles1 = {3, 6, 7, 11};
+    vector<int> piles2 = {30, 11, 23, 4, 20};
 
-    cout << s.minEatingSpeed(piles, 8);
+    cout << s.minEatingSpeed(piles1, 8) << endl;
+    cout << s.minEatingSpeed(piles2, 5) << endl;
 
     return 0;
 }
