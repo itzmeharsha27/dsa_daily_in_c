@@ -3,14 +3,20 @@ using namespace std;
 
 int main() {
     vector<int> piles = {3, 6, 7, 11};
-    int speed = 4;
+    int h = 8;
 
-    int totalHours = 0;
+    for (int speed = 1; speed <= 11; speed++) {
 
-    for (int bananas : piles)
-        totalHours += ceil((double)bananas / speed);
+        int hours = 0;
 
-    cout << totalHours;
+        for (int bananas : piles)
+            hours += ceil((double)bananas / speed);
+
+        if (hours <= h) {
+            cout << "Minimum speed: " << speed;
+            break;
+        }
+    }
 
     return 0;
 }
