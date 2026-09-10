@@ -38,9 +38,13 @@ public:
 int main() {
     Solution s;
 
-    vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
+    vector<int> a = {4, 5, 6, 7, 0, 1, 2};
+    vector<int> b = {6, 7, 1, 2, 3, 4, 5};
+    vector<int> c = {1};
 
-    cout << s.search(nums, 0);
+    cout << s.search(a, 0) << endl;
+    cout << s.search(b, 3) << endl;
+    cout << s.search(c, 1) << endl;
 
     return 0;
 }
