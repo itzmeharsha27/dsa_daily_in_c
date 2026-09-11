@@ -14,13 +14,23 @@ public:
         if (!data.count(key))
             return "";
 
+        auto& values = data[key];
+
+        int left = 0;
+        int right = values.size() - 1;
         string answer = "";
 
-        for (auto p : data[key]) {
-            if (p.first <= timestamp)
-                answer = p.second;
-            else
-                break;
+        while (left <= right) {
+
+            int mid = left + (right - left) / 2;
+
+            if (values[mid].first <= timestamp) {
+                answer = values[mid].second;
+                left = mid + 1;
+            }
+            else {
+                right = mid - 1;
+            }
         }
 
         return answer;
