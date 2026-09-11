@@ -2,9 +2,12 @@
 using namespace std;
 
 class TimeMap {
-    map<string, vector<pair<int, string>>> data;
+private:
+    unordered_map<string, vector<pair<int, string>>> data;
 
 public:
+    TimeMap() {}
+
     void set(string key, string value, int timestamp) {
         data[key].push_back({timestamp, value});
     }
@@ -14,7 +17,7 @@ public:
         if (!data.count(key))
             return "";
 
-        auto& values = data[key];
+        vector<pair<int, string>>& values = data[key];
 
         int left = 0;
         int right = values.size() - 1;
@@ -43,7 +46,7 @@ int main() {
     obj.set("foo", "bar", 1);
     obj.set("foo", "bar2", 4);
 
-    cout << obj.get("foo", 3);
+    cout << obj.get("foo", 3) << endl;
 
     return 0;
 }
