@@ -1,14 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+class TimeMap {
     map<string, vector<pair<int, string>>> data;
 
-    data["foo"].push_back({1, "bar"});
-    data["foo"].push_back({4, "bar2"});
+public:
+    void set(string key, string value, int timestamp) {
+        data[key].push_back({timestamp, value});
+    }
+};
 
-    for (auto p : data["foo"])
-        cout << p.first << " " << p.second << endl;
+int main() {
+    TimeMap obj;
+
+    obj.set("foo", "bar", 1);
+    obj.set("foo", "bar2", 4);
+
+    cout << "Values stored";
 
     return 0;
 }
