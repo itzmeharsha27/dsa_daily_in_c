@@ -17,7 +17,7 @@ public:
         if (!data.count(key))
             return "";
 
-        vector<pair<int, string>>& values = data[key];
+        auto& values = data[key];
 
         int left = 0;
         int right = values.size() - 1;
@@ -41,12 +41,15 @@ public:
 };
 
 int main() {
-    TimeMap obj;
+    TimeMap timeMap;
 
-    obj.set("foo", "bar", 1);
-    obj.set("foo", "bar2", 4);
+    timeMap.set("foo", "bar", 1);
+    timeMap.set("foo", "bar2", 4);
 
-    cout << obj.get("foo", 3) << endl;
+    cout << timeMap.get("foo", 1) << endl;
+    cout << timeMap.get("foo", 3) << endl;
+    cout << timeMap.get("foo", 4) << endl;
+    cout << timeMap.get("foo", 5) << endl;
 
     return 0;
 }
