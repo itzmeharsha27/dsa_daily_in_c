@@ -1,35 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+double findMedian(vector<int>& nums1, vector<int>& nums2) {
+
+    vector<int> nums;
+
+    for (int x : nums1)
+        nums.push_back(x);
+
+    for (int x : nums2)
+        nums.push_back(x);
+
+    sort(nums.begin(), nums.end());
+
+    int n = nums.size();
+
+    if (n % 2 == 1)
+        return nums[n / 2];
+
+    return (nums[n / 2 - 1] + nums[n / 2]) / 2.0;
+}
+
 int main() {
     vector<int> nums1 = {1, 3};
     vector<int> nums2 = {2};
 
-    vector<int> merged;
-
-    for (int x : nums1)
-        merged.push_back(x);
-
-    for (int x : nums2)
-        merged.push_back(x);
-
-    sort(merged.begin(), merged.end());
-
-    for (int x : merged)
-        cout << x << " ";
-
-    return 0;#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-    vector<int> nums = {1, 2, 3};
-
-    int n = nums.size();
-
-    double median = nums[n / 2];
-
-    cout << median;
+    cout << findMedian(nums1, nums2);
 
     return 0;
-}
 }
