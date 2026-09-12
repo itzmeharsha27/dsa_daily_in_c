@@ -1,31 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-double findMedian(vector<int>& nums1, vector<int>& nums2) {
+double findMedian(vector<int>& A, vector<int>& B) {
 
-    vector<int> nums;
+    if (A.size() > B.size())
+        return findMedian(B, A);
 
-    for (int x : nums1)
-        nums.push_back(x);
+    int m = A.size();
+    int n = B.size();
 
-    for (int x : nums2)
-        nums.push_back(x);
+    int left = 0;
+    int right = m;
 
-    sort(nums.begin(), nums.end());
+    while (left <= right) {
 
-    int n = nums.size();
+        int cutA = left + (right - left) / 2;
+        int cutB = (m + n + 1) / 2 - cutA;
 
-    if (n % 2 == 1)
-        return nums[n / 2];
+        cout << "cutA = " << cutA
+             << ", cutB = " << cutB << endl;
 
-    return (nums[n / 2 - 1] + nums[n / 2]) / 2.0;
+        break;
+    }
+
+    return 0;
 }
 
 int main() {
-    vector<int> nums1 = {1, 3};
-    vector<int> nums2 = {2};
+    vector<int> A = {1, 3};
+    vector<int> B = {2};
 
-    cout << findMedian(nums1, nums2);
+    findMedian(A, B);
 
     return 0;
 }
