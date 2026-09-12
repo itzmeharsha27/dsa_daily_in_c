@@ -17,10 +17,21 @@ double findMedian(vector<int>& A, vector<int>& B) {
         int cutA = left + (right - left) / 2;
         int cutB = (m + n + 1) / 2 - cutA;
 
-        cout << "cutA = " << cutA
-             << ", cutB = " << cutB << endl;
+        int leftA = (cutA == 0) ? INT_MIN : A[cutA - 1];
+        int rightA = (cutA == m) ? INT_MAX : A[cutA];
 
-        break;
+        int leftB = (cutB == 0) ? INT_MIN : B[cutB - 1];
+        int rightB = (cutB == n) ? INT_MAX : B[cutB];
+
+        if (leftA <= rightB && leftB <= rightA) {
+            cout << "Correct partition found";
+            return 0;
+        }
+
+        if (leftA > rightB)
+            right = cutA - 1;
+        else
+            left = cutA + 1;
     }
 
     return 0;
