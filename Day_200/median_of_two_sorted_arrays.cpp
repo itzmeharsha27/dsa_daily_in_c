@@ -18,5 +18,18 @@ int main() {
     for (int x : merged)
         cout << x << " ";
 
+    return 0;#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> nums = {1, 2, 3};
+
+    int n = nums.size();
+
+    double median = nums[n / 2];
+
+    cout << median;
+
     return 0;
+}
 }
