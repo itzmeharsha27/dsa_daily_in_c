@@ -8,6 +8,7 @@ int main() {
         {12, 13, 15}
     };
 
+    int k = 8;
     vector<int> values;
 
     for (auto row : matrix)
@@ -16,8 +17,7 @@ int main() {
 
     sort(values.begin(), values.end());
 
-    for (int x : values)
-        cout << x << " ";
+    cout << values[k - 1];
 
     return 0;
 }
