@@ -8,16 +8,17 @@ int main() {
         {12, 13, 15}
     };
 
-    int k = 8;
-    vector<int> values;
+    int value = 12;
+    int count = 0;
 
-    for (auto row : matrix)
-        for (int x : row)
-            values.push_back(x);
+    for (auto row : matrix) {
+        for (int x : row) {
+            if (x <= value)
+                count++;
+        }
+    }
 
-    sort(values.begin(), values.end());
-
-    cout << values[k - 1];
+    cout << count;
 
     return 0;
 }
