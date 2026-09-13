@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int countLessEqual(vector<int>& row, int value) {
+    return upper_bound(row.begin(), row.end(), value) - row.begin();
+}
+
 int main() {
     vector<vector<int>> matrix = {
         {1, 5, 9},
@@ -11,12 +15,8 @@ int main() {
     int value = 12;
     int count = 0;
 
-    for (auto row : matrix) {
-        for (int x : row) {
-            if (x <= value)
-                count++;
-        }
-    }
+    for (auto& row : matrix)
+        count += countLessEqual(row, value);
 
     cout << count;
 
