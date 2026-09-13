@@ -8,9 +8,15 @@ int main() {
         {12, 13, 15}
     };
 
-    int k = 8;
+    vector<int> values;
 
-    cout << "K = " << k << endl;
+    for (auto row : matrix) {
+        for (int x : row)
+            values.push_back(x);
+    }
+
+    for (int x : values)
+        cout << x << " ";
 
     return 0;
 }
