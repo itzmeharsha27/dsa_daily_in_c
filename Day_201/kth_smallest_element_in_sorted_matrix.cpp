@@ -10,10 +10,11 @@ int main() {
 
     vector<int> values;
 
-    for (auto row : matrix) {
+    for (auto row : matrix)
         for (int x : row)
             values.push_back(x);
-    }
+
+    sort(values.begin(), values.end());
 
     for (int x : values)
         cout << x << " ";
