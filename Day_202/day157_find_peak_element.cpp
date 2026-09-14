@@ -11,9 +11,13 @@ int main() {
 
         int mid = left + (right - left) / 2;
 
-        cout << "Mid: " << mid << endl;
-        break;
+        if (nums[mid] < nums[mid + 1])
+            left = mid + 1;
+        else
+            right = mid;
     }
+
+    cout << left;
 
     return 0;
 }
