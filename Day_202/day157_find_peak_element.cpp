@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<int> nums = {1, 2, 3, 1};
+int findPeakElement(vector<int>& nums) {
 
     int left = 0;
     int right = nums.size() - 1;
@@ -17,7 +16,13 @@ int main() {
             right = mid;
     }
 
-    cout << left;
+    return left;
+}
+
+int main() {
+    vector<int> nums = {1, 2, 3, 1};
+
+    cout << findPeakElement(nums);
 
     return 0;
 }
