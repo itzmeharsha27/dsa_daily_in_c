@@ -1,28 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int findPeakElement(vector<int>& nums) {
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
 
-    int left = 0;
-    int right = nums.size() - 1;
+        int left = 0;
+        int right = nums.size() - 1;
 
-    while (left < right) {
+        while (left < right) {
 
-        int mid = left + (right - left) / 2;
+            int mid = left + (right - left) / 2;
 
-        if (nums[mid] < nums[mid + 1])
-            left = mid + 1;
-        else
-            right = mid;
+            if (nums[mid] < nums[mid + 1])
+                left = mid + 1;
+            else
+                right = mid;
+        }
+
+        return left;
     }
-
-    return left;
-}
+};
 
 int main() {
+    Solution s;
+
     vector<int> nums = {1, 2, 3, 1};
 
-    cout << findPeakElement(nums);
+    cout << s.findPeakElement(nums);
 
     return 0;
 }
