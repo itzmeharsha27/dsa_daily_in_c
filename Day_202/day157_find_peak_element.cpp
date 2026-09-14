@@ -25,13 +25,9 @@ public:
 int main() {
     Solution s;
 
-    vector<int> a = {1, 2, 3, 1};
-    vector<int> b = {1, 2, 1, 3, 5, 6, 4};
-    vector<int> c = {1};
+    vector<int> nums = {1, 2, 3, 4, 5, 6};
 
-    cout << s.findPeakElement(a) << endl;
-    cout << s.findPeakElement(b) << endl;
-    cout << s.findPeakElement(c) << endl;
+    cout << s.findPeakElement(nums);
 
     return 0;
 }
