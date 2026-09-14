@@ -12,10 +12,14 @@ public:
 
             int mid = left + (right - left) / 2;
 
-            if (nums[mid] < nums[mid + 1])
+            if (nums[mid] < nums[mid + 1]) {
+                // Peak is on the right
                 left = mid + 1;
-            else
+            }
+            else {
+                // Peak is at mid or on the left
                 right = mid;
+            }
         }
 
         return left;
@@ -25,9 +29,9 @@ public:
 int main() {
     Solution s;
 
-    vector<int> nums = {1, 2, 3, 4, 5, 6};
+    vector<int> nums = {1, 2, 3, 1};
 
-    cout << s.findPeakElement(nums);
+    cout << s.findPeakElement(nums) << endl;
 
     return 0;
 }
