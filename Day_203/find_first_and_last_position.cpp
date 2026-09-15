@@ -1,21 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<int> nums = {5, 7, 7, 8, 8, 10};
-    int target = 8;
-
-    int first = -1;
-    int last = -1;
-
+int findFirst(vector<int>& nums, int target) {
     int left = 0;
     int right = nums.size() - 1;
+    int answer = -1;
 
     while (left <= right) {
         int mid = left + (right - left) / 2;
 
         if (nums[mid] == target) {
-            first = mid;
+            answer = mid;
             right = mid - 1;
         }
         else if (nums[mid] < target) {
@@ -26,14 +21,19 @@ int main() {
         }
     }
 
-    left = 0;
-    right = nums.size() - 1;
+    return answer;
+}
+
+int findLast(vector<int>& nums, int target) {
+    int left = 0;
+    int right = nums.size() - 1;
+    int answer = -1;
 
     while (left <= right) {
         int mid = left + (right - left) / 2;
 
         if (nums[mid] == target) {
-            last = mid;
+            answer = mid;
             left = mid + 1;
         }
         else if (nums[mid] < target) {
@@ -44,7 +44,14 @@ int main() {
         }
     }
 
-    cout << first << " " << last;
+    return answer;
+}
+
+int main() {
+    vector<int> nums = {5, 7, 7, 8, 8, 10};
+
+    cout << findFirst(nums, 8) << " ";
+    cout << findLast(nums, 8);
 
     return 0;
 }
