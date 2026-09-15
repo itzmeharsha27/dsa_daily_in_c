@@ -11,6 +11,7 @@ public:
         int left = 0;
         int right = nums.size() - 1;
 
+        // Find first occurrence
         while (left <= right) {
             int mid = left + (right - left) / 2;
 
@@ -25,6 +26,7 @@ public:
             }
         }
 
+        // Find last occurrence
         left = 0;
         right = nums.size() - 1;
 
@@ -49,20 +51,12 @@ public:
 int main() {
     Solution s;
 
-    vector<int> a = {5, 7, 7, 8, 8, 10};
-    vector<int> b = {1};
-    vector<int> c = {2, 2, 2, 2};
+    vector<int> nums = {5, 7, 7, 8, 8, 10};
+    int target = 8;
 
-    for (int x : s.searchRange(a, 8))
-        cout << x << " ";
-    cout << endl;
+    vector<int> answer = s.searchRange(nums, target);
 
-    for (int x : s.searchRange(b, 1))
-        cout << x << " ";
-    cout << endl;
-
-    for (int x : s.searchRange(c, 3))
-        cout << x << " ";
+    cout << answer[0] << " " << answer[1] << endl;
 
     return 0;
 }
