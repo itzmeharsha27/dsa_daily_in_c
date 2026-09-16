@@ -12,7 +12,17 @@ int main() {
 
     int target = 5;
 
-    cout << "Target: " << target << endl;
+    for (int i = 0; i < matrix.size(); i++) {
+        for (int j = 0; j < matrix[0].size(); j++) {
+
+            if (matrix[i][j] == target) {
+                cout << true;
+                return 0;
+            }
+        }
+    }
+
+    cout << false;
 
     return 0;
 }
