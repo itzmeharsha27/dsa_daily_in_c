@@ -34,7 +34,7 @@ int main() {
         {18, 21, 23, 26, 30}
     };
 
-    cout << boolalpha << s.searchMatrix(matrix, 5);
+    cout << boolalpha << s.searchMatrix(matrix, 20);
 
     return 0;
 }
