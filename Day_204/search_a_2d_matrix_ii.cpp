@@ -5,15 +5,20 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
 
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+
         int row = 0;
-        int col = matrix[0].size() - 1;
+        int col = cols - 1;
 
-        while (row < matrix.size() && col >= 0) {
+        while (row < rows && col >= 0) {
 
-            if (matrix[row][col] == target)
+            int current = matrix[row][col];
+
+            if (current == target)
                 return true;
 
-            if (matrix[row][col] > target)
+            if (current > target)
                 col--;
             else
                 row++;
@@ -34,10 +39,10 @@ int main() {
         {18, 21, 23, 26, 30}
     };
 
-    cout << s.searchMatrix(matrix, 5) << endl;
-    cout << s.searchMatrix(matrix, 30) << endl;
-    cout << s.searchMatrix(matrix, 20) << endl;
-    cout << s.searchMatrix(matrix, 1) << endl;
+    int target = 5;
+
+    cout << boolalpha
+         << s.searchMatrix(matrix, target) << endl;
 
     return 0;
 }
