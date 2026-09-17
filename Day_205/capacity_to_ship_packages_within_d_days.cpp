@@ -3,21 +3,14 @@ using namespace std;
 
 int main() {
     vector<int> weights = {1,2,3,4,5,6,7,8,9,10};
-    int capacity = 15;
+    int days = 5;
 
-    int current = 0;
-    int usedDays = 1;
+    int total = 0;
 
-    for (int w : weights) {
-        if (current + w > capacity) {
-            usedDays++;
-            current = 0;
-        }
+    for (int w : weights)
+        total += w;
 
-        current += w;
-    }
-
-    cout << "Days required: " << usedDays << endl;
+    cout << "Total weight: " << total << endl;
 
     return 0;
 }
