@@ -4,8 +4,7 @@ using namespace std;
 class Solution {
 public:
     bool canShip(vector<int>& weights, int days, int capacity) {
-        int current = 0;
-        int usedDays = 1;
+        int current = 0, usedDays = 1;
 
         for (int w : weights) {
             if (current + w > capacity) {
@@ -38,11 +37,9 @@ public:
 int main() {
     Solution s;
 
-    vector<int> a = {1,2,3,4,5,6,7,8,9,10};
-    vector<int> b = {3,2,2,4,1,4};
+    vector<int> weights = {1,2,3,4,5,6,7,8,9,10};
 
-    cout << s.shipWithinDays(a, 5) << endl;
-    cout << s.shipWithinDays(b, 3) << endl;
+    cout << s.shipWithinDays(weights, 5);
 
     return 0;
 }
