@@ -12,7 +12,6 @@ public:
                 usedDays++;
                 current = 0;
             }
-
             current += w;
         }
 
@@ -39,9 +38,11 @@ public:
 int main() {
     Solution s;
 
-    vector<int> weights = {1,2,3,4,5,6,7,8,9,10};
+    vector<int> a = {1,2,3,4,5,6,7,8,9,10};
+    vector<int> b = {3,2,2,4,1,4};
 
-    cout << s.shipWithinDays(weights, 5) << endl;
+    cout << s.shipWithinDays(a, 5) << endl;
+    cout << s.shipWithinDays(b, 3) << endl;
 
     return 0;
 }
