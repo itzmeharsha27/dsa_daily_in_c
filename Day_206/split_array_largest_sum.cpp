@@ -24,12 +24,16 @@ int main() {
     int left = *max_element(nums.begin(), nums.end());
     int right = accumulate(nums.begin(), nums.end(), 0);
 
-    for (int limit = left; limit <= right; limit++) {
-        if (canSplit(nums, k, limit)) {
-            cout << "Answer: " << limit << endl;
-            break;
-        }
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (canSplit(nums, k, mid))
+            right = mid - 1;
+        else
+            left = mid + 1;
     }
+
+    cout << left << endl;
 
     return 0;
 }
