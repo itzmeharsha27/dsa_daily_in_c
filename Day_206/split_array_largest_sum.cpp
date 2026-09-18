@@ -1,15 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<int> nums = {7,2,5,10,8};
-    int capacity = 18;
-
+bool canSplit(vector<int>& nums, int k, int limit) {
     int sum = 0;
     int parts = 1;
 
     for (int x : nums) {
-        if (sum + x > capacity) {
+        if (sum + x > limit) {
             parts++;
             sum = 0;
         }
@@ -17,7 +14,13 @@ int main() {
         sum += x;
     }
 
-    cout << "Required parts: " << parts << endl;
+    return parts <= k;
+}
+
+int main() {
+    vector<int> nums = {7,2,5,10,8};
+
+    cout << canSplit(nums, 2, 18) << endl;
 
     return 0;
 }
