@@ -4,7 +4,8 @@ using namespace std;
 class Solution {
 public:
     bool canSplit(vector<int>& nums, int k, int limit) {
-        int sum = 0, parts = 1;
+        int sum = 0;
+        int parts = 1;
 
         for (int x : nums) {
             if (sum + x > limit) {
@@ -37,13 +38,9 @@ public:
 int main() {
     Solution s;
 
-    vector<int> a = {7,2,5,10,8};
-    vector<int> b = {1,2,3,4,5};
-    vector<int> c = {1,4,4};
+    vector<int> nums = {7,2,5,10,8};
 
-    cout << s.splitArray(a, 2) << endl;
-    cout << s.splitArray(b, 2) << endl;
-    cout << s.splitArray(c, 3) << endl;
+    cout << s.splitArray(nums, 2);
 
     return 0;
 }
