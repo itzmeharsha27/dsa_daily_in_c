@@ -19,8 +19,17 @@ bool canSplit(vector<int>& nums, int k, int limit) {
 
 int main() {
     vector<int> nums = {7,2,5,10,8};
+    int k = 2;
 
-    cout << canSplit(nums, 2, 18) << endl;
+    int left = *max_element(nums.begin(), nums.end());
+    int right = accumulate(nums.begin(), nums.end(), 0);
+
+    for (int limit = left; limit <= right; limit++) {
+        if (canSplit(nums, k, limit)) {
+            cout << "Answer: " << limit << endl;
+            break;
+        }
+    }
 
     return 0;
 }
