@@ -5,11 +5,16 @@ int main() {
     vector<int> nums = {7,2,5,10,8};
     int k = 2;
 
-    cout << "Array: ";
-    for (int x : nums)
-        cout << x << " ";
+    int total = 0;
+    int maximum = 0;
 
-    cout << "\nK = " << k << endl;
+    for (int x : nums) {
+        total += x;
+        maximum = max(maximum, x);
+    }
+
+    cout << "Maximum element: " << maximum << endl;
+    cout << "Total sum: " << total << endl;
 
     return 0;
 }
