@@ -19,7 +19,9 @@ int main() {
             right = mid - 1;
     }
 
-    cout << "Position: " << left << endl;
+    int answer = left + k;
+
+    cout << answer << endl;
 
     return 0;
 }
