@@ -7,25 +7,19 @@ int main() {
 
     int missing = 0;
 
-    for (int n = 1; ; n++) {
-        bool found = false;
+    for (int i = 0; i < arr.size(); i++) {
+        int expected = i + 1;
 
-        for (int x : arr) {
-            if (x == n) {
-                found = true;
-                break;
-            }
-        }
+        if (arr[i] > expected)
+            missing += arr[i] - expected;
 
-        if (!found) {
-            missing++;
-
-            if (missing == k) {
-                cout << n << endl;
-                break;
-            }
+        if (missing >= k) {
+            cout << arr[i] - (missing - k) << endl;
+            return 0;
         }
     }
+
+    cout << arr.back() + (k - missing) << endl;
 
     return 0;
 }
