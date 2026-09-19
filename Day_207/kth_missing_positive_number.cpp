@@ -10,7 +10,7 @@ public:
         while (left <= right) {
             int mid = left + (right - left) / 2;
 
-            int missing = arr[mid] - (mid + 1);
+            int missing = arr[mid] - mid - 1;
 
             if (missing < k)
                 left = mid + 1;
@@ -25,13 +25,9 @@ public:
 int main() {
     Solution s;
 
-    vector<int> a = {2,3,4,7,11};
-    vector<int> b = {1,2,3,4};
-    vector<int> c = {2};
+    vector<int> arr = {2,3,4,7,11};
 
-    cout << s.findKthPositive(a, 5) << endl;
-    cout << s.findKthPositive(b, 2) << endl;
-    cout << s.findKthPositive(c, 1) << endl;
+    cout << s.findKthPositive(arr, 5);
 
     return 0;
 }
