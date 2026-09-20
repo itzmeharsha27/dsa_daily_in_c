@@ -4,15 +4,15 @@ using namespace std;
 int main() {
     vector<int> nums = {1,3,4,2,2};
 
-    vector<int> freq(nums.size(), 0);
+    unordered_set<int> seen;
 
     for (int x : nums) {
-        freq[x]++;
-
-        if (freq[x] > 1) {
+        if (seen.count(x)) {
             cout << "Duplicate: " << x << endl;
-            break;
+            return 0;
         }
+
+        seen.insert(x);
     }
 
     return 0;
