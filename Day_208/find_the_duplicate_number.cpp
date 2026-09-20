@@ -7,11 +7,12 @@ int main() {
     int slow = nums[0];
     int fast = nums[0];
 
-    slow = nums[slow];
-    fast = nums[nums[fast]];
+    do {
+        slow = nums[slow];
+        fast = nums[nums[fast]];
+    } while (slow != fast);
 
-    cout << "Slow: " << slow << endl;
-    cout << "Fast: " << fast << endl;
+    cout << "Cycle detected at: " << slow << endl;
 
     return 0;
 }
