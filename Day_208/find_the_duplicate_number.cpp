@@ -28,7 +28,7 @@ int main() {
 
     vector<int> nums = {1,3,4,2,2};
 
-    cout << s.findDuplicate(nums) << endl;
+    cout << s.findDuplicate(nums);
 
     return 0;
 }
