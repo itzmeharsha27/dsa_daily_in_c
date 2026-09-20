@@ -12,7 +12,14 @@ int main() {
         fast = nums[nums[fast]];
     } while (slow != fast);
 
-    cout << "Cycle detected at: " << slow << endl;
+    slow = nums[0];
+
+    while (slow != fast) {
+        slow = nums[slow];
+        fast = nums[fast];
+    }
+
+    cout << "Duplicate: " << slow << endl;
 
     return 0;
 }
