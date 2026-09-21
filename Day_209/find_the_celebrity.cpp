@@ -3,11 +3,11 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int>> graph = {
-        {1, 1, 0},
-        {0, 1, 0},
-        {1, 1, 1}
-    };
+    vector<vector<int>> graph;
+
+    Solution(vector<vector<int>> g) {
+        graph = g;
+    }
 
     bool knows(int a, int b) {
         return graph[a][b];
@@ -34,9 +34,19 @@ public:
 };
 
 int main() {
-    Solution s;
+    Solution s1({
+        {1, 1, 0},
+        {0, 1, 0},
+        {1, 1, 1}
+    });
 
-    cout << s.findCelebrity(3);
+    Solution s2({
+        {1, 1},
+        {1, 1}
+    });
+
+    cout << s1.findCelebrity(3) << endl;
+    cout << s2.findCelebrity(2) << endl;
 
     return 0;
 }
