@@ -13,8 +13,21 @@ bool knows(int a, int b) {
 
 int main() {
     int n = 3;
+    int candidate = 1;
 
-    cout << "People: " << n << endl;
+    bool valid = true;
+
+    for (int i = 0; i < n; i++) {
+        if (i == candidate)
+            continue;
+
+        if (knows(candidate, i) || !knows(i, candidate)) {
+            valid = false;
+            break;
+        }
+    }
+
+    cout << (valid ? "Celebrity" : "Not Celebrity");
 
     return 0;
 }
