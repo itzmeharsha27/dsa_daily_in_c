@@ -16,11 +16,13 @@ public:
     int findCelebrity(int n) {
         int candidate = 0;
 
+        // Find possible celebrity
         for (int i = 1; i < n; i++) {
             if (knows(candidate, i))
                 candidate = i;
         }
 
+        // Verify candidate
         for (int i = 0; i < n; i++) {
             if (i == candidate)
                 continue;
@@ -34,19 +36,13 @@ public:
 };
 
 int main() {
-    Solution s1({
+    Solution s({
         {1, 1, 0},
         {0, 1, 0},
         {1, 1, 1}
     });
 
-    Solution s2({
-        {1, 1},
-        {1, 1}
-    });
-
-    cout << s1.findCelebrity(3) << endl;
-    cout << s2.findCelebrity(2) << endl;
+    cout << s.findCelebrity(3);
 
     return 0;
 }
