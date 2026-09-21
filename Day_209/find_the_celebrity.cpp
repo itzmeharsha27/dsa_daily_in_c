@@ -20,7 +20,19 @@ int main() {
             candidate = i;
     }
 
-    cout << "Possible candidate: " << candidate << endl;
+    bool valid = true;
+
+    for (int i = 0; i < n; i++) {
+        if (i == candidate)
+            continue;
+
+        if (knows(candidate, i) || !knows(i, candidate)) {
+            valid = false;
+            break;
+        }
+    }
+
+    cout << (valid ? candidate : -1) << endl;
 
     return 0;
 }
