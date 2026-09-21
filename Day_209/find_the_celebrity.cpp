@@ -11,6 +11,18 @@ bool knows(int a, int b) {
     return graph[a][b];
 }
 
+bool isCelebrity(int candidate, int n) {
+    for (int i = 0; i < n; i++) {
+        if (i == candidate)
+            continue;
+
+        if (knows(candidate, i) || !knows(i, candidate))
+            return false;
+    }
+
+    return true;
+}
+
 int main() {
     int n = 3;
     int candidate = 0;
@@ -20,19 +32,7 @@ int main() {
             candidate = i;
     }
 
-    bool valid = true;
-
-    for (int i = 0; i < n; i++) {
-        if (i == candidate)
-            continue;
-
-        if (knows(candidate, i) || !knows(i, candidate)) {
-            valid = false;
-            break;
-        }
-    }
-
-    cout << (valid ? candidate : -1) << endl;
+    cout << (isCelebrity(candidate, n) ? candidate : -1);
 
     return 0;
 }
