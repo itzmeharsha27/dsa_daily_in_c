@@ -13,21 +13,27 @@ bool knows(int a, int b) {
 
 int main() {
     int n = 3;
-    int candidate = 1;
 
-    bool valid = true;
+    for (int candidate = 0; candidate < n; candidate++) {
+        bool valid = true;
 
-    for (int i = 0; i < n; i++) {
-        if (i == candidate)
-            continue;
+        for (int i = 0; i < n; i++) {
+            if (i == candidate)
+                continue;
 
-        if (knows(candidate, i) || !knows(i, candidate)) {
-            valid = false;
-            break;
+            if (knows(candidate, i) || !knows(i, candidate)) {
+                valid = false;
+                break;
+            }
+        }
+
+        if (valid) {
+            cout << "Celebrity: " << candidate << endl;
+            return 0;
         }
     }
 
-    cout << (valid ? "Celebrity" : "Not Celebrity");
+    cout << "No celebrity" << endl;
 
     return 0;
 }
