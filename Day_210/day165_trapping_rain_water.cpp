@@ -13,10 +13,18 @@ int main() {
 
     while (left < right) {
         if (height[left] <= height[right]) {
-            leftMax = max(leftMax, height[left]);
+            if (height[left] >= leftMax)
+                leftMax = height[left];
+            else
+                total += leftMax - height[left];
+
             left++;
         } else {
-            rightMax = max(rightMax, height[right]);
+            if (height[right] >= rightMax)
+                rightMax = height[right];
+            else
+                total += rightMax - height[right];
+
             right--;
         }
     }
