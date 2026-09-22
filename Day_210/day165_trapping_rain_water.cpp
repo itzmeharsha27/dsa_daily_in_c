@@ -6,36 +6,33 @@ public:
     int trap(vector<int>& height) {
         int left = 0;
         int right = height.size() - 1;
+
         int leftMax = 0;
         int rightMax = 0;
-        int total = 0;
+        int water = 0;
 
         while (left < right) {
             if (height[left] <= height[right]) {
                 leftMax = max(leftMax, height[left]);
-                total += leftMax - height[left];
+                water += leftMax - height[left];
                 left++;
             } else {
                 rightMax = max(rightMax, height[right]);
-                total += rightMax - height[right];
+                water += rightMax - height[right];
                 right--;
             }
         }
 
-        return total;
+        return water;
     }
 };
 
 int main() {
     Solution s;
 
-    vector<int> a = {0,1,0,2,1,0,1,3,2,1,2,1};
-    vector<int> b = {4,2,0,3,2,5};
-    vector<int> c = {1,2,3,4};
+    vector<int> height = {0,1,0,2,1,0,1,3,2,1,2,1};
 
-    cout << s.trap(a) << endl;
-    cout << s.trap(b) << endl;
-    cout << s.trap(c) << endl;
+    cout << s.trap(height);
 
     return 0;
 }
