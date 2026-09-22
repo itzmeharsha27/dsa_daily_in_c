@@ -4,22 +4,27 @@ using namespace std;
 int main() {
     vector<int> height = {0,1,0,2,1,0,1,3,2,1,2,1};
 
+    int n = height.size();
+
+    vector<int> leftMax(n);
+    vector<int> rightMax(n);
+
+    leftMax[0] = height[0];
+
+    for (int i = 1; i < n; i++)
+        leftMax[i] = max(leftMax[i - 1], height[i]);
+
+    rightMax[n - 1] = height[n - 1];
+
+    for (int i = n - 2; i >= 0; i--)
+        rightMax[i] = max(rightMax[i + 1], height[i]);
+
     int total = 0;
 
-    for (int i = 0; i < height.size(); i++) {
-        int leftMax = 0;
-        int rightMax = 0;
+    for (int i = 0; i < n; i++)
+        total += min(leftMax[i], rightMax[i]) - height[i];
 
-        for (int j = 0; j <= i; j++)
-            leftMax = max(leftMax, height[j]);
-
-        for (int j = i; j < height.size(); j++)
-            rightMax = max(rightMax, height[j]);
-
-        total += min(leftMax, rightMax) - height[i];
-    }
-
-    cout << "Trapped water: " << total;
+    cout << total;
 
     return 0;
 }
