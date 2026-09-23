@@ -20,6 +20,8 @@ int main() {
         st.push(nums[index]);
     }
 
+    cout << "Result: ";
+
     for (int x : result)
         cout << x << " ";
 
