@@ -4,10 +4,18 @@ using namespace std;
 int main() {
     vector<int> nums = {1,2,1};
 
-    cout << "Array: ";
+    for (int i = 0; i < nums.size(); i++) {
+        int next = -1;
 
-    for (int x : nums)
-        cout << x << " ";
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[j] > nums[i]) {
+                next = nums[j];
+                break;
+            }
+        }
+
+        cout << next << " ";
+    }
 
     return 0;
 }
