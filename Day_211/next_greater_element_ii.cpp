@@ -5,20 +5,21 @@ int main() {
     vector<int> nums = {1,2,1};
     int n = nums.size();
 
-    for (int i = 0; i < n; i++) {
-        int next = -1;
+    vector<int> result(n, -1);
 
+    for (int i = 0; i < n; i++) {
         for (int j = 1; j < n; j++) {
             int index = (i + j) % n;
 
             if (nums[index] > nums[i]) {
-                next = nums[index];
+                result[i] = nums[index];
                 break;
             }
         }
-
-        cout << next << " ";
     }
+
+    for (int x : result)
+        cout << x << " ";
 
     return 0;
 }
