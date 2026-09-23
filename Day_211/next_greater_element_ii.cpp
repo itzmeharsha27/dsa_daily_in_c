@@ -28,21 +28,12 @@ public:
 int main() {
     Solution s;
 
-    vector<int> a = {1,2,1};
-    vector<int> b = {1,2,3,4,3};
-    vector<int> c = {5,4,3,2,1};
+    vector<int> nums = {1,2,1};
 
-    for (int x : s.nextGreaterElements(a))
-        cout << x << " ";
-    cout << endl;
+    vector<int> result = s.nextGreaterElements(nums);
 
-    for (int x : s.nextGreaterElements(b))
+    for (int x : result)
         cout << x << " ";
-    cout << endl;
-
-    for (int x : s.nextGreaterElements(c))
-        cout << x << " ";
-    cout << endl;
 
     return 0;
 }
