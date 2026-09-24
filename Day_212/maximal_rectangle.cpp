@@ -24,10 +24,30 @@ int largestRectangle(vector<int>& height) {
 }
 
 int main() {
-    vector<int> height = {2,1,5,6,2,3};
+    vector<vector<char>> matrix = {
+        {'1','0','1','0','0'},
+        {'1','0','1','1','1'},
+        {'1','1','1','1','1'},
+        {'1','0','0','1','0'}
+    };
 
-    cout << "Largest rectangle: "
-         << largestRectangle(height);
+    int cols = matrix[0].size();
+    vector<int> height(cols, 0);
+
+    int answer = 0;
+
+    for (auto& row : matrix) {
+        for (int c = 0; c < cols; c++) {
+            if (row[c] == '1')
+                height[c]++;
+            else
+                height[c] = 0;
+        }
+
+        answer = max(answer, largestRectangle(height));
+    }
+
+    cout << answer;
 
     return 0;
 }
