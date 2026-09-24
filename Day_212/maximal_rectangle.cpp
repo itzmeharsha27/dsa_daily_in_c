@@ -2,16 +2,22 @@
 using namespace std;
 
 int largestRectangle(vector<int>& height) {
-    int n = height.size();
+    stack<int> st;
     int best = 0;
 
-    for (int i = 0; i < n; i++) {
-        int minimum = height[i];
+    for (int i = 0; i <= height.size(); i++) {
+        int current = (i == height.size()) ? 0 : height[i];
 
-        for (int j = i; j < n; j++) {
-            minimum = min(minimum, height[j]);
-            best = max(best, minimum * (j - i + 1));
+        while (!st.empty() && height[st.top()] > current) {
+            int h = height[st.top()];
+            st.pop();
+
+            int width = st.empty() ? i : i - st.top() - 1;
+
+            best = max(best, h * width);
         }
+
+        st.push(i);
     }
 
     return best;
