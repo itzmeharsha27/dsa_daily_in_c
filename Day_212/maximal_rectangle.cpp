@@ -26,7 +26,8 @@ int largestRectangle(vector<int>& height) {
 int main() {
     vector<int> height = {2,1,5,6,2,3};
 
-    cout << largestRectangle(height);
+    cout << "Largest rectangle: "
+         << largestRectangle(height);
 
     return 0;
 }
