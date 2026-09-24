@@ -3,20 +3,20 @@ using namespace std;
 
 class Solution {
 public:
-    int largestRectangle(vector<int>& height) {
+    int largestRectangle(vector<int>& h) {
         stack<int> st;
         int best = 0;
 
-        for (int i = 0; i <= height.size(); i++) {
-            int current = (i == height.size()) ? 0 : height[i];
+        for (int i = 0; i <= h.size(); i++) {
+            int current = (i == h.size()) ? 0 : h[i];
 
-            while (!st.empty() && height[st.top()] > current) {
-                int h = height[st.top()];
+            while (!st.empty() && h[st.top()] > current) {
+                int height = h[st.top()];
                 st.pop();
 
                 int width = st.empty() ? i : i - st.top() - 1;
 
-                best = max(best, h * width);
+                best = max(best, height * width);
             }
 
             st.push(i);
@@ -34,12 +34,8 @@ public:
         int answer = 0;
 
         for (auto& row : matrix) {
-            for (int c = 0; c < cols; c++) {
-                if (row[c] == '1')
-                    height[c]++;
-                else
-                    height[c] = 0;
-            }
+            for (int c = 0; c < cols; c++)
+                height[c] = (row[c] == '1') ? height[c] + 1 : 0;
 
             answer = max(answer, largestRectangle(height));
         }
@@ -51,24 +47,14 @@ public:
 int main() {
     Solution s;
 
-    vector<vector<char>> a = {
+    vector<vector<char>> matrix = {
         {'1','0','1','0','0'},
         {'1','0','1','1','1'},
         {'1','1','1','1','1'},
         {'1','0','0','1','0'}
     };
 
-    vector<vector<char>> b = {
-        {'0'}
-    };
-
-    vector<vector<char>> c = {
-        {'1'}
-    };
-
-    cout << s.maximalRectangle(a) << endl;
-    cout << s.maximalRectangle(b) << endl;
-    cout << s.maximalRectangle(c) << endl;
+    cout << s.maximalRectangle(matrix);
 
     return 0;
 }
