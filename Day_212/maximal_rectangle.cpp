@@ -9,11 +9,22 @@ int main() {
         {'1','0','0','1','0'}
     };
 
-    cout << "Matrix:" << endl;
+    int rows = matrix.size();
+    int cols = matrix[0].size();
 
-    for (auto row : matrix) {
-        for (char x : row)
+    vector<int> height(cols, 0);
+
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++) {
+            if (matrix[r][c] == '1')
+                height[c]++;
+            else
+                height[c] = 0;
+        }
+
+        for (int x : height)
             cout << x << " ";
+
         cout << endl;
     }
 
