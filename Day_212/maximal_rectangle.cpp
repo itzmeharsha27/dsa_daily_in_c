@@ -51,14 +51,24 @@ public:
 int main() {
     Solution s;
 
-    vector<vector<char>> matrix = {
+    vector<vector<char>> a = {
         {'1','0','1','0','0'},
         {'1','0','1','1','1'},
         {'1','1','1','1','1'},
         {'1','0','0','1','0'}
     };
 
-    cout << s.maximalRectangle(matrix);
+    vector<vector<char>> b = {
+        {'0'}
+    };
+
+    vector<vector<char>> c = {
+        {'1'}
+    };
+
+    cout << s.maximalRectangle(a) << endl;
+    cout << s.maximalRectangle(b) << endl;
+    cout << s.maximalRectangle(c) << endl;
 
     return 0;
 }
