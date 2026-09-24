@@ -1,32 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<vector<char>> matrix = {
-        {'1','0','1','0','0'},
-        {'1','0','1','1','1'},
-        {'1','1','1','1','1'},
-        {'1','0','0','1','0'}
-    };
+int largestRectangle(vector<int>& height) {
+    int n = height.size();
+    int best = 0;
 
-    int rows = matrix.size();
-    int cols = matrix[0].size();
+    for (int i = 0; i < n; i++) {
+        int minimum = height[i];
 
-    vector<int> height(cols, 0);
-
-    for (int r = 0; r < rows; r++) {
-        for (int c = 0; c < cols; c++) {
-            if (matrix[r][c] == '1')
-                height[c]++;
-            else
-                height[c] = 0;
+        for (int j = i; j < n; j++) {
+            minimum = min(minimum, height[j]);
+            best = max(best, minimum * (j - i + 1));
         }
-
-        for (int x : height)
-            cout << x << " ";
-
-        cout << endl;
     }
+
+    return best;
+}
+
+int main() {
+    vector<int> height = {2,1,5,6,2,3};
+
+    cout << largestRectangle(height);
 
     return 0;
 }
