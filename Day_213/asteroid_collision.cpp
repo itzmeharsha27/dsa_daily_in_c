@@ -2,15 +2,33 @@
 using namespace std;
 
 int main() {
-    int right = 10;
-    int left = -5;
+    vector<int> asteroids = {5, 10, -5};
+    stack<int> st;
 
-    if (right > abs(left))
-        cout << right;
-    else if (right < abs(left))
-        cout << left;
-    else
-        cout << "Both destroyed";
+    for (int asteroid : asteroids) {
+        bool destroyed = false;
+
+        while (!st.empty() && st.top() > 0 && asteroid < 0) {
+            if (st.top() < abs(asteroid)) {
+                st.pop();
+            } else if (st.top() == abs(asteroid)) {
+                st.pop();
+                destroyed = true;
+                break;
+            } else {
+                destroyed = true;
+                break;
+            }
+        }
+
+        if (!destroyed)
+            st.push(asteroid);
+    }
+
+    while (!st.empty()) {
+        cout << st.top() << " ";
+        st.pop();
+    }
 
     return 0;
 }
