@@ -25,10 +25,17 @@ int main() {
             st.push(asteroid);
     }
 
+    vector<int> result;
+
     while (!st.empty()) {
-        cout << st.top() << " ";
+        result.push_back(st.top());
         st.pop();
     }
+
+    reverse(result.begin(), result.end());
+
+    for (int x : result)
+        cout << x << " ";
 
     return 0;
 }
