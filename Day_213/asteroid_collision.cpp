@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<int> asteroids = {5, 10, -5};
+vector<int> collide(vector<int>& asteroids) {
     stack<int> st;
 
     for (int asteroid : asteroids) {
@@ -33,6 +32,14 @@ int main() {
     }
 
     reverse(result.begin(), result.end());
+
+    return result;
+}
+
+int main() {
+    vector<int> asteroids = {5, 10, -5};
+
+    vector<int> result = collide(asteroids);
 
     for (int x : result)
         cout << x << " ";
