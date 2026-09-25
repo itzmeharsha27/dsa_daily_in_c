@@ -39,15 +39,24 @@ public:
     }
 };
 
+void print(vector<int> result) {
+    for (int x : result)
+        cout << x << " ";
+    cout << endl;
+}
+
 int main() {
     Solution s;
 
-    vector<int> asteroids = {5, 10, -5};
+    vector<int> a = {5, 10, -5};
+    vector<int> b = {8, -8};
+    vector<int> c = {10, 2, -5};
+    vector<int> d = {-2, -1, 1, 2};
 
-    vector<int> result = s.asteroidCollision(asteroids);
-
-    for (int x : result)
-        cout << x << " ";
+    print(s.asteroidCollision(a));
+    print(s.asteroidCollision(b));
+    print(s.asteroidCollision(c));
+    print(s.asteroidCollision(d));
 
     return 0;
 }
