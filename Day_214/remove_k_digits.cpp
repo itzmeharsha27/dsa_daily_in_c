@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    string num = "1432219";
-    int k = 3;
+    string num = "10200";
+    int k = 1;
 
     string st;
 
@@ -21,7 +21,17 @@ int main() {
         k--;
     }
 
-    cout << st << endl;
+    int start = 0;
+
+    while (start < st.size() && st[start] == '0')
+        start++;
+
+    string result = st.substr(start);
+
+    if (result.empty())
+        result = "0";
+
+    cout << result << endl;
 
     return 0;
 }
