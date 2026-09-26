@@ -34,7 +34,10 @@ public:
 int main() {
     Solution s;
 
-    cout << s.removeKdigits("1432219", 3) << endl;
+    string num = "1432219";
+    int k = 3;
+
+    cout << s.removeKdigits(num, k);
 
     return 0;
 }
