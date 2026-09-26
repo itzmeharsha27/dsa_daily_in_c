@@ -5,21 +5,18 @@ int main() {
     string num = "1432219";
     int k = 3;
 
-    while (k > 0) {
-        int index = num.size() - 1;
+    string st;
 
-        for (int i = 0; i < num.size() - 1; i++) {
-            if (num[i] > num[i + 1]) {
-                index = i;
-                break;
-            }
+    for (char digit : num) {
+        while (!st.empty() && k > 0 && st.back() > digit) {
+            st.pop_back();
+            k--;
         }
 
-        num.erase(index, 1);
-        k--;
+        st.push_back(digit);
     }
 
-    cout << num << endl;
+    cout << st << endl;
 
     return 0;
 }
