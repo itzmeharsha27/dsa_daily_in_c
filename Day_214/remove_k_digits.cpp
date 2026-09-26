@@ -1,37 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    string num = "10200";
-    int k = 1;
+class Solution {
+public:
+    string removeKdigits(string num, int k) {
+        string st;
 
-    string st;
+        for (char digit : num) {
+            while (!st.empty() && k > 0 && st.back() > digit) {
+                st.pop_back();
+                k--;
+            }
 
-    for (char digit : num) {
-        while (!st.empty() && k > 0 && st.back() > digit) {
+            st.push_back(digit);
+        }
+
+        while (k > 0) {
             st.pop_back();
             k--;
         }
 
-        st.push_back(digit);
+        int start = 0;
+
+        while (start < st.size() && st[start] == '0')
+            start++;
+
+        string result = st.substr(start);
+
+        return result.empty() ? "0" : result;
     }
+};
 
-    while (k > 0) {
-        st.pop_back();
-        k--;
-    }
+int main() {
+    Solution s;
 
-    int start = 0;
-
-    while (start < st.size() && st[start] == '0')
-        start++;
-
-    string result = st.substr(start);
-
-    if (result.empty())
-        result = "0";
-
-    cout << result << endl;
+    cout << s.removeKdigits("1432219", 3) << endl;
 
     return 0;
 }
