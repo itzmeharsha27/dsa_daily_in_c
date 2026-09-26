@@ -16,6 +16,11 @@ int main() {
         st.push_back(digit);
     }
 
+    while (k > 0) {
+        st.pop_back();
+        k--;
+    }
+
     cout << st << endl;
 
     return 0;
