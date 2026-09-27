@@ -4,8 +4,8 @@ using namespace std;
 class Solution {
 public:
     string decodeString(string s) {
-        stack<int> numbers;
-        stack<string> strings;
+        stack<int> counts;
+        stack<string> words;
 
         int number = 0;
         string current = "";
@@ -15,25 +15,25 @@ public:
                 number = number * 10 + (c - '0');
             }
             else if (c == '[') {
-                numbers.push(number);
-                strings.push(current);
+                counts.push(number);
+                words.push(current);
 
                 number = 0;
                 current = "";
             }
             else if (c == ']') {
-                int repeat = numbers.top();
-                numbers.pop();
+                int repeat = counts.top();
+                counts.pop();
 
-                string previous = strings.top();
-                strings.pop();
+                string previous = words.top();
+                words.pop();
 
-                string temp = "";
+                string expanded = "";
 
                 for (int i = 0; i < repeat; i++)
-                    temp += current;
+                    expanded += current;
 
-                current = previous + temp;
+                current = previous + expanded;
             }
             else {
                 current += c;
@@ -47,10 +47,7 @@ public:
 int main() {
     Solution s;
 
-    cout << s.decodeString("3[a]") << endl;
-    cout << s.decodeString("3[a2[c]]") << endl;
-    cout << s.decodeString("2[abc]3[cd]ef") << endl;
-    cout << s.decodeString("10[a]") << endl;
+    cout << s.decodeString("3[a2[c]]");
 
     return 0;
 }
