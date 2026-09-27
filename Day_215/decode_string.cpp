@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    string s = "3[a]";
+    string s = "3[a2[c]]";
 
     stack<int> numbers;
     stack<string> strings;
