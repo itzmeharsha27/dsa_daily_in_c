@@ -47,7 +47,10 @@ public:
 int main() {
     Solution s;
 
-    cout << s.decodeString("3[a2[c]]");
+    cout << s.decodeString("3[a]") << endl;
+    cout << s.decodeString("3[a2[c]]") << endl;
+    cout << s.decodeString("2[abc]3[cd]ef") << endl;
+    cout << s.decodeString("10[a]") << endl;
 
     return 0;
 }
