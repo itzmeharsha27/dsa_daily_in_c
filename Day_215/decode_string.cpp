@@ -2,17 +2,27 @@
 using namespace std;
 
 int main() {
-    string s = "3[a]";
+    string s = "3[ab]";
 
-    int repeat = 3;
-    string word = "a";
+    int number = 0;
+    string word = "";
 
-    string result = "";
+    int i = 0;
 
-    for (int i = 0; i < repeat; i++)
-        result += word;
+    while (isdigit(s[i])) {
+        number = number * 10 + (s[i] - '0');
+        i++;
+    }
 
-    cout << result << endl;
+    i++;
+
+    while (s[i] != ']') {
+        word += s[i];
+        i++;
+    }
+
+    cout << "Number: " << number << endl;
+    cout << "Word: " << word << endl;
 
     return 0;
 }
