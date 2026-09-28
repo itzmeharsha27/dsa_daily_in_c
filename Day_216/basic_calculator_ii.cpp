@@ -50,7 +50,10 @@ public:
 int main() {
     Solution s;
 
-    cout << s.calculate("3+2*2");
+    cout << s.calculate("3+2*2") << endl;
+    cout << s.calculate("3/2") << endl;
+    cout << s.calculate("3+5 / 2") << endl;
+    cout << s.calculate("14-3/2") << endl;
 
     return 0;
 }
