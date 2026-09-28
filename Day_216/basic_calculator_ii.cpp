@@ -4,28 +4,28 @@ using namespace std;
 int main() {
     string s = "3+2*2";
 
-    int result = 0;
+    stack<int> st;
+
     int number = 0;
-    int previous = 0;
     char operation = '+';
 
     for (int i = 0; i <= s.size(); i++) {
         if (i < s.size() && isdigit(s[i])) {
             number = number * 10 + (s[i] - '0');
         } else {
-            if (operation == '+') {
-                result += previous;
-                previous = number;
-            }
-            else if (operation == '-') {
-                result += previous;
-                previous = -number;
-            }
+            if (operation == '+')
+                st.push(number);
+            else if (operation == '-')
+                st.push(-number);
             else if (operation == '*') {
-                previous *= number;
+                int x = st.top();
+                st.pop();
+                st.push(x * number);
             }
             else if (operation == '/') {
-                previous /= number;
+                int x = st.top();
+                st.pop();
+                st.push(x / number);
             }
 
             if (i < s.size())
@@ -35,7 +35,12 @@ int main() {
         }
     }
 
-    result += previous;
+    int result = 0;
+
+    while (!st.empty()) {
+        result += st.top();
+        st.pop();
+    }
 
     cout << result;
 
