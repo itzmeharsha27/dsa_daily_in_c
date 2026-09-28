@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    string s = "3+2*2";
+    string s = " 3 + 2 * 2 ";
 
     stack<int> st;
 
@@ -12,7 +12,8 @@ int main() {
     for (int i = 0; i <= s.size(); i++) {
         if (i < s.size() && isdigit(s[i])) {
             number = number * 10 + (s[i] - '0');
-        } else {
+        }
+        else if (i == s.size() || s[i] != ' ') {
             if (operation == '+')
                 st.push(number);
             else if (operation == '-')
