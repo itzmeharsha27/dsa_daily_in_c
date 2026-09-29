@@ -2,14 +2,13 @@
 using namespace std;
 
 int main() {
-    string s = "1-(2-3)";
+    string s = "(1+(4+5+2)-3)+(6+8)";
 
     int result = 0;
     int number = 0;
     int sign = 1;
 
-    stack<int> values;
-    stack<int> signs;
+    stack<int> st;
 
     for (char c : s) {
         if (isdigit(c)) {
@@ -21,8 +20,8 @@ int main() {
             sign = (c == '+') ? 1 : -1;
         }
         else if (c == '(') {
-            values.push(result);
-            signs.push(sign);
+            st.push(result);
+            st.push(sign);
 
             result = 0;
             sign = 1;
@@ -31,10 +30,14 @@ int main() {
             result += sign * number;
             number = 0;
 
-            result = values.top() + signs.top() * result;
+            int previousSign = st.top();
+            st.pop();
 
-            values.pop();
-            signs.pop();
+            int previousResult = st.top();
+            st.pop();
+
+            result = previousResult + previousSign * result;
+            sign = 1;
         }
     }
 
