@@ -2,25 +2,43 @@
 using namespace std;
 
 int main() {
-    string s = "12-5+3";
+    string s = "1-(2-3)";
 
     int result = 0;
     int number = 0;
     int sign = 1;
 
-    for (int i = 0; i <= s.size(); i++) {
-        if (i < s.size() && isdigit(s[i])) {
-            number = number * 10 + (s[i] - '0');
+    stack<int> values;
+    stack<int> signs;
+
+    for (char c : s) {
+        if (isdigit(c)) {
+            number = number * 10 + (c - '0');
         }
-        else if (i == s.size() || s[i] != ' ') {
+        else if (c == '+' || c == '-') {
             result += sign * number;
-
-            if (i < s.size())
-                sign = (s[i] == '+') ? 1 : -1;
-
             number = 0;
+            sign = (c == '+') ? 1 : -1;
+        }
+        else if (c == '(') {
+            values.push(result);
+            signs.push(sign);
+
+            result = 0;
+            sign = 1;
+        }
+        else if (c == ')') {
+            result += sign * number;
+            number = 0;
+
+            result = values.top() + signs.top() * result;
+
+            values.pop();
+            signs.pop();
         }
     }
+
+    result += sign * number;
 
     cout << result;
 
