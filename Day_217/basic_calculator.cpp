@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    string s = "(1+(4+5+2)-3)+(6+8)";
+    string s = " 2-1 + 2 ";
 
     int result = 0;
     int number = 0;
@@ -10,7 +10,9 @@ int main() {
 
     stack<int> st;
 
-    for (char c : s) {
+    for (int i = 0; i < s.size(); i++) {
+        char c = s[i];
+
         if (isdigit(c)) {
             number = number * 10 + (c - '0');
         }
