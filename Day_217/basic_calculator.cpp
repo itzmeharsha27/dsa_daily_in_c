@@ -41,19 +41,14 @@ public:
             }
         }
 
-        result += sign * number;
-
-        return result;
+        return result + sign * number;
     }
 };
 
 int main() {
     Solution s;
 
-    cout << s.calculate("1 + 1") << endl;
-    cout << s.calculate("2-1 + 2") << endl;
-    cout << s.calculate("(1+(4+5+2)-3)+(6+8)") << endl;
-    cout << s.calculate("1-(2-3)") << endl;
+    cout << s.calculate("(1+(4+5+2)-3)+(6+8)");
 
     return 0;
 }
