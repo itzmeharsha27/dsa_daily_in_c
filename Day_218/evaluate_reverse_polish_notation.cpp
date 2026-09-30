@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<string> tokens = {"4", "13", "5", "/", "+"};
-
+int evaluate(vector<string>& tokens) {
     stack<int> st;
 
     for (string token : tokens) {
@@ -30,7 +28,13 @@ int main() {
         }
     }
 
-    cout << st.top();
+    return st.top();
+}
+
+int main() {
+    vector<string> tokens = {"2", "1", "+", "3", "*"};
+
+    cout << evaluate(tokens);
 
     return 0;
 }
