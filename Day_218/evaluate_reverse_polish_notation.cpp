@@ -24,7 +24,6 @@ public:
                     st.push(a * b);
                 else
                     st.push(a / b);
-
             } else {
                 st.push(stoi(token));
             }
@@ -37,9 +36,13 @@ public:
 int main() {
     Solution s;
 
-    vector<string> tokens = {"2", "1", "+", "3", "*"};
+    vector<string> a = {"2", "1", "+", "3", "*"};
+    vector<string> b = {"4", "13", "5", "/", "+"};
+    vector<string> c = {"10", "6", "9", "3", "/", "-", "*", "17", "+", "5", "+"};
 
-    cout << s.evalRPN(tokens);
+    cout << s.evalRPN(a) << endl;
+    cout << s.evalRPN(b) << endl;
+    cout << s.evalRPN(c) << endl;
 
     return 0;
 }
