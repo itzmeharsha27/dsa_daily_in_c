@@ -2,12 +2,14 @@
 using namespace std;
 
 int main() {
-    vector<string> tokens = {"2", "1", "+"};
+    vector<string> tokens = {"4", "13", "5", "/", "+"};
 
     stack<int> st;
 
     for (string token : tokens) {
-        if (token == "+" || token == "-") {
+        if (token == "+" || token == "-" ||
+            token == "*" || token == "/") {
+
             int b = st.top();
             st.pop();
 
@@ -16,8 +18,13 @@ int main() {
 
             if (token == "+")
                 st.push(a + b);
-            else
+            else if (token == "-")
                 st.push(a - b);
+            else if (token == "*")
+                st.push(a * b);
+            else
+                st.push(a / b);
+
         } else {
             st.push(stoi(token));
         }
