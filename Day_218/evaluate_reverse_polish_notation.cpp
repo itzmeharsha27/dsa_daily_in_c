@@ -4,45 +4,41 @@ using namespace std;
 class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
-        stack<int> st;
+        vector<int> st;
 
         for (string token : tokens) {
             if (token == "+" || token == "-" ||
                 token == "*" || token == "/") {
 
-                int b = st.top();
-                st.pop();
+                int b = st.back();
+                st.pop_back();
 
-                int a = st.top();
-                st.pop();
+                int a = st.back();
+                st.pop_back();
 
                 if (token == "+")
-                    st.push(a + b);
+                    st.push_back(a + b);
                 else if (token == "-")
-                    st.push(a - b);
+                    st.push_back(a - b);
                 else if (token == "*")
-                    st.push(a * b);
+                    st.push_back(a * b);
                 else
-                    st.push(a / b);
+                    st.push_back(a / b);
             } else {
-                st.push(stoi(token));
+                st.push_back(stoi(token));
             }
         }
 
-        return st.top();
+        return st.back();
     }
 };
 
 int main() {
     Solution s;
 
-    vector<string> a = {"2", "1", "+", "3", "*"};
-    vector<string> b = {"4", "13", "5", "/", "+"};
-    vector<string> c = {"10", "6", "9", "3", "/", "-", "*", "17", "+", "5", "+"};
+    vector<string> tokens = {"2", "1", "+", "3", "*"};
 
-    cout << s.evalRPN(a) << endl;
-    cout << s.evalRPN(b) << endl;
-    cout << s.evalRPN(c) << endl;
+    cout << s.evalRPN(tokens);
 
     return 0;
 }
