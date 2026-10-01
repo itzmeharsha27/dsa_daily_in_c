@@ -12,6 +12,9 @@ void generate(string& num, int index,
     }
 
     for (int i = index; i < num.size(); i++) {
+        if (i > index && num[index] == '0')
+            break;
+
         string part = num.substr(index, i - index + 1);
         long long current = stoll(part);
 
@@ -20,31 +23,26 @@ void generate(string& num, int index,
                      target, part);
         } else {
             generate(num, i + 1,
-                     value + current,
-                     current,
-                     target,
-                     expression + "+" + part);
+                     value + current, current,
+                     target, expression + "+" + part);
 
             generate(num, i + 1,
-                     value - current,
-                     -current,
-                     target,
-                     expression + "-" + part);
+                     value - current, -current,
+                     target, expression + "-" + part);
 
             long long multiplied = previous * current;
 
             generate(num, i + 1,
                      value - previous + multiplied,
                      multiplied,
-                     target,
-                     expression + "*" + part);
+                     target, expression + "*" + part);
         }
     }
 }
 
 int main() {
-    string num = "123";
-    int target = 6;
+    string num = "105";
+    int target = 5;
 
     generate(num, 0, 0, 0, target, "");
 
