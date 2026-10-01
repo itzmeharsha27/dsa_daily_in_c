@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void generate(string& num, int index, long long value,
+void generate(string& num, int index,
+              long long value, long long previous,
               long long target, string expression) {
+
     if (index == num.size()) {
         if (value == target)
             cout << expression << endl;
@@ -14,13 +16,28 @@ void generate(string& num, int index, long long value,
         long long current = stoll(part);
 
         if (index == 0) {
-            generate(num, i + 1, current, target, part);
+            generate(num, i + 1, current, current,
+                     target, part);
         } else {
-            generate(num, i + 1, value + current,
-                     target, expression + "+" + part);
+            generate(num, i + 1,
+                     value + current,
+                     current,
+                     target,
+                     expression + "+" + part);
 
-            generate(num, i + 1, value - current,
-                     target, expression + "-" + part);
+            generate(num, i + 1,
+                     value - current,
+                     -current,
+                     target,
+                     expression + "-" + part);
+
+            long long multiplied = previous * current;
+
+            generate(num, i + 1,
+                     value - previous + multiplied,
+                     multiplied,
+                     target,
+                     expression + "*" + part);
         }
     }
 }
@@ -29,7 +46,7 @@ int main() {
     string num = "123";
     int target = 6;
 
-    generate(num, 0, 0, target, "");
+    generate(num, 0, 0, 0, target, "");
 
     return 0;
 }
