@@ -27,41 +27,42 @@ public:
                           target, part);
             } else {
                 backtrack(num, i + 1,
-                          value + current,
-                          current,
-                          target,
-                          expression + "+" + part);
+                          value + current, current,
+                          target, expression + "+" + part);
 
                 backtrack(num, i + 1,
-                          value - current,
-                          -current,
-                          target,
-                          expression + "-" + part);
+                          value - current, -current,
+                          target, expression + "-" + part);
 
                 long long multiplied = previous * current;
 
                 backtrack(num, i + 1,
                           value - previous + multiplied,
                           multiplied,
-                          target,
-                          expression + "*" + part);
+                          target, expression + "*" + part);
             }
         }
     }
 
     vector<string> addOperators(string num, int target) {
+        answer.clear();
         backtrack(num, 0, 0, 0, target, "");
         return answer;
     }
 };
 
+void print(vector<string> result) {
+    for (string s : result)
+        cout << s << " ";
+    cout << endl;
+}
+
 int main() {
     Solution s;
 
-    vector<string> result = s.addOperators("123", 6);
-
-    for (string expression : result)
-        cout << expression << endl;
+    print(s.addOperators("123", 6));
+    print(s.addOperators("232", 8));
+    print(s.addOperators("105", 5));
 
     return 0;
 }
