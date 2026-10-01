@@ -1,50 +1,67 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void generate(string& num, int index,
-              long long value, long long previous,
-              long long target, string expression) {
+class Solution {
+public:
+    vector<string> answer;
 
-    if (index == num.size()) {
-        if (value == target)
-            cout << expression << endl;
-        return;
-    }
+    void backtrack(string& num, int index,
+                   long long value, long long previous,
+                   long long target, string expression) {
 
-    for (int i = index; i < num.size(); i++) {
-        if (i > index && num[index] == '0')
-            break;
+        if (index == num.size()) {
+            if (value == target)
+                answer.push_back(expression);
+            return;
+        }
 
-        string part = num.substr(index, i - index + 1);
-        long long current = stoll(part);
+        for (int i = index; i < num.size(); i++) {
+            if (i > index && num[index] == '0')
+                break;
 
-        if (index == 0) {
-            generate(num, i + 1, current, current,
-                     target, part);
-        } else {
-            generate(num, i + 1,
-                     value + current, current,
-                     target, expression + "+" + part);
+            string part = num.substr(index, i - index + 1);
+            long long current = stoll(part);
 
-            generate(num, i + 1,
-                     value - current, -current,
-                     target, expression + "-" + part);
+            if (index == 0) {
+                backtrack(num, i + 1, current, current,
+                          target, part);
+            } else {
+                backtrack(num, i + 1,
+                          value + current,
+                          current,
+                          target,
+                          expression + "+" + part);
 
-            long long multiplied = previous * current;
+                backtrack(num, i + 1,
+                          value - current,
+                          -current,
+                          target,
+                          expression + "-" + part);
 
-            generate(num, i + 1,
-                     value - previous + multiplied,
-                     multiplied,
-                     target, expression + "*" + part);
+                long long multiplied = previous * current;
+
+                backtrack(num, i + 1,
+                          value - previous + multiplied,
+                          multiplied,
+                          target,
+                          expression + "*" + part);
+            }
         }
     }
-}
+
+    vector<string> addOperators(string num, int target) {
+        backtrack(num, 0, 0, 0, target, "");
+        return answer;
+    }
+};
 
 int main() {
-    string num = "105";
-    int target = 5;
+    Solution s;
 
-    generate(num, 0, 0, 0, target, "");
+    vector<string> result = s.addOperators("123", 6);
+
+    for (string expression : result)
+        cout << expression << endl;
 
     return 0;
 }
