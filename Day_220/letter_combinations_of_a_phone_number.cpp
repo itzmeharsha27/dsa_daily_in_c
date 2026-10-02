@@ -22,8 +22,10 @@ public:
     }
 
     vector<string> letterCombinations(string digits) {
+        result.clear();
+
         if (digits.empty())
-            return {};
+            return result;
 
         backtrack(digits, 0, "");
 
@@ -34,9 +36,18 @@ public:
 int main() {
     Solution s;
 
-    vector<string> answer = s.letterCombinations("23");
+    vector<string> test1 = s.letterCombinations("23");
 
-    for (string x : answer)
+    cout << "23: ";
+    for (string x : test1)
+        cout << x << " ";
+
+    cout << "\n";
+
+    vector<string> test2 = s.letterCombinations("2");
+
+    cout << "2: ";
+    for (string x : test2)
         cout << x << " ";
 
     return 0;
