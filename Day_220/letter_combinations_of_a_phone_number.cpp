@@ -6,9 +6,11 @@ vector<string> letters = {
     "jkl", "mno", "pqrs", "tuv", "wxyz"
 };
 
+vector<string> result;
+
 void generate(string digits, int index, string current) {
     if (index == digits.size()) {
-        cout << current << endl;
+        result.push_back(current);
         return;
     }
 
@@ -23,6 +25,9 @@ int main() {
     string digits = "23";
 
     generate(digits, 0, "");
+
+    for (string x : result)
+        cout << x << " ";
 
     return 0;
 }
