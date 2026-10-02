@@ -9,8 +9,13 @@ int main() {
 
     string digits = "23";
 
-    for (char digit : digits) {
-        cout << letters[digit - '0'] << endl;
+    string first = letters[digits[0] - '0'];
+    string second = letters[digits[1] - '0'];
+
+    for (char a : first) {
+        for (char b : second) {
+            cout << a << b << endl;
+        }
     }
 
     return 0;
