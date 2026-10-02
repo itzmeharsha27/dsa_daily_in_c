@@ -16,7 +16,9 @@ public:
             return;
         }
 
-        for (char c : letters[digits[index] - '0']) {
+        string chars = letters[digits[index] - '0'];
+
+        for (char c : chars) {
             backtrack(digits, index + 1, current + c);
         }
     }
@@ -36,18 +38,9 @@ public:
 int main() {
     Solution s;
 
-    vector<string> test1 = s.letterCombinations("23");
+    vector<string> result = s.letterCombinations("23");
 
-    cout << "23: ";
-    for (string x : test1)
-        cout << x << " ";
-
-    cout << "\n";
-
-    vector<string> test2 = s.letterCombinations("2");
-
-    cout << "2: ";
-    for (string x : test2)
+    for (string x : result)
         cout << x << " ";
 
     return 0;
