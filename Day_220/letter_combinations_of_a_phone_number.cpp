@@ -14,19 +14,24 @@ void generate(string digits, int index, string current) {
         return;
     }
 
-    string chars = letters[digits[index] - '0'];
-
-    for (char c : chars) {
+    for (char c : letters[digits[index] - '0']) {
         generate(digits, index + 1, current + c);
     }
 }
 
-int main() {
-    string digits = "23";
+vector<string> letterCombinations(string digits) {
+    if (digits.empty())
+        return {};
 
     generate(digits, 0, "");
 
-    for (string x : result)
+    return result;
+}
+
+int main() {
+    vector<string> answer = letterCombinations("23");
+
+    for (string x : answer)
         cout << x << " ";
 
     return 0;
