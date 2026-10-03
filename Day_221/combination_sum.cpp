@@ -5,7 +5,12 @@ int main() {
     vector<int> candidates = {2, 3, 6, 7};
     int target = 7;
 
-    cout << "Target: " << target << endl;
+    for (int a : candidates) {
+        for (int b : candidates) {
+            if (a + b == target)
+                cout << a << " " << b << endl;
+        }
+    }
 
     return 0;
 }
