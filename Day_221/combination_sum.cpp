@@ -1,16 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<int> candidates = {2, 3, 6, 7};
-    int target = 7;
+vector<int> candidates = {2, 3, 6, 7};
+int target = 7;
 
-    for (int a : candidates) {
-        for (int b : candidates) {
-            if (a + b == target)
-                cout << a << " " << b << endl;
-        }
+void generate(int index, int sum, vector<int> current) {
+    if (sum == target) {
+        for (int x : current)
+            cout << x << " ";
+        cout << endl;
+        return;
     }
+
+    if (sum > target || index == candidates.size())
+        return;
+
+    current.push_back(candidates[index]);
+    generate(index, sum + candidates[index], current);
+
+    current.pop_back();
+    generate(index + 1, sum, current);
+}
+
+int main() {
+    generate(0, 0, {});
 
     return 0;
 }
