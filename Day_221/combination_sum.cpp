@@ -6,21 +6,21 @@ public:
     vector<vector<int>> result;
 
     void backtrack(vector<int>& candidates, int start,
-                   int remaining, vector<int>& current) {
+                   int target, vector<int>& current) {
 
-        if (remaining == 0) {
+        if (target == 0) {
             result.push_back(current);
             return;
         }
 
         for (int i = start; i < candidates.size(); i++) {
-            if (candidates[i] > remaining)
+            if (candidates[i] > target)
                 continue;
 
             current.push_back(candidates[i]);
 
             backtrack(candidates, i,
-                      remaining - candidates[i], current);
+                      target - candidates[i], current);
 
             current.pop_back();
         }
@@ -43,10 +43,10 @@ int main() {
 
     vector<int> candidates = {2, 3, 6, 7};
 
-    vector<vector<int>> answer =
+    vector<vector<int>> result =
         s.combinationSum(candidates, 7);
 
-    for (auto combination : answer) {
+    for (auto combination : result) {
         for (int x : combination)
             cout << x << " ";
         cout << endl;
