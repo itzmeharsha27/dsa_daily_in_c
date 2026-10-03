@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> candidates = {2, 3, 6, 7};
-int target = 7;
 vector<vector<int>> result;
 
-void backtrack(int index, int remaining, vector<int>& current) {
+void backtrack(vector<int>& candidates, int index,
+               int remaining, vector<int>& current) {
+
     if (remaining == 0) {
         result.push_back(current);
         return;
@@ -16,21 +16,30 @@ void backtrack(int index, int remaining, vector<int>& current) {
 
     current.push_back(candidates[index]);
 
-    // Use the same number again.
-    backtrack(index, remaining - candidates[index], current);
+    backtrack(candidates, index,
+              remaining - candidates[index], current);
 
     current.pop_back();
 
-    // Move to the next number.
-    backtrack(index + 1, remaining, current);
+    backtrack(candidates, index + 1,
+              remaining, current);
+}
+
+vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+    result.clear();
+
+    vector<int> current;
+    backtrack(candidates, 0, target, current);
+
+    return result;
 }
 
 int main() {
-    vector<int> current;
+    vector<int> candidates = {2, 3, 6, 7};
 
-    backtrack(0, target, current);
+    vector<vector<int>> answer = combinationSum(candidates, 7);
 
-    for (auto combination : result) {
+    for (auto combination : answer) {
         for (int x : combination)
             cout << x << " ";
         cout << endl;
