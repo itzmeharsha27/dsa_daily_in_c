@@ -5,7 +5,7 @@ class Solution {
 public:
     vector<vector<int>> result;
 
-    void backtrack(vector<int>& candidates, int index,
+    void backtrack(vector<int>& candidates, int start,
                    int remaining, vector<int>& current) {
 
         if (remaining == 0) {
@@ -13,18 +13,17 @@ public:
             return;
         }
 
-        if (remaining < 0 || index == candidates.size())
-            return;
+        for (int i = start; i < candidates.size(); i++) {
+            if (candidates[i] > remaining)
+                continue;
 
-        current.push_back(candidates[index]);
+            current.push_back(candidates[i]);
 
-        backtrack(candidates, index,
-                  remaining - candidates[index], current);
+            backtrack(candidates, i,
+                      remaining - candidates[i], current);
 
-        current.pop_back();
-
-        backtrack(candidates, index + 1,
-                  remaining, current);
+            current.pop_back();
+        }
     }
 
     vector<vector<int>> combinationSum(
