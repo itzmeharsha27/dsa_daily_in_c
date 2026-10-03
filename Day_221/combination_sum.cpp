@@ -5,26 +5,30 @@ vector<int> candidates = {2, 3, 6, 7};
 int target = 7;
 vector<vector<int>> result;
 
-void generate(int index, int sum, vector<int>& current) {
-    if (sum == target) {
+void backtrack(int index, int remaining, vector<int>& current) {
+    if (remaining == 0) {
         result.push_back(current);
         return;
     }
 
-    if (sum > target || index == candidates.size())
+    if (remaining < 0 || index == candidates.size())
         return;
 
     current.push_back(candidates[index]);
-    generate(index, sum + candidates[index], current);
+
+    // Use the same number again.
+    backtrack(index, remaining - candidates[index], current);
 
     current.pop_back();
-    generate(index + 1, sum, current);
+
+    // Move to the next number.
+    backtrack(index + 1, remaining, current);
 }
 
 int main() {
     vector<int> current;
 
-    generate(0, 0, current);
+    backtrack(0, target, current);
 
     for (auto combination : result) {
         for (int x : combination)
