@@ -1,14 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> candidates = {1, 1, 2, 5, 6, 7, 10};
-int target = 8;
+vector<vector<int>> result;
 
-void generate(int start, int remaining, vector<int> current) {
+void generate(vector<int>& candidates,
+              int start,
+              int remaining,
+              vector<int>& current) {
+
     if (remaining == 0) {
-        for (int x : current)
-            cout << x << " ";
-        cout << endl;
+        result.push_back(current);
         return;
     }
 
@@ -18,7 +19,8 @@ void generate(int start, int remaining, vector<int> current) {
     for (int i = start; i < candidates.size(); i++) {
         current.push_back(candidates[i]);
 
-        generate(i + 1,
+        generate(candidates,
+                 i + 1,
                  remaining - candidates[i],
                  current);
 
@@ -27,7 +29,16 @@ void generate(int start, int remaining, vector<int> current) {
 }
 
 int main() {
-    generate(0, target, {});
+    vector<int> candidates = {1, 1, 2, 5, 6, 7, 10};
+    vector<int> current;
+
+    generate(candidates, 0, 8, current);
+
+    for (auto combination : result) {
+        for (int x : combination)
+            cout << x << " ";
+        cout << endl;
+    }
 
     return 0;
 }
