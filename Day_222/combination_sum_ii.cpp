@@ -13,10 +13,14 @@ void generate(vector<int>& candidates,
         return;
     }
 
-    if (remaining < 0)
-        return;
-
     for (int i = start; i < candidates.size(); i++) {
+
+        if (i > start && candidates[i] == candidates[i - 1])
+            continue;
+
+        if (candidates[i] > remaining)
+            break;
+
         current.push_back(candidates[i]);
 
         generate(candidates,
@@ -30,6 +34,9 @@ void generate(vector<int>& candidates,
 
 int main() {
     vector<int> candidates = {1, 1, 2, 5, 6, 7, 10};
+
+    sort(candidates.begin(), candidates.end());
+
     vector<int> current;
 
     generate(candidates, 0, 8, current);
