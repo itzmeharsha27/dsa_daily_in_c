@@ -50,19 +50,27 @@ public:
     }
 };
 
+void print(vector<vector<int>>& result) {
+    for (auto combination : result) {
+        cout << "[ ";
+        for (int x : combination)
+            cout << x << " ";
+        cout << "] ";
+    }
+    cout << endl;
+}
+
 int main() {
     Solution s;
 
-    vector<int> candidates = {10, 1, 2, 7, 6, 1, 5};
+    vector<int> a = {10, 1, 2, 7, 6, 1, 5};
+    vector<int> b = {2, 5, 2, 1, 2};
 
-    vector<vector<int>> answer =
-        s.combinationSum2(candidates, 8);
+    vector<vector<int>> result1 = s.combinationSum2(a, 8);
+    print(result1);
 
-    for (auto combination : answer) {
-        for (int x : combination)
-            cout << x << " ";
-        cout << endl;
-    }
+    vector<vector<int>> result2 = s.combinationSum2(b, 5);
+    print(result2);
 
     return 0;
 }
