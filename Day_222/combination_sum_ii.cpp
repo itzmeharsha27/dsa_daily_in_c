@@ -3,12 +3,12 @@ using namespace std;
 
 vector<vector<int>> result;
 
-void generate(vector<int>& candidates,
-              int start,
-              int remaining,
-              vector<int>& current) {
+void backtrack(vector<int>& candidates,
+               int start,
+               int target,
+               vector<int>& current) {
 
-    if (remaining == 0) {
+    if (target == 0) {
         result.push_back(current);
         return;
     }
@@ -18,30 +18,42 @@ void generate(vector<int>& candidates,
         if (i > start && candidates[i] == candidates[i - 1])
             continue;
 
-        if (candidates[i] > remaining)
+        if (candidates[i] > target)
             break;
 
         current.push_back(candidates[i]);
 
-        generate(candidates,
-                 i + 1,
-                 remaining - candidates[i],
-                 current);
+        backtrack(candidates,
+                  i + 1,
+                  target - candidates[i],
+                  current);
 
         current.pop_back();
     }
 }
 
-int main() {
-    vector<int> candidates = {1, 1, 2, 5, 6, 7, 10};
+vector<vector<int>> combinationSum2(
+    vector<int>& candidates,
+    int target) {
+
+    result.clear();
 
     sort(candidates.begin(), candidates.end());
 
     vector<int> current;
 
-    generate(candidates, 0, 8, current);
+    backtrack(candidates, 0, target, current);
 
-    for (auto combination : result) {
+    return result;
+}
+
+int main() {
+    vector<int> candidates = {10, 1, 2, 7, 6, 1, 5};
+
+    vector<vector<int>> answer =
+        combinationSum2(candidates, 8);
+
+    for (auto combination : answer) {
         for (int x : combination)
             cout << x << " ";
         cout << endl;
