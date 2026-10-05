@@ -1,27 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<int> nums = {1, 2, 3};
+vector<int> nums = {1, 2, 3};
 
-    vector<vector<int>> result = {{}};
-
-    for (int num : nums) {
-        int size = result.size();
-
-        for (int i = 0; i < size; i++) {
-            vector<int> subset = result[i];
-            subset.push_back(num);
-            result.push_back(subset);
-        }
-    }
-
-    for (auto subset : result) {
+void generate(int index, vector<int> current) {
+    if (index == nums.size()) {
         cout << "[ ";
-        for (int x : subset)
+
+        for (int x : current)
             cout << x << " ";
-        cout << "] ";
+
+        cout << "]" << endl;
+        return;
     }
+
+    generate(index + 1, current);
+
+    current.push_back(nums[index]);
+
+    generate(index + 1, current);
+}
+
+int main() {
+    generate(0, {});
 
     return 0;
 }
