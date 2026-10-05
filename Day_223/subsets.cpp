@@ -9,13 +9,17 @@ public:
                    int start,
                    vector<int>& current) {
 
+        // Every current state is a valid subset.
         result.push_back(current);
 
         for (int i = start; i < nums.size(); i++) {
+            // Choose
             current.push_back(nums[i]);
 
+            // Explore
             backtrack(nums, i + 1, current);
 
+            // Undo choice
             current.pop_back();
         }
     }
@@ -31,7 +35,13 @@ public:
     }
 };
 
-void print(vector<vector<int>>& result) {
+int main() {
+    Solution s;
+
+    vector<int> nums = {1, 2, 3};
+
+    vector<vector<int>> result = s.subsets(nums);
+
     for (auto subset : result) {
         cout << "[ ";
 
@@ -40,21 +50,6 @@ void print(vector<vector<int>>& result) {
 
         cout << "] ";
     }
-
-    cout << endl;
-}
-
-int main() {
-    Solution s;
-
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {0};
-
-    vector<vector<int>> result1 = s.subsets(a);
-    print(result1);
-
-    vector<vector<int>> result2 = s.subsets(b);
-    print(result2);
 
     return 0;
 }
