@@ -31,14 +31,8 @@ public:
     }
 };
 
-int main() {
-    Solution s;
-
-    vector<int> nums = {1, 2, 3};
-
-    vector<vector<int>> answer = s.subsets(nums);
-
-    for (auto subset : answer) {
+void print(vector<vector<int>>& result) {
+    for (auto subset : result) {
         cout << "[ ";
 
         for (int x : subset)
@@ -46,6 +40,21 @@ int main() {
 
         cout << "] ";
     }
+
+    cout << endl;
+}
+
+int main() {
+    Solution s;
+
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {0};
+
+    vector<vector<int>> result1 = s.subsets(a);
+    print(result1);
+
+    vector<vector<int>> result2 = s.subsets(b);
+    print(result2);
 
     return 0;
 }
