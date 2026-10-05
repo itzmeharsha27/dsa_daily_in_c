@@ -1,28 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<vector<int>> result;
 vector<int> nums = {1, 2, 3};
 
-void generate(int index, vector<int> current) {
+void backtrack(int index, vector<int>& current) {
     if (index == nums.size()) {
-        cout << "[ ";
-
-        for (int x : current)
-            cout << x << " ";
-
-        cout << "]" << endl;
+        result.push_back(current);
         return;
     }
 
-    generate(index + 1, current);
+    backtrack(index + 1, current);
 
     current.push_back(nums[index]);
 
-    generate(index + 1, current);
+    backtrack(index + 1, current);
+
+    current.pop_back();
 }
 
 int main() {
-    generate(0, {});
+    vector<int> current;
+
+    backtrack(0, current);
+
+    for (auto subset : result) {
+        cout << "[ ";
+
+        for (int x : subset)
+            cout << x << " ";
+
+        cout << "] ";
+    }
 
     return 0;
 }
