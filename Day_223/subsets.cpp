@@ -4,8 +4,15 @@ using namespace std;
 int main() {
     vector<int> nums = {1, 2, 3};
 
-    for (int x : nums)
-        cout << x << " ";
+    vector<vector<int>> result;
+
+    result.push_back({});
+
+    for (auto subset : result) {
+        for (int x : subset)
+            cout << x << " ";
+        cout << endl;
+    }
 
     return 0;
 }
