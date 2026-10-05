@@ -2,29 +2,41 @@
 using namespace std;
 
 vector<vector<int>> result;
-vector<int> nums = {1, 2, 3};
 
-void backtrack(int index, vector<int>& current) {
-    if (index == nums.size()) {
-        result.push_back(current);
+void backtrack(vector<int>& nums,
+               int index,
+               vector<int>& current) {
+
+    result.push_back(current);
+
+    if (index == nums.size())
         return;
+
+    for (int i = index; i < nums.size(); i++) {
+        current.push_back(nums[i]);
+
+        backtrack(nums, i + 1, current);
+
+        current.pop_back();
     }
+}
 
-    backtrack(index + 1, current);
+vector<vector<int>> subsets(vector<int>& nums) {
+    result.clear();
 
-    current.push_back(nums[index]);
+    vector<int> current;
 
-    backtrack(index + 1, current);
+    backtrack(nums, 0, current);
 
-    current.pop_back();
+    return result;
 }
 
 int main() {
-    vector<int> current;
+    vector<int> nums = {1, 2, 3};
 
-    backtrack(0, current);
+    vector<vector<int>> answer = subsets(nums);
 
-    for (auto subset : result) {
+    for (auto subset : answer) {
         cout << "[ ";
 
         for (int x : subset)
