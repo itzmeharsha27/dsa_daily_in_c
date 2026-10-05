@@ -1,40 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> result;
+class Solution {
+public:
+    vector<vector<int>> result;
 
-void backtrack(vector<int>& nums,
-               int index,
-               vector<int>& current) {
+    void backtrack(vector<int>& nums,
+                   int start,
+                   vector<int>& current) {
 
-    result.push_back(current);
+        result.push_back(current);
 
-    if (index == nums.size())
-        return;
+        for (int i = start; i < nums.size(); i++) {
+            current.push_back(nums[i]);
 
-    for (int i = index; i < nums.size(); i++) {
-        current.push_back(nums[i]);
+            backtrack(nums, i + 1, current);
 
-        backtrack(nums, i + 1, current);
-
-        current.pop_back();
+            current.pop_back();
+        }
     }
-}
 
-vector<vector<int>> subsets(vector<int>& nums) {
-    result.clear();
+    vector<vector<int>> subsets(vector<int>& nums) {
+        result.clear();
 
-    vector<int> current;
+        vector<int> current;
 
-    backtrack(nums, 0, current);
+        backtrack(nums, 0, current);
 
-    return result;
-}
+        return result;
+    }
+};
 
 int main() {
+    Solution s;
+
     vector<int> nums = {1, 2, 3};
 
-    vector<vector<int>> answer = subsets(nums);
+    vector<vector<int>> answer = s.subsets(nums);
 
     for (auto subset : answer) {
         cout << "[ ";
