@@ -4,14 +4,23 @@ using namespace std;
 int main() {
     vector<int> nums = {1, 2, 3};
 
-    vector<vector<int>> result;
+    vector<vector<int>> result = {{}};
 
-    result.push_back({});
+    for (int num : nums) {
+        int size = result.size();
+
+        for (int i = 0; i < size; i++) {
+            vector<int> subset = result[i];
+            subset.push_back(num);
+            result.push_back(subset);
+        }
+    }
 
     for (auto subset : result) {
+        cout << "[ ";
         for (int x : subset)
             cout << x << " ";
-        cout << endl;
+        cout << "] ";
     }
 
     return 0;
