@@ -3,26 +3,27 @@ using namespace std;
 
 vector<int> nums = {1, 2, 2};
 
-void generate(int index, vector<int> current) {
-    if (index == nums.size()) {
-        cout << "[ ";
+void backtrack(int start, vector<int>& current) {
+    cout << "[ ";
 
-        for (int x : current)
-            cout << x << " ";
+    for (int x : current)
+        cout << x << " ";
 
-        cout << "]" << endl;
-        return;
+    cout << "]" << endl;
+
+    for (int i = start; i < nums.size(); i++) {
+        current.push_back(nums[i]);
+
+        backtrack(i + 1, current);
+
+        current.pop_back();
     }
-
-    generate(index + 1, current);
-
-    current.push_back(nums[index]);
-
-    generate(index + 1, current);
 }
 
 int main() {
-    generate(0, {});
+    vector<int> current;
+
+    backtrack(0, current);
 
     return 0;
 }
