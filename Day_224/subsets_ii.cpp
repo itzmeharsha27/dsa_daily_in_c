@@ -1,15 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> nums = {1, 2, 2};
+vector<vector<int>> result;
 
-void backtrack(int start, vector<int>& current) {
-    cout << "[ ";
+void backtrack(vector<int>& nums,
+               int start,
+               vector<int>& current) {
 
-    for (int x : current)
-        cout << x << " ";
-
-    cout << "]" << endl;
+    result.push_back(current);
 
     for (int i = start; i < nums.size(); i++) {
 
@@ -18,18 +16,37 @@ void backtrack(int start, vector<int>& current) {
 
         current.push_back(nums[i]);
 
-        backtrack(i + 1, current);
+        backtrack(nums, i + 1, current);
 
         current.pop_back();
     }
 }
 
-int main() {
+vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+    result.clear();
+
     sort(nums.begin(), nums.end());
 
     vector<int> current;
 
-    backtrack(0, current);
+    backtrack(nums, 0, current);
+
+    return result;
+}
+
+int main() {
+    vector<int> nums = {1, 2, 2};
+
+    vector<vector<int>> answer = subsetsWithDup(nums);
+
+    for (auto subset : answer) {
+        cout << "[ ";
+
+        for (int x : subset)
+            cout << x << " ";
+
+        cout << "] ";
+    }
 
     return 0;
 }
