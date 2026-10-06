@@ -1,43 +1,49 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> result;
+class Solution {
+public:
+    vector<vector<int>> result;
 
-void backtrack(vector<int>& nums,
-               int start,
-               vector<int>& current) {
+    void backtrack(vector<int>& nums,
+                   int start,
+                   vector<int>& current) {
 
-    result.push_back(current);
+        result.push_back(current);
 
-    for (int i = start; i < nums.size(); i++) {
+        for (int i = start; i < nums.size(); i++) {
 
-        if (i > start && nums[i] == nums[i - 1])
-            continue;
+            if (i > start && nums[i] == nums[i - 1])
+                continue;
 
-        current.push_back(nums[i]);
+            current.push_back(nums[i]);
 
-        backtrack(nums, i + 1, current);
+            backtrack(nums, i + 1, current);
 
-        current.pop_back();
+            current.pop_back();
+        }
     }
-}
 
-vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-    result.clear();
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        result.clear();
 
-    sort(nums.begin(), nums.end());
+        sort(nums.begin(), nums.end());
 
-    vector<int> current;
+        vector<int> current;
 
-    backtrack(nums, 0, current);
+        backtrack(nums, 0, current);
 
-    return result;
-}
+        return result;
+    }
+};
 
 int main() {
+    Solution s;
+
     vector<int> nums = {1, 2, 2};
 
-    vector<vector<int>> answer = subsetsWithDup(nums);
+    vector<vector<int>> answer =
+        s.subsetsWithDup(nums);
 
     for (auto subset : answer) {
         cout << "[ ";
