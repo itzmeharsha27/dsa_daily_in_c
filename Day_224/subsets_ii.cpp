@@ -12,6 +12,10 @@ void backtrack(int start, vector<int>& current) {
     cout << "]" << endl;
 
     for (int i = start; i < nums.size(); i++) {
+
+        if (i > start && nums[i] == nums[i - 1])
+            continue;
+
         current.push_back(nums[i]);
 
         backtrack(i + 1, current);
@@ -21,6 +25,8 @@ void backtrack(int start, vector<int>& current) {
 }
 
 int main() {
+    sort(nums.begin(), nums.end());
+
     vector<int> current;
 
     backtrack(0, current);
