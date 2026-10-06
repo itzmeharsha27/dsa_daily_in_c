@@ -37,15 +37,8 @@ public:
     }
 };
 
-int main() {
-    Solution s;
-
-    vector<int> nums = {1, 2, 2};
-
-    vector<vector<int>> answer =
-        s.subsetsWithDup(nums);
-
-    for (auto subset : answer) {
+void print(vector<vector<int>>& result) {
+    for (auto subset : result) {
         cout << "[ ";
 
         for (int x : subset)
@@ -53,6 +46,25 @@ int main() {
 
         cout << "] ";
     }
+
+    cout << endl;
+}
+
+int main() {
+    Solution s;
+
+    vector<int> a = {1, 2, 2};
+    vector<int> b = {0};
+
+    vector<vector<int>> result1 =
+        s.subsetsWithDup(a);
+
+    print(result1);
+
+    vector<vector<int>> result2 =
+        s.subsetsWithDup(b);
+
+    print(result2);
 
     return 0;
 }
