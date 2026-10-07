@@ -3,25 +3,36 @@ using namespace std;
 
 vector<vector<int>> result;
 
-void generate(vector<int>& nums, int start) {
-    if (start == nums.size()) {
-        result.push_back(nums);
+void backtrack(vector<int>& nums,
+               vector<bool>& used,
+               vector<int>& current) {
+
+    if (current.size() == nums.size()) {
+        result.push_back(current);
         return;
     }
 
-    for (int i = start; i < nums.size(); i++) {
-        swap(nums[start], nums[i]);
+    for (int i = 0; i < nums.size(); i++) {
+        if (used[i])
+            continue;
 
-        generate(nums, start + 1);
+        used[i] = true;
+        current.push_back(nums[i]);
 
-        swap(nums[start], nums[i]);
+        backtrack(nums, used, current);
+
+        current.pop_back();
+        used[i] = false;
     }
 }
 
 int main() {
     vector<int> nums = {1, 2, 3};
 
-    generate(nums, 0);
+    vector<bool> used(nums.size(), false);
+    vector<int> current;
+
+    backtrack(nums, used, current);
 
     for (auto permutation : result) {
         for (int x : permutation)
