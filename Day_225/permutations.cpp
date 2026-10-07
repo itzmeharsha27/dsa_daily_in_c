@@ -18,11 +18,14 @@ public:
             if (used[i])
                 continue;
 
+            // Choose
             used[i] = true;
             current.push_back(nums[i]);
 
+            // Explore
             backtrack(nums, used, current);
 
+            // Undo
             current.pop_back();
             used[i] = false;
         }
@@ -40,30 +43,19 @@ public:
     }
 };
 
-void print(vector<vector<int>>& result) {
-    for (auto permutation : result) {
-        cout << "[ ";
-
-        for (int x : permutation)
-            cout << x << " ";
-
-        cout << "] ";
-    }
-
-    cout << endl;
-}
-
 int main() {
     Solution s;
 
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {0, 1};
+    vector<int> nums = {1, 2, 3};
 
-    vector<vector<int>> result1 = s.permute(a);
-    print(result1);
+    vector<vector<int>> result = s.permute(nums);
 
-    vector<vector<int>> result2 = s.permute(b);
-    print(result2);
+    for (auto permutation : result) {
+        for (int x : permutation)
+            cout << x << " ";
+
+        cout << endl;
+    }
 
     return 0;
 }
