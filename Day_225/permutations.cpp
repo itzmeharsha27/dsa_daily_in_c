@@ -40,19 +40,30 @@ public:
     }
 };
 
-int main() {
-    Solution s;
+void print(vector<vector<int>>& result) {
+    for (auto permutation : result) {
+        cout << "[ ";
 
-    vector<int> nums = {1, 2, 3};
-
-    vector<vector<int>> answer = s.permute(nums);
-
-    for (auto permutation : answer) {
         for (int x : permutation)
             cout << x << " ";
 
-        cout << endl;
+        cout << "] ";
     }
+
+    cout << endl;
+}
+
+int main() {
+    Solution s;
+
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {0, 1};
+
+    vector<vector<int>> result1 = s.permute(a);
+    print(result1);
+
+    vector<vector<int>> result2 = s.permute(b);
+    print(result2);
 
     return 0;
 }
