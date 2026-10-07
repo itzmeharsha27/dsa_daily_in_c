@@ -26,15 +26,23 @@ void backtrack(vector<int>& nums,
     }
 }
 
-int main() {
-    vector<int> nums = {1, 2, 3};
+vector<vector<int>> permute(vector<int>& nums) {
+    result.clear();
 
     vector<bool> used(nums.size(), false);
     vector<int> current;
 
     backtrack(nums, used, current);
 
-    for (auto permutation : result) {
+    return result;
+}
+
+int main() {
+    vector<int> nums = {1, 2, 3};
+
+    vector<vector<int>> answer = permute(nums);
+
+    for (auto permutation : answer) {
         for (int x : permutation)
             cout << x << " ";
 
