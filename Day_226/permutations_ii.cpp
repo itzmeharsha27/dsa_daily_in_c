@@ -19,14 +19,20 @@ public:
             if (used[i])
                 continue;
 
-            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])
+            // Skip the same value at the same recursion level.
+            if (i > 0 &&
+                nums[i] == nums[i - 1] &&
+                !used[i - 1])
                 continue;
 
+            // Choose
             used[i] = true;
             current.push_back(nums[i]);
 
+            // Explore
             backtrack(nums, used, current);
 
+            // Undo
             current.pop_back();
             used[i] = false;
         }
@@ -46,34 +52,20 @@ public:
     }
 };
 
-void print(vector<vector<int>>& result) {
-    for (auto permutation : result) {
-        cout << "[ ";
-
-        for (int x : permutation)
-            cout << x << " ";
-
-        cout << "] ";
-    }
-
-    cout << endl;
-}
-
 int main() {
     Solution s;
 
-    vector<int> a = {1, 1, 2};
-    vector<int> b = {1, 2, 2};
+    vector<int> nums = {1, 1, 2};
 
-    vector<vector<int>> result1 =
-        s.permuteUnique(a);
+    vector<vector<int>> result =
+        s.permuteUnique(nums);
 
-    print(result1);
+    for (auto permutation : result) {
+        for (int x : permutation)
+            cout << x << " ";
 
-    vector<vector<int>> result2 =
-        s.permuteUnique(b);
-
-    print(result2);
+        cout << endl;
+    }
 
     return 0;
 }
