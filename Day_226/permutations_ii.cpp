@@ -1,28 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void generate(vector<int>& nums, int start) {
-    if (start == nums.size()) {
-        for (int x : nums)
+void backtrack(vector<int>& nums,
+               vector<bool>& used,
+               vector<int>& current) {
+
+    if (current.size() == nums.size()) {
+        for (int x : current)
             cout << x << " ";
 
         cout << endl;
         return;
     }
 
-    for (int i = start; i < nums.size(); i++) {
-        swap(nums[start], nums[i]);
+    for (int i = 0; i < nums.size(); i++) {
+        if (used[i])
+            continue;
 
-        generate(nums, start + 1);
+        used[i] = true;
+        current.push_back(nums[i]);
 
-        swap(nums[start], nums[i]);
+        backtrack(nums, used, current);
+
+        current.pop_back();
+        used[i] = false;
     }
 }
 
 int main() {
     vector<int> nums = {1, 1, 2};
 
-    generate(nums, 0);
+    sort(nums.begin(), nums.end());
+
+    vector<bool> used(nums.size(), false);
+    vector<int> current;
+
+    backtrack(nums, used, current);
 
     return 0;
 }
