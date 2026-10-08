@@ -1,15 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<vector<int>> result;
+
 void backtrack(vector<int>& nums,
                vector<bool>& used,
                vector<int>& current) {
 
     if (current.size() == nums.size()) {
-        for (int x : current)
-            cout << x << " ";
-
-        cout << endl;
+        result.push_back(current);
         return;
     }
 
@@ -31,8 +30,8 @@ void backtrack(vector<int>& nums,
     }
 }
 
-int main() {
-    vector<int> nums = {1, 1, 2};
+vector<vector<int>> permuteUnique(vector<int>& nums) {
+    result.clear();
 
     sort(nums.begin(), nums.end());
 
@@ -40,6 +39,21 @@ int main() {
     vector<int> current;
 
     backtrack(nums, used, current);
+
+    return result;
+}
+
+int main() {
+    vector<int> nums = {1, 1, 2};
+
+    vector<vector<int>> answer = permuteUnique(nums);
+
+    for (auto permutation : answer) {
+        for (int x : permutation)
+            cout << x << " ";
+
+        cout << endl;
+    }
 
     return 0;
 }
