@@ -46,20 +46,34 @@ public:
     }
 };
 
-int main() {
-    Solution s;
+void print(vector<vector<int>>& result) {
+    for (auto permutation : result) {
+        cout << "[ ";
 
-    vector<int> nums = {1, 1, 2};
-
-    vector<vector<int>> answer =
-        s.permuteUnique(nums);
-
-    for (auto permutation : answer) {
         for (int x : permutation)
             cout << x << " ";
 
-        cout << endl;
+        cout << "] ";
     }
+
+    cout << endl;
+}
+
+int main() {
+    Solution s;
+
+    vector<int> a = {1, 1, 2};
+    vector<int> b = {1, 2, 2};
+
+    vector<vector<int>> result1 =
+        s.permuteUnique(a);
+
+    print(result1);
+
+    vector<vector<int>> result2 =
+        s.permuteUnique(b);
+
+    print(result2);
 
     return 0;
 }
