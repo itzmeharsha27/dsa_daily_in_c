@@ -2,9 +2,9 @@
 using namespace std;
 
 int main() {
-    int n = 3;
+    string parentheses = "()()()";
 
-    cout << "Pairs: " << n << endl;
+    cout << parentheses << endl;
 
     return 0;
 }
