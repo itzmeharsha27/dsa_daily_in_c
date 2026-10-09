@@ -1,10 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    string parentheses = "()()()";
+void generate(int n, string current) {
+    if (current.size() == 2 * n) {
+        cout << current << endl;
+        return;
+    }
 
-    cout << parentheses << endl;
+    generate(n, current + "(");
+    generate(n, current + ")");
+}
+
+int main() {
+    generate(2, "");
 
     return 0;
 }
