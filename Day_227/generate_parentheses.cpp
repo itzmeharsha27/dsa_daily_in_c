@@ -27,13 +27,21 @@ public:
     }
 };
 
+void print(vector<string>& result) {
+    for (string s : result)
+        cout << s << " ";
+
+    cout << endl;
+}
+
 int main() {
     Solution s;
 
-    vector<string> answer = s.generateParenthesis(3);
+    vector<string> result1 = s.generateParenthesis(1);
+    print(result1);
 
-    for (string x : answer)
-        cout << x << endl;
+    vector<string> result2 = s.generateParenthesis(3);
+    print(result2);
 
     return 0;
 }
