@@ -1,33 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<string> generateParenthesis(int n) {
+class Solution {
+public:
     vector<string> result;
 
-    function<void(int, int, string)> backtrack =
-        [&](int open, int close, string current) {
-            if (current.size() == 2 * n) {
-                result.push_back(current);
-                return;
-            }
+    void backtrack(int n, int open, int close, string current) {
+        if (current.size() == 2 * n) {
+            result.push_back(current);
+            return;
+        }
 
-            if (open < n)
-                backtrack(open + 1, close, current + "(");
+        if (open < n)
+            backtrack(n, open + 1, close, current + "(");
 
-            if (close < open)
-                backtrack(open, close + 1, current + ")");
-        };
+        if (close < open)
+            backtrack(n, open, close + 1, current + ")");
+    }
 
-    backtrack(0, 0, "");
+    vector<string> generateParenthesis(int n) {
+        result.clear();
 
-    return result;
-}
+        backtrack(n, 0, 0, "");
+
+        return result;
+    }
+};
 
 int main() {
-    vector<string> answer = generateParenthesis(3);
+    Solution s;
 
-    for (string s : answer)
-        cout << s << endl;
+    vector<string> answer = s.generateParenthesis(3);
+
+    for (string x : answer)
+        cout << x << endl;
 
     return 0;
 }
