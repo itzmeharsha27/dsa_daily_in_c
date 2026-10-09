@@ -5,43 +5,44 @@ class Solution {
 public:
     vector<string> result;
 
-    void backtrack(int n, int open, int close, string current) {
+    void backtrack(int n, int open, int close, string& current) {
         if (current.size() == 2 * n) {
             result.push_back(current);
             return;
         }
 
-        if (open < n)
-            backtrack(n, open + 1, close, current + "(");
+        // Add an opening bracket if available.
+        if (open < n) {
+            current.push_back('(');
+            backtrack(n, open + 1, close, current);
+            current.pop_back();
+        }
 
-        if (close < open)
-            backtrack(n, open, close + 1, current + ")");
+        // Add a closing bracket only when it remains valid.
+        if (close < open) {
+            current.push_back(')');
+            backtrack(n, open, close + 1, current);
+            current.pop_back();
+        }
     }
 
     vector<string> generateParenthesis(int n) {
         result.clear();
 
-        backtrack(n, 0, 0, "");
+        string current;
+        backtrack(n, 0, 0, current);
 
         return result;
     }
 };
 
-void print(vector<string>& result) {
-    for (string s : result)
-        cout << s << " ";
-
-    cout << endl;
-}
-
 int main() {
     Solution s;
 
-    vector<string> result1 = s.generateParenthesis(1);
-    print(result1);
+    vector<string> result = s.generateParenthesis(3);
 
-    vector<string> result2 = s.generateParenthesis(3);
-    print(result2);
+    for (string parentheses : result)
+        cout << parentheses << endl;
 
     return 0;
 }
