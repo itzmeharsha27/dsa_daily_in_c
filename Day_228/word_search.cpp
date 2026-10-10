@@ -18,14 +18,22 @@ bool dfs(int r, int c, int index) {
         board[r][c] != word[index])
         return false;
 
-    return dfs(r, c + 1, index + 1) ||
-           dfs(r + 1, c, index + 1) ||
-           dfs(r, c - 1, index + 1) ||
-           dfs(r - 1, c, index + 1);
+    char saved = board[r][c];
+    board[r][c] = '#';
+
+    bool found =
+        dfs(r, c + 1, index + 1) ||
+        dfs(r + 1, c, index + 1) ||
+        dfs(r, c - 1, index + 1) ||
+        dfs(r - 1, c, index + 1);
+
+    board[r][c] = saved;
+
+    return found;
 }
 
 int main() {
-    cout << dfs(0, 0, 0);
+    cout << boolalpha << dfs(0, 0, 0);
 
     return 0;
 }
