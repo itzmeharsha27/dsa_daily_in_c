@@ -29,9 +29,16 @@ public:
     }
 
     bool exist(vector<vector<char>>& board, string word) {
+        if (word.empty())
+            return true;
+
+        if (board.empty() || board[0].empty())
+            return false;
+
         for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board[0].size(); j++) {
-                if (dfs(board, word, i, j, 0))
+                if (board[i][j] == word[0] &&
+                    dfs(board, word, i, j, 0))
                     return true;
             }
         }
@@ -43,21 +50,16 @@ public:
 int main() {
     Solution s;
 
-    vector<vector<char>> board1 = {
+    vector<vector<char>> board = {
         {'A', 'B', 'C', 'E'},
         {'S', 'F', 'C', 'S'},
         {'A', 'D', 'E', 'E'}
     };
 
-    vector<vector<char>> board2 = {
-        {'A', 'B'},
-        {'C', 'D'}
-    };
-
     cout << boolalpha;
-    cout << s.exist(board1, "ABCCED") << endl;
-    cout << s.exist(board1, "ABCB") << endl;
-    cout << s.exist(board2, "ACDB") << endl;
+    cout << s.exist(board, "ABCCED") << endl;
+    cout << s.exist(board, "SEE") << endl;
+    cout << s.exist(board, "ABCB") << endl;
 
     return 0;
 }
