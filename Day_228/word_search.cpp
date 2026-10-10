@@ -1,27 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<vector<char>> board = {
+    {'A', 'B', 'C', 'E'},
+    {'S', 'F', 'C', 'S'},
+    {'A', 'D', 'E', 'E'}
+};
+
+string word = "ABCCED";
+
+bool dfs(int r, int c, int index) {
+    if (index == word.size())
+        return true;
+
+    if (r < 0 || r >= board.size() ||
+        c < 0 || c >= board[0].size() ||
+        board[r][c] != word[index])
+        return false;
+
+    return dfs(r, c + 1, index + 1) ||
+           dfs(r + 1, c, index + 1) ||
+           dfs(r, c - 1, index + 1) ||
+           dfs(r - 1, c, index + 1);
+}
+
 int main() {
-    vector<vector<char>> board = {
-        {'A', 'B', 'C'},
-        {'D', 'E', 'F'},
-        {'G', 'H', 'I'}
-    };
-
-    int row = 1, col = 1;
-
-    int dr[] = {-1, 1, 0, 0};
-    int dc[] = {0, 0, -1, 1};
-
-    for (int i = 0; i < 4; i++) {
-        int r = row + dr[i];
-        int c = col + dc[i];
-
-        if (r >= 0 && r < board.size() &&
-            c >= 0 && c < board[0].size()) {
-            cout << board[r][c] << " ";
-        }
-    }
+    cout << dfs(0, 0, 0);
 
     return 0;
 }
