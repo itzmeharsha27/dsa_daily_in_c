@@ -43,13 +43,21 @@ public:
 int main() {
     Solution s;
 
-    vector<vector<char>> board = {
+    vector<vector<char>> board1 = {
         {'A', 'B', 'C', 'E'},
         {'S', 'F', 'C', 'S'},
         {'A', 'D', 'E', 'E'}
     };
 
-    cout << boolalpha << s.exist(board, "ABCCED");
+    vector<vector<char>> board2 = {
+        {'A', 'B'},
+        {'C', 'D'}
+    };
+
+    cout << boolalpha;
+    cout << s.exist(board1, "ABCCED") << endl;
+    cout << s.exist(board1, "ABCB") << endl;
+    cout << s.exist(board2, "ACDB") << endl;
 
     return 0;
 }
