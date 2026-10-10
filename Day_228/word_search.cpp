@@ -8,9 +8,14 @@ int main() {
         {'A', 'D', 'E', 'E'}
     };
 
-    string word = "ABCCED";
+    char target = 'A';
 
-    cout << "Word: " << word << endl;
+    for (int i = 0; i < board.size(); i++) {
+        for (int j = 0; j < board[0].size(); j++) {
+            if (board[i][j] == target)
+                cout << i << " " << j << endl;
+        }
+    }
 
     return 0;
 }
