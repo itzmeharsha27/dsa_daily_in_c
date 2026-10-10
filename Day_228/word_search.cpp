@@ -1,15 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<char>> board = {
-    {'A', 'B', 'C', 'E'},
-    {'S', 'F', 'C', 'S'},
-    {'A', 'D', 'E', 'E'}
-};
+bool dfs(vector<vector<char>>& board,
+         string& word, int r, int c, int index) {
 
-string word = "ABCCED";
-
-bool dfs(int r, int c, int index) {
     if (index == word.size())
         return true;
 
@@ -22,18 +16,35 @@ bool dfs(int r, int c, int index) {
     board[r][c] = '#';
 
     bool found =
-        dfs(r, c + 1, index + 1) ||
-        dfs(r + 1, c, index + 1) ||
-        dfs(r, c - 1, index + 1) ||
-        dfs(r - 1, c, index + 1);
+        dfs(board, word, r, c + 1, index + 1) ||
+        dfs(board, word, r + 1, c, index + 1) ||
+        dfs(board, word, r, c - 1, index + 1) ||
+        dfs(board, word, r - 1, c, index + 1);
 
     board[r][c] = saved;
 
     return found;
 }
 
+bool exist(vector<vector<char>>& board, string word) {
+    for (int i = 0; i < board.size(); i++) {
+        for (int j = 0; j < board[0].size(); j++) {
+            if (dfs(board, word, i, j, 0))
+                return true;
+        }
+    }
+
+    return false;
+}
+
 int main() {
-    cout << boolalpha << dfs(0, 0, 0);
+    vector<vector<char>> board = {
+        {'A', 'B', 'C', 'E'},
+        {'S', 'F', 'C', 'S'},
+        {'A', 'D', 'E', 'E'}
+    };
+
+    cout << boolalpha << exist(board, "ABCCED");
 
     return 0;
 }
