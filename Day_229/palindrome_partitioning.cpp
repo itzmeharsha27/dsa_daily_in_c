@@ -27,8 +27,13 @@ public:
             if (!isPalindrome(s, start, end))
                 continue;
 
+            // Choose a palindrome substring.
             current.push_back(s.substr(start, end - start + 1));
+
+            // Explore the remaining string.
             backtrack(s, end + 1, current);
+
+            // Undo the choice.
             current.pop_back();
         }
     }
@@ -43,27 +48,19 @@ public:
     }
 };
 
-void print(vector<vector<string>>& result) {
+int main() {
+    Solution sol;
+
+    vector<vector<string>> result = sol.partition("aab");
+
     for (auto parts : result) {
         cout << "[ ";
 
         for (string part : parts)
             cout << part << " ";
 
-        cout << "] ";
+        cout << "]" << endl;
     }
-
-    cout << endl;
-}
-
-int main() {
-    Solution sol;
-
-    vector<vector<string>> first = sol.partition("aab");
-    print(first);
-
-    vector<vector<string>> second = sol.partition("a");
-    print(second);
 
     return 0;
 }
