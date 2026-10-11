@@ -43,17 +43,27 @@ public:
     }
 };
 
-int main() {
-    Solution sol;
+void print(vector<vector<string>>& result) {
+    for (auto parts : result) {
+        cout << "[ ";
 
-    vector<vector<string>> answer = sol.partition("aab");
-
-    for (auto parts : answer) {
         for (string part : parts)
             cout << part << " ";
 
-        cout << endl;
+        cout << "] ";
     }
+
+    cout << endl;
+}
+
+int main() {
+    Solution sol;
+
+    vector<vector<string>> first = sol.partition("aab");
+    print(first);
+
+    vector<vector<string>> second = sol.partition("a");
+    print(second);
 
     return 0;
 }
