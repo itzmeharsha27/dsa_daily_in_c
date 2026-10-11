@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string s = "aab";
+vector<vector<string>> result;
 
 bool isPalindrome(string part) {
     string reversed = part;
@@ -10,12 +10,9 @@ bool isPalindrome(string part) {
     return part == reversed;
 }
 
-void backtrack(int start, vector<string> current) {
+void backtrack(string& s, int start, vector<string>& current) {
     if (start == s.size()) {
-        for (string part : current)
-            cout << part << " ";
-
-        cout << endl;
+        result.push_back(current);
         return;
     }
 
@@ -26,13 +23,29 @@ void backtrack(int start, vector<string> current) {
             continue;
 
         current.push_back(part);
-        backtrack(end + 1, current);
+        backtrack(s, end + 1, current);
         current.pop_back();
     }
 }
 
+vector<vector<string>> partition(string s) {
+    result.clear();
+
+    vector<string> current;
+    backtrack(s, 0, current);
+
+    return result;
+}
+
 int main() {
-    backtrack(0, {});
+    vector<vector<string>> answer = partition("aab");
+
+    for (auto parts : answer) {
+        for (string part : parts)
+            cout << part << " ";
+
+        cout << endl;
+    }
 
     return 0;
 }
