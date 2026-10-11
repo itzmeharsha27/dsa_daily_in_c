@@ -1,24 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isPalindrome(string s) {
-    string reversed = s;
+string s = "aab";
+
+bool isPalindrome(string part) {
+    string reversed = part;
     reverse(reversed.begin(), reversed.end());
 
-    return s == reversed;
+    return part == reversed;
+}
+
+void backtrack(int start, vector<string> current) {
+    if (start == s.size()) {
+        for (string part : current)
+            cout << part << " ";
+
+        cout << endl;
+        return;
+    }
+
+    for (int end = start; end < s.size(); end++) {
+        string part = s.substr(start, end - start + 1);
+
+        if (!isPalindrome(part))
+            continue;
+
+        current.push_back(part);
+        backtrack(end + 1, current);
+        current.pop_back();
+    }
 }
 
 int main() {
-    string s = "aab";
-
-    for (int i = 0; i < s.size(); i++) {
-        for (int j = i; j < s.size(); j++) {
-            string part = s.substr(i, j - i + 1);
-
-            if (isPalindrome(part))
-                cout << part << endl;
-        }
-    }
+    backtrack(0, {});
 
     return 0;
 }
