@@ -1,44 +1,52 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<string>> result;
+class Solution {
+public:
+    vector<vector<string>> result;
 
-bool isPalindrome(string part) {
-    string reversed = part;
-    reverse(reversed.begin(), reversed.end());
+    bool isPalindrome(string& s, int left, int right) {
+        while (left < right) {
+            if (s[left] != s[right])
+                return false;
 
-    return part == reversed;
-}
+            left++;
+            right--;
+        }
 
-void backtrack(string& s, int start, vector<string>& current) {
-    if (start == s.size()) {
-        result.push_back(current);
-        return;
+        return true;
     }
 
-    for (int end = start; end < s.size(); end++) {
-        string part = s.substr(start, end - start + 1);
+    void backtrack(string& s, int start, vector<string>& current) {
+        if (start == s.size()) {
+            result.push_back(current);
+            return;
+        }
 
-        if (!isPalindrome(part))
-            continue;
+        for (int end = start; end < s.size(); end++) {
+            if (!isPalindrome(s, start, end))
+                continue;
 
-        current.push_back(part);
-        backtrack(s, end + 1, current);
-        current.pop_back();
+            current.push_back(s.substr(start, end - start + 1));
+            backtrack(s, end + 1, current);
+            current.pop_back();
+        }
     }
-}
 
-vector<vector<string>> partition(string s) {
-    result.clear();
+    vector<vector<string>> partition(string s) {
+        result.clear();
 
-    vector<string> current;
-    backtrack(s, 0, current);
+        vector<string> current;
+        backtrack(s, 0, current);
 
-    return result;
-}
+        return result;
+    }
+};
 
 int main() {
-    vector<vector<string>> answer = partition("aab");
+    Solution sol;
+
+    vector<vector<string>> answer = sol.partition("aab");
 
     for (auto parts : answer) {
         for (string part : parts)
