@@ -1,17 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isPalindrome(string s) {
-    string reversed = s;
-    reverse(reversed.begin(), reversed.end());
-
-    return s == reversed;
-}
-
 int main() {
-    cout << boolalpha;
-    cout << isPalindrome("aba") << endl;
-    cout << isPalindrome("abc") << endl;
+    string s = "aab";
+
+    for (int i = 0; i < s.size(); i++) {
+        for (int j = i; j < s.size(); j++) {
+            cout << s.substr(i, j - i + 1) << endl;
+        }
+    }
 
     return 0;
 }
