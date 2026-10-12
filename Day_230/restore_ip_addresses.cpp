@@ -8,16 +8,33 @@ bool isValid(string part) {
     if (part.size() > 1 && part[0] == '0')
         return false;
 
-    int value = stoi(part);
+    return stoi(part) <= 255;
+}
 
-    return value <= 255;
+void generate(string s, int index, int count, string current) {
+    if (count == 4) {
+        if (index == s.size())
+            cout << current << endl;
+
+        return;
+    }
+
+    for (int len = 1; len <= 3 && index + len <= s.size(); len++) {
+        string part = s.substr(index, len);
+
+        if (!isValid(part))
+            continue;
+
+        string next = current.empty()
+            ? part
+            : current + "." + part;
+
+        generate(s, index + len, count + 1, next);
+    }
 }
 
 int main() {
-    cout << boolalpha;
-    cout << isValid("255") << endl;
-    cout << isValid("256") << endl;
-    cout << isValid("01") << endl;
+    generate("25525511135", 0, 0, "");
 
     return 0;
 }
