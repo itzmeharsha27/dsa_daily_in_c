@@ -61,10 +61,16 @@ public:
 int main() {
     Solution sol;
 
-    vector<string> answer = sol.restoreIpAddresses("25525511135");
+    for (string s : {"25525511135", "0000", "101023", "1111"}) {
+        cout << "Input: " << s << endl;
 
-    for (string address : answer)
-        cout << address << endl;
+        vector<string> answer = sol.restoreIpAddresses(s);
+
+        for (string address : answer)
+            cout << address << " ";
+
+        cout << "\n\n";
+    }
 
     return 0;
 }
