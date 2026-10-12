@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<string> result;
+
 bool isValid(string part) {
     if (part.empty() || part.size() > 3)
         return false;
@@ -20,11 +22,10 @@ void backtrack(string& s, int index, vector<string>& parts) {
 
     if (parts.size() == 4) {
         if (index == s.size()) {
-            for (int i = 0; i < 4; i++) {
-                if (i) cout << ".";
-                cout << parts[i];
-            }
-            cout << endl;
+            string address = parts[0] + "." + parts[1] + "." +
+                             parts[2] + "." + parts[3];
+
+            result.push_back(address);
         }
 
         return;
@@ -47,6 +48,9 @@ int main() {
     vector<string> parts;
 
     backtrack(s, 0, parts);
+
+    for (string address : result)
+        cout << address << endl;
 
     return 0;
 }
