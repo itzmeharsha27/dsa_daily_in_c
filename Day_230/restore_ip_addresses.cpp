@@ -5,14 +5,16 @@ class Solution {
 public:
     vector<string> result;
 
-    bool isValid(string part) {
-        if (part.empty() || part.size() > 3)
+    bool isValid(string& s, int start, int len) {
+        if (len > 1 && s[start] == '0')
             return false;
 
-        if (part.size() > 1 && part[0] == '0')
-            return false;
+        int value = 0;
 
-        return stoi(part) <= 255;
+        for (int i = start; i < start + len; i++)
+            value = value * 10 + (s[i] - '0');
+
+        return value <= 255;
     }
 
     void backtrack(string& s, int index, vector<string>& parts) {
@@ -34,13 +36,13 @@ public:
         }
 
         for (int len = 1; len <= 3 && index + len <= s.size(); len++) {
-            string part = s.substr(index, len);
-
-            if (!isValid(part))
+            if (!isValid(s, index, len))
                 continue;
 
-            parts.push_back(part);
+            parts.push_back(s.substr(index, len));
+
             backtrack(s, index + len, parts);
+
             parts.pop_back();
         }
     }
@@ -61,16 +63,10 @@ public:
 int main() {
     Solution sol;
 
-    for (string s : {"25525511135", "0000", "101023", "1111"}) {
-        cout << "Input: " << s << endl;
+    vector<string> result = sol.restoreIpAddresses("25525511135");
 
-        vector<string> answer = sol.restoreIpAddresses(s);
-
-        for (string address : answer)
-            cout << address << " ";
-
-        cout << "\n\n";
-    }
+    for (string address : result)
+        cout << address << endl;
 
     return 0;
 }
