@@ -11,10 +11,21 @@ bool isValid(string part) {
     return stoi(part) <= 255;
 }
 
-void generate(string s, int index, int count, string current) {
-    if (count == 4) {
-        if (index == s.size())
-            cout << current << endl;
+void backtrack(string& s, int index, vector<string>& parts) {
+    int remaining = s.size() - index;
+    int needed = 4 - parts.size();
+
+    if (remaining < needed || remaining > needed * 3)
+        return;
+
+    if (parts.size() == 4) {
+        if (index == s.size()) {
+            for (int i = 0; i < 4; i++) {
+                if (i) cout << ".";
+                cout << parts[i];
+            }
+            cout << endl;
+        }
 
         return;
     }
@@ -25,16 +36,17 @@ void generate(string s, int index, int count, string current) {
         if (!isValid(part))
             continue;
 
-        string next = current.empty()
-            ? part
-            : current + "." + part;
-
-        generate(s, index + len, count + 1, next);
+        parts.push_back(part);
+        backtrack(s, index + len, parts);
+        parts.pop_back();
     }
 }
 
 int main() {
-    generate("25525511135", 0, 0, "");
+    string s = "25525511135";
+    vector<string> parts;
+
+    backtrack(s, 0, parts);
 
     return 0;
 }
