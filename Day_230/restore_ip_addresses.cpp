@@ -1,12 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    string s = "25525511135";
+bool isValid(string part) {
+    if (part.empty() || part.size() > 3)
+        return false;
 
-    for (int len = 1; len <= 3; len++) {
-        cout << s.substr(0, len) << endl;
-    }
+    if (part.size() > 1 && part[0] == '0')
+        return false;
+
+    int value = stoi(part);
+
+    return value <= 255;
+}
+
+int main() {
+    cout << boolalpha;
+    cout << isValid("255") << endl;
+    cout << isValid("256") << endl;
+    cout << isValid("01") << endl;
 
     return 0;
 }
