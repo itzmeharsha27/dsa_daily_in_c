@@ -34,13 +34,21 @@ public:
     }
 };
 
+void print(vector<string>& result) {
+    for (string x : result)
+        cout << x << " ";
+
+    cout << endl;
+}
+
 int main() {
     Solution sol;
 
-    vector<string> answer = sol.letterCasePermutation("a1b");
+    vector<string> first = sol.letterCasePermutation("a1b");
+    print(first);
 
-    for (string x : answer)
-        cout << x << endl;
+    vector<string> second = sol.letterCasePermutation("3z4");
+    print(second);
 
     return 0;
 }
