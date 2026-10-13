@@ -2,9 +2,10 @@
 using namespace std;
 
 int main() {
-    string s = "a1b";
+    char ch = 'a';
 
-    cout << s << endl;
+    cout << char(tolower(ch)) << endl;
+    cout << char(toupper(ch)) << endl;
 
     return 0;
 }
