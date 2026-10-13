@@ -1,35 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<string> result;
+vector<string> letterCasePermutation(string s) {
+    vector<string> result;
 
-void backtrack(string& s, int index) {
-    if (index == s.size()) {
-        result.push_back(s);
-        return;
-    }
+    function<void(int)> backtrack = [&](int index) {
+        if (index == s.size()) {
+            result.push_back(s);
+            return;
+        }
 
-    char original = s[index];
+        char original = s[index];
 
-    if (isalpha(static_cast<unsigned char>(original))) {
-        s[index] = tolower(static_cast<unsigned char>(original));
-        backtrack(s, index + 1);
+        if (isalpha(static_cast<unsigned char>(original))) {
+            s[index] = tolower(static_cast<unsigned char>(original));
+            backtrack(index + 1);
 
-        s[index] = toupper(static_cast<unsigned char>(original));
-        backtrack(s, index + 1);
+            s[index] = toupper(static_cast<unsigned char>(original));
+            backtrack(index + 1);
 
-        s[index] = original;
-    } else {
-        backtrack(s, index + 1);
-    }
+            s[index] = original;
+        } else {
+            backtrack(index + 1);
+        }
+    };
+
+    backtrack(0);
+
+    return result;
 }
 
 int main() {
-    string s = "a1b";
+    vector<string> answer = letterCasePermutation("a1b");
 
-    backtrack(s, 0);
-
-    for (string x : result)
+    for (string x : answer)
         cout << x << endl;
 
     return 0;
