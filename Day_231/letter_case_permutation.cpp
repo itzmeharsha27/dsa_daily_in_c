@@ -1,25 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void generate(string s, int index) {
+void backtrack(string& s, int index) {
     if (index == s.size()) {
         cout << s << endl;
         return;
     }
 
     if (isalpha(static_cast<unsigned char>(s[index]))) {
-        s[index] = tolower(static_cast<unsigned char>(s[index]));
-        generate(s, index + 1);
+        char original = s[index];
 
-        s[index] = toupper(static_cast<unsigned char>(s[index]));
-        generate(s, index + 1);
+        s[index] = tolower(static_cast<unsigned char>(original));
+        backtrack(s, index + 1);
+
+        s[index] = toupper(static_cast<unsigned char>(original));
+        backtrack(s, index + 1);
+
+        s[index] = original;
     } else {
-        generate(s, index + 1);
+        backtrack(s, index + 1);
     }
 }
 
 int main() {
-    generate("a1b", 0);
+    string s = "a1b";
+
+    backtrack(s, 0);
 
     return 0;
 }
