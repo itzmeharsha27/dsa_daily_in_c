@@ -14,41 +14,38 @@ public:
         char original = s[index];
 
         if (isalpha(static_cast<unsigned char>(original))) {
+            // Choose lowercase.
             s[index] = tolower(static_cast<unsigned char>(original));
             backtrack(s, index + 1);
 
+            // Choose uppercase.
             s[index] = toupper(static_cast<unsigned char>(original));
             backtrack(s, index + 1);
 
+            // Restore the original character.
             s[index] = original;
         } else {
+            // Digits remain unchanged.
             backtrack(s, index + 1);
         }
     }
 
     vector<string> letterCasePermutation(string s) {
         result.clear();
+
         backtrack(s, 0);
 
         return result;
     }
 };
 
-void print(vector<string>& result) {
-    for (string x : result)
-        cout << x << " ";
-
-    cout << endl;
-}
-
 int main() {
     Solution sol;
 
-    vector<string> first = sol.letterCasePermutation("a1b");
-    print(first);
+    vector<string> result = sol.letterCasePermutation("a1b");
 
-    vector<string> second = sol.letterCasePermutation("3z4");
-    print(second);
+    for (string x : result)
+        cout << x << endl;
 
     return 0;
 }
