@@ -1,24 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void generate(int start, int remaining, vector<int>& current) {
-    if (remaining == 0 && current.size() == 3) {
-        for (int x : current)
-            cout << x << " ";
+vector<vector<int>> result;
 
-        cout << endl;
+void backtrack(int start, int k, int remaining,
+               vector<int>& current) {
+    if (current.size() == k) {
+        if (remaining == 0)
+            result.push_back(current);
+
         return;
     }
-
-    if (remaining <= 0 || current.size() == 3)
-        return;
 
     for (int i = start; i <= 9; i++) {
         if (i > remaining)
             break;
 
         current.push_back(i);
-        generate(i + 1, remaining - i, current);
+        backtrack(i + 1, k, remaining - i, current);
         current.pop_back();
     }
 }
@@ -26,7 +25,14 @@ void generate(int start, int remaining, vector<int>& current) {
 int main() {
     vector<int> current;
 
-    generate(1, 7, current);
+    backtrack(1, 3, 7, current);
+
+    for (auto combination : result) {
+        for (int x : combination)
+            cout << x << " ";
+
+        cout << endl;
+    }
 
     return 0;
 }
