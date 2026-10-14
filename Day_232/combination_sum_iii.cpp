@@ -34,17 +34,31 @@ public:
     }
 };
 
-int main() {
-    Solution s;
+void print(vector<vector<int>>& result) {
+    for (auto combination : result) {
+        cout << "[ ";
 
-    vector<vector<int>> answer = s.combinationSum3(3, 7);
-
-    for (auto combination : answer) {
         for (int x : combination)
             cout << x << " ";
 
-        cout << endl;
+        cout << "] ";
+
     }
+
+    cout << endl;
+}
+
+int main() {
+    Solution s;
+
+    vector<vector<int>> first = s.combinationSum3(3, 7);
+    print(first);
+
+    vector<vector<int>> second = s.combinationSum3(3, 9);
+    print(second);
+
+    vector<vector<int>> third = s.combinationSum3(4, 1);
+    print(third);
 
     return 0;
 }
