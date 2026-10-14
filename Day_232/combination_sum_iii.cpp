@@ -1,13 +1,24 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int k = 3;
-    int n = 7;
+void generate(int start, vector<int> current) {
+    if (current.size() == 3) {
+        for (int x : current)
+            cout << x << " ";
 
-    cout << "Numbers required: " << k << endl;
-    cout << "Target sum: " << n << endl;
+        cout << endl;
+        return;
+    }
+
+    for (int i = start; i <= 9; i++) {
+        current.push_back(i);
+        generate(i + 1, current);
+        current.pop_back();
+    }
+}
+
+int main() {
+    generate(1, {});
 
     return 0;
 }
