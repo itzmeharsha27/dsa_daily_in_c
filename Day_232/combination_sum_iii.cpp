@@ -1,36 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> combinationSum3(int k, int n) {
+class Solution {
+public:
     vector<vector<int>> result;
-    vector<int> current;
 
-    function<void(int, int)> backtrack =
-        [&](int start, int remaining) {
-            if (current.size() == k) {
-                if (remaining == 0)
-                    result.push_back(current);
+    void backtrack(int start, int k, int remaining,
+                   vector<int>& current) {
+        if (current.size() == k) {
+            if (remaining == 0)
+                result.push_back(current);
 
-                return;
-            }
+            return;
+        }
 
-            for (int i = start; i <= 9; i++) {
-                if (i > remaining)
-                    break;
+        for (int i = start; i <= 9; i++) {
+            if (i > remaining)
+                break;
 
-                current.push_back(i);
-                backtrack(i + 1, remaining - i);
-                current.pop_back();
-            }
-        };
+            current.push_back(i);
+            backtrack(i + 1, k, remaining - i, current);
+            current.pop_back();
+        }
+    }
 
-    backtrack(1, n);
+    vector<vector<int>> combinationSum3(int k, int n) {
+        result.clear();
 
-    return result;
-}
+        vector<int> current;
+        backtrack(1, k, n, current);
+
+        return result;
+    }
+};
 
 int main() {
-    vector<vector<int>> answer = combinationSum3(3, 7);
+    Solution s;
+
+    vector<vector<int>> answer = s.combinationSum3(3, 7);
 
     for (auto combination : answer) {
         for (int x : combination)
