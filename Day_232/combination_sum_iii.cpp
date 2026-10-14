@@ -15,17 +15,23 @@ public:
         }
 
         for (int i = start; i <= 9; i++) {
+            // No larger number can complete this sum.
             if (i > remaining)
                 break;
 
             current.push_back(i);
+
             backtrack(i + 1, k, remaining - i, current);
+
             current.pop_back();
         }
     }
 
     vector<vector<int>> combinationSum3(int k, int n) {
         result.clear();
+
+        if (k < 1 || k > 9 || n < 1 || n > 45)
+            return result;
 
         vector<int> current;
         backtrack(1, k, n, current);
@@ -34,31 +40,17 @@ public:
     }
 };
 
-void print(vector<vector<int>>& result) {
-    for (auto combination : result) {
-        cout << "[ ";
-
-        for (int x : combination)
-            cout << x << " ";
-
-        cout << "] ";
-
-    }
-
-    cout << endl;
-}
-
 int main() {
     Solution s;
 
-    vector<vector<int>> first = s.combinationSum3(3, 7);
-    print(first);
+    vector<vector<int>> result = s.combinationSum3(3, 7);
 
-    vector<vector<int>> second = s.combinationSum3(3, 9);
-    print(second);
+    for (auto combination : result) {
+        for (int x : combination)
+            cout << x << " ";
 
-    vector<vector<int>> third = s.combinationSum3(4, 1);
-    print(third);
+        cout << endl;
+    }
 
     return 0;
 }
