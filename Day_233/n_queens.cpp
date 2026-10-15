@@ -4,29 +4,9 @@ using namespace std;
 class Solution {
 public:
     vector<vector<string>> result;
+    vector<bool> columns, diagonal1, diagonal2;
 
-    bool isSafe(vector<string>& board, int row, int col) {
-        for (int i = 0; i < row; i++) {
-            if (board[i][col] == 'Q')
-                return false;
-        }
-
-        for (int i = row - 1, j = col - 1;
-             i >= 0 && j >= 0; i--, j--) {
-            if (board[i][j] == 'Q')
-                return false;
-        }
-
-        for (int i = row - 1, j = col + 1;
-             i >= 0 && j < board.size(); i--, j++) {
-            if (board[i][j] == 'Q')
-                return false;
-        }
-
-        return true;
-    }
-
-    void solve(int row, vector<string>& board) {
+    void backtrack(int row, vector<string>& board) {
         int n = board.size();
 
         if (row == n) {
@@ -35,22 +15,32 @@ public:
         }
 
         for (int col = 0; col < n; col++) {
-            if (isSafe(board, row, col)) {
-                board[row][col] = 'Q';
+            int d1 = row - col + n - 1;
+            int d2 = row + col;
 
-                solve(row + 1, board);
+            if (columns[col] || diagonal1[d1] || diagonal2[d2])
+                continue;
 
-                board[row][col] = '.';
-            }
+            board[row][col] = 'Q';
+            columns[col] = diagonal1[d1] = diagonal2[d2] = true;
+
+            backtrack(row + 1, board);
+
+            board[row][col] = '.';
+            columns[col] = diagonal1[d1] = diagonal2[d2] = false;
         }
     }
 
     vector<vector<string>> solveNQueens(int n) {
         result.clear();
 
+        columns.assign(n, false);
+        diagonal1.assign(2 * n - 1, false);
+        diagonal2.assign(2 * n - 1, false);
+
         vector<string> board(n, string(n, '.'));
 
-        solve(0, board);
+        backtrack(0, board);
 
         return result;
     }
@@ -59,13 +49,11 @@ public:
 int main() {
     Solution s;
 
-    vector<vector<string>> result = s.solveNQueens(4);
+    for (int n : {1, 4}) {
+        vector<vector<string>> result = s.solveNQueens(n);
 
-    for (auto solution : result) {
-        for (string row : solution)
-            cout << row << endl;
-
-        cout << endl;
+        cout << "Solutions for n = " << n
+             << ": " << result.size() << endl;
     }
 
     return 0;
