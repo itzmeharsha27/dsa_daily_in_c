@@ -21,13 +21,32 @@ bool isSafe(vector<string>& board, int row, int col) {
     return true;
 }
 
+void solve(int row, vector<string>& board) {
+    int n = board.size();
+
+    if (row == n) {
+        for (string line : board)
+            cout << line << endl;
+
+        cout << endl;
+        return;
+    }
+
+    for (int col = 0; col < n; col++) {
+        if (isSafe(board, row, col)) {
+            board[row][col] = 'Q';
+
+            solve(row + 1, board);
+
+            board[row][col] = '.';
+        }
+    }
+}
+
 int main() {
     vector<string> board(4, string(4, '.'));
 
-    board[0][1] = 'Q';
-
-    cout << boolalpha << isSafe(board, 1, 2) << endl;
-    cout << isSafe(board, 1, 3) << endl;
+    solve(0, board);
 
     return 0;
 }
