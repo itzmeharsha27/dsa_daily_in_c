@@ -18,16 +18,24 @@ public:
             int d1 = row - col + n - 1;
             int d2 = row + col;
 
+            // Check column and both diagonals.
             if (columns[col] || diagonal1[d1] || diagonal2[d2])
                 continue;
 
+            // Choose a position.
             board[row][col] = 'Q';
-            columns[col] = diagonal1[d1] = diagonal2[d2] = true;
+            columns[col] = true;
+            diagonal1[d1] = true;
+            diagonal2[d2] = true;
 
+            // Explore the next row.
             backtrack(row + 1, board);
 
+            // Undo the choice.
             board[row][col] = '.';
-            columns[col] = diagonal1[d1] = diagonal2[d2] = false;
+            columns[col] = false;
+            diagonal1[d1] = false;
+            diagonal2[d2] = false;
         }
     }
 
@@ -49,12 +57,16 @@ public:
 int main() {
     Solution s;
 
-    for (int n : {1, 4}) {
-        vector<vector<string>> result = s.solveNQueens(n);
+    vector<vector<string>> result = s.solveNQueens(4);
 
-        cout << "Solutions for n = " << n
-             << ": " << result.size() << endl;
+    for (auto solution : result) {
+        for (string row : solution)
+            cout << row << endl;
+
+        cout << endl;
     }
+
+    cout << "Total solutions: " << result.size() << endl;
 
     return 0;
 }
