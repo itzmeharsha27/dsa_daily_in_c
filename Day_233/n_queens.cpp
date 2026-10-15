@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<vector<string>> result;
+
 bool isSafe(vector<string>& board, int row, int col) {
     for (int i = 0; i < row; i++) {
         if (board[i][col] == 'Q')
@@ -25,10 +27,7 @@ void solve(int row, vector<string>& board) {
     int n = board.size();
 
     if (row == n) {
-        for (string line : board)
-            cout << line << endl;
-
-        cout << endl;
+        result.push_back(board);
         return;
     }
 
@@ -47,6 +46,13 @@ int main() {
     vector<string> board(4, string(4, '.'));
 
     solve(0, board);
+
+    for (auto solution : result) {
+        for (string row : solution)
+            cout << row << endl;
+
+        cout << endl;
+    }
 
     return 0;
 }
