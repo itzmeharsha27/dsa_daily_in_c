@@ -2,27 +2,19 @@
 #include <vector>
 using namespace std;
 
-void printBoard(vector<vector<char>>& board) {
-    for (auto& row : board) {
-        for (char cell : row)
-            cout << cell << ' ';
-        cout << '\n';
+bool isValid(vector<vector<char>>& board, int row, int col, char digit) {
+    for (int i = 0; i < 9; i++) {
+        if (board[row][i] == digit) return false;
+        if (board[i][col] == digit) return false;
     }
+    return true;
 }
 
 int main() {
-    vector<vector<char>> board = {
-        {'5','3','.','.','7','.','.','.','.'},
-        {'6','.','.','1','9','5','.','.','.'},
-        {'.','9','8','.','.','.','.','6','.'},
-        {'8','.','.','.','6','.','.','.','3'},
-        {'4','.','.','8','.','3','.','.','1'},
-        {'7','.','.','.','2','.','.','.','6'},
-        {'.','6','.','.','.','.','2','8','.'},
-        {'.','.','.','4','1','9','.','.','5'},
-        {'.','.','.','.','8','.','.','7','9'}
-    };
+    vector<vector<char>> board(9, vector<char>(9, '.'));
+    board[0][0] = '5';
 
-    printBoard(board);
+    cout << boolalpha << isValid(board, 0, 1, '5') << '\n';
+    cout << boolalpha << isValid(board, 0, 1, '3') << '\n';
     return 0;
 }
