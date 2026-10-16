@@ -40,6 +40,8 @@ bool solve(vector<vector<char>>& board) {
 
             if (solve(board))
                 return true;
+
+            board[row][col] = '.';  // Backtrack
         }
     }
 
@@ -49,6 +51,10 @@ bool solve(vector<vector<char>>& board) {
 int main() {
     vector<vector<char>> board(9, vector<char>(9, '.'));
 
-    cout << boolalpha << solve(board) << '\n';
+    if (solve(board))
+        cout << "Sudoku solved\n";
+    else
+        cout << "No solution\n";
+
     return 0;
 }
