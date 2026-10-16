@@ -9,13 +9,15 @@ class Solution {
                 return false;
         }
 
-        int sr = (row / 3) * 3;
-        int sc = (col / 3) * 3;
+        int startRow = (row / 3) * 3;
+        int startCol = (col / 3) * 3;
 
-        for (int r = sr; r < sr + 3; r++)
-            for (int c = sc; c < sc + 3; c++)
+        for (int r = startRow; r < startRow + 3; r++) {
+            for (int c = startCol; c < startCol + 3; c++) {
                 if (board[r][c] == digit)
                     return false;
+            }
+        }
 
         return true;
     }
@@ -27,14 +29,15 @@ class Solution {
                     continue;
 
                 for (char digit = '1'; digit <= '9'; digit++) {
-                    if (isValid(board, row, col, digit)) {
-                        board[row][col] = digit;
+                    if (!isValid(board, row, col, digit))
+                        continue;
 
-                        if (solve(board))
-                            return true;
+                    board[row][col] = digit;
 
-                        board[row][col] = '.';
-                    }
+                    if (solve(board))
+                        return true;
+
+                    board[row][col] = '.';
                 }
 
                 return false;
@@ -66,7 +69,7 @@ int main() {
     Solution solution;
     solution.solveSudoku(board);
 
-    for (auto& row : board) {
+    for (const auto& row : board) {
         for (char cell : row)
             cout << cell << ' ';
         cout << '\n';
