@@ -20,33 +20,28 @@ class Solution {
         return true;
     }
 
-    bool findEmpty(vector<vector<char>>& board, int& row, int& col) {
-        for (row = 0; row < 9; row++)
-            for (col = 0; col < 9; col++)
-                if (board[row][col] == '.')
-                    return true;
-
-        return false;
-    }
-
     bool solve(vector<vector<char>>& board) {
-        int row, col;
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (board[row][col] != '.')
+                    continue;
 
-        if (!findEmpty(board, row, col))
-            return true;
+                for (char digit = '1'; digit <= '9'; digit++) {
+                    if (isValid(board, row, col, digit)) {
+                        board[row][col] = digit;
 
-        for (char digit = '1'; digit <= '9'; digit++) {
-            if (isValid(board, row, col, digit)) {
-                board[row][col] = digit;
+                        if (solve(board))
+                            return true;
 
-                if (solve(board))
-                    return true;
+                        board[row][col] = '.';
+                    }
+                }
 
-                board[row][col] = '.';
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
 public:
@@ -56,7 +51,17 @@ public:
 };
 
 int main() {
-    vector<vector<char>> board(9, vector<char>(9, '.'));
+    vector<vector<char>> board = {
+        {'5','3','.','.','7','.','.','.','.'},
+        {'6','.','.','1','9','5','.','.','.'},
+        {'.','9','8','.','.','.','.','6','.'},
+        {'8','.','.','.','6','.','.','.','3'},
+        {'4','.','.','8','.','3','.','.','1'},
+        {'7','.','.','.','2','.','.','.','6'},
+        {'.','6','.','.','.','.','2','8','.'},
+        {'.','.','.','4','1','9','.','.','5'},
+        {'.','.','.','.','8','.','.','7','9'}
+    };
 
     Solution solution;
     solution.solveSudoku(board);
