@@ -40,8 +40,10 @@ void dfs(vector<vector<char>>& board, int r, int c,
     if (!next)
         return;
 
-    if (!next->word.empty())
+    if (!next->word.empty()) {
         result.push_back(next->word);
+        next->word.clear();
+    }
 
     char saved = board[r][c];
     board[r][c] = '#';
