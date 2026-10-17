@@ -28,6 +28,17 @@ void insert(TrieNode* root, const string& word) {
     node->word = word;
 }
 
+bool isEmpty(TrieNode* node) {
+    if (!node->word.empty())
+        return false;
+
+    for (int i = 0; i < 26; i++)
+        if (node->children[i])
+            return false;
+
+    return true;
+}
+
 void dfs(vector<vector<char>>& board, int r, int c,
          TrieNode* node, vector<string>& result) {
     if (r < 0 || c < 0 || r >= board.size() ||
@@ -54,6 +65,11 @@ void dfs(vector<vector<char>>& board, int r, int c,
     dfs(board, r, c - 1, next, result);
 
     board[r][c] = saved;
+
+    if (isEmpty(next)) {
+        delete next;
+        node->children[index] = nullptr;
+    }
 }
 
 int main() {
