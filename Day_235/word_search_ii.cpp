@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 struct TrieNode {
@@ -12,14 +13,44 @@ struct TrieNode {
     }
 };
 
+void insert(TrieNode* root, const string& word) {
+    TrieNode* node = root;
+
+    for (char ch : word) {
+        int index = ch - 'a';
+
+        if (!node->children[index])
+            node->children[index] = new TrieNode();
+
+        node = node->children[index];
+    }
+
+    node->isEnd = true;
+}
+
+bool search(TrieNode* root, const string& word) {
+    TrieNode* node = root;
+
+    for (char ch : word) {
+        int index = ch - 'a';
+
+        if (!node->children[index])
+            return false;
+
+        node = node->children[index];
+    }
+
+    return node->isEnd;
+}
+
 int main() {
     TrieNode root;
 
-    root.children['o' - 'a'] = new TrieNode();
-    root.children['o' - 'a']->children['a' - 'a'] = new TrieNode();
+    insert(&root, "oath");
+    insert(&root, "eat");
 
-    cout << boolalpha
-         << (root.children['o' - 'a'] != nullptr) << '\n';
+    cout << boolalpha << search(&root, "oath") << '\n';
+    cout << boolalpha << search(&root, "pea") << '\n';
 
     return 0;
 }
