@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-bool dfs(vector<vector<char>>& board, string& word,
+bool dfs(vector<vector<char>>& board, const string& word,
          int r, int c, int index) {
     if (index == word.size())
         return true;
@@ -24,6 +24,15 @@ bool dfs(vector<vector<char>>& board, string& word,
     return found;
 }
 
+bool exists(vector<vector<char>>& board, const string& word) {
+    for (int r = 0; r < board.size(); r++)
+        for (int c = 0; c < board[0].size(); c++)
+            if (dfs(board, word, r, c, 0))
+                return true;
+
+    return false;
+}
+
 int main() {
     vector<vector<char>> board = {
         {'o','a','a','n'},
@@ -32,14 +41,11 @@ int main() {
         {'i','f','l','v'}
     };
 
-    string word = "oath";
-    bool found = false;
+    vector<string> words = {"oath", "pea", "eat", "rain"};
 
-    for (int r = 0; r < board.size(); r++)
-        for (int c = 0; c < board[0].size(); c++)
-            if (dfs(board, word, r, c, 0))
-                found = true;
+    for (const string& word : words)
+        if (exists(board, word))
+            cout << word << '\n';
 
-    cout << boolalpha << found << '\n';
     return 0;
 }
