@@ -1,41 +1,26 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <unordered_map>
+#include <algorithm>
 using namespace std;
-
-bool isPalindrome(const string& s) {
-    int left = 0, right = s.size() - 1;
-
-    while (left < right) {
-        if (s[left] != s[right])
-            return false;
-        left++;
-        right--;
-    }
-
-    return true;
-}
-
-vector<vector<int>> palindromePairs(vector<string>& words) {
-    vector<vector<int>> result;
-
-    for (int i = 0; i < words.size(); i++) {
-        for (int j = 0; j < words.size(); j++) {
-            if (i != j && isPalindrome(words[i] + words[j]))
-                result.push_back({i, j});
-        }
-    }
-
-    return result;
-}
 
 int main() {
     vector<string> words = {"abcd", "dcba", "lls", "s", "sssll"};
+    unordered_map<string, int> indexMap;
 
-    vector<vector<int>> result = palindromePairs(words);
+    for (int i = 0; i < words.size(); i++)
+        indexMap[words[i]] = i;
 
-    for (auto& pair : result)
-        cout << "[" << pair[0] << ", " << pair[1] << "]\n";
+    for (int i = 0; i < words.size(); i++) {
+        string reversed = words[i];
+        reverse(reversed.begin(), reversed.end());
+
+        auto it = indexMap.find(reversed);
+
+        if (it != indexMap.end() && it->second != i)
+            cout << "[" << i << ", " << it->second << "]\n";
+    }
 
     return 0;
 }
