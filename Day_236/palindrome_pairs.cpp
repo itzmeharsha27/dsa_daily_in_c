@@ -1,13 +1,26 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
-int main() {
-    vector<string> words = {"abcd", "dcba", "lls", "s", "sssll"};
+bool isPalindrome(const string& s) {
+    int left = 0;
+    int right = s.size() - 1;
 
-    for (int i = 0; i < words.size(); i++)
-        cout << i << ": " << words[i] << '\n';
+    while (left < right) {
+        if (s[left] != s[right])
+            return false;
+
+        left++;
+        right--;
+    }
+
+    return true;
+}
+
+int main() {
+    cout << boolalpha;
+    cout << isPalindrome("abba") << '\n';
+    cout << isPalindrome("abc") << '\n';
 
     return 0;
 }
