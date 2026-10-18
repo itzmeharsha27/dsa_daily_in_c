@@ -16,18 +16,26 @@ bool isPalindrome(const string& s) {
     return true;
 }
 
-int main() {
-    vector<string> words = {"abcd", "dcba", "lls", "s", "sssll"};
+vector<vector<int>> palindromePairs(vector<string>& words) {
+    vector<vector<int>> result;
 
     for (int i = 0; i < words.size(); i++) {
         for (int j = 0; j < words.size(); j++) {
-            if (i == j)
-                continue;
-
-            if (isPalindrome(words[i] + words[j]))
-                cout << "[" << i << ", " << j << "]\n";
+            if (i != j && isPalindrome(words[i] + words[j]))
+                result.push_back({i, j});
         }
     }
+
+    return result;
+}
+
+int main() {
+    vector<string> words = {"abcd", "dcba", "lls", "s", "sssll"};
+
+    vector<vector<int>> result = palindromePairs(words);
+
+    for (auto& pair : result)
+        cout << "[" << pair[0] << ", " << pair[1] << "]\n";
 
     return 0;
 }
