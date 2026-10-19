@@ -15,9 +15,7 @@ int ladderLength(string beginWord, string endWord,
     queue<string> q;
     q.push(beginWord);
 
-    unordered_set<string> visited;
-    visited.insert(beginWord);
-
+    words.erase(beginWord);
     int steps = 1;
 
     while (!q.empty()) {
@@ -39,9 +37,11 @@ int ladderLength(string beginWord, string endWord,
 
                     word[pos] = ch;
 
-                    if (words.count(word) && !visited.count(word)) {
-                        visited.insert(word);
+                    auto it = words.find(word);
+
+                    if (it != words.end()) {
                         q.push(word);
+                        words.erase(it);
                     }
                 }
 
