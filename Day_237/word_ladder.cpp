@@ -1,21 +1,22 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
+bool differsByOne(const string& a, const string& b) {
+    int differences = 0;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            differences++;
+    }
+
+    return differences == 1;
+}
+
 int main() {
-    string beginWord = "hit";
-    string endWord = "cog";
-
-    vector<string> wordList = {
-        "hot", "dot", "dog", "lot", "log", "cog"
-    };
-
-    cout << "Begin: " << beginWord << '\n';
-    cout << "End: " << endWord << '\n';
-
-    for (const string& word : wordList)
-        cout << word << '\n';
+    cout << boolalpha;
+    cout << differsByOne("hit", "hot") << '\n';
+    cout << differsByOne("hit", "dog") << '\n';
 
     return 0;
 }
