@@ -22,25 +22,33 @@ int ladderLength(string beginWord, string endWord,
     if (!words.count(endWord))
         return 0;
 
-    queue<pair<string, int>> q;
-    q.push({beginWord, 1});
+    queue<string> q;
+    q.push(beginWord);
 
     unordered_set<string> visited;
     visited.insert(beginWord);
 
+    int steps = 1;
+
     while (!q.empty()) {
-        auto [word, steps] = q.front();
-        q.pop();
+        int levelSize = q.size();
 
-        if (word == endWord)
-            return steps;
+        for (int i = 0; i < levelSize; i++) {
+            string word = q.front();
+            q.pop();
 
-        for (const string& next : words) {
-            if (!visited.count(next) && differsByOne(word, next)) {
-                visited.insert(next);
-                q.push({next, steps + 1});
+            if (word == endWord)
+                return steps;
+
+            for (const string& next : words) {
+                if (!visited.count(next) && differsByOne(word, next)) {
+                    visited.insert(next);
+                    q.push(next);
+                }
             }
         }
+
+        steps++;
     }
 
     return 0;
