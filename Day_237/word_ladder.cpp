@@ -5,16 +5,6 @@
 #include <unordered_set>
 using namespace std;
 
-bool differsByOne(const string& a, const string& b) {
-    int differences = 0;
-
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            differences++;
-
-    return differences == 1;
-}
-
 int ladderLength(string beginWord, string endWord,
                  vector<string>& wordList) {
     unordered_set<string> words(wordList.begin(), wordList.end());
@@ -40,11 +30,22 @@ int ladderLength(string beginWord, string endWord,
             if (word == endWord)
                 return steps;
 
-            for (const string& next : words) {
-                if (!visited.count(next) && differsByOne(word, next)) {
-                    visited.insert(next);
-                    q.push(next);
+            for (int pos = 0; pos < word.size(); pos++) {
+                char original = word[pos];
+
+                for (char ch = 'a'; ch <= 'z'; ch++) {
+                    if (ch == original)
+                        continue;
+
+                    word[pos] = ch;
+
+                    if (words.count(word) && !visited.count(word)) {
+                        visited.insert(word);
+                        q.push(word);
+                    }
                 }
+
+                word[pos] = original;
             }
         }
 
