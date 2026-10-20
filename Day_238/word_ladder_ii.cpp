@@ -1,77 +1,98 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <queue>
 #include <unordered_set>
 #include <unordered_map>
+#include <algorithm>
 using namespace std;
 
-int main() {
-    string beginWord = "hit";
-    string endWord = "cog";
+class Solution {
+    unordered_map<string, vector<string>> parents;
+    vector<vector<string>> result;
+    string beginWord;
 
-    vector<string> wordList = {
-        "hot", "dot", "dog", "lot", "log", "cog"
-    };
+    void backtrack(const string& word, vector<string>& path) {
+        if (word == beginWord) {
+            vector<string> sequence = path;
+            reverse(sequence.begin(), sequence.end());
+            result.push_back(sequence);
+            return;
+        }
 
-    unordered_set<string> words(wordList.begin(), wordList.end());
-
-    if (!words.count(endWord)) {
-        cout << "No transformation exists\n";
-        return 0;
+        for (const string& parent : parents[word]) {
+            path.push_back(parent);
+            backtrack(parent, path);
+            path.pop_back();
+        }
     }
 
-    queue<string> q;
-    q.push(beginWord);
-    words.erase(beginWord);
+public:
+    vector<vector<string>> findLadders(
+        string start, string end, vector<string>& wordList
+    ) {
+        beginWord = start;
+        parents.clear();
+        result.clear();
 
-    unordered_map<string, vector<string>> parents;
-    bool found = false;
+        unordered_set<string> words(wordList.begin(), wordList.end());
 
-    while (!q.empty() && !found) {
-        int size = q.size();
-        unordered_set<string> usedThisLevel;
+        if (!words.count(end))
+            return result;
 
-        while (size--) {
-            string word = q.front();
-            q.pop();
+        queue<string> q;
+        q.push(start);
+        words.erase(start);
 
-            for (int i = 0; i < word.size(); i++) {
-                char original = word[i];
+        bool found = false;
 
-                for (char ch = 'a'; ch <= 'z'; ch++) {
-                    if (ch == original)
-                        continue;
+        while (!q.empty() && !found) {
+            int size = q.size();
+            unordered_set<string> usedThisLevel;
 
-                    word[i] = ch;
+            while (size--) {
+                string word = q.front();
+                q.pop();
 
-                    if (words.count(word)) {
-                        parents[word].push_back(q.empty() ? "" : "");
-                        parents[word].back() = "";
-                        parents[word].pop_back();
+                for (int i = 0; i < word.size(); i++) {
+                    char original = word[i];
+
+                    for (char ch = 'a'; ch <= 'z'; ch++) {
+                        if (ch == original)
+                            continue;
+
+                        word[i] = ch;
+
+                        if (!words.count(word))
+                            continue;
 
                         parents[word].push_back(
-                            string(1, original) + "|" + word.substr(0, i) +
+                            word.substr(0, i) + original +
                             word.substr(i + 1)
                         );
 
                         usedThisLevel.insert(word);
 
-                        if (word == endWord)
+                        if (word == end)
                             found = true;
-                        else
-                            q.push(word);
                     }
-                }
 
-                word[i] = original;
+                    word[i] = original;
+                }
             }
+
+            for (const string& word : usedThisLevel)
+                if (!found || word == end)
+                    q.push(word);
+
+            for (const string& word : usedThisLevel)
+                words.erase(word);
         }
 
-        for (const string& word : usedThisLevel)
-            words.erase(word);
-    }
+        if (found) {
+            vector<string> path = {end};
+            backtrack(end, path);
+        }
 
-    cout << "BFS parent relationships collected\n";
-    return 0;
-}
+        return result;
+    }
+};
