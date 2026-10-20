@@ -55,7 +55,7 @@ int main() {
     }
 
     cout << "Shortest transformation length: "
-         << (found ? level : 0) << '\n';
+         << (found ? level :  0) << '\n';
 
     return 0;
 }
