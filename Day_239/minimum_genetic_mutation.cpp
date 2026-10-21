@@ -1,21 +1,22 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
+bool differsByOne(const string& a, const string& b) {
+    int differences = 0;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            differences++;
+    }
+
+    return differences == 1;
+}
+
 int main() {
-    string startGene = "AACCGGTT";
-    string endGene = "AAACGGTA";
-
-    vector<string> bank = {
-        "AACCGGTA", "AACCGCTA", "AAACGGTA"
-    };
-
-    cout << "Start: " << startGene << '\n';
-    cout << "End: " << endGene << '\n';
-
-    for (const string& gene : bank)
-        cout << gene << '\n';
+    cout << boolalpha;
+    cout << differsByOne("AACCGGTT", "AACCGGTA") << '\n';
+    cout << differsByOne("AACCGGTT", "AAACGGTA") << '\n';
 
     return 0;
 }
