@@ -25,25 +25,33 @@ int minMutation(string startGene, string endGene,
     if (!allowed.count(endGene))
         return -1;
 
-    queue<pair<string, int>> q;
-    q.push({startGene, 0});
+    queue<string> q;
+    q.push(startGene);
 
     unordered_set<string> visited;
     visited.insert(startGene);
 
+    int mutations = 0;
+
     while (!q.empty()) {
-        auto [gene, steps] = q.front();
-        q.pop();
+        int levelSize = q.size();
 
-        if (gene == endGene)
-            return steps;
+        while (levelSize--) {
+            string gene = q.front();
+            q.pop();
 
-        for (const string& next : allowed) {
-            if (!visited.count(next) && differsByOne(gene, next)) {
-                visited.insert(next);
-                q.push({next, steps + 1});
+            if (gene == endGene)
+                return mutations;
+
+            for (const string& next : allowed) {
+                if (!visited.count(next) && differsByOne(gene, next)) {
+                    visited.insert(next);
+                    q.push(next);
+                }
             }
         }
+
+        mutations++;
     }
 
     return -1;
