@@ -5,16 +5,6 @@
 #include <unordered_set>
 using namespace std;
 
-bool differsByOne(const string& a, const string& b) {
-    int differences = 0;
-
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            differences++;
-
-    return differences == 1;
-}
-
 int minMutation(string startGene, string endGene,
                 vector<string>& bank) {
     unordered_set<string> allowed(bank.begin(), bank.end());
@@ -27,11 +17,10 @@ int minMutation(string startGene, string endGene,
 
     queue<string> q;
     q.push(startGene);
-
-    unordered_set<string> visited;
-    visited.insert(startGene);
+    allowed.erase(startGene);
 
     int mutations = 0;
+    string bases = "ACGT";
 
     while (!q.empty()) {
         int levelSize = q.size();
@@ -43,11 +32,24 @@ int minMutation(string startGene, string endGene,
             if (gene == endGene)
                 return mutations;
 
-            for (const string& next : allowed) {
-                if (!visited.count(next) && differsByOne(gene, next)) {
-                    visited.insert(next);
-                    q.push(next);
+            for (int i = 0; i < gene.size(); i++) {
+                char original = gene[i];
+
+                for (char base : bases) {
+                    if (base == original)
+                        continue;
+
+                    gene[i] = base;
+
+                    auto it = allowed.find(gene);
+
+                    if (it != allowed.end()) {
+                        q.push(gene);
+                        allowed.erase(it);
+                    }
                 }
+
+                gene[i] = original;
             }
         }
 
