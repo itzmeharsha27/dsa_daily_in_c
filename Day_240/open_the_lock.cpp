@@ -1,21 +1,19 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
 int main() {
-    vector<string> deadends = {
-        "0201", "0101", "0102", "1212", "2002"
-    };
+    string combination = "0000";
 
-    string target = "0202";
+    for (int i = 0; i < 4; i++) {
+        string next = combination;
 
-    cout << "Starting combination: 0000\n";
-    cout << "Target: " << target << '\n';
+        next[i] = (combination[i] - '0' + 1) % 10 + '0';
+        cout << next << '\n';
 
-    cout << "Deadends:\n";
-    for (const string& deadend : deadends)
-        cout << deadend << '\n';
+        next[i] = (combination[i] - '0' + 9) % 10 + '0';
+        cout << next << '\n';
+    }
 
     return 0;
 }
