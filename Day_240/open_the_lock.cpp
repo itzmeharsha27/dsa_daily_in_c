@@ -2,12 +2,19 @@
 #include <queue>
 #include <string>
 #include <unordered_set>
+#include <vector>
 using namespace std;
 
 int openLock(vector<string>& deadends, string target) {
     unordered_set<string> blocked(deadends.begin(), deadends.end());
 
     if (blocked.count("0000"))
+        return -1;
+
+    if (target == "0000")
+        return 0;
+
+    if (blocked.count(target))
         return -1;
 
     queue<string> q;
@@ -25,19 +32,20 @@ int openLock(vector<string>& deadends, string target) {
             string combination = q.front();
             q.pop();
 
-            if (combination == target)
-                return moves;
-
             for (int i = 0; i < 4; i++) {
                 for (int direction : {1, -1}) {
                     string next = combination;
                     int digit = (next[i] - '0' + direction + 10) % 10;
                     next[i] = digit + '0';
 
-                    if (!blocked.count(next) && !visited.count(next)) {
-                        visited.insert(next);
-                        q.push(next);
-                    }
+                    if (blocked.count(next) || visited.count(next))
+                        continue;
+
+                    if (next == target)
+                        return moves + 1;
+
+                    visited.insert(next);
+                    q.push(next);
                 }
             }
         }
