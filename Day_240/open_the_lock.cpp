@@ -6,22 +6,20 @@
 using namespace std;
 
 int openLock(vector<string>& deadends, string target) {
-    unordered_set<string> blocked(deadends.begin(), deadends.end());
+    unordered_set<string> unavailable(deadends.begin(), deadends.end());
 
-    if (blocked.count("0000"))
+    if (unavailable.count("0000"))
         return -1;
 
     if (target == "0000")
         return 0;
 
-    if (blocked.count(target))
+    if (unavailable.count(target))
         return -1;
 
     queue<string> q;
-    unordered_set<string> visited;
-
     q.push("0000");
-    visited.insert("0000");
+    unavailable.insert("0000");
 
     int moves = 0;
 
@@ -38,13 +36,13 @@ int openLock(vector<string>& deadends, string target) {
                     int digit = (next[i] - '0' + direction + 10) % 10;
                     next[i] = digit + '0';
 
-                    if (blocked.count(next) || visited.count(next))
+                    if (unavailable.count(next))
                         continue;
 
                     if (next == target)
                         return moves + 1;
 
-                    visited.insert(next);
+                    unavailable.insert(next);
                     q.push(next);
                 }
             }
