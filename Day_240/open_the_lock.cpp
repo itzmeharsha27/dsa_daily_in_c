@@ -10,31 +10,39 @@ int openLock(vector<string>& deadends, string target) {
     if (blocked.count("0000"))
         return -1;
 
-    queue<pair<string, int>> q;
+    queue<string> q;
     unordered_set<string> visited;
 
-    q.push({"0000", 0});
+    q.push("0000");
     visited.insert("0000");
 
+    int moves = 0;
+
     while (!q.empty()) {
-        auto [combination, moves] = q.front();
-        q.pop();
+        int levelSize = q.size();
 
-        if (combination == target)
-            return moves;
+        while (levelSize--) {
+            string combination = q.front();
+            q.pop();
 
-        for (int i = 0; i < 4; i++) {
-            for (int direction : {1, -1}) {
-                string next = combination;
-                int digit = (next[i] - '0' + direction + 10) % 10;
-                next[i] = digit + '0';
+            if (combination == target)
+                return moves;
 
-                if (!blocked.count(next) && !visited.count(next)) {
-                    visited.insert(next);
-                    q.push({next, moves + 1});
+            for (int i = 0; i < 4; i++) {
+                for (int direction : {1, -1}) {
+                    string next = combination;
+                    int digit = (next[i] - '0' + direction + 10) % 10;
+                    next[i] = digit + '0';
+
+                    if (!blocked.count(next) && !visited.count(next)) {
+                        visited.insert(next);
+                        q.push(next);
+                    }
                 }
             }
         }
+
+        moves++;
     }
 
     return -1;
