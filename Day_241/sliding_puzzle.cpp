@@ -1,53 +1,57 @@
-#include <iostream>
-#include <queue>
-#include <string>
-#include <unordered_set>
 #include <vector>
+#include <string>
+#include <queue>
+#include <unordered_set>
 using namespace std;
 
-int main() {
-    vector<vector<int>> neighbors = {
-        {1, 3}, {0, 2, 4}, {1, 5},
-        {0, 4}, {1, 3, 5}, {2, 4}
-    };
+class Solution {
+public:
+    int slidingPuzzle(vector<vector<int>>& board) {
+        vector<vector<int>> neighbors = {
+            {1, 3}, {0, 2, 4}, {1, 5},
+            {0, 4}, {1, 3, 5}, {2, 4}
+        };
 
-    string start = "123540";
-    string target = "123450";
+        string start;
 
-    queue<string> q;
-    unordered_set<string> visited;
+        for (const auto& row : board)
+            for (int value : row)
+                start += char('0' + value);
 
-    q.push(start);
-    visited.insert(start);
+        string target = "123450";
 
-    int moves = 0;
+        queue<string> q;
+        unordered_set<string> visited;
 
-    while (!q.empty()) {
-        int levelSize = q.size();
+        q.push(start);
+        visited.insert(start);
 
-        while (levelSize--) {
-            string state = q.front();
-            q.pop();
+        int moves = 0;
 
-            if (state == target) {
-                cout << moves << '\n';
-                return 0;
+        while (!q.empty()) {
+            int levelSize = q.size();
+
+            while (levelSize--) {
+                string state = q.front();
+                q.pop();
+
+                if (state == target)
+                    return moves;
+
+                int zeroPosition = state.find('0');
+
+                for (int nextPosition : neighbors[zeroPosition]) {
+                    string nextState = state;
+                    swap(nextState[zeroPosition], nextState[nextPosition]);
+
+                    if (visited.insert(nextState).second)
+                        q.push(nextState);
+                }
             }
 
-            int zeroPosition = state.find('0');
-
-            for (int nextPosition : neighbors[zeroPosition]) {
-                string nextState = state;
-                swap(nextState[zeroPosition], nextState[nextPosition]);
-
-                if (visited.insert(nextState).second)
-                    q.push(nextState);
-            }
+            moves++;
         }
 
-        moves++;
+        return -1;
     }
-
-    cout << -1 << '\n';
-    return 0;
-}
+};
