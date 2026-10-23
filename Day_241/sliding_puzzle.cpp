@@ -1,22 +1,14 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
 int main() {
-    vector<vector<int>> board = {
-        {1, 2, 3},
-        {4, 0, 5}
-    };
+    string state = "123405";
 
-    string state;
+    int zeroPosition = state.find('0');
 
-    for (auto& row : board)
-        for (int value : row)
-            state += char('0' + value);
-
-    cout << "Initial state: " << state << '\n';
-    cout << "Target state: 123450\n";
+    cout << "State: " << state << '\n';
+    cout << "Empty space index: " << zeroPosition << '\n';
 
     return 0;
 }
