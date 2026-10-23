@@ -14,32 +14,40 @@ int main() {
     string start = "123405";
     string target = "123450";
 
-    queue<pair<string, int>> q;
+    queue<string> q;
     unordered_set<string> visited;
 
-    q.push({start, 0});
+    q.push(start);
     visited.insert(start);
 
+    int moves = 0;
+
     while (!q.empty()) {
-        auto [state, moves] = q.front();
-        q.pop();
+        int levelSize = q.size();
 
-        if (state == target) {
-            cout << "Minimum moves: " << moves << '\n';
-            return 0;
+        while (levelSize--) {
+            string state = q.front();
+            q.pop();
+
+            if (state == target) {
+                cout << "Minimum moves: " << moves << '\n';
+                return 0;
+            }
+
+            int zeroPosition = state.find('0');
+
+            for (int nextPosition : neighbors[zeroPosition]) {
+                string nextState = state;
+                swap(nextState[zeroPosition], nextState[nextPosition]);
+
+                if (visited.insert(nextState).second)
+                    q.push(nextState);
+            }
         }
 
-        int zeroPosition = state.find('0');
-
-        for (int nextPosition : neighbors[zeroPosition]) {
-            string nextState = state;
-            swap(nextState[zeroPosition], nextState[nextPosition]);
-
-            if (visited.insert(nextState).second)
-                q.push({nextState, moves + 1});
-        }
+        moves++;
     }
 
-    cout << "Solution not found\n";
+    cout << -1 << '\n';
     return 0;
 }
