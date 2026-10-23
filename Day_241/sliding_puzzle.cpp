@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <queue>
@@ -7,9 +8,13 @@ using namespace std;
 class Solution {
 public:
     int slidingPuzzle(vector<vector<int>>& board) {
-        vector<vector<int>> neighbors = {
-            {1, 3}, {0, 2, 4}, {1, 5},
-            {0, 4}, {1, 3, 5}, {2, 4}
+        const vector<vector<int>> neighbors = {
+            {1, 3},
+            {0, 2, 4},
+            {1, 5},
+            {0, 4},
+            {1, 3, 5},
+            {2, 4}
         };
 
         string start;
@@ -18,7 +23,7 @@ public:
             for (int value : row)
                 start += char('0' + value);
 
-        string target = "123450";
+        const string target = "123450";
 
         queue<string> q;
         unordered_set<string> visited;
@@ -55,3 +60,15 @@ public:
         return -1;
     }
 };
+
+int main() {
+    vector<vector<int>> board = {
+        {1, 2, 3},
+        {4, 0, 5}
+    };
+
+    Solution solution;
+    cout << solution.slidingPuzzle(board) << '\n';
+
+    return 0;
+}
