@@ -11,7 +11,7 @@ int main() {
         {0, 4}, {1, 3, 5}, {2, 4}
     };
 
-    string start = "123405";
+    string start = "123540";
     string target = "123450";
 
     queue<string> q;
@@ -30,7 +30,7 @@ int main() {
             q.pop();
 
             if (state == target) {
-                cout << "Minimum moves: " << moves << '\n';
+                cout << moves << '\n';
                 return 0;
             }
 
