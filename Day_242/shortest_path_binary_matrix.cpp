@@ -1,19 +1,16 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
-    vector<vector<int>> grid = {
-        {0, 1},
-        {1, 0}
-    };
+    int dr[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+    int dc[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
-    int n = grid.size();
+    int row = 1, col = 1;
 
-    if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1)
-        cout << -1 << '\n';
-    else
-        cout << "Both endpoints are clear\n";
+    for (int i = 0; i < 8; i++) {
+        cout << row + dr[i] << ", "
+             << col + dc[i] << '\n';
+    }
 
     return 0;
 }
