@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <queue>
 #include <tuple>
@@ -40,3 +41,15 @@ public:
         return -1;
     }
 };
+
+int main() {
+    vector<vector<int>> grid = {
+        {0, 1},
+        {1, 0}
+    };
+
+    Solution solution;
+    cout << solution.shortestPathBinaryMatrix(grid) << '\n';
+
+    return 0;
+}
