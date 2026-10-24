@@ -30,6 +30,11 @@ int main() {
         auto [r, c] = q.front();
         q.pop();
 
+        if (r == n - 1 && c == n - 1) {
+            cout << dist[r][c] << '\n';
+            return 0;
+        }
+
         for (int i = 0; i < 8; i++) {
             int nr = r + dr[i];
             int nc = c + dc[i];
@@ -42,6 +47,6 @@ int main() {
         }
     }
 
-    cout << dist[n - 1][n - 1] << '\n';
+    cout << -1 << '\n';
     return 0;
 }
