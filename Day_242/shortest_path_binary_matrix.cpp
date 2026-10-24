@@ -11,32 +11,37 @@ int main() {
     };
 
     int n = grid.size();
+
+    if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1) {
+        cout << -1 << '\n';
+        return 0;
+    }
+
     int dr[] = {-1, -1, -1, 0, 0, 1, 1, 1};
     int dc[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
+    vector<vector<int>> dist(n, vector<int>(n, -1));
     queue<pair<int, int>> q;
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
 
     q.push({0, 0});
-    visited[0][0] = true;
+    dist[0][0] = 1;
 
     while (!q.empty()) {
         auto [r, c] = q.front();
         q.pop();
-
-        cout << "(" << r << ", " << c << ")\n";
 
         for (int i = 0; i < 8; i++) {
             int nr = r + dr[i];
             int nc = c + dc[i];
 
             if (nr >= 0 && nr < n && nc >= 0 && nc < n &&
-                grid[nr][nc] == 0 && !visited[nr][nc]) {
-                visited[nr][nc] = true;
+                grid[nr][nc] == 0 && dist[nr][nc] == -1) {
+                dist[nr][nc] = dist[r][c] + 1;
                 q.push({nr, nc});
             }
         }
     }
 
+    cout << dist[n - 1][n - 1] << '\n';
     return 0;
 }
