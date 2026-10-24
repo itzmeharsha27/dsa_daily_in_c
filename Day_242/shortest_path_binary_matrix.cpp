@@ -8,11 +8,12 @@ int main() {
         {1, 0}
     };
 
-    for (const auto& row : grid) {
-        for (int cell : row)
-            cout << cell << ' ';
-        cout << '\n';
-    }
+    int n = grid.size();
+
+    if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1)
+        cout << -1 << '\n';
+    else
+        cout << "Both endpoints are clear\n";
 
     return 0;
 }
