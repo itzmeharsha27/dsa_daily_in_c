@@ -3,13 +3,7 @@
 #include <queue>
 using namespace std;
 
-int main() {
-    vector<vector<int>> mat = {
-        {0, 0, 0},
-        {0, 1, 0},
-        {1, 1, 1}
-    };
-
+vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
     int rows = mat.size();
     int cols = mat[0].size();
 
@@ -36,17 +30,31 @@ int main() {
             int nr = r + dr[i];
             int nc = c + dc[i];
 
-            if (nr >= 0 && nr < rows &&
-                nc >= 0 && nc < cols &&
-                dist[nr][nc] == -1) {
+            if (nr < 0 || nr >= rows ||
+                nc < 0 || nc >= cols)
+                continue;
 
-                dist[nr][nc] = dist[r][c] + 1;
-                q.push({nr, nc});
-            }
+            if (dist[nr][nc] != -1)
+                continue;
+
+            dist[nr][nc] = dist[r][c] + 1;
+            q.push({nr, nc});
         }
     }
 
-    for (const auto& row : dist) {
+    return dist;
+}
+
+int main() {
+    vector<vector<int>> mat = {
+        {0, 0, 0},
+        {0, 1, 0},
+        {1, 1, 1}
+    };
+
+    vector<vector<int>> result = updateMatrix(mat);
+
+    for (const auto& row : result) {
         for (int value : row)
             cout << value << ' ';
         cout << '\n';
