@@ -25,7 +25,7 @@ public:
         int dc[] = {0, 0, -1, 1};
         int minutes = 0;
 
-        while (!q.empty()) {
+        while (!q.empty() && fresh > 0) {
             int size = q.size();
 
             for (int j = 0; j < size; j++) {
@@ -46,6 +46,8 @@ public:
                     }
                 }
             }
+
+            minutes++;
         }
 
         return fresh == 0 ? minutes : -1;
