@@ -23,22 +23,27 @@ public:
 
         int dr[] = {-1, 1, 0, 0};
         int dc[] = {0, 0, -1, 1};
+        int minutes = 0;
 
         while (!q.empty()) {
-            auto [r, c] = q.front();
-            q.pop();
+            int size = q.size();
 
-            for (int i = 0; i < 4; i++) {
-                int nr = r + dr[i];
-                int nc = c + dc[i];
+            for (int j = 0; j < size; j++) {
+                auto [r, c] = q.front();
+                q.pop();
 
-                if (nr >= 0 && nr < rows &&
-                    nc >= 0 && nc < cols) {
-                    // Neighbor processing will be added next.
+                for (int i = 0; i < 4; i++) {
+                    int nr = r + dr[i];
+                    int nc = c + dc[i];
+
+                    if (nr >= 0 && nr < rows &&
+                        nc >= 0 && nc < cols) {
+                        // Rot fresh neighbors in the next step.
+                    }
                 }
             }
         }
 
-        return fresh == 0 ? 0 : -1;
+        return fresh == 0 ? minutes : -1;
     }
 };
