@@ -37,8 +37,12 @@ public:
                     int nc = c + dc[i];
 
                     if (nr >= 0 && nr < rows &&
-                        nc >= 0 && nc < cols) {
-                        // Rot fresh neighbors in the next step.
+                        nc >= 0 && nc < cols &&
+                        grid[nr][nc] == 1) {
+
+                        grid[nr][nc] = 2;
+                        fresh--;
+                        q.push({nr, nc});
                     }
                 }
             }
