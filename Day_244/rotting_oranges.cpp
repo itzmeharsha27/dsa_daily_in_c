@@ -5,6 +5,10 @@ using namespace std;
 class Solution {
 public:
     int orangesRotting(vector<vector<int>>& grid) {
+        if (grid.empty() || grid[0].empty()) {
+            return 0;
+        }
+
         int rows = grid.size();
         int cols = grid[0].size();
 
@@ -19,6 +23,10 @@ public:
                     q.push({r, c});
                 }
             }
+        }
+
+        if (fresh == 0) {
+            return 0;
         }
 
         int dr[] = {-1, 1, 0, 0};
