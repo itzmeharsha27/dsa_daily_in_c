@@ -6,6 +6,10 @@ using namespace std;
 class Solution {
 public:
     int maxDistance(vector<vector<int>>& grid) {
+        if (grid.empty() || grid[0].empty()) {
+            return -1;
+        }
+
         int n = grid.size();
         int m = grid[0].size();
 
