@@ -30,7 +30,29 @@ public:
 
         int dr[] = {-1, 1, 0, 0};
         int dc[] = {0, 0, -1, 1};
+        int distance = -1;
 
-        return 0;
+        while (!q.empty()) {
+            int size = q.size();
+
+            for (int j = 0; j < size; j++) {
+                auto [r, c] = q.front();
+                q.pop();
+
+                for (int i = 0; i < 4; i++) {
+                    int nr = r + dr[i];
+                    int nc = c + dc[i];
+
+                    if (nr >= 0 && nr < n &&
+                        nc >= 0 && nc < m) {
+                        // Neighbor processing comes next.
+                    }
+                }
+            }
+
+            distance++;
+        }
+
+        return distance;
     }
 };
