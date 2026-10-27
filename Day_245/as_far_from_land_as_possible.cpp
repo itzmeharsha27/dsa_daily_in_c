@@ -28,6 +28,9 @@ public:
             return -1;
         }
 
+        int dr[] = {-1, 1, 0, 0};
+        int dc[] = {0, 0, -1, 1};
+
         return 0;
     }
 };
