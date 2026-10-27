@@ -1,4 +1,6 @@
 #include <vector>
+#include <queue>
+#include <utility>
 using namespace std;
 
 class Solution {
@@ -9,11 +11,13 @@ public:
 
         int land = 0;
         int water = 0;
+        queue<pair<int, int>> q;
 
         for (int r = 0; r < n; r++) {
             for (int c = 0; c < m; c++) {
                 if (grid[r][c] == 1) {
                     land++;
+                    q.push({r, c});
                 } else {
                     water++;
                 }
