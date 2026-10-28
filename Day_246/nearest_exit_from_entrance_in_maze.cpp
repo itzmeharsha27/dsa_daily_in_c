@@ -17,6 +17,8 @@ public:
         queue<pair<int, int>> q;
         q.push({entrance[0], entrance[1]});
 
+        maze[entrance[0]][entrance[1]] = '+';
+
         int dr[] = {-1, 1, 0, 0};
         int dc[] = {0, 0, -1, 1};
         int steps = 0;
@@ -35,7 +37,9 @@ public:
                     if (nr >= 0 && nr < rows &&
                         nc >= 0 && nc < cols &&
                         maze[nr][nc] == '.') {
-                        // Process the valid cell next.
+
+                        maze[nr][nc] = '+';
+                        q.push({nr, nc});
                     }
                 }
             }
