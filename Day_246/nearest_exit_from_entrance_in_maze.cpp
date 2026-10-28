@@ -38,6 +38,11 @@ public:
                         nc >= 0 && nc < cols &&
                         maze[nr][nc] == '.') {
 
+                        if (nr == 0 || nr == rows - 1 ||
+                            nc == 0 || nc == cols - 1) {
+                            return steps + 1;
+                        }
+
                         maze[nr][nc] = '+';
                         q.push({nr, nc});
                     }
