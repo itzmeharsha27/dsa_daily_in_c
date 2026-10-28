@@ -32,7 +32,11 @@ public:
                     int nr = r + dr[i];
                     int nc = c + dc[i];
 
-                    // Neighbor processing will be added next.
+                    if (nr >= 0 && nr < rows &&
+                        nc >= 0 && nc < cols &&
+                        maze[nr][nc] == '.') {
+                        // Process the valid cell next.
+                    }
                 }
             }
 
