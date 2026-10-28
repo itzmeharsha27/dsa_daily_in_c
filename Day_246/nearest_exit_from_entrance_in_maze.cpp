@@ -15,12 +15,13 @@ public:
         int cols = maze[0].size();
 
         queue<pair<int, int>> q;
-        q.push({entrance[0], entrance[1]});
 
+        q.push({entrance[0], entrance[1]});
         maze[entrance[0]][entrance[1]] = '+';
 
         int dr[] = {-1, 1, 0, 0};
         int dc[] = {0, 0, -1, 1};
+
         int steps = 0;
 
         while (!q.empty()) {
@@ -34,18 +35,19 @@ public:
                     int nr = r + dr[i];
                     int nc = c + dc[i];
 
-                    if (nr >= 0 && nr < rows &&
-                        nc >= 0 && nc < cols &&
-                        maze[nr][nc] == '.') {
-
-                        if (nr == 0 || nr == rows - 1 ||
-                            nc == 0 || nc == cols - 1) {
-                            return steps + 1;
-                        }
-
-                        maze[nr][nc] = '+';
-                        q.push({nr, nc});
+                    if (nr < 0 || nr >= rows ||
+                        nc < 0 || nc >= cols ||
+                        maze[nr][nc] != '.') {
+                        continue;
                     }
+
+                    if (nr == 0 || nr == rows - 1 ||
+                        nc == 0 || nc == cols - 1) {
+                        return steps + 1;
+                    }
+
+                    maze[nr][nc] = '+';
+                    q.push({nr, nc});
                 }
             }
 
