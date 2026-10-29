@@ -28,11 +28,13 @@ public:
         int n = grid.size();
         queue<pair<int, int>> q;
 
-        for (int r = 0; r < n; r++) {
+        bool found = false;
+
+        for (int r = 0; r < n && !found; r++) {
             for (int c = 0; c < n; c++) {
                 if (grid[r][c] == 1) {
                     dfs(grid, r, c, q);
-                    r = n;
+                    found = true;
                     break;
                 }
             }
@@ -40,6 +42,24 @@ public:
 
         int dr[] = {-1, 1, 0, 0};
         int dc[] = {0, 0, -1, 1};
+
+        while (!q.empty()) {
+            auto [r, c] = q.front();
+            q.pop();
+
+            for (int i = 0; i < 4; i++) {
+                int nr = r + dr[i];
+                int nc = c + dc[i];
+
+                if (nr >= 0 && nr < n &&
+                    nc >= 0 && nc < n &&
+                    grid[nr][nc] == 0) {
+
+                    grid[nr][nc] = 2;
+                    q.push({nr, nc});
+                }
+            }
+        }
 
         return 0;
     }
