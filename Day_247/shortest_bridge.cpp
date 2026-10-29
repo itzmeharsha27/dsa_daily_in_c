@@ -27,9 +27,9 @@ public:
     int shortestBridge(vector<vector<int>>& grid) {
         int n = grid.size();
         queue<pair<int, int>> q;
-
         bool found = false;
 
+        // Find and mark the first island.
         for (int r = 0; r < n && !found; r++) {
             for (int c = 0; c < n; c++) {
                 if (grid[r][c] == 1) {
@@ -44,6 +44,7 @@ public:
         int dc[] = {0, 0, -1, 1};
         int steps = 0;
 
+        // Expand from the first island using BFS.
         while (!q.empty()) {
             int size = q.size();
 
@@ -60,10 +61,12 @@ public:
                         continue;
                     }
 
+                    // The second island is reached.
                     if (grid[nr][nc] == 1) {
                         return steps;
                     }
 
+                    // Expand through unvisited water.
                     if (grid[nr][nc] == 0) {
                         grid[nr][nc] = 2;
                         q.push({nr, nc});
