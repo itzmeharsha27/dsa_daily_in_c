@@ -25,6 +25,18 @@ private:
 
 public:
     int shortestBridge(vector<vector<int>>& grid) {
+        int n = grid.size();
+        queue<pair<int, int>> q;
+
+        for (int r = 0; r < n; r++) {
+            for (int c = 0; c < n; c++) {
+                if (grid[r][c] == 1) {
+                    dfs(grid, r, c, q);
+                    return 0;
+                }
+            }
+        }
+
         return 0;
     }
 };
