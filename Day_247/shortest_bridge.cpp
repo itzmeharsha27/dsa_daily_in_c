@@ -32,10 +32,14 @@ public:
             for (int c = 0; c < n; c++) {
                 if (grid[r][c] == 1) {
                     dfs(grid, r, c, q);
-                    return 0;
+                    r = n;
+                    break;
                 }
             }
         }
+
+        int dr[] = {-1, 1, 0, 0};
+        int dc[] = {0, 0, -1, 1};
 
         return 0;
     }
