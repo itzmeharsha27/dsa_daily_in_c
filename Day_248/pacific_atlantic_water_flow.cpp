@@ -44,16 +44,19 @@ public:
         vector<vector<bool>> atlantic(
             rows, vector<bool>(cols, false));
 
+        // Explore the top and bottom borders.
         for (int c = 0; c < cols; c++) {
             dfs(heights, pacific, 0, c);
             dfs(heights, atlantic, rows - 1, c);
         }
 
-        for (int r = 0; r < rows; r++) {
+        // Explore the left and right borders, excluding corners.
+        for (int r = 1; r < rows - 1; r++) {
             dfs(heights, pacific, r, 0);
             dfs(heights, atlantic, r, cols - 1);
         }
 
+        // Collect cells reachable from both oceans.
         vector<vector<int>> result;
 
         for (int r = 0; r < rows; r++) {
