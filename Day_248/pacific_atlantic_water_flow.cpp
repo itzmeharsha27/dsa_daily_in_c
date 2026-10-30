@@ -6,7 +6,26 @@ private:
     void dfs(vector<vector<int>>& heights,
              vector<vector<bool>>& visited,
              int r, int c) {
+        int rows = heights.size();
+        int cols = heights[0].size();
+
         visited[r][c] = true;
+
+        int dr[] = {-1, 1, 0, 0};
+        int dc[] = {0, 0, -1, 1};
+
+        for (int i = 0; i < 4; i++) {
+            int nr = r + dr[i];
+            int nc = c + dc[i];
+
+            if (nr >= 0 && nr < rows &&
+                nc >= 0 && nc < cols &&
+                !visited[nr][nc] &&
+                heights[nr][nc] >= heights[r][c]) {
+
+                dfs(heights, visited, nr, nc);
+            }
+        }
     }
 
 public:
