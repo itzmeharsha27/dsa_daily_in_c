@@ -46,10 +46,12 @@ public:
 
         for (int c = 0; c < cols; c++) {
             dfs(heights, pacific, 0, c);
+            dfs(heights, atlantic, rows - 1, c);
         }
 
         for (int r = 0; r < rows; r++) {
             dfs(heights, pacific, r, 0);
+            dfs(heights, atlantic, r, cols - 1);
         }
 
         return {};
