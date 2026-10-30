@@ -44,6 +44,14 @@ public:
         vector<vector<bool>> atlantic(
             rows, vector<bool>(cols, false));
 
+        for (int c = 0; c < cols; c++) {
+            dfs(heights, pacific, 0, c);
+        }
+
+        for (int r = 0; r < rows; r++) {
+            dfs(heights, pacific, r, 0);
+        }
+
         return {};
     }
 };
