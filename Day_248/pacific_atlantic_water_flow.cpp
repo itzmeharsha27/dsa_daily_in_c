@@ -54,6 +54,16 @@ public:
             dfs(heights, atlantic, r, cols - 1);
         }
 
-        return {};
+        vector<vector<int>> result;
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (pacific[r][c] && atlantic[r][c]) {
+                    result.push_back({r, c});
+                }
+            }
+        }
+
+        return result;
     }
 };
