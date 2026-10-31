@@ -7,7 +7,8 @@ private:
         int rows = board.size();
         int cols = board[0].size();
 
-        if (r < 0 || r >= rows || c < 0 || c >= cols ||
+        if (r < 0 || r >= rows ||
+            c < 0 || c >= cols ||
             board[r][c] != 'O') {
             return;
         }
@@ -31,16 +32,25 @@ public:
         int rows = board.size();
         int cols = board[0].size();
 
+        // Mark safe regions connected to the left and right borders.
         for (int r = 0; r < rows; r++) {
             dfs(board, r, 0);
-            dfs(board, r, cols - 1);
+
+            if (cols > 1) {
+                dfs(board, r, cols - 1);
+            }
         }
 
-        for (int c = 0; c < cols; c++) {
+        // Mark safe regions connected to the top and bottom borders.
+        for (int c = 1; c < cols - 1; c++) {
             dfs(board, 0, c);
-            dfs(board, rows - 1, c);
+
+            if (rows > 1) {
+                dfs(board, rows - 1, c);
+            }
         }
 
+        // Capture surrounded regions and restore safe regions.
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (board[r][c] == 'O') {
