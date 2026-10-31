@@ -13,6 +13,11 @@ private:
         }
 
         board[r][c] = '#';
+
+        dfs(board, r - 1, c);
+        dfs(board, r + 1, c);
+        dfs(board, r, c - 1);
+        dfs(board, r, c + 1);
     }
 
 public:
