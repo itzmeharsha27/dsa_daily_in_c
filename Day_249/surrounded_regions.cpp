@@ -48,5 +48,13 @@ public:
                 dfs(board, rows - 1, c);
             }
         }
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (board[r][c] == 'O') {
+                    board[r][c] = 'X';
+                }
+            }
+        }
     }
 };
