@@ -53,6 +53,8 @@ public:
             for (int c = 0; c < cols; c++) {
                 if (board[r][c] == 'O') {
                     board[r][c] = 'X';
+                } else if (board[r][c] == '#') {
+                    board[r][c] = 'O';
                 }
             }
         }
