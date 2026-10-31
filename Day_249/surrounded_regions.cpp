@@ -14,10 +14,12 @@ private:
 
         board[r][c] = '#';
 
-        dfs(board, r - 1, c);
-        dfs(board, r + 1, c);
-        dfs(board, r, c - 1);
-        dfs(board, r, c + 1);
+        int dr[] = {-1, 1, 0, 0};
+        int dc[] = {0, 0, -1, 1};
+
+        for (int i = 0; i < 4; i++) {
+            dfs(board, r + dr[i], c + dc[i]);
+        }
     }
 
 public:
@@ -30,23 +32,13 @@ public:
         int cols = board[0].size();
 
         for (int r = 0; r < rows; r++) {
-            if (board[r][0] == 'O') {
-                dfs(board, r, 0);
-            }
-
-            if (board[r][cols - 1] == 'O') {
-                dfs(board, r, cols - 1);
-            }
+            dfs(board, r, 0);
+            dfs(board, r, cols - 1);
         }
 
         for (int c = 0; c < cols; c++) {
-            if (board[0][c] == 'O') {
-                dfs(board, 0, c);
-            }
-
-            if (board[rows - 1][c] == 'O') {
-                dfs(board, rows - 1, c);
-            }
+            dfs(board, 0, c);
+            dfs(board, rows - 1, c);
         }
 
         for (int r = 0; r < rows; r++) {
