@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <unordered_set>
 using namespace std;
 
 class Solution {
@@ -46,6 +47,26 @@ public:
 
         if (!hasZero)
             return n * n;
+
+        for (int r = 0; r < n; r++) {
+            for (int c = 0; c < n; c++) {
+                if (grid[r][c] != 0)
+                    continue;
+
+                unordered_set<int> neighbors;
+
+                for (int i = 0; i < 4; i++) {
+                    int nr = r + directions[i];
+                    int nc = c + directions[i + 1];
+
+                    if (nr >= 0 && nc >= 0 &&
+                        nr < n && nc < n &&
+                        grid[nr][nc] > 1) {
+                        neighbors.insert(grid[nr][nc]);
+                    }
+                }
+            }
+        }
 
         return answer;
     }
