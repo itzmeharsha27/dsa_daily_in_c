@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -14,10 +15,8 @@ class Solution {
         int area = 1;
 
         for (int i = 0; i < 4; i++) {
-            area += dfs(grid,
-                        r + directions[i],
-                        c + directions[i + 1],
-                        id);
+            area += dfs(grid, r + directions[i],
+                        c + directions[i + 1], id);
         }
 
         return area;
@@ -30,9 +29,13 @@ public:
         vector<int> area(n * n + 2, 0);
         int id = 2;
         int answer = 0;
+        bool hasZero = false;
 
         for (int r = 0; r < n; r++) {
             for (int c = 0; c < n; c++) {
+                if (grid[r][c] == 0)
+                    hasZero = true;
+
                 if (grid[r][c] == 1) {
                     area[id] = dfs(grid, r, c, id);
                     answer = max(answer, area[id]);
@@ -40,6 +43,9 @@ public:
                 }
             }
         }
+
+        if (!hasZero)
+            return n * n;
 
         return answer;
     }
