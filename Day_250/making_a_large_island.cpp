@@ -26,17 +26,21 @@ class Solution {
 public:
     int largestIsland(vector<vector<int>>& grid) {
         n = grid.size();
+
+        vector<int> area(n * n + 2, 0);
         int id = 2;
+        int answer = 0;
 
         for (int r = 0; r < n; r++) {
             for (int c = 0; c < n; c++) {
                 if (grid[r][c] == 1) {
-                    dfs(grid, r, c, id);
+                    area[id] = dfs(grid, r, c, id);
+                    answer = max(answer, area[id]);
                     id++;
                 }
             }
         }
 
-        return 0;
+        return answer;
     }
 };
