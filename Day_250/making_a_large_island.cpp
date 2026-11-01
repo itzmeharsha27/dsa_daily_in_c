@@ -54,6 +54,7 @@ public:
                     continue;
 
                 unordered_set<int> neighbors;
+                int newArea = 1;
 
                 for (int i = 0; i < 4; i++) {
                     int nr = r + directions[i];
@@ -65,6 +66,11 @@ public:
                         neighbors.insert(grid[nr][nc]);
                     }
                 }
+
+                for (int neighborId : neighbors)
+                    newArea += area[neighborId];
+
+                answer = max(answer, newArea);
             }
         }
 
