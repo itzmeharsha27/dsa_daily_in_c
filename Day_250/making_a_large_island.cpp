@@ -9,15 +9,18 @@ class Solution {
 
     int dfs(vector<vector<int>>& grid, int r, int c, int id) {
         if (r < 0 || c < 0 || r >= n || c >= n ||
-            grid[r][c] != 1)
+            grid[r][c] != 1) {
             return 0;
+        }
 
         grid[r][c] = id;
         int area = 1;
 
         for (int i = 0; i < 4; i++) {
-            area += dfs(grid, r + directions[i],
-                        c + directions[i + 1], id);
+            area += dfs(grid,
+                        r + directions[i],
+                        c + directions[i + 1],
+                        id);
         }
 
         return area;
@@ -32,6 +35,7 @@ public:
         int answer = 0;
         bool hasZero = false;
 
+        // Label each island and calculate its area.
         for (int r = 0; r < n; r++) {
             for (int c = 0; c < n; c++) {
                 if (grid[r][c] == 0)
@@ -45,9 +49,11 @@ public:
             }
         }
 
+        // If every cell is land, the whole grid is one island.
         if (!hasZero)
             return n * n;
 
+        // Try changing each zero into land.
         for (int r = 0; r < n; r++) {
             for (int c = 0; c < n; c++) {
                 if (grid[r][c] != 0)
@@ -56,6 +62,7 @@ public:
                 unordered_set<int> neighbors;
                 int newArea = 1;
 
+                // Collect unique neighboring island IDs.
                 for (int i = 0; i < 4; i++) {
                     int nr = r + directions[i];
                     int nc = c + directions[i + 1];
@@ -67,6 +74,7 @@ public:
                     }
                 }
 
+                // Combine the flipped cell with neighboring islands.
                 for (int neighborId : neighbors)
                     newArea += area[neighborId];
 
