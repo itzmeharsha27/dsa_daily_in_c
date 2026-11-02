@@ -3,6 +3,7 @@ using namespace std;
 
 class Solution {
     int rows, cols;
+
     int directions[5] = {-1, 0, 1, 0, -1};
 
     void dfs(vector<vector<int>>& grid, int r, int c) {
@@ -10,10 +11,13 @@ class Solution {
             grid[r][c] == 0)
             return;
 
+        // Mark boundary-connected land as water.
         grid[r][c] = 0;
 
+        // Explore all four neighboring cells.
         for (int i = 0; i < 4; i++) {
-            dfs(grid, r + directions[i],
+            dfs(grid,
+                r + directions[i],
                 c + directions[i + 1]);
         }
     }
@@ -26,16 +30,19 @@ public:
         rows = grid.size();
         cols = grid[0].size();
 
+        // Remove land connected to the left and right boundaries.
         for (int r = 0; r < rows; r++) {
             dfs(grid, r, 0);
             dfs(grid, r, cols - 1);
         }
 
+        // Remove land connected to the top and bottom boundaries.
         for (int c = 0; c < cols; c++) {
             dfs(grid, 0, c);
             dfs(grid, rows - 1, c);
         }
 
+        // Count the land cells that remain.
         int count = 0;
 
         for (int r = 0; r < rows; r++) {
