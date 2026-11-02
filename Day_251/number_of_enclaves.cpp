@@ -28,6 +28,11 @@ public:
             dfs(grid, r, cols - 1);
         }
 
+        for (int c = 0; c < cols; c++) {
+            dfs(grid, 0, c);
+            dfs(grid, rows - 1, c);
+        }
+
         return 0;
     }
 };
