@@ -23,18 +23,27 @@ public:
         rows = grid.size();
         cols = grid[0].size();
 
-        // Left and right boundaries
         for (int r = 0; r < rows; r++) {
             dfs(grid, r, 0);
             dfs(grid, r, cols - 1);
         }
 
-        // Top and bottom boundaries
         for (int c = 0; c < cols; c++) {
             dfs(grid, 0, c);
             dfs(grid, rows - 1, c);
         }
 
-        return 0;
+        int count = 0;
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == 0) {
+                    count++;
+                    dfs(grid, r, c);
+                }
+            }
+        }
+
+        return count;
     }
 };
