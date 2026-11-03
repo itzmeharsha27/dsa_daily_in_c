@@ -23,6 +23,11 @@ public:
         rows = grid.size();
         cols = grid[0].size();
 
+        for (int r = 0; r < rows; r++) {
+            dfs(grid, r, 0);
+            dfs(grid, r, cols - 1);
+        }
+
         return 0;
     }
 };
