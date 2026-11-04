@@ -29,8 +29,17 @@ public:
         rows = grid.size();
         cols = grid[0].size();
 
-        int area = dfs(grid, 0, 0);
+        int maximum = 0;
 
-        return area;
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == 1) {
+                    int area = dfs(grid, r, c);
+                    maximum = max(maximum, area);
+                }
+            }
+        }
+
+        return maximum;
     }
 };
