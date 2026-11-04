@@ -23,9 +23,14 @@ class Solution {
 
 public:
     int maxAreaOfIsland(vector<vector<int>>& grid) {
+        if (grid.empty() || grid[0].empty())
+            return 0;
+
         rows = grid.size();
         cols = grid[0].size();
 
-        return 0;
+        int area = dfs(grid, 0, 0);
+
+        return area;
     }
 };
