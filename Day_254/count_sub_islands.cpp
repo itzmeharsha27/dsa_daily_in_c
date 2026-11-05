@@ -30,6 +30,17 @@ public:
         rows = grid2.size();
         cols = grid2[0].size();
 
-        return 0;
+        int count = 0;
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid2[r][c] == 1) {
+                    if (dfs(grid1, grid2, r, c))
+                        count++;
+                }
+            }
+        }
+
+        return count;
     }
 };
