@@ -27,6 +27,9 @@ class Solution {
 public:
     int countSubIslands(vector<vector<int>>& grid1,
                         vector<vector<int>>& grid2) {
+        if (grid2.empty() || grid2[0].empty())
+            return 0;
+
         rows = grid2.size();
         cols = grid2[0].size();
 
