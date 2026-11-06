@@ -7,11 +7,14 @@ class Solution {
 
     void dfs(vector<vector<char>>& grid, int r, int c) {
         if (r < 0 || c < 0 || r >= rows || c >= cols ||
-            grid[r][c] == '0')
+            grid[r][c] == '0') {
             return;
+        }
 
+        // Mark the current land cell as visited.
         grid[r][c] = '0';
 
+        // Explore all four directions.
         for (int i = 0; i < 4; i++) {
             dfs(grid,
                 r + directions[i],
@@ -29,8 +32,10 @@ public:
 
         int count = 0;
 
+        // Find every unvisited island.
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
+
                 if (grid[r][c] == '1') {
                     count++;
                     dfs(grid, r, c);
