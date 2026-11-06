@@ -25,6 +25,16 @@ public:
         rows = grid.size();
         cols = grid[0].size();
 
-        return 0;
+        int count = 0;
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == '1') {
+                    dfs(grid, r, c);
+                }
+            }
+        }
+
+        return count;
     }
 };
