@@ -30,6 +30,7 @@ public:
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (grid[r][c] == '1') {
+                    count++;
                     dfs(grid, r, c);
                 }
             }
