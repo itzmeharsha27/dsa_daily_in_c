@@ -3,6 +3,7 @@ using namespace std;
 
 class Solution {
     int rows, cols;
+    int directions[5] = {-1, 0, 1, 0, -1};
 
     void dfs(vector<vector<char>>& grid, int r, int c) {
         if (r < 0 || c < 0 || r >= rows || c >= cols ||
@@ -11,10 +12,11 @@ class Solution {
 
         grid[r][c] = '0';
 
-        dfs(grid, r - 1, c);
-        dfs(grid, r + 1, c);
-        dfs(grid, r, c - 1);
-        dfs(grid, r, c + 1);
+        for (int i = 0; i < 4; i++) {
+            dfs(grid,
+                r + directions[i],
+                c + directions[i + 1]);
+        }
     }
 
 public:
