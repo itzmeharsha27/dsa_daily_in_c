@@ -3,13 +3,20 @@ using namespace std;
 
 class Solution {
     int rows, cols;
+    int directions[5] = {-1, 0, 1, 0, -1};
 
     void dfs(vector<vector<char>>& board, int r, int c) {
-        if (r < 0 || c < 0 || r >= rows || c >= cols)
+        if (r < 0 || c < 0 || r >= rows || c >= cols ||
+            board[r][c] != 'O')
             return;
 
-        if (board[r][c] != 'O')
-            return;
+        board[r][c] = '#';
+
+        for (int i = 0; i < 4; i++) {
+            dfs(board,
+                r + directions[i],
+                c + directions[i + 1]);
+        }
     }
 
 public:
