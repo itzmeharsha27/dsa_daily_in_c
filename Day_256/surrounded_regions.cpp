@@ -26,5 +26,10 @@ public:
 
         rows = board.size();
         cols = board[0].size();
+
+        for (int r = 0; r < rows; r++) {
+            dfs(board, r, 0);
+            dfs(board, r, cols - 1);
+        }
     }
 };
