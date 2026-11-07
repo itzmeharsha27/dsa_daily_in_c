@@ -27,9 +27,16 @@ public:
         rows = board.size();
         cols = board[0].size();
 
+        // Left and right boundaries.
         for (int r = 0; r < rows; r++) {
             dfs(board, r, 0);
             dfs(board, r, cols - 1);
+        }
+
+        // Top and bottom boundaries.
+        for (int c = 0; c < cols; c++) {
+            dfs(board, 0, c);
+            dfs(board, rows - 1, c);
         }
     }
 };
