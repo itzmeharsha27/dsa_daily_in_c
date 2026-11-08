@@ -34,6 +34,20 @@ public:
         rows = heights.size();
         cols = heights[0].size();
 
+        vector<vector<bool>> pacific(
+            rows, vector<bool>(cols, false)
+        );
+
+        // Top row
+        for (int c = 0; c < cols; c++) {
+            dfs(heights, pacific, 0, c);
+        }
+
+        // Left column
+        for (int r = 0; r < rows; r++) {
+            dfs(heights, pacific, r, 0);
+        }
+
         return {};
     }
 };
