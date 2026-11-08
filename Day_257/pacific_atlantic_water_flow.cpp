@@ -37,7 +37,7 @@ public:
         vector<vector<bool>> pacific(rows, vector<bool>(cols, false));
         vector<vector<bool>> atlantic(rows, vector<bool>(cols, false));
 
-        // Pacific
+        // Pacific: top + left
         for (int c = 0; c < cols; c++) {
             dfs(heights, pacific, 0, c);
         }
@@ -46,7 +46,7 @@ public:
             dfs(heights, pacific, r, 0);
         }
 
-        // Atlantic
+        // Atlantic: bottom + right
         for (int c = 0; c < cols; c++) {
             dfs(heights, atlantic, rows - 1, c);
         }
@@ -55,7 +55,7 @@ public:
             dfs(heights, atlantic, r, cols - 1);
         }
 
-        // Cells reachable from both
+        // Common cells
         vector<vector<int>> answer;
 
         for (int r = 0; r < rows; r++) {
