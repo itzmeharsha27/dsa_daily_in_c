@@ -42,24 +42,26 @@ public:
             rows, vector<bool>(cols, false)
         );
 
-        // Pacific boundaries
         for (int c = 0; c < cols; c++) {
             dfs(heights, pacific, 0, c);
-        }
-
-        for (int r = 0; r < rows; r++) {
-            dfs(heights, pacific, r, 0);
-        }
-
-        // Atlantic boundaries
-        for (int c = 0; c < cols; c++) {
             dfs(heights, atlantic, rows - 1, c);
         }
 
         for (int r = 0; r < rows; r++) {
+            dfs(heights, pacific, r, 0);
             dfs(heights, atlantic, r, cols - 1);
         }
 
-        return {};
+        vector<vector<int>> answer;
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (pacific[r][c] && atlantic[r][c]) {
+                    answer.push_back({r, c});
+                }
+            }
+        }
+
+        return answer;
     }
 };
