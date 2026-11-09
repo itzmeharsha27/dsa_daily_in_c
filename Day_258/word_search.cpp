@@ -18,14 +18,20 @@ class Solution {
         if (board[r][c] != word[index])
             return false;
 
+        char original = board[r][c];
+        board[r][c] = '#';
+
         for (int i = 0; i < 4; i++) {
             int nr = r + directions[i];
             int nc = c + directions[i + 1];
 
-            if (dfs(board, word, nr, nc, index + 1))
+            if (dfs(board, word, nr, nc, index + 1)) {
+                board[r][c] = original;
                 return true;
+            }
         }
 
+        board[r][c] = original;
         return false;
     }
 
