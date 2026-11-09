@@ -34,6 +34,13 @@ public:
         rows = board.size();
         cols = board[0].size();
 
-        return dfs(board, word, 0, 0, 0);
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (dfs(board, word, r, c, 0))
+                    return true;
+            }
+        }
+
+        return false;
     }
 };
