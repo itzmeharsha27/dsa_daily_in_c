@@ -6,8 +6,10 @@ class Solution {
     int rows, cols;
     int directions[5] = {-1, 0, 1, 0, -1};
 
-    bool dfs(vector<vector<char>>& board, string& word,
-             int r, int c, int index) {
+    bool dfs(vector<vector<char>>& board,
+             string& word,
+             int r, int c,
+             int index) {
 
         if (index == word.size())
             return true;
@@ -37,7 +39,7 @@ class Solution {
 
 public:
     bool exist(vector<vector<char>>& board, string word) {
-        if (board.empty() || board[0].empty() || word.empty())
+        if (board.empty() || board[0].empty())
             return false;
 
         rows = board.size();
