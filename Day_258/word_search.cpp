@@ -37,13 +37,18 @@ class Solution {
 
 public:
     bool exist(vector<vector<char>>& board, string word) {
+        if (board.empty() || board[0].empty() || word.empty())
+            return false;
+
         rows = board.size();
         cols = board[0].size();
 
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                if (dfs(board, word, r, c, 0))
+                if (board[r][c] == word[0] &&
+                    dfs(board, word, r, c, 0)) {
                     return true;
+                }
             }
         }
 
