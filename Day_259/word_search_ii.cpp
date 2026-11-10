@@ -18,7 +18,7 @@ class Solution {
     int rows, cols;
     int directions[5] = {-1, 0, 1, 0, -1};
 
-    void insert(string word) {
+    void insert(const string& word) {
         TrieNode* node = root;
 
         for (char ch : word) {
@@ -75,10 +75,13 @@ public:
     vector<string> findWords(vector<vector<char>>& board,
                              vector<string>& words) {
 
+        if (board.empty() || board[0].empty())
+            return {};
+
         rows = board.size();
         cols = board[0].size();
 
-        for (string word : words)
+        for (const string& word : words)
             insert(word);
 
         vector<string> answer;
