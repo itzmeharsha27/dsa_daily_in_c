@@ -9,12 +9,14 @@ class Solution {
 
         TrieNode() {
             word = "";
+
             for (int i = 0; i < 26; i++)
                 children[i] = nullptr;
         }
     };
 
     TrieNode* root = new TrieNode();
+
     int rows, cols;
     int directions[5] = {-1, 0, 1, 0, -1};
 
