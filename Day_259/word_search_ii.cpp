@@ -35,7 +35,8 @@ class Solution {
 
     void dfs(vector<vector<char>>& board,
              int r, int c,
-             TrieNode* node) {
+             TrieNode* node,
+             vector<string>& answer) {
 
         if (r < 0 || c < 0 || r >= rows || c >= cols)
             return;
@@ -52,13 +53,19 @@ class Solution {
 
         node = node->children[index];
 
+        if (!node->word.empty()) {
+            answer.push_back(node->word);
+            node->word = "";
+        }
+
         board[r][c] = '#';
 
         for (int i = 0; i < 4; i++) {
             dfs(board,
                 r + directions[i],
                 c + directions[i + 1],
-                node);
+                node,
+                answer);
         }
 
         board[r][c] = ch;
@@ -67,12 +74,15 @@ class Solution {
 public:
     vector<string> findWords(vector<vector<char>>& board,
                              vector<string>& words) {
+
         rows = board.size();
         cols = board[0].size();
 
         for (string word : words)
             insert(word);
 
-        return {};
+        vector<string> answer;
+
+        return answer;
     }
 };
