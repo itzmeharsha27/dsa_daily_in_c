@@ -83,6 +83,12 @@ public:
 
         vector<string> answer;
 
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                dfs(board, r, c, root, answer);
+            }
+        }
+
         return answer;
     }
 };
