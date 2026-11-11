@@ -16,10 +16,10 @@ class Trie {
 
     TrieNode* root;
 
-    TrieNode* findNode(const string& word) {
+    TrieNode* findNode(const string& str) {
         TrieNode* node = root;
 
-        for (char ch : word) {
+        for (char ch : str) {
             int index = ch - 'a';
 
             if (node->children[index] == nullptr)
