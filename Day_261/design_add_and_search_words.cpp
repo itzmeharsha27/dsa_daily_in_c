@@ -37,6 +37,17 @@ public:
     }
 
     bool search(string word) {
-        return false;
+        TrieNode* node = root;
+
+        for (char ch : word) {
+            int index = ch - 'a';
+
+            if (node->children[index] == nullptr)
+                return false;
+
+            node = node->children[index];
+        }
+
+        return node->isEnd;
     }
 };
