@@ -16,7 +16,10 @@ class WordDictionary {
 
     TrieNode* root;
 
-    bool dfs(TrieNode* node, const string& word, int index) {
+    bool dfs(TrieNode* node,
+             const string& word,
+             int index) {
+
         if (index == word.size())
             return node->isEnd;
 
@@ -33,12 +36,12 @@ class WordDictionary {
             return false;
         }
 
-        int childIndex = ch - 'a';
+        int indexInTrie = ch - 'a';
 
-        if (node->children[childIndex] == nullptr)
+        if (!node->children[indexInTrie])
             return false;
 
-        return dfs(node->children[childIndex],
+        return dfs(node->children[indexInTrie],
                    word,
                    index + 1);
     }
@@ -54,7 +57,7 @@ public:
         for (char ch : word) {
             int index = ch - 'a';
 
-            if (node->children[index] == nullptr)
+            if (!node->children[index])
                 node->children[index] = new TrieNode();
 
             node = node->children[index];
