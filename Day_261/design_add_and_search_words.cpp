@@ -36,12 +36,12 @@ class WordDictionary {
             return false;
         }
 
-        int indexInTrie = ch - 'a';
+        int childIndex = ch - 'a';
 
-        if (!node->children[indexInTrie])
+        if (!node->children[childIndex])
             return false;
 
-        return dfs(node->children[indexInTrie],
+        return dfs(node->children[childIndex],
                    word,
                    index + 1);
     }
