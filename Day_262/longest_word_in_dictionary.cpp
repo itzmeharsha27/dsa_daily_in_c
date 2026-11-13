@@ -29,8 +29,9 @@ public:
                 }
             }
 
-            if (valid && word.length() > answer.length())
+            if (valid && word.length() > answer.length()) {
                 answer = word;
+            }
         }
 
         return answer;
