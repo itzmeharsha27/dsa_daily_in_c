@@ -18,7 +18,6 @@ public:
 
         for (string word : words) {
             bool valid = true;
-
             string prefix = "";
 
             for (char ch : word) {
@@ -30,7 +29,7 @@ public:
                 }
             }
 
-            if (valid)
+            if (valid && word.length() > answer.length())
                 answer = word;
         }
 
