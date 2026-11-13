@@ -14,6 +14,26 @@ public:
         for (string word : words)
             wordsSet.insert(word);
 
-        return "";
+        string answer = "";
+
+        for (string word : words) {
+            bool valid = true;
+
+            string prefix = "";
+
+            for (char ch : word) {
+                prefix += ch;
+
+                if (!wordsSet.count(prefix)) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if (valid)
+                answer = word;
+        }
+
+        return answer;
     }
 };
