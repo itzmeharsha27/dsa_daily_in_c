@@ -11,12 +11,12 @@ public:
 
         unordered_set<string> wordsSet;
 
-        for (string word : words)
+        for (const string& word : words)
             wordsSet.insert(word);
 
         string answer = "";
 
-        for (string word : words) {
+        for (const string& word : words) {
             bool valid = true;
 
             for (int i = 1; i <= word.length(); i++) {
@@ -26,8 +26,9 @@ public:
                 }
             }
 
-            if (valid && word.length() > answer.length())
+            if (valid && word.length() > answer.length()) {
                 answer = word;
+            }
         }
 
         return answer;
