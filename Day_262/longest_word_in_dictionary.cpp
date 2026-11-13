@@ -18,20 +18,16 @@ public:
 
         for (string word : words) {
             bool valid = true;
-            string prefix = "";
 
-            for (char ch : word) {
-                prefix += ch;
-
-                if (!wordsSet.count(prefix)) {
+            for (int i = 1; i <= word.length(); i++) {
+                if (!wordsSet.count(word.substr(0, i))) {
                     valid = false;
                     break;
                 }
             }
 
-            if (valid && word.length() > answer.length()) {
+            if (valid && word.length() > answer.length())
                 answer = word;
-            }
         }
 
         return answer;
