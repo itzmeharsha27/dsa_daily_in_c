@@ -32,6 +32,26 @@ class Solution {
         node->isEnd = true;
     }
 
+    string getRoot(const string& word) {
+        TrieNode* node = root;
+        string prefix;
+
+        for (char ch : word) {
+            int index = ch - 'a';
+
+            if (!node->children[index])
+                return word;
+
+            prefix += ch;
+            node = node->children[index];
+
+            if (node->isEnd)
+                return prefix;
+        }
+
+        return word;
+    }
+
 public:
     string replaceWords(vector<string>& dictionary, string sentence) {
         root = new TrieNode();
