@@ -65,10 +65,12 @@ public:
         string answer;
 
         while (ss >> word) {
+            string replacement = getRoot(word);
+
             if (!answer.empty())
                 answer += " ";
 
-            answer += getRoot(word);
+            answer += replacement;
         }
 
         return answer;
