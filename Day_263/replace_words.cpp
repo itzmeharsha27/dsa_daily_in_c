@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <sstream>
 using namespace std;
 
 class Solution {
@@ -53,12 +54,23 @@ class Solution {
     }
 
 public:
-    string replaceWords(vector<string> & dictionary, string sentence) {
+    string replaceWords(vector<string>& dictionary, string sentence) {
         root = new TrieNode();
 
         for (const string& word : dictionary)
             insert(word);
 
-        return sentence;
+        stringstream ss(sentence);
+        string word;
+        string answer;
+
+        while (ss >> word) {
+            if (!answer.empty())
+                answer += " ";
+
+            answer += getRoot(word);
+        }
+
+        return answer;
     }
 };
