@@ -16,7 +16,7 @@ class Solution {
     };
 
 public:
-    string replaceWords(vector<string>& dictionary, string sentence) {
+    string replaceWords(vector<string> & dictionary, string sentence) {
         TrieNode* root = new TrieNode();
 
         return sentence;
