@@ -53,7 +53,7 @@ class Solution {
     }
 
 public:
-    string replaceWords(vector<string>& dictionary, string sentence) {
+    string replaceWords(vector<string> & dictionary, string sentence) {
         root = new TrieNode();
 
         for (const string& word : dictionary)
