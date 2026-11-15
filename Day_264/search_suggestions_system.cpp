@@ -12,12 +12,30 @@ class Solution {
         }
     };
 
+    TrieNode* root;
+
+    void insert(const string& word) {
+        TrieNode* node = root;
+
+        for (char ch : word) {
+            int index = ch - 'a';
+
+            if (!node->children[index])
+                node->children[index] = new TrieNode();
+
+            node = node->children[index];
+        }
+    }
+
 public:
     vector<vector<string>> suggestedProducts(
         vector<string>& products,
         string searchWord
     ) {
-        TrieNode* root = new TrieNode();
+        root = new TrieNode();
+
+        for (const string& product : products)
+            insert(product);
 
         return {};
     }
