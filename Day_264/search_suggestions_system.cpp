@@ -44,6 +44,21 @@ public:
         for (const string& product : products)
             insert(product);
 
-        return {};
+        vector<vector<string>> answer;
+        TrieNode* node = root;
+
+        for (char ch : searchWord) {
+            int index = ch - 'a';
+
+            if (node && node->children[index]) {
+                node = node->children[index];
+                answer.push_back(node->suggestions);
+            } else {
+                node = nullptr;
+                answer.push_back({});
+            }
+        }
+
+        return answer;
     }
 };
