@@ -48,14 +48,19 @@ public:
         TrieNode* node = root;
 
         for (char ch : searchWord) {
+            if (!node) {
+                answer.push_back({});
+                continue;
+            }
+
             int index = ch - 'a';
 
-            if (node && node->children[index]) {
-                node = node->children[index];
-                answer.push_back(node->suggestions);
-            } else {
+            if (!node->children[index]) {
                 node = nullptr;
                 answer.push_back({});
+            } else {
+                node = node->children[index];
+                answer.push_back(node->suggestions);
             }
         }
 
