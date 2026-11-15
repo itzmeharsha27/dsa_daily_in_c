@@ -20,7 +20,7 @@ class Solution {
         TrieNode* node = root;
 
         for (char ch : word) {
-            int index = ch - 'a';
+            int index = ch - 'a ';
 
             if (!node->children[index])
                 node->children[index] = new TrieNode();
