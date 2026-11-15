@@ -5,6 +5,7 @@ using namespace std;
 class Solution {
     struct TrieNode {
         TrieNode* children[26];
+        vector<string> suggestions;
 
         TrieNode() {
             for (int i = 0; i < 26; i++)
@@ -24,6 +25,9 @@ class Solution {
                 node->children[index] = new TrieNode();
 
             node = node->children[index];
+
+            if (node->suggestions.size() < 3)
+                node->suggestions.push_back(word);
         }
     }
 
