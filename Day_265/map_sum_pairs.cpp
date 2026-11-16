@@ -60,6 +60,6 @@ public:
             node = node->children[index];
         }
 
-        return calculateSum(node );
+        return calculateSum(node);
     }
 };
