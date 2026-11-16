@@ -16,6 +16,18 @@ class MapSum {
 
     TrieNode* root;
 
+    int calculateSum(TrieNode* node) {
+        if (!node)
+            return 0;
+
+        int total = node->value;
+
+        for (int i = 0; i < 26; i++)
+            total += calculateSum(node->children[i]);
+
+        return total;
+    }
+
 public:
     MapSum() {
         root = new TrieNode();
@@ -48,6 +60,6 @@ public:
             node = node->children[index];
         }
 
-        return node->value;
+        return calculateSum(node);
     }
 };
