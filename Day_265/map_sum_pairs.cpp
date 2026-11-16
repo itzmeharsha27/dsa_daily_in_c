@@ -22,6 +22,18 @@ public:
     }
 
     void insert(string key, int val) {
+        TrieNode* node = root;
+
+        for (char ch : key) {
+            int index = ch - 'a';
+
+            if (!node->children[index])
+                node->children[index] = new TrieNode();
+
+            node = node->children[index];
+        }
+
+        node->value = val;
     }
 
     int sum(string prefix) {
