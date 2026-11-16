@@ -37,6 +37,17 @@ public:
     }
 
     int sum(string prefix) {
-        return 0;
+        TrieNode* node = root;
+
+        for (char ch : prefix) {
+            int index = ch - 'a';
+
+            if (!node->children[index])
+                return 0;
+
+            node = node->children[index];
+        }
+
+        return node->value;
     }
 };
