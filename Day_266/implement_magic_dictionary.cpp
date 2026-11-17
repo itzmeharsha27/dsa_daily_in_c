@@ -17,12 +17,29 @@ class MagicDictionary {
 
     TrieNode* root;
 
+    void insert(const string& word) {
+        TrieNode* node = root;
+
+        for (char ch : word) {
+            int index = ch - 'a';
+
+            if (!node->children[index])
+                node->children[index] = new TrieNode();
+
+            node = node->children[index];
+        }
+
+        node->isEnd = true;
+    }
+
 public:
     MagicDictionary() {
         root = new TrieNode();
     }
 
     void buildDict(vector<string> dictionary) {
+        for (const string& word : dictionary)
+            insert(word);
     }
 
     bool search(string searchWord) {
