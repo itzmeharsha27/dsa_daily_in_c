@@ -38,14 +38,15 @@ class MagicDictionary {
 
         int current = word[index] - 'a';
 
-        for (int i = 0; i < 26; i++) {
-            if (!node->children[i])
-                continue;
+        if (node->children[current] &&
+            dfs(node->children[current], word, index + 1, changed))
+            return true;
 
-            if (i == current) {
-                if (dfs(node->children[i], word, index + 1, changed))
-                    return true;
-            } else if (!changed) {
+        if (!changed) {
+            for (int i = 0; i < 26; i++) {
+                if (i == current || !node->children[i])
+                    continue;
+
                 if (dfs(node->children[i], word, index + 1, true))
                     return true;
             }
