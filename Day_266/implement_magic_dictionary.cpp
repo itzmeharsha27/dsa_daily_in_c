@@ -38,10 +38,12 @@ class MagicDictionary {
 
         int current = word[index] - 'a';
 
+        // Keep the current character.
         if (node->children[current] &&
             dfs(node->children[current], word, index + 1, changed))
             return true;
 
+        // Change the current character.
         if (!changed) {
             for (int i = 0; i < 26; i++) {
                 if (i == current || !node->children[i])
