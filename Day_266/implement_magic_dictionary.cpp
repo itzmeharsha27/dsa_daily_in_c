@@ -32,6 +32,28 @@ class MagicDictionary {
         node->isEnd = true;
     }
 
+    bool dfs(TrieNode* node, const string& word, int index, bool changed) {
+        if (index == word.size())
+            return changed && node->isEnd;
+
+        int current = word[index] - 'a';
+
+        for (int i = 0; i < 26; i++) {
+            if (!node->children[i])
+                continue;
+
+            if (i == current) {
+                if (dfs(node->children[i], word, index + 1, changed))
+                    return true;
+            } else if (!changed) {
+                if (dfs(node->children[i], word, index + 1, true))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
 public:
     MagicDictionary() {
         root = new TrieNode();
@@ -43,6 +65,6 @@ public:
     }
 
     bool search(string searchWord) {
-        return false;
+        return dfs(root, searchWord, 0, false);
     }
 };
