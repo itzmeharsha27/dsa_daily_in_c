@@ -48,6 +48,24 @@ public:
         root = new Node();
     }
 
+    vector<string> ls(string path) {
+        vector<string> parts = splitPath(path);
+        Node* node = root;
+
+        for (const string& part : parts)
+            node = node->children[part];
+
+        if (node->isFile)
+            return {parts.back()};
+
+        vector<string> result;
+
+        for (auto& [name, child] : node->children)
+            result.push_back(name);
+
+        return result;
+    }
+
     void mkdir(string path) {
         Node* node = root;
 
@@ -74,11 +92,6 @@ public:
     }
 
     string readContentFromFile(string filePath) {
-        Node* node = getNode(filePath);
-        return node->content;
-    }
-
-    vector<string> ls(string path) {
-        return {};
+        return getNode(filePath)->content;
     }
 };
