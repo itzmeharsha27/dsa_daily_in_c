@@ -17,7 +17,7 @@ class FileSystem {
 
     Node* root;
 
-    vector<string> splitPath(string path) {
+    vector<string> splitPath(const string& path) {
         vector<string> parts;
         string part;
         stringstream ss(path);
@@ -30,7 +30,7 @@ class FileSystem {
         return parts;
     }
 
-    Node* getNode(string path) {
+    Node* getNode(const string& path) {
         Node* node = root;
 
         for (const string& part : splitPath(path)) {
@@ -50,10 +50,7 @@ public:
 
     vector<string> ls(string path) {
         vector<string> parts = splitPath(path);
-        Node* node = root;
-
-        for (const string& part : parts)
-            node = node->children[part];
+        Node* node = getNode(path);
 
         if (node->isFile)
             return {parts.back()};
