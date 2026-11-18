@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <sstream>
 using namespace std;
 
 class FileSystem {
@@ -15,6 +16,19 @@ class FileSystem {
     };
 
     Node* root;
+
+    vector<string> splitPath(string path) {
+        vector<string> parts;
+        string part;
+        stringstream ss(path);
+
+        while (getline(ss, part, '/')) {
+            if (!part.empty())
+                parts.push_back(part);
+        }
+
+        return parts;
+    }
 
 public:
     FileSystem() {
