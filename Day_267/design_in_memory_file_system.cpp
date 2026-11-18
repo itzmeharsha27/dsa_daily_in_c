@@ -46,11 +46,24 @@ public:
         }
     }
 
-    vector<string> ls(string path) {
-        return {};
+    void addContentToFile(string filePath, string content) {
+        Node* node = root;
+
+        vector<string> parts = splitPath(filePath);
+
+        for (const string& part : parts) {
+            if (!node->children.count(part))
+                node->children[part] = new Node();
+
+            node = node->children[part];
+        }
+
+        node->isFile = true;
+        node->content += content;
     }
 
-    void addContentToFile(string filePath, string content) {
+    vector<string> ls(string path) {
+        return {};
     }
 
     string readContentFromFile(string filePath) {
