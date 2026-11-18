@@ -35,11 +35,19 @@ public:
         root = new Node();
     }
 
-    vector<string> ls(string path) {
-        return {};
+    void mkdir(string path) {
+        Node* node = root;
+
+        for (const string& part : splitPath(path)) {
+            if (!node->children.count(part))
+                node->children[part] = new Node();
+
+            node = node->children[part];
+        }
     }
 
-    void mkdir(string path) {
+    vector<string> ls(string path) {
+        return {};
     }
 
     void addContentToFile(string filePath, string content) {
