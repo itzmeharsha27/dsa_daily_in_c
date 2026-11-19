@@ -33,7 +33,12 @@ class AutocompleteSystem {
                 node->children[index] = new TrieNode();
 
             node = node->children[index];
-            node->sentences.push_back(sentence);
+
+            if (find(node->sentences.begin(),
+                     node->sentences.end(),
+                     sentence) == node->sentences.end()) {
+                node->sentences.push_back(sentence);
+            }
         }
     }
 
