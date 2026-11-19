@@ -16,12 +16,10 @@ class AutocompleteSystem {
 
     TrieNode* root;
     unordered_map<string, int> frequency;
+    string current;
 
     int getIndex(char c) {
-        if (c == ' ')
-            return 26;
-
-        return c - 'a';
+        return c == ' ' ? 26 : c - 'a';
     }
 
     void insert(const string& sentence) {
@@ -49,6 +47,26 @@ public:
     }
 
     vector<string> input(char c) {
-        return {};
+        if (c == '#') {
+            frequency[current]++;
+            insert(current);
+            current.clear();
+            return {};
+        }
+
+        current += c;
+
+        TrieNode* node = root;
+
+        for (char ch : current) {
+            int index = getIndex(ch);
+
+            if (!node->children[index])
+                return {};
+
+            node = node->children[index];
+        }
+
+        return node->sentences;
     }
 };
