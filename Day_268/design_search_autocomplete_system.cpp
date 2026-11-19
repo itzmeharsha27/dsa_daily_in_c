@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 class AutocompleteSystem {
@@ -14,10 +15,14 @@ class AutocompleteSystem {
     };
 
     TrieNode* root;
+    unordered_map<string, int> frequency;
 
 public:
     AutocompleteSystem(vector<string>& sentences, vector<int>& times) {
         root = new TrieNode();
+
+        for (int i = 0; i < sentences.size(); i++)
+            frequency[sentences[i]] = times[i];
     }
 
     vector<string> input(char c) {
