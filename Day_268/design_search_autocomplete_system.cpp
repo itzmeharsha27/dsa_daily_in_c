@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 using namespace std;
 
 class AutocompleteSystem {
@@ -67,6 +68,18 @@ public:
             node = node->children[index];
         }
 
-        return node->sentences;
+        vector<string> result = node->sentences;
+
+        sort(result.begin(), result.end(), [&](const string& a, const string& b) {
+            if (frequency[a] != frequency[b])
+                return frequency[a] > frequency[b];
+
+            return a < b;
+        });
+
+        if (result.size() > 3)
+            result.resize(3);
+
+        return result;
     }
 };
