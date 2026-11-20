@@ -13,16 +13,16 @@ public:
         for (int i = 1; i < strs.size(); i++) {
             int j = 0;
 
-            while (j < prefix.size() &&
-                   j < strs[i].size() &&
+            while (j < prefix.length() &&
+                   j < strs[i].length() &&
                    prefix[j] == strs[i][j]) {
                 j++;
             }
 
-            prefix.resize(j);
+            prefix = prefix.substr(0, j);
 
             if (prefix.empty())
-                return "";
+                break;
         }
 
         return prefix;
