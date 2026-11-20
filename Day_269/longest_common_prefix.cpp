@@ -10,11 +10,19 @@ public:
 
         string prefix = strs[0];
 
-        for (int i = 0; i < prefix.size(); i++) {
-            for (int j = 1; j < strs.size(); j++) {
-                if (i >= strs[j].size() || strs[j][i] != prefix[i])
-                    return prefix.substr(0, i);
+        for (int i = 1; i < strs.size(); i++) {
+            int j = 0;
+
+            while (j < prefix.size() &&
+                   j < strs[i].size() &&
+                   prefix[j] == strs[i][j]) {
+                j++;
             }
+
+            prefix = prefix.substr(0, j);
+
+            if (prefix.empty())
+                return "";
         }
 
         return prefix;
