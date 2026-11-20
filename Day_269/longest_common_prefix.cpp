@@ -5,6 +5,9 @@ using namespace std;
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        return "";
+        if (strs.empty())
+            return "";
+
+        return strs[0];
     }
 };
