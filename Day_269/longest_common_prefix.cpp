@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -17,7 +18,7 @@ public:
             while (j < length && prefix[j] == strs[i][j])
                 j++;
 
-            prefix = prefix.substr(0, j);
+            prefix.resize(j);
 
             if (prefix.empty())
                 return "";
