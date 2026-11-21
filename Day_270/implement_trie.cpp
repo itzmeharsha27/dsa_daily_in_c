@@ -58,6 +58,6 @@ public:
     }
 
     bool startsWith(string prefix) {
-        return false;
+        return findNode(prefix) != nullptr;
     }
 };
