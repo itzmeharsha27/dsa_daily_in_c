@@ -52,7 +52,9 @@ public:
     }
 
     bool search(string word) {
-        return false;
+        TrieNode* node = findNode(word);
+
+        return node != nullptr && node->isEnd;
     }
 
     bool startsWith(string prefix) {
