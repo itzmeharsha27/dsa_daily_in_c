@@ -3,8 +3,15 @@ using namespace std;
 
 class Trie {
     struct TrieNode {
-        TrieNode* children[26]{};
-        bool isEnd = false;
+        TrieNode* children[26];
+        bool isEnd;
+
+        TrieNode() {
+            isEnd = false;
+
+            for (int i = 0; i < 26; i++)
+                children[i] = nullptr;
+        }
     };
 
     TrieNode* root;
@@ -46,6 +53,7 @@ public:
 
     bool search(string word) {
         TrieNode* node = findNode(word);
+
         return node != nullptr && node->isEnd;
     }
 
