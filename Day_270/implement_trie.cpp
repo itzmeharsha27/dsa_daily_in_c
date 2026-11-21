@@ -22,7 +22,7 @@ class Trie {
         for (char ch : word) {
             int index = ch - 'a';
 
-            if (!node->children[index])
+            if (node->children[index] == nullptr)
                 return nullptr;
 
             node = node->children[index];
@@ -42,7 +42,7 @@ public:
         for (char ch : word) {
             int index = ch - 'a';
 
-            if (!node->children[index])
+            if (node->children[index] == nullptr)
                 node->children[index] = new TrieNode();
 
             node = node->children[index];
