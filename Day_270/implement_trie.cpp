@@ -16,6 +16,21 @@ class Trie {
 
     TrieNode* root;
 
+    TrieNode* findNode(const string& word) {
+        TrieNode* node = root;
+
+        for (char ch : word) {
+            int index = ch - 'a';
+
+            if (!node->children[index])
+                return nullptr;
+
+            node = node->children[index];
+        }
+
+        return node;
+    }
+
 public:
     Trie() {
         root = new TrieNode();
