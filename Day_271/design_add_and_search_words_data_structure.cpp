@@ -16,6 +16,13 @@ class WordDictionary {
 
     TrieNode* root;
 
+    bool searchHelper(TrieNode* node, const string& word, int index) {
+        if (index == word.size())
+            return node->isEnd;
+
+        return false;
+    }
+
 public:
     WordDictionary() {
         root = new TrieNode();
@@ -25,29 +32,18 @@ public:
         TrieNode* node = root;
 
         for (char ch : word) {
-            int index = ch - 'a';
+            int i = ch - 'a';
 
-            if (node->children[index] == nullptr)
-                node->children[index] = new TrieNode();
+            if (node->children[i] == nullptr)
+                node->children[i] = new TrieNode();
 
-            node = node->children[index];
+            node = node->children[i];
         }
 
         node->isEnd = true;
     }
 
     bool search(string word) {
-        TrieNode* node = root;
-
-        for (char ch : word) {
-            int index = ch - 'a';
-
-            if (node->children[index] == nullptr)
-                return false;
-
-            node = node->children[index];
-        }
-
-        return node->isEnd;
+        return searchHelper(root, word, 0);
     }
 };
