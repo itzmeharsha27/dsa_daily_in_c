@@ -22,6 +22,18 @@ public:
     }
 
     void addWord(string word) {
+        TrieNode* node = root;
+
+        for (char ch : word) {
+            int index = ch - 'a';
+
+            if (node->children[index] == nullptr)
+                node->children[index] = new TrieNode();
+
+            node = node->children[index];
+        }
+
+        node->isEnd = true;
     }
 
     bool search(string word) {
