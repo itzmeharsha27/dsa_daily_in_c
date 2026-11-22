@@ -20,25 +20,23 @@ class WordDictionary {
         if (index == word.size())
             return node->isEnd;
 
-        char ch = word[index];
-
-        if (ch != '.') {
-            int i = ch - 'a';
-
-            if (node->children[i] == nullptr)
-                return false;
-
-            return searchHelper(node->children[i], word, index + 1);
-        }
-
-        for (int i = 0; i < 26; i++) {
-            if (node->children[i] != nullptr &&
-                searchHelper(node->children[i], word, index + 1)) {
-                return true;
+        if (word[index] == '.') {
+            for (int i = 0; i < 26; i++) {
+                if (node->children[i] &&
+                    searchHelper(node->children[i], word, index + 1)) {
+                    return true;
+                }
             }
+
+            return false;
         }
 
-        return false;
+        int i = word[index] - 'a';
+
+        if (node->children[i] == nullptr)
+            return false;
+
+        return searchHelper(node->children[i], word, index + 1);
     }
 
 public:
