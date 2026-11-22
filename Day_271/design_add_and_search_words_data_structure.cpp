@@ -31,6 +31,13 @@ class WordDictionary {
             return searchHelper(node->children[i], word, index + 1);
         }
 
+        for (int i = 0; i < 26; i++) {
+            if (node->children[i] != nullptr &&
+                searchHelper(node->children[i], word, index + 1)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
