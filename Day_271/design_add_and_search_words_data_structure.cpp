@@ -20,6 +20,17 @@ class WordDictionary {
         if (index == word.size())
             return node->isEnd;
 
+        char ch = word[index];
+
+        if (ch != '.') {
+            int i = ch - 'a';
+
+            if (node->children[i] == nullptr)
+                return false;
+
+            return searchHelper(node->children[i], word, index + 1);
+        }
+
         return false;
     }
 
