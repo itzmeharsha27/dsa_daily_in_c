@@ -25,8 +25,10 @@ public:
             if (valid) {
                 seen.insert(word);
 
-                if (word.size() > answer.size())
+                if (word.size() > answer.size() ||
+                    (word.size() == answer.size() && word < answer)) {
                     answer = word;
+                }
             }
         }
 
