@@ -13,7 +13,17 @@ public:
         string answer = "";
 
         for (string word : words) {
-            seen.insert(word);
+            bool valid = true;
+
+            for (int i = 1; i < word.size(); i++) {
+                if (seen.find(word.substr(0, i)) == seen.end()) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if (valid)
+                seen.insert(word);
         }
 
         return answer;
