@@ -13,22 +13,11 @@ public:
         string answer = "";
 
         for (string word : words) {
-            bool valid = true;
-
-            for (int i = 1; i < word.size(); i++) {
-                if (seen.find(word.substr(0, i)) == seen.end()) {
-                    valid = false;
-                    break;
-                }
-            }
-
-            if (valid) {
+            if (word.size() == 1 || seen.count(word.substr(0, word.size() - 1))) {
                 seen.insert(word);
 
-                if (word.size() > answer.size() ||
-                    (word.size() == answer.size() && word < answer)) {
+                if (word.size() > answer.size())
                     answer = word;
-                }
             }
         }
 
