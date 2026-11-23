@@ -22,8 +22,12 @@ public:
                 }
             }
 
-            if (valid)
+            if (valid) {
                 seen.insert(word);
+
+                if (word.size() > answer.size())
+                    answer = word;
+            }
         }
 
         return answer;
