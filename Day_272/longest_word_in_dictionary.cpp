@@ -12,8 +12,10 @@ public:
         unordered_set<string> seen;
         string answer = "";
 
-        for (string word : words) {
-            if (word.size() == 1 || seen.count(word.substr(0, word.size() - 1))) {
+        for (const string& word : words) {
+            if (word.size() == 1 ||
+                seen.count(word.substr(0, word.size() - 1))) {
+
                 seen.insert(word);
 
                 if (word.size() > answer.size())
