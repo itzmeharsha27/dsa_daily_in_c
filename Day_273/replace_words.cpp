@@ -1,3 +1,4 @@
+#include <sstream>
 #include <string>
 #include <unordered_set>
 #include <vector>
@@ -11,7 +12,14 @@ public:
         for (string root : dictionary)
             roots.insert(root);
 
-        string answer = "";
+        string answer;
+        string word;
+
+        stringstream ss(sentence);
+
+        while (ss >> word) {
+            answer += word + " ";
+        }
 
         return answer;
     }
