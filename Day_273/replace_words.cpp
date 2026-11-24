@@ -9,36 +9,31 @@ public:
     string replaceWords(vector<string>& dictionary, string sentence) {
         unordered_set<string> roots;
 
-        for (string root : dictionary)
+        for (const string& root : dictionary)
             roots.insert(root);
 
         string answer;
         string word;
 
         stringstream ss(sentence);
-        bool firstWord = true;
 
         while (ss >> word) {
-            string prefix = "";
-            bool found = false;
+            string prefix;
 
             for (char ch : word) {
                 prefix += ch;
 
-                if (roots.count(prefix)) {
-                    found = true;
+                if (roots.count(prefix))
                     break;
-                }
             }
 
-            if (!found)
+            if (!roots.count(prefix))
                 prefix = word;
 
-            if (!firstWord)
+            if (!answer.empty())
                 answer += " ";
 
             answer += prefix;
-            firstWord = false;
         }
 
         return answer;
