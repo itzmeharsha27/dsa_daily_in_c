@@ -12,10 +12,9 @@ public:
         for (const string& root : dictionary)
             roots.insert(root);
 
-        string answer;
-        string word;
-
         stringstream ss(sentence);
+        string word;
+        string answer;
 
         while (ss >> word) {
             string prefix;
