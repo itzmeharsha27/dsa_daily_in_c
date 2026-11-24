@@ -18,7 +18,16 @@ public:
         stringstream ss(sentence);
 
         while (ss >> word) {
-            answer += word + " ";
+            string prefix = "";
+
+            for (char ch : word) {
+                prefix += ch;
+
+                if (roots.count(prefix))
+                    break;
+            }
+
+            answer += prefix + " ";
         }
 
         return answer;
