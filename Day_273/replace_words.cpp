@@ -16,6 +16,7 @@ public:
         string word;
 
         stringstream ss(sentence);
+        bool firstWord = true;
 
         while (ss >> word) {
             string prefix = "";
@@ -33,7 +34,11 @@ public:
             if (!found)
                 prefix = word;
 
-            answer += prefix + " ";
+            if (!firstWord)
+                answer += " ";
+
+            answer += prefix;
+            firstWord = false;
         }
 
         return answer;
