@@ -19,13 +19,19 @@ public:
 
         while (ss >> word) {
             string prefix = "";
+            bool found = false;
 
             for (char ch : word) {
                 prefix += ch;
 
-                if (roots.count(prefix))
+                if (roots.count(prefix)) {
+                    found = true;
                     break;
+                }
             }
+
+            if (!found)
+                prefix = word;
 
             answer += prefix + " ";
         }
