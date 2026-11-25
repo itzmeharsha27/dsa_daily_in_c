@@ -32,7 +32,7 @@ public:
                 if (products[i].compare(0, prefix.size(), prefix) != 0)
                     break;
 
-                suggestions.push_back(products[i]);
+                suggestions.push_back(products[i] );
             }
 
             answer.push_back(suggestions);
