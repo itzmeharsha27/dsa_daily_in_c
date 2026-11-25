@@ -20,7 +20,7 @@ public:
             vector<string> suggestions;
 
             for (const string& product : products) {
-                if (product.find(prefix) == 0) {
+                if (product.compare(0, prefix.size(), prefix) == 0) {
                     suggestions.push_back(product);
 
                     if (suggestions.size() == 3)
