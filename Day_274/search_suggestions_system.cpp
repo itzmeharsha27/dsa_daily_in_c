@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <string>
 #include <vector>
 using namespace std;
@@ -8,6 +9,8 @@ public:
         vector<string>& products,
         string searchWord
     ) {
+        sort(products.begin(), products.end());
+
         vector<vector<string>> answer;
 
         return answer;
