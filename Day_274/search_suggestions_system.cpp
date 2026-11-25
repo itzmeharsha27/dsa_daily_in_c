@@ -12,6 +12,12 @@ public:
         sort(products.begin(), products.end());
 
         vector<vector<string>> answer;
+        string prefix;
+
+        for (char ch : searchWord) {
+            prefix += ch;
+            answer.push_back({});
+        }
 
         return answer;
     }
