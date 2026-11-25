@@ -19,13 +19,14 @@ public:
 
             vector<string> suggestions;
 
-            for (const string& product : products) {
-                if (product.compare(0, prefix.size(), prefix) == 0) {
-                    suggestions.push_back(product);
+            int left = lower_bound(products.begin(), products.end(), prefix)
+                     - products.begin();
 
-                    if (suggestions.size() == 3)
-                        break;
-                }
+            for (int i = left; i < products.size() && suggestions.size() < 3; i++) {
+                if (products[i].compare(0, prefix.size(), prefix) == 0)
+                    suggestions.push_back(products[i]);
+                else
+                    break;
             }
 
             answer.push_back(suggestions);
