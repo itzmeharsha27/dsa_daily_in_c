@@ -16,7 +16,15 @@ public:
 
         for (char ch : searchWord) {
             prefix += ch;
-            answer.push_back({});
+
+            vector<string> suggestions;
+
+            for (const string& product : products) {
+                if (product.find(prefix) == 0)
+                    suggestions.push_back(product);
+            }
+
+            answer.push_back(suggestions);
         }
 
         return answer;
