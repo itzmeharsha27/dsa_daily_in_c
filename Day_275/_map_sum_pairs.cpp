@@ -16,9 +16,12 @@ public:
     int sum(string prefix) {
         int total = 0;
 
-        for (const auto& [key, value] : values) {
+        for (const auto& entry : values) {
+            const string& key = entry.first;
+            int value = entry.second;
+
             if (key.compare(0, prefix.size(), prefix) == 0)
-                total += value;
+                total  += value;
         }
 
         return total;
