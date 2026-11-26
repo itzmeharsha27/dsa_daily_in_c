@@ -7,6 +7,7 @@ class MapSum {
 
 public:
     MapSum() {
+        values.clear();
     }
 
     void insert(string key, int val) {
@@ -16,12 +17,11 @@ public:
     int sum(string prefix) {
         int total = 0;
 
-        for (const auto& entry : values) {
-            const string& key = entry.first;
-            int value = entry.second;
-
-            if   (key.compare(0, prefix.size(), prefix) == 0)
-                total  += value;
+        for (const auto& [key, value] : values) {
+            if (key.size() >= prefix.size() &&
+                key.compare(0, prefix.size(), prefix) == 0) {
+                total += value;
+            }
         }
 
         return total;
