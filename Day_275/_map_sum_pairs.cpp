@@ -16,8 +16,8 @@ public:
     int sum(string prefix) {
         int total = 0;
 
-        for (auto& [key, value] : values) {
-            if (key.find(prefix) == 0)
+        for (const auto& [key, value] : values) {
+            if (key.compare(0, prefix.size(), prefix) == 0)
                 total += value;
         }
 
