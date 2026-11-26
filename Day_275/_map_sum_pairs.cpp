@@ -7,7 +7,6 @@ class MapSum {
 
 public:
     MapSum() {
-        values.clear();
     }
 
     void insert(string key, int val) {
