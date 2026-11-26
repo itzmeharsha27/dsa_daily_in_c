@@ -20,7 +20,7 @@ public:
             const string& key = entry.first;
             int value = entry.second;
 
-            if (key.compare(0, prefix.size(), prefix) == 0)
+            if   (key.compare(0, prefix.size(), prefix) == 0)
                 total  += value;
         }
 
