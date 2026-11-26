@@ -14,6 +14,13 @@ public:
     }
 
     int sum(string prefix) {
-        return 0;
+        int total = 0;
+
+        for (auto& [key, value] : values) {
+            if (key.find(prefix) == 0)
+                total += value;
+        }
+
+        return total;
     }
 };
