@@ -3,11 +3,14 @@
 using namespace std;
 
 class MagicDictionary {
+    vector<string> words;
+
 public:
     MagicDictionary() {
     }
 
     void buildDict(vector<string> dictionary) {
+        words = dictionary;
     }
 
     bool search(string searchWord) {
