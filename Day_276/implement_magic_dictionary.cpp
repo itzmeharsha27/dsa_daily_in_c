@@ -24,6 +24,9 @@ public:
                 if (word[i] != searchWord[i])
                     differences++;
             }
+
+            if (differences == 1)
+                return true;
         }
 
         return false;
