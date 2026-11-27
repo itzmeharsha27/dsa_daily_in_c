@@ -17,6 +17,13 @@ public:
         for (const string& word : words) {
             if (word.size() != searchWord.size())
                 continue;
+
+            int differences = 0;
+
+            for (int i = 0; i < word.size(); i++) {
+                if (word[i] != searchWord[i])
+                    differences++;
+            }
         }
 
         return false;
