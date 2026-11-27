@@ -21,8 +21,12 @@ public:
             int differences = 0;
 
             for (int i = 0; i < word.size(); i++) {
-                if (word[i] != searchWord[i])
+                if (word[i] != searchWord[i]) {
                     differences++;
+
+                    if (differences > 1)
+                        break;
+                }
             }
 
             if (differences == 1)
