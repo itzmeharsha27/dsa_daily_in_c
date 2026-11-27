@@ -14,6 +14,11 @@ public:
     }
 
     bool search(string searchWord) {
+        for (const string& word : words) {
+            if (word.size() != searchWord.size())
+                continue;
+        }
+
         return false;
     }
 };
