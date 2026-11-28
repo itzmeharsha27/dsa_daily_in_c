@@ -35,9 +35,8 @@ class FileSystem {
     Node* getNode(string path) {
         Node* node = root;
 
-        for (const string& part : split(path)) {
+        for (const string& part : split(path))
             node = node->children[part];
-        }
 
         return node;
     }
@@ -48,7 +47,17 @@ public:
     }
 
     vector<string> ls(string path) {
-        return {};
+        Node* node = getNode(path);
+
+        if (node->isFile)
+            return {node->name};
+
+        vector<string> result;
+
+        for (const auto& [name, child] : node->children)
+            result.push_back(name);
+
+        return result;
     }
 
     void mkdir(string path) {
