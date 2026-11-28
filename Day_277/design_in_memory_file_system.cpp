@@ -32,6 +32,16 @@ class FileSystem {
         return parts;
     }
 
+    Node* getNode(string path) {
+        Node* node = root;
+
+        for (const string& part : split(path)) {
+            node = node->children[part];
+        }
+
+        return node;
+    }
+
 public:
     FileSystem() {
         root = new Node("/");
@@ -54,7 +64,6 @@ public:
 
     void addContentToFile(string filePath, string content) {
         Node* node = root;
-
         vector<string> parts = split(filePath);
 
         for (int i = 0; i < parts.size() - 1; i++) {
@@ -73,6 +82,6 @@ public:
     }
 
     string readContentFromFile(string filePath) {
-        return "";
+        return getNode(filePath)->content;
     }
 };
