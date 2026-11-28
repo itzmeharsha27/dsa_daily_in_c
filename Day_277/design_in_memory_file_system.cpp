@@ -42,6 +42,14 @@ public:
     }
 
     void mkdir(string path) {
+        Node* node = root;
+
+        for (const string& part : split(path)) {
+            if (!node->children.count(part))
+                node->children[part] = new Node(part);
+
+            node = node->children[part];
+        }
     }
 
     void addContentToFile(string filePath, string content) {
