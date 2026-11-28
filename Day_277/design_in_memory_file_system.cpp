@@ -53,6 +53,23 @@ public:
     }
 
     void addContentToFile(string filePath, string content) {
+        Node* node = root;
+
+        vector<string> parts = split(filePath);
+
+        for (int i = 0; i < parts.size() - 1; i++) {
+            if (!node->children.count(parts[i]))
+                node->children[parts[i]] = new Node(parts[i]);
+
+            node = node->children[parts[i]];
+        }
+
+        string fileName = parts.back();
+
+        if (!node->children.count(fileName))
+            node->children[fileName] = new Node(fileName, true);
+
+        node->children[fileName]->content += content;
     }
 
     string readContentFromFile(string filePath) {
